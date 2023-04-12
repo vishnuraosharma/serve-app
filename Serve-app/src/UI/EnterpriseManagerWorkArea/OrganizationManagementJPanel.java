@@ -36,7 +36,9 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = organization;
+        this.viewtableModel = (DefaultTableModel) jTable1.getModel();
         populateOrganization();
+        tablePopulate();
     }
     
     public void populateOrganization() {  
@@ -238,6 +240,9 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
                     break;
                 }
+            if(foundDuplicate==false){
+                
+           
             for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()){
                 UserAccountDirectory orgUserAccDir = org.getOrganizationAccountDirectory();
                 if(orgUserAccDir != null){
@@ -248,12 +253,13 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
                     }
                 }
             }
-        }
+        }}
         UserAccountDirectory ua = this.appSystem.getTopLevelUserAccountDirectory();
+        if(foundDuplicate==false){
         if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
             foundDuplicate = true;
             JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
-        }
+        }}
         if(foundDuplicate == false) {
             Organization o = enterprise.getOrganizationDirectory().findOrganization((String) organizationNameBox.getSelectedItem());
             if (o != null){
@@ -283,6 +289,7 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
 
             tablePopulate();
         }
+        tablePopulate();
     }//GEN-LAST:event_addEnterpriseManagerBtnActionPerformed
 
     private void DeleteEnterpriseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEnterpriseBtnActionPerformed
@@ -299,17 +306,46 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_updateEnterpriseBtnActionPerformed
+//    public void  tablePopulate() {
+//        
+//        ArrayList<Enterprise> enterprise = this.appSystem.getEnterprises().getEnterpiseList();
+//        
+//        if(enterprise.size()>0){
+//            viewtableModel.setRowCount(0);
+//            for (Enterprise e : enterprise){
+//                for(UserAccount u: e.getUseraccountDirectory().getUserAccountList()){
+//                Object row[] = new Object[5];
+//                row[0] = e;
+//                row[1] =u;
+//                row[2] = u.getPerson().getName();
+//                row[3] = u.getUserName();
+//                row[4] = u.getPassword();
+//
+//             
+//                viewtableModel.addRow(row);
+//            }
+//          } 
+//        } else {
+//            System.out.print("");
+//        }
+//    }
+    
     public void  tablePopulate() {
         
-        ArrayList<Enterprise> enterprise = this.appSystem.getEnterprises().getEnterpiseList();
+
+         ArrayList<Organization> organization = enterprise.getOrganizationDirectory().getOrganizationList();
         
-        if(enterprise.size()>0){
+
+         if(organization.size()>0){
             viewtableModel.setRowCount(0);
-            for (Enterprise e : enterprise){
-                for(UserAccount u: e.getUseraccountDirectory().getUserAccountList()){
+
+            for (Organization o: organization){
+                
+                UserAccount u = o.getOrganizationManager();
+                if(o.getOrganizationManager()!=null){
                 Object row[] = new Object[5];
-                row[0] = e;
-                row[1] =u;
+                row[0] = enterprise;
+                row[1] =o;
                 row[2] = u.getPerson().getName();
                 row[3] = u.getUserName();
                 row[4] = u.getPassword();
@@ -317,8 +353,11 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
              
                 viewtableModel.addRow(row);
             }
-          } 
-        } else {
+            
+            }
+               
+          
+        }else {
             System.out.print("");
         }
     }

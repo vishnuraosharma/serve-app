@@ -8,6 +8,7 @@ import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
 import UI.EnterpriseManagerWorkArea.EnterpriseManagerJFrame;
+import UI.OrganizationManagerWorkArea.OrganizationManagerJFrame;
 import UserAccount.UserAccount;
 import javax.swing.JFrame;
 
@@ -23,7 +24,7 @@ public class OrganizationManagerRole extends AbstractRole {
     
     @Override
     public JFrame createWorkArea(Network applicationSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
-        return new EnterpriseManagerJFrame(applicationSystem, enterprise, organization,useraccount);
+        return new OrganizationManagerJFrame(applicationSystem, enterprise, organization,useraccount);
     }
     
     @Override
