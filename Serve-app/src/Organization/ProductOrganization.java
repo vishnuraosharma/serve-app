@@ -4,6 +4,8 @@
  */
 package Organization;
 
+import Enterprise.Enterprise;
+
 /**
  *
  * @author siqiyang
@@ -14,8 +16,8 @@ public class ProductOrganization extends Organization {
     OrderDirectory orderDirectory;
     final String type = "product";
     
-    public ProductOrganization(String name) {
-        super(name);
+    public ProductOrganization(String name, Enterprise e) {
+        super(name, e);
     }
     
     

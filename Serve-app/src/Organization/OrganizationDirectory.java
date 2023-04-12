@@ -4,6 +4,7 @@
  */
 package Organization;
 
+import Enterprise.Enterprise;
 import java.util.ArrayList;
 
 /**
@@ -29,14 +30,14 @@ public class OrganizationDirectory {
         this.organizationList = organizationList;
     }
       
-    public Organization createProductOrganization(String name) {
-        Organization organization = new ProductOrganization(name);
+    public Organization createProductOrganization(String name,  Enterprise e) {
+        Organization organization = new ProductOrganization(name, e);
         this.organizationList.add(organization);
         return organization ;
     }
     
-    public Organization createServicesOrganization(String name) {
-        Organization organization = new ServicesOrganization(name);
+    public Organization createServicesOrganization(String name, Enterprise e) {
+        Organization organization = new ServicesOrganization(name, e);
         this.organizationList.add(organization);
         return organization ;
     } 

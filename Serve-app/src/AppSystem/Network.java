@@ -55,20 +55,20 @@ public class Network {
         Enterprise convenience = app.getEnterprises().createConvenienceEnterprise("Convenience");
         
         //MAKE THIS PRODUCT ORGANIZATION???!?!!?!?
-        convenience.getOrganizationDirectory().createProductOrganization("CVS");
-        convenience.getOrganizationDirectory().createProductOrganization("Trader Joe");
+        convenience.getOrganizationDirectory().createProductOrganization("CVS", convenience);
+        convenience.getOrganizationDirectory().createProductOrganization("Trader Joe", convenience);
         
         
         //MAKE THESE SERVICE ORGANIZATIONS???!?!!?!?
         Enterprise healthcare  = app.getEnterprises().createEnterprise("Healthcare");
-        healthcare.getOrganizationDirectory().createServicesOrganization("Beth Israel");
+        healthcare.getOrganizationDirectory().createServicesOrganization("Beth Israel",healthcare);
         
         Enterprise legal  = app.getEnterprises().createEnterprise("Legal");
-        legal.getOrganizationDirectory().createServicesOrganization("Burns and Levinson LLP");
+        legal.getOrganizationDirectory().createServicesOrganization("Burns and Levinson LLP",legal);
         
         Enterprise connection  = app.getEnterprises().createEnterprise("Connection");
-        connection.getOrganizationDirectory().createServicesOrganization("Boy Scouts");
-        connection.getOrganizationDirectory().createServicesOrganization("Brookline High School");  
+        connection.getOrganizationDirectory().createServicesOrganization("Boy Scouts",connection);
+        connection.getOrganizationDirectory().createServicesOrganization("Brookline High School",connection);  
         
         return app;
     }

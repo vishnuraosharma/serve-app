@@ -4,19 +4,24 @@
  */
 package Organization;
 
+import Enterprise.Enterprise;
 import UserAccount.UserAccount;
+import UserAccount.UserAccountDirectory;
 
 /**
  *
  * @author siqiyang
  */
 public class Organization {
+    Enterprise parentEnterprise;
     String name;
     UserAccount organizationManager;
+    UserAccountDirectory organizationAccounts;
 
 
-    public Organization(String name) {
+    public Organization(String name, Enterprise e) {
         this.name = name;
+        this.parentEnterprise = e;
 
     }
 
@@ -35,11 +40,30 @@ public class Organization {
     public void setOrganizationManager(UserAccount OrganizationManager) {
         this.organizationManager = OrganizationManager;
     }
+
+    public UserAccountDirectory getOrganizationAccountDirectory() {
+        return organizationAccounts;
+    }
+
+    public void setOrganizationAccountDirectory(UserAccountDirectory organizationAccounts) {
+        this.organizationAccounts = organizationAccounts;
+    }
+
+    public Enterprise getE() {
+        return parentEnterprise;
+    }
+
+    public void setE(Enterprise e) {
+        this.parentEnterprise = e;
+    }
     
-      
+    
+    
     @Override
     public String toString() {
         return String.valueOf(name);
     }    
+
+   
     
 }

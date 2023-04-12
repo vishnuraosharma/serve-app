@@ -7,9 +7,11 @@ package UI.EnterpriseManagerWorkArea;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import Organization.ProductOrganization;
 import Person.Person;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
+import WorkAreas.OrganizationManagerRole;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -227,14 +229,17 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
         //        JOptionPane.showMessageDialog(null, "Enterprise Created");
         //        displayEnterpriseInfo();
         Boolean foundDuplicate = false;
-
+    
         for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()){
-            UserAccountDirectory ua = enterprise.getUseraccountDirectory();
-
-            if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
-                foundDuplicate = true;
-                JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
-                break;
+            UserAccountDirectory entUserAccDir = enterprise.getUseraccountDirectory();
+            for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()){
+                UserAccountDirectory orgUserAccDir = org.getOrganizationAccountDirectory();
+                if(entUserAccDir.accountExists(usernameField.getText(), passwordField.getText()) || 
+                        orgUserAccDir.accountExists(usernameField.getText(), passwordField.getText())) {
+                    foundDuplicate = true;
+                    JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
+                    break;
+                }
             }
         }
         UserAccountDirectory ua = this.appSystem.getTopLevelUserAccountDirectory();
@@ -244,18 +249,30 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
         }
         if(foundDuplicate == false) {
             Organization o = enterprise.getOrganizationDirectory().findOrganization((String) organizationNameBox.getSelectedItem());
-            if(o.g)
-                            
-            Enterprise e = appSystem.getEnterprises().findEnterprise((String) organizationNameBox.getSelectedItem());
-            
-            if(e.getUseraccountDirectory().getUserAccountList().size()==0){
-                UserAccount user= e.getUseraccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new EnterpriseManagerRole());
-                Person p = appSystem.getPersonDirectory().createPerson( user.getAccountId(), nameField.getText());
-                user.setPerson(p);
-                JOptionPane.showMessageDialog(null, "Manager created");
-            }else{
-                JOptionPane.showMessageDialog(null, "Manager exists");
+            if (o != null){
+                //create new Org Manager for selected organization
+                UserAccount newManager = o.getOrganizationAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new OrganizationManagerRole());
+                //assign person to useraccount
+                Person p = appSystem.getPersonDirectory().createPerson( newManager.getAccountId(), nameField.getText());
+                //set this useraccount as the manager role
+                o.setOrganizationManager(newManager);
+                //add this user account to the enterprise 
+                o.getE().getUseraccountDirectory().getUserAccountList().add(newManager);
+                appSystem.getTopLevelUserAccountDirectory().getUserAccountList().add(newManager);
             }
+        
+//                            
+//            Enterprise e = appSystem.getEnterprises().findEnterprise((String) organizationNameBox.getSelectedItem());
+//            
+//            if(e.getUseraccountDirectory().getUserAccountList().size()==0){
+//                UserAccount user= e.getUseraccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new EnterpriseManagerRole());
+//                Person p = appSystem.getPersonDirectory().createPerson( user.getAccountId(), nameField.getText());
+//                user.setPerson(p);
+//                JOptionPane.showMessageDialog(null, "Manager created");
+//            }
+           
+            } else{
+                JOptionPane.showMessageDialog(null, "Manager exists");
 
             tablePopulate();
         }

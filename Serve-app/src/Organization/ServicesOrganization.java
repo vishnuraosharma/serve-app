@@ -4,6 +4,8 @@
  */
 package Organization;
 
+import Enterprise.Enterprise;
+import UserAccount.UserAccountDirectory;
 import Volunteer.VolunteerProfile;
 import java.awt.List;
 import java.util.ArrayList;
@@ -17,8 +19,8 @@ public class ServicesOrganization extends Organization {
     ArrayList<VolunteerProfile> volunteerList;
     
     
-    public ServicesOrganization(String name){
-        super(name);
+    public ServicesOrganization(String name, Enterprise e){
+        super(name, e);
         volunteerList = new ArrayList<VolunteerProfile>();
     }
 }
