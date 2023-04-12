@@ -229,16 +229,23 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
         //        JOptionPane.showMessageDialog(null, "Enterprise Created");
         //        displayEnterpriseInfo();
         Boolean foundDuplicate = false;
-    
+        
+        
         for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()){
             UserAccountDirectory entUserAccDir = enterprise.getUseraccountDirectory();
-            for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()){
-                UserAccountDirectory orgUserAccDir = org.getOrganizationAccountDirectory();
-                if(entUserAccDir.accountExists(usernameField.getText(), passwordField.getText()) || 
-                        orgUserAccDir.accountExists(usernameField.getText(), passwordField.getText())) {
+            if(entUserAccDir.accountExists(usernameField.getText(), passwordField.getText())) {
                     foundDuplicate = true;
                     JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
                     break;
+                }
+            for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()){
+                UserAccountDirectory orgUserAccDir = org.getOrganizationAccountDirectory();
+                if(orgUserAccDir != null){
+                    if(orgUserAccDir.accountExists(usernameField.getText(), passwordField.getText())){
+                        foundDuplicate = true;
+                        JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
+                        break;
+                    }
                 }
             }
         }

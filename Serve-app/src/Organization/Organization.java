@@ -22,6 +22,8 @@ public class Organization {
     public Organization(String name, Enterprise e) {
         this.name = name;
         this.parentEnterprise = e;
+        this.organizationManager = null;
+        this.organizationAccounts = new UserAccountDirectory();
 
     }
 
