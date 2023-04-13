@@ -11,7 +11,8 @@ import Organization.ProductOrganization;
 import Person.Person;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
-import WorkAreas.OrganizationManagerRole;
+import WorkAreas.ProductOrganizationManagerRole;
+import WorkAreas.ServicesOrganizationManagerRole;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -243,28 +244,30 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
             if(foundDuplicate==false){
                 
            
-            for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()){
-                UserAccountDirectory orgUserAccDir = org.getOrganizationAccountDirectory();
-                if(orgUserAccDir != null){
-                    if(orgUserAccDir.accountExists(usernameField.getText(), passwordField.getText())){
-                        foundDuplicate = true;
-                        JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
-                        break;
+                for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()){
+                    UserAccountDirectory orgUserAccDir = org.getOrganizationAccountDirectory();
+                    if(orgUserAccDir != null){
+                        if(orgUserAccDir.accountExists(usernameField.getText(), passwordField.getText())){
+                            foundDuplicate = true;
+                            JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
+                            break;
+                        }
                     }
                 }
             }
-        }}
+        }
         UserAccountDirectory ua = this.appSystem.getTopLevelUserAccountDirectory();
         if(foundDuplicate==false){
-        if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
-            foundDuplicate = true;
-            JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
-        }}
+            if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
+                foundDuplicate = true;
+                JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
+            }
+        }
         if(foundDuplicate == false) {
             Organization o = enterprise.getOrganizationDirectory().findOrganization((String) organizationNameBox.getSelectedItem());
-            if (o != null){
+            if (o != null && o.getE().getName().equals("Convenience")){
                 //create new Org Manager for selected organization
-                UserAccount newManager = o.getOrganizationAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new OrganizationManagerRole());
+                UserAccount newManager = o.getOrganizationAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ProductOrganizationManagerRole());
                 //assign person to useraccount
                 Person p = appSystem.getPersonDirectory().createPerson( newManager.getAccountId(), nameField.getText());
                 //set this useraccount as the manager role
@@ -273,6 +276,20 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
                 o.getE().getUseraccountDirectory().getUserAccountList().add(newManager);
                 appSystem.getTopLevelUserAccountDirectory().getUserAccountList().add(newManager);
             }
+            //services org
+            else if(o != null && !o.getE().getName().equals("Convenience")){
+                //create new Org Manager for selected organization
+                UserAccount newManager = o.getOrganizationAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ServicesOrganizationManagerRole());
+                //assign person to useraccount
+                Person p = appSystem.getPersonDirectory().createPerson( newManager.getAccountId(), nameField.getText());
+                //set this useraccount as the manager role
+                o.setOrganizationManager(newManager);
+                //add this user account to the enterprise 
+                o.getE().getUseraccountDirectory().getUserAccountList().add(newManager);
+                appSystem.getTopLevelUserAccountDirectory().getUserAccountList().add(newManager);
+            }
+            else{}
+            
         
 //                            
 //            Enterprise e = appSystem.getEnterprises().findEnterprise((String) organizationNameBox.getSelectedItem());
@@ -284,10 +301,7 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
 //                JOptionPane.showMessageDialog(null, "Manager created");
 //            }
            
-            } else{
-                JOptionPane.showMessageDialog(null, "Manager exists");
-
-            tablePopulate();
+             
         }
         tablePopulate();
     }//GEN-LAST:event_addEnterpriseManagerBtnActionPerformed
