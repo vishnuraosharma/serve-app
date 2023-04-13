@@ -12,7 +12,7 @@ import Person.PersonDirectory;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
 import WorkAreas.ApplicationManagerRole;
-import WorkAreas.OrganizationManagerRole;
+import WorkAreas.ProductOrganizationManagerRole;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -239,7 +239,7 @@ public class ApplicantManagerManageJPanel extends javax.swing.JPanel {
 //            //boolean i=this.branch.getLibrary().getEmployeDirectory().checkEmployeeUnique(Integer.valueOf(user.getAccountId()));
 //            if(designationComboBox.getSelectedItem().equals("Enterprise Manager") ){
 //                //
-//                UserAccount user= e.getUseraccountDirectory().createUserAccount(fieldusername.getText(), fieldPassword.getText(), new OrganizationManagerRole());
+//                UserAccount user= e.getUseraccountDirectory().createUserAccount(fieldusername.getText(), fieldPassword.getText(), new ProductOrganizationManagerRole());
 //                Person p = appSystem.getPersonDirectory().createPerson( user.getAccountId(), nameField.getText());
 //                user.setPerson(p);
 //

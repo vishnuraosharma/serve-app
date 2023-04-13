@@ -52,11 +52,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         userNameField = new javax.swing.JTextField();
-        passwordField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,8 +93,8 @@ public class MainJFrame extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userNameField)
-                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(userNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                            .addComponent(passwordField)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(246, 246, 246)
                         .addComponent(jButton1)
@@ -111,8 +111,8 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -127,27 +127,64 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       Boolean foundUser = false;
         
-        if(this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null) {
-            UserAccount user = this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText());
-            foundUser = true;
-            user.getRole().createWorkArea(appSystem, enterprise, organization, useraccount);
-            this.setVisible(false);
-        } else {
-            for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()) {
-                if(enterprise.getUseraccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText()) != null) {
-                    UserAccount User = enterprise.getUseraccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText());
-                    foundUser = true;
-                    User.getRole().createWorkArea(appSystem, enterprise, organization, useraccount);
+       Boolean foundUser = false;
+       Boolean orgLevel = false;
+       Boolean entLevel = false;
+       for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()) {
+            for(Organization org: enterprise.getOrganizationDirectory().getOrganizationList()){
+                if(org.getOrganizationAccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText()) != null) {
+                    UserAccount orgLvlUser = org.getOrganizationAccountDirectory().authenticateUser(String.valueOf(passwordField.getPassword()), userNameField.getText());
+                    foundUser = true; orgLevel = true;
+                    orgLvlUser.getRole().createWorkArea(appSystem, enterprise, org, orgLvlUser);
                     this.setVisible(false);
                 }
             }
-        }
-         //if user not found
-        if(!foundUser) {
+       }
+       if(!orgLevel){
+           for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()) {
+                if(enterprise.getUseraccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText()) != null) {
+                    UserAccount entLvlUser = enterprise.getUseraccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText());
+                    foundUser = true;
+                    entLvlUser.getRole().createWorkArea(appSystem, enterprise, organization, entLvlUser);
+                    this.setVisible(false);
+                }
+            }
+       }
+       if (!orgLevel && !entLevel){
+           if(this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null) {
+            UserAccount sysLvlUser = this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText());
+            foundUser = true;
+            sysLvlUser.getRole().createWorkArea(appSystem, enterprise, organization, sysLvlUser);
+            this.setVisible(false);
+            }
+       }
+       if(!foundUser) {
             JOptionPane.showMessageDialog(null, "Invalid Credentials");
-        }        
+        } 
+//       This code does not tell us which org or enterprise each user is in
+//           
+//                
+//       
+//        if(this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null) {
+//            UserAccount user = this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText());
+//            foundUser = true;
+//            user.getRole().createWorkArea(appSystem, enterprise, organization, user);
+//            this.setVisible(false);
+//        } else {
+//            for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()) {
+//                if(enterprise.getUseraccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText()) != null) {
+//                    UserAccount User = enterprise.getUseraccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText());
+//                    foundUser = true;
+//                    User.getRole().createWorkArea(appSystem, enterprise, organization, User);
+//                    this.setVisible(false);
+//                }
+//            }
+//        }
+//         //if user not found
+//        if(!foundUser) {
+//            JOptionPane.showMessageDialog(null, "Invalid Credentials");
+//        }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -196,7 +233,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField passwordField;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
 }

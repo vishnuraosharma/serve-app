@@ -11,7 +11,7 @@ import Person.Person;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
 import WorkAreas.EnterpriseManagerRole;
-import WorkAreas.OrganizationManagerRole;
+import WorkAreas.ProductOrganizationManagerRole;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
