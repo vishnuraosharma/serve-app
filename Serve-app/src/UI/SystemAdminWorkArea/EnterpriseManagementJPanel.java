@@ -287,16 +287,18 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             viewtableModel.setRowCount(0);
             for (Enterprise e : enterprise){
                 for(UserAccount u: e.getUseraccountDirectory().getUserAccountList()){
-                Object row[] = new Object[5];
-                row[0] = e;
-                row[1] =u;
-                row[2] = u.getPerson().getName();
-                row[3] = u.getUserName();
-                row[4] = u.getPassword();
+                    if(u.getRole().getRoleType().equals("Enterprise Manager")){
+                        Object row[] = new Object[5];
+                        row[0] = e;
+                        row[1] =u;
+                        row[2] = u.getPerson().getName();
+                        row[3] = u.getUserName();
+                        row[4] = u.getPassword();
 
-             
-                viewtableModel.addRow(row);
-            }
+
+                        viewtableModel.addRow(row);
+                    }
+                }
           } 
         } else {
             System.out.print("");

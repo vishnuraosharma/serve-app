@@ -70,7 +70,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
                 addOrgBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(addOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 150, 60));
+        controlPanel.add(addOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 150, 60));
 
         manageOrgBtn.setText("Manage Organization");
         manageOrgBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +78,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
                 manageOrgBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(manageOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 160, 60));
+        controlPanel.add(manageOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 160, 60));
 
         jSplitPane1.setTopComponent(controlPanel);
 

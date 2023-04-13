@@ -31,7 +31,7 @@ public class UserAccount {
         this.accountId = "user" + this.counter++;
         this.userName = userName;
         this.password = password;
-        this.person = new Person(userName,password);
+        this.person = null;
         this.role = role;
     }    
 

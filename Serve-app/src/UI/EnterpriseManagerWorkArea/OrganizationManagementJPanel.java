@@ -44,16 +44,16 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
     
     public void populateOrganization() {  
         if(enterprise.getName().equals("Convenience")){
-            organizationNameBox.addItem("CVS");
-            organizationNameBox.addItem("Trader Joe");
+            organizationNameBox.addItem("Pharmacy");
+            organizationNameBox.addItem("Grocery Store");
         }else if(enterprise.getName().equals("Healthcare")){
-            organizationNameBox.addItem("Beth Israel");
+            organizationNameBox.addItem("Hospital");
             
         }else if(enterprise.getName().equals("Connection")){
-            organizationNameBox.addItem("Boy Scouts"); 
-            organizationNameBox.addItem("Brookline High School"); 
+            organizationNameBox.addItem("Community Organization"); 
+            organizationNameBox.addItem("School"); 
         }else if(enterprise.getName().equals("Legal")){
-            organizationNameBox.addItem("Burns and Levinson LLP");
+            organizationNameBox.addItem("Law Office");
     }
         
     }
@@ -270,6 +270,8 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
                 UserAccount newManager = o.getOrganizationAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ProductOrganizationManagerRole());
                 //assign person to useraccount
                 Person p = appSystem.getPersonDirectory().createPerson( newManager.getAccountId(), nameField.getText());
+                //
+                newManager.setPerson(p);
                 //set this useraccount as the manager role
                 o.setOrganizationManager(newManager);
                 //add this user account to the enterprise 
@@ -282,6 +284,7 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
                 UserAccount newManager = o.getOrganizationAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ServicesOrganizationManagerRole());
                 //assign person to useraccount
                 Person p = appSystem.getPersonDirectory().createPerson( newManager.getAccountId(), nameField.getText());
+                newManager.setPerson(p);
                 //set this useraccount as the manager role
                 o.setOrganizationManager(newManager);
                 //add this user account to the enterprise 

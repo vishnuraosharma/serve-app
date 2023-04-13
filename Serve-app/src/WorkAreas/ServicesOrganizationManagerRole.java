@@ -8,7 +8,7 @@ import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
 import UI.EnterpriseManagerWorkArea.EnterpriseManagerJFrame;
-import UI.OrganizationManagerWorkArea.ProductOrganizationManagerJFrame;
+import UI.OrganizationManagerWorkArea.Product.ProductOrganizationManagerJFrame;
 import UserAccount.UserAccount;
 import javax.swing.JFrame;
 
