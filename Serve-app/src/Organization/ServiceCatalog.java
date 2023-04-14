@@ -2,18 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Volunteer;
+package Organization;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author siqiyang
+ * @author khatna
  */
-public class VolunteerDirectory {
-    ArrayList<VolunteerProfile> volunteerList;
+public class ServiceCatalog {
+    ArrayList<Service> servicesList;
     
-    public VolunteerDirectory(){
-        this.volunteerList = new ArrayList();
+    public ServiceCatalog(){
+        this.servicesList = new ArrayList();
     }
+   
 }

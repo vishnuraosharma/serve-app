@@ -18,6 +18,11 @@ public class Person {
     String address;
     Date dob;
     UserAccount useraccount;
+    String email;
+    String emergencyContactName;
+    String emergencyContactNumber;
+    String occupation;
+    String contactNum;
 
     public Person(){
         
@@ -33,13 +38,20 @@ public class Person {
         this.useraccount = useraccount;
     }
 
-    public Person(String name, String id, String ssn, String address, Date dob, UserAccount useraccount) {
+    public Person(String name, String id, String ssn, String address,
+            Date dob, String email,String ecn, String ecname, String occ, String contactNum) {
+        
         this.name = name;
         this.id = id;
         this.ssn = ssn;
         this.address = address;
         this.dob = dob;
-        this.useraccount = useraccount;
+        this.email = email;
+        this.emergencyContactNumber = ecn;
+        this.emergencyContactName = ecname;
+        this.occupation = occ;
+        this.contactNum = contactNum;
+        
     }
     
 
@@ -91,9 +103,44 @@ public class Person {
         this.useraccount = useraccount;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
-    
+    public String getEmergencyContactName() {
+        return emergencyContactName;
+    }
 
-    
+    public String getEmergencyContactNumber() {
+        return emergencyContactNumber;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public String getContactNum() {
+        return contactNum;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setEmergencyContactName(String emergencyContactName) {
+        this.emergencyContactName = emergencyContactName;
+    }
+
+    public void setEmergencyContactNumber(String emergencyContactNumber) {
+        this.emergencyContactNumber = emergencyContactNumber;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public void setContactNum(String contactNum) {
+        this.contactNum = contactNum;
+    }
     
 }
