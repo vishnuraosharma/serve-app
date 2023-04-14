@@ -18,6 +18,11 @@ public class Person {
     String address;
     Date dob;
     UserAccount useraccount;
+    String email;
+    String emergencyContactName;
+    String emergencyContactNumber;
+    String occupation;
+    String contactNum;
 
     public Person(){
         
@@ -33,13 +38,21 @@ public class Person {
         this.useraccount = useraccount;
     }
 
-    public Person(String name, String id, String ssn, String address, Date dob, UserAccount useraccount) {
+    public Person(String name, String id, String ssn, String address, UserAccount ua,
+            Date dob, String email,String ecn, String ecname, String occ, String contactNum) {
+        
         this.name = name;
         this.id = id;
         this.ssn = ssn;
         this.address = address;
         this.dob = dob;
-        this.useraccount = useraccount;
+        this.email = email;
+        this.emergencyContactNumber = ecn;
+        this.emergencyContactName = ecname;
+        this.occupation = occ;
+        this.contactNum = contactNum;
+        this.useraccount = ua;
+        
     }
     
 
