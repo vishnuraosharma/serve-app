@@ -5,6 +5,7 @@
 package Applicant;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -12,33 +13,26 @@ import java.util.ArrayList;
  */
 public class ApplicationDirectory {
     ArrayList<Application> applicationList;
+    
+    public ApplicationDirectory(){
+        this.applicationList = new ArrayList();
+    }
 
     
     
-    public Application createApplication(){
-        Application a = new Application();
-        
-        
-        
+    public Application createApplication(String name, String id, String ssn, String address,
+            Date dob, String email,String ecn, String ecname, String occ, String contactNum){
+        Application a = new Application(name,id,ssn,address,
+            dob,email, ecn, ecname, occ, contactNum);
+        this.applicationList.add(a);
         return a;
     }
     
-    public ApplicationDirectory() {
-        this.applicationList = new ArrayList<Application>();
-    }
 
-    public ApplicationDirectory(ArrayList<Application> applicationList) {
-        this.applicationList = applicationList;
-    }
 
     public ArrayList<Application> getApplicationList() {
         return applicationList;
     }
-
-    public void setApplicationList(ArrayList<Application> applicationList) {
-        this.applicationList = applicationList;
-    }
-
 
     
 }
