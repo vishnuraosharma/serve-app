@@ -4,6 +4,7 @@
  */
 package Requests;
 
+import UserAccount.UserAccount;
 import java.time.LocalDateTime;
 
 /**
@@ -13,12 +14,12 @@ import java.time.LocalDateTime;
 public abstract class Request {
     String requestID;
     static int counter = 1;
-    Role requester; //ignore the datatype for now, we should discuss
-    Role requestResponder; //ignore the datatype for now, we should discuss
+    UserAccount requester; //ignore the datatype for now, we should discuss
+    UserAccount requestResponder; //ignore the datatype for now, we should discuss
     LocalDateTime requestDate;
     String status;
     
-    public Request(String requester){
+    public Request(UserAccount requester){
         this.requestID = "req" + counter++;
         this.requester = requester;
         this.requestDate = LocalDateTime.now();
@@ -31,11 +32,11 @@ public abstract class Request {
         return requestID;
     }
 
-    public String getRequester() {
+    public UserAccount getRequester() {
         return requester;
     }
 
-    public String getRequestResponder() {
+    public UserAccount getRequestResponder() {
         return requestResponder;
     }
 
@@ -47,11 +48,11 @@ public abstract class Request {
         return status;
     }
 
-    public void setRequester(Role requester) {
+    public void setRequester(UserAccount requester) {
         this.requester = requester;
     }
 
-    public void setRequestResponder(Role requestResponder) {
+    public void setRequestResponder(UserAccount requestResponder) {
         this.requestResponder = requestResponder;
     }
 
