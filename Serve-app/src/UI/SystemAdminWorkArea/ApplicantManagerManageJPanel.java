@@ -26,7 +26,7 @@ public class ApplicantManagerManageJPanel extends javax.swing.JPanel {
     private Network appSystem;
     Enterprise enterprise;
     Organization organization;
-    DefaultTableModel tableModel;
+    DefaultTableModel viewtableModel;
     /**
      * Creates new form EmployeeManagementJPanel
      */
@@ -37,48 +37,13 @@ public class ApplicantManagerManageJPanel extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = organization;        
-        this.tableModel = (DefaultTableModel) jTable1.getModel();
+        this.viewtableModel = (DefaultTableModel) jTable1.getModel();
         
-        populateDesignation();   
-        populateEnterpriseDropdown();
-        tablePopulate();               
+        tablePopulate();
     }
-        
-    public void populateDesignation() {
-   
-        designationComboBox.addItem("Relation Manager");
-        designationComboBox.addItem("Application Manager");
-        
-    }
+
     
-    public void populateEnterpriseDropdown(){
-        ArrayList<Enterprise> enterprise = this.appSystem.getEnterprises().getEnterpiseList();
-        
-        for(Enterprise e: enterprise){
-           jComboBox1.addItem(e);
-        }
-    }
-    
-    public void tablePopulate() {
-        
-        tableModel.setRowCount(0);
-        for(Enterprise e: this.appSystem.getEnterprises().getEnterpiseList()) {
-            for(UserAccount u: e.getUseraccountDirectory().getUserAccountList()){
-                
-   
-            Object[] row = new Object[6];
-            
-            row[0] = e.getName();
-            row[1] = u.getAccountId();
-            row[2] = u.getPerson().getName();
-            row[3] =u.getUserName();
-            row[4] =u.getPassword();
-            row[5] =u.getRole();
-            tableModel.addRow(row);
-        }
-        }
-        
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -89,185 +54,249 @@ public class ApplicantManagerManageJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fieldusername = new javax.swing.JTextField();
-        nameField = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
-        userNameLabel2 = new javax.swing.JLabel();
-        designationComboBox = new javax.swing.JComboBox<>();
-        fieldPassword = new javax.swing.JTextField();
-        designationLabel1 = new javax.swing.JLabel();
-        addBtn1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        userNameLabel3 = new javax.swing.JLabel();
-        passwordLabel1 = new javax.swing.JLabel();
-
-        jLabel2.setText("Assign Enterprise");
-
-        userNameLabel2.setText("User Name");
-
-        designationLabel1.setText("Designation");
-
-        addBtn1.setText("Add Employee");
-        addBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBtn1ActionPerformed(evt);
-            }
-        });
+        DeleteApplicationManageBtn = new javax.swing.JButton();
+        addApplicationManagerBtn = new javax.swing.JButton();
+        nameField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        usernameField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JTextField();
+        updateApplicationManagerBtn = new javax.swing.JButton();
+        updateNameField = new javax.swing.JTextField();
+        updatePasswordTextField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Enterprise", "ID", "Name", "Username", "Password", "Role"
+                "User ID", "Manager Name", "Username", "Password"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jScrollPane2.setViewportView(jTable1);
 
-        userNameLabel3.setText("Name");
+        DeleteApplicationManageBtn.setText("Delete Application Manager");
+        DeleteApplicationManageBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteApplicationManageBtnActionPerformed(evt);
+            }
+        });
 
-        passwordLabel1.setText("Password");
+        addApplicationManagerBtn.setText("Add Application Manager");
+        addApplicationManagerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addApplicationManagerBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Manager Name:");
+
+        jLabel3.setText("User Name:");
+
+        jLabel4.setText("Password");
+
+        usernameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameFieldActionPerformed(evt);
+            }
+        });
+
+        updateApplicationManagerBtn.setText("Update Application Manager");
+        updateApplicationManagerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateApplicationManagerBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Update Manager Name:");
+
+        jLabel6.setText("Update Password:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(addBtn1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(passwordLabel1)
-                                .addGap(22, 22, 22)
-                                .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(designationLabel1)
-                                .addGap(22, 22, 22)
-                                .addComponent(designationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(userNameLabel3))
-                                    .addComponent(userNameLabel2))
-                                .addGap(15, 15, 15)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fieldusername, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nameField)
+                    .addComponent(usernameField)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(553, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(56, 56, 56)
+                    .addComponent(addApplicationManagerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(61, 61, 61)
+                    .addComponent(DeleteApplicationManageBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(updateApplicationManagerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(56, 56, 56))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(130, 130, 130)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(29, 29, 29)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(updatePasswordTextField)
+                                .addComponent(updateNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(37, 37, 37)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
+                .addGap(106, 106, 106)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(userNameLabel3))
-                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(userNameLabel2)
-                            .addComponent(fieldusername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(passwordLabel1))
-                            .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(designationLabel1)
-                            .addComponent(designationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(addBtn1)
-                .addGap(172, 172, 172))
+                    .addComponent(jLabel2)
+                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addContainerGap(321, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(96, 96, 96)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(68, 68, 68)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(addApplicationManagerBtn)
+                        .addComponent(DeleteApplicationManageBtn)
+                        .addComponent(updateApplicationManagerBtn))
+                    .addGap(59, 59, 59)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(updateNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5))
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(updatePasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6))
+                    .addContainerGap(96, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtn1ActionPerformed
+    private void addApplicationManagerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addApplicationManagerBtnActionPerformed
         // TODO add your handling code here:
-               Boolean foundDuplicate = false;
+        Boolean foundDuplicate = false;
 
-//        for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()){
-//            UserAccountDirectory ua = enterprise.getUseraccountDirectory();
-//        
-//            if(ua.accountExists(fieldusername.getText(), fieldPassword.getText())) {
-//                foundDuplicate = true;
-//                JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
-//                break;
-//            }
-//            
-//        }
-//        UserAccountDirectory ua = this.appSystem.getTopLevelUserAccountDirectory();
-//        if(ua.accountExists(fieldusername.getText(), fieldPassword.getText())) {
-//            foundDuplicate = true;
-//            JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
-//        }
-//        if(foundDuplicate == false) {
-//            Enterprise e= (Enterprise) jComboBox1.getSelectedItem();
-//
-//            //boolean i=this.branch.getLibrary().getEmployeDirectory().checkEmployeeUnique(Integer.valueOf(user.getAccountId()));
-//            if(designationComboBox.getSelectedItem().equals("Enterprise Manager") ){
-//                //
-//                UserAccount user= e.getUseraccountDirectory().createUserAccount(fieldusername.getText(), fieldPassword.getText(), new ProductOrganizationManagerRole());
-//                Person p = appSystem.getPersonDirectory().createPerson( user.getAccountId(), nameField.getText());
-//                user.setPerson(p);
-//
-//            }else if(designationComboBox.getSelectedItem().equals("Application Manager") ){
-//                UserAccount user= e.getUseraccountDirectory().createUserAccount(fieldusername.getText(), fieldPassword.getText(), new ApplicationManagerRole());
-//                Person p = appSystem.getPersonDirectory().createPerson( user.getAccountId(), nameField.getText());
-//                user.setPerson(p);
-//            }
-//
-//            tablePopulate();
-//        }
-// 
-    }//GEN-LAST:event_addBtn1ActionPerformed
+        for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()){
+            UserAccountDirectory ua = enterprise.getUseraccountDirectory();
 
+            if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
+                foundDuplicate = true;
+                JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
+                break;
+            }
+
+        }
+        UserAccountDirectory ua = this.appSystem.getTopLevelUserAccountDirectory();
+        if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
+            foundDuplicate = true;
+            JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
+        }
+        if(foundDuplicate == false){
+                UserAccount applicationManager =appSystem.getTopLevelUserAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ApplicationManagerRole());
+                Person p = appSystem.getPersonDirectory().createPerson( applicationManager.getAccountId(), nameField.getText());
+                applicationManager.setPerson(p);
+                JOptionPane.showMessageDialog(null, "Application Manager created");
+            }else{
+                JOptionPane.showMessageDialog(null, "Application Manager exists");
+            }
+
+            tablePopulate();
+        
+        
+    }//GEN-LAST:event_addApplicationManagerBtnActionPerformed
+
+    private void DeleteApplicationManageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteApplicationManageBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        UserAccount u = (UserAccount) jTable1.getValueAt(selectedRow, 0);
+        this.appSystem.getTopLevelUserAccountDirectory().deleteApplicationManager(u);
+        if (this.appSystem.getTopLevelUserAccountDirectory().getUserAccountList().size()>0){
+            tablePopulate();
+        }else{
+            viewtableModel.setRowCount(0);
+        }
+    }//GEN-LAST:event_DeleteApplicationManageBtnActionPerformed
+
+    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameFieldActionPerformed
+
+    private void updateApplicationManagerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateApplicationManagerBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+        UserAccount u = (UserAccount) jTable1.getValueAt(selectedRow, 0);
+        u.getPerson().setName(updateNameField.getText());
+        u.setPassword(updatePasswordTextField.getText());
+
+        tablePopulate();
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row!");
+        }
+    }//GEN-LAST:event_updateApplicationManagerBtnActionPerformed
+    public void  tablePopulate() {
+        ArrayList<UserAccount> userAccount = this.appSystem.getTopLevelUserAccountDirectory().getUserAccountList();
+        
+        if(userAccount.size()>0){
+            viewtableModel.setRowCount(0);
+                for(UserAccount u: appSystem.getTopLevelUserAccountDirectory().getUserAccountList()){
+                    if(u.getRole().getRoleType().equals("Application Manager")){
+                        Object row[] = new Object[4];
+                        row[0] =u;
+                        row[1] = u.getPerson().getName();
+                        row[2] = u.getUserName();
+                        row[3] = u.getPassword();
+
+
+                        viewtableModel.addRow(row);
+                    }
+                }       
+        } else {
+            System.out.print("");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBtn1;
-    private javax.swing.JComboBox<String> designationComboBox;
-    private javax.swing.JLabel designationLabel1;
-    private javax.swing.JTextField fieldPassword;
-    private javax.swing.JTextField fieldusername;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JButton DeleteApplicationManageBtn;
+    private javax.swing.JButton addApplicationManagerBtn;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nameField;
-    private javax.swing.JLabel passwordLabel1;
-    private javax.swing.JLabel userNameLabel2;
-    private javax.swing.JLabel userNameLabel3;
+    private javax.swing.JTextField passwordField;
+    private javax.swing.JButton updateApplicationManagerBtn;
+    private javax.swing.JTextField updateNameField;
+    private javax.swing.JTextField updatePasswordTextField;
+    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 }
