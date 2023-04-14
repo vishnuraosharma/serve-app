@@ -10,13 +10,14 @@ import UserAccount.UserAccountDirectory;
 
 /**
  *
- * @author siqiyang
+ * @author vishnu rao-sharma
  */
 public class Organization {
     Enterprise parentEnterprise;
     String name;
     UserAccount organizationManager;
     UserAccountDirectory organizationAccounts;
+    String type = "";
 
 
     public Organization(String name, Enterprise e) {
@@ -57,6 +58,14 @@ public class Organization {
 
     public void setE(Enterprise e) {
         this.parentEnterprise = e;
+    }
+
+    public String getOrganizationType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
     
     

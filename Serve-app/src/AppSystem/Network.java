@@ -60,19 +60,19 @@ public class Network {
         
         //MAKE THIS PRODUCT ORGANIZATION???!?!!?!?
         
-        Organization o1 = convenience.getOrganizationDirectory().createProductOrganization("Pharmacy", convenience);
-        Organization o2 = convenience.getOrganizationDirectory().createProductOrganization("Grocery Store", convenience);
+        Organization o1 = convenience.getOrganizationDirectory().createProductOrganization("Pharmacy", convenience, "Pharmacy");
+        Organization o2 = convenience.getOrganizationDirectory().createProductOrganization("Grocery Store", convenience, "Grocery Store");
         
         //MAKE THESE SERVICE ORGANIZATIONS???!?!!?!?
         Enterprise healthcare  = app.getEnterprises().createEnterprise("Health");
-        Organization o3 = healthcare.getOrganizationDirectory().createServicesOrganization("Hospital",healthcare);
+        Organization o3 = healthcare.getOrganizationDirectory().createServicesOrganization("Hospital",healthcare, "Hospital");
         
         Enterprise legal  = app.getEnterprises().createEnterprise("Legal");
-        Organization o4 = legal.getOrganizationDirectory().createServicesOrganization("Law Office",legal);
+        Organization o4 = legal.getOrganizationDirectory().createServicesOrganization("Law Office",legal, "Law Office");
         
         Enterprise connection  = app.getEnterprises().createEnterprise("Connection");
-        Organization o5 = connection.getOrganizationDirectory().createServicesOrganization("Community Organization",connection);
-        Organization o6 = connection.getOrganizationDirectory().createServicesOrganization("School",connection);  
+        Organization o5 = connection.getOrganizationDirectory().createServicesOrganization("Community Organization",connection, "Community Organization");
+        Organization o6 = connection.getOrganizationDirectory().createServicesOrganization("School",connection, "School");  
         
         //comment out to remove fake data
         faker(o1,o2,o3,o4,o5,o6);

@@ -7,6 +7,7 @@ package WorkAreas;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import Organization.ProductOrganization;
 import UI.EnterpriseManagerWorkArea.EnterpriseManagerJFrame;
 import UI.OrganizationManagerWorkArea.Product.ProductOrganizationManagerJFrame;
 import UserAccount.UserAccount;
@@ -17,13 +18,12 @@ import javax.swing.JFrame;
  * @author siqiyang
  */
 public class ProductOrganizationManagerRole extends AbstractRole {
+    String roleType;
     public ProductOrganizationManagerRole(){
-        super.roleType = "Organization Manager";
+        roleType = "Organization Manager";
     }      
 
-    
-    @Override
-    public JFrame createWorkArea(Network applicationSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
+    public JFrame createWorkArea(Network applicationSystem, Enterprise enterprise, ProductOrganization organization,UserAccount useraccount) {
         return new ProductOrganizationManagerJFrame(applicationSystem, enterprise, organization,useraccount);
     }
     
@@ -31,4 +31,12 @@ public class ProductOrganizationManagerRole extends AbstractRole {
     public String toString() {
         return "Product Organization Manager";
     }  
+
+    @Override
+    public JFrame createWorkArea(Network applicationSystem, Enterprise enterprise, Organization organization, UserAccount useraccount) {
+        return new ProductOrganizationManagerJFrame(applicationSystem, enterprise, organization,useraccount);
+    }
+
+    
+    
 }

@@ -7,12 +7,13 @@ package UI.OrganizationManagerWorkArea.Product;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import Organization.ProductOrganization;
 import UI.MainJFrame;
 import UserAccount.UserAccount;
 
 /**
  *
- * @author siqiyang
+ * @author vraosharma
  */
 public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
     private Network appSystem;
@@ -25,11 +26,6 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
     public ProductOrganizationManagerJFrame() {
         initComponents();
         this.setVisible(true);
-        this.appSystem = appSystem;
-        this.useraccount = useraccount;
-        this.enterprise = enterprise;
-        this.organization = organization;
-        
     }
     
     public ProductOrganizationManagerJFrame(Network appSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
@@ -180,6 +176,11 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
 
     private void productCatalogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productCatalogBtnActionPerformed
         // TODO add your handling code here:
+        if(this.organization.getOrganizationType().equals("Pharmacy")){
+            this.jSplitPane1.setRightComponent(new myProductsPharmacyOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+        }else{
+            this.jSplitPane1.setRightComponent(new myProductsGroceryOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+        }        
     }//GEN-LAST:event_productCatalogBtnActionPerformed
 
     private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
@@ -211,6 +212,12 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ProductOrganizationManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

@@ -12,15 +12,16 @@ import java.util.ArrayList;
 
 /**
  *
- * @author siqiyang
+ * @author vishnu rao-sharma
  */
 public class ServicesOrganization extends Organization {
-    final String type = "service";
+    
     ArrayList<VolunteerProfile> volunteerList;
     
     
-    public ServicesOrganization(String name, Enterprise e){
+    public ServicesOrganization(String name, Enterprise e, String type){
         super(name, e);
+        super.type = type;
         volunteerList = new ArrayList<VolunteerProfile>();
     }
 }

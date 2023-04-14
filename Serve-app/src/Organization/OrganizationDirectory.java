@@ -30,14 +30,14 @@ public class OrganizationDirectory {
         this.organizationList = organizationList;
     }
       
-    public Organization createProductOrganization(String name,  Enterprise e) {
-        Organization organization = new ProductOrganization(name, e);
+    public Organization createProductOrganization(String name,  Enterprise e, String type) {
+        Organization organization = new ProductOrganization(name, e, type);
         this.organizationList.add(organization);
         return organization ;
     }
     
-    public Organization createServicesOrganization(String name, Enterprise e) {
-        Organization organization = new ServicesOrganization(name, e);
+    public Organization createServicesOrganization(String name, Enterprise e, String type) {
+        Organization organization = new ServicesOrganization(name, e, type);
         this.organizationList.add(organization);
         return organization ;
     } 
