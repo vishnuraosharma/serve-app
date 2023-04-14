@@ -5,6 +5,7 @@
 package Requests;
 
 import Applicant.Application;
+import UserAccount.UserAccount;
 
 /**
  *
@@ -14,7 +15,7 @@ public class ApplicationRequest extends Request {
      Application app;
     
     
-    public ApplicationRequest(String requester, Application app) {
+    public ApplicationRequest(UserAccount requester, Application app) {
         super(requester);
         this.app = app;
     }

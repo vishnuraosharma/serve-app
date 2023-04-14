@@ -41,6 +41,12 @@ public class OrganizationDirectory {
         this.organizationList.add(organization);
         return organization ;
     } 
+    
+    public Organization createOrganization(String name, Enterprise e){
+        ConvenienceVolOrganization conVolOrg = new ConvenienceVolOrganization(name,e);
+        this.organizationList.add(conVolOrg);
+        return conVolOrg;
+    }
 
     public Organization findOrganization(String name){
         for (Organization o: this.getOrganizationList()){

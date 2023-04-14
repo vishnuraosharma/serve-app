@@ -74,6 +74,9 @@ public class Network {
         Organization o5 = connection.getOrganizationDirectory().createServicesOrganization("Community Organization",connection);
         Organization o6 = connection.getOrganizationDirectory().createServicesOrganization("School",connection);  
         
+        
+        Organization o7 = convenience.getOrganizationDirectory().createOrganization("ConvenienceVolOrganization", convenience);
+        
         //comment out to remove fake data
         faker(o1,o2,o3,o4,o5,o6);
         
