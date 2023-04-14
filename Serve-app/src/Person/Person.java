@@ -38,7 +38,7 @@ public class Person {
         this.useraccount = useraccount;
     }
 
-    public Person(String name, String id, String ssn, String address, UserAccount ua,
+    public Person(String name, String id, String ssn, String address,
             Date dob, String email,String ecn, String ecname, String occ, String contactNum) {
         
         this.name = name;
@@ -51,7 +51,6 @@ public class Person {
         this.emergencyContactName = ecname;
         this.occupation = occ;
         this.contactNum = contactNum;
-        this.useraccount = ua;
         
     }
     
