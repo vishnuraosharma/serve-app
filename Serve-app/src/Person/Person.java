@@ -104,9 +104,44 @@ public class Person {
         this.useraccount = useraccount;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
-    
+    public String getEmergencyContactName() {
+        return emergencyContactName;
+    }
 
-    
+    public String getEmergencyContactNumber() {
+        return emergencyContactNumber;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public String getContactNum() {
+        return contactNum;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setEmergencyContactName(String emergencyContactName) {
+        this.emergencyContactName = emergencyContactName;
+    }
+
+    public void setEmergencyContactNumber(String emergencyContactNumber) {
+        this.emergencyContactNumber = emergencyContactNumber;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public void setContactNum(String contactNum) {
+        this.contactNum = contactNum;
+    }
     
 }

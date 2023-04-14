@@ -6,6 +6,8 @@ package Applicant;
 
 import Enterprise.Enterprise;
 import Person.Person;
+import UserAccount.UserAccount;
+import java.util.Date;
 
 
 /**
@@ -14,12 +16,44 @@ import Person.Person;
  */
 public class Application {
     private static int count = 0;
-    Enterprise e;
+//    Enterprise e;
     String applicationId; 
-    String username;
-    String  password;
     String status;
-    Person person;           
+    Person person;     
+    
+     public Application(String name, String id, String ssn, String address,
+            Date dob, String email,String ecn, String ecname, String occ, String contactNum){
+//        this.e = this.useraccount.getEnterprise();
+        this.applicationId = "app" + count++;
+        this.status = "Pending";
+        this.person = new Person(name,id,ssn,address,
+            dob,email, ecn, ecname, occ, contactNum);
+    }
 
+    public String getApplicationId() {
+        return applicationId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setApplicationId(String applicationId) {
+        this.applicationId = applicationId;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+     
     
 }
