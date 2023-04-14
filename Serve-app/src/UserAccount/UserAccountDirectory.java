@@ -76,4 +76,8 @@ public class UserAccountDirectory {
     public void deleteEnterpriseManager(UserAccount u){
         this.userAccountList.remove(u);
     }
+    
+    public void deleteApplicationManager(UserAccount u){
+        this.userAccountList.remove(u);
+    }
 }
