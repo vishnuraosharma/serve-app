@@ -14,6 +14,7 @@ import java.util.Date;
 public class Person {
     String name;
     String id;
+    static int counter = 1;
     String ssn;
     String address;
     Date dob;
@@ -29,20 +30,19 @@ public class Person {
     }
     
 
-    public Person(String name, String id) {
+    public Person(String name) {
         this.name = name;
-        this.id = id;
+        this.id = "person"+counter++;
         this.ssn = ssn;
         this.address = address;
         this.dob = dob;
         this.useraccount = useraccount;
     }
 
-    public Person(String name, String id, String ssn, String address,
+    public Person(String name, String ssn, String address,
             Date dob, String email,String ecn, String ecname, String occ, String contactNum) {
         
         this.name = name;
-        this.id = id;
         this.ssn = ssn;
         this.address = address;
         this.dob = dob;

@@ -20,9 +20,9 @@ public class ApplicationDirectory {
 
     
     
-    public Application createApplication(String name, String id, String ssn, String address,
+    public Application createApplication(String name, String ssn, String address,
             Date dob, String email,String ecn, String ecname, String occ, String contactNum){
-        Application a = new Application(name,id,ssn,address,
+        Application a = new Application(name,ssn,address,
             dob,email, ecn, ecname, occ, contactNum);
         this.applicationList.add(a);
         return a;

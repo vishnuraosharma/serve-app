@@ -21,12 +21,12 @@ public class Application {
     String status;
     Person person;     
     
-     public Application(String name, String id, String ssn, String address,
+     public Application(String name, String ssn, String address,
             Date dob, String email,String ecn, String ecname, String occ, String contactNum){
 //        this.e = this.useraccount.getEnterprise();
         this.applicationId = "app" + count++;
         this.status = "Pending";
-        this.person = new Person(name,id,ssn,address,
+        this.person = new Person(name,ssn,address,
             dob,email, ecn, ecname, occ, contactNum);
     }
 

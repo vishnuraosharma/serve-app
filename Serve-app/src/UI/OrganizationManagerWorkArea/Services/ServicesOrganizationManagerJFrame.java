@@ -37,15 +37,9 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = organization;
-        test();
-    }
-    public void test(){
-        jLabel1.setText(String.valueOf(this.useraccount.getUserName()));
-        jLabel2.setText(String.valueOf(this.enterprise.getName()));
-        jLabel3.setText(String.valueOf(this.organization.getName()));
-        jLabel4.setText(String.valueOf(this.organization.getClass()));
         
     }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,7 +62,12 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
 
         jButton1.setText("jButton1");
 
-        jButton2.setText("Manage org users");
+        jButton2.setText("Manage Applications");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,7 +78,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(275, 275, 275)
                 .addComponent(jButton2)
-                .addContainerGap(314, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +87,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(jPanel1);
@@ -97,11 +96,11 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 819, Short.MAX_VALUE)
+            .addGap(0, 632, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGap(0, 292, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -110,6 +109,11 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setBottomComponent(new ManageApplications(appSystem,useraccount,enterprise,organization));
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
