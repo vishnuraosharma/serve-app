@@ -4,7 +4,7 @@
  */
 package UserAccount;
 
-import Organization.ServiceManagement.Order;
+import Organization.ServiceManagement.ServiceOrder;
 import Person.Person;
 import WorkAreas.AbstractRole;
 
@@ -94,8 +94,6 @@ public class UserAccount {
         return String.valueOf(accountId);
     } 
 
-    public void addCustomerOrder(Order aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
     
 }

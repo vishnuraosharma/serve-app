@@ -53,6 +53,12 @@ public class ProductCatalog {
     public void setProductReport(ArrayList<ProductSummary> productReport) {
         this.productReport = productReport;
     }
+
+    public Product newProduct(String n, double p, String cat) {
+        Product prod = new Product(n, p, cat);
+        this.allProducts.add(prod); 
+        return prod;
+    }
     
     
 }

@@ -13,48 +13,45 @@ import java.util.ArrayList;
  */
 public class Service {
     private static int counter = 0;
-    String pID;
+    String sID;
     private String name;
-    private double price;
+    private int allottedTime;
     String category;
-    boolean prescriptionRequired;
+    String description;
     
-    ArrayList<OrderItem> orderitems;
+   ArrayList<ServiceOrder> renderedServices;
     
-    public Service(String n, double p, String category) {
-        pID = "pID" + counter++;
+    public Service(String n, int t, String category,String cat,String desc) {
+        sID = "sID" + counter++;
         name = n;
-        price = p;
-        this.prescriptionRequired = false;
-        orderitems = new ArrayList();
+        allottedTime= t;
+        this.category = cat;
+        this.description=desc;
     }
+   
     
-    public Service(String n, double p, String category, boolean perscribed) {
-        pID = "pID" + counter++;
-        name = n;
-        price = p;
-        this.category = category;
-        this.prescriptionRequired = perscribed;
-        orderitems = new ArrayList();
-    }
-    
-    public double productRevenue(){
-        double sum = 0;
-        for (OrderItem oi : orderitems){
-            sum += oi.getOrderItemRevenue();
+    public int serviceHoursRendered(){
+        int sum = 0;
+        for (ServiceOrder so : renderedServices){
+            sum += this.allottedTime;
         }
         return sum;
     }
     
-    public Service updateProduct(String newName, double newPrice) {
+    public ServiceOrder serviceOrdered(ServiceOrder so){
+        renderedServices.add(so);
+        return so;
+    }
+    
+    public Service updateService(String newName, int newTime) {
         this.name = newName;
-        this.price = newPrice;
+        this.allottedTime = newTime;
         return this; //returns itself
     }
     
-    public void addOrderItem(OrderItem oi){     
-        orderitems.add(oi);
-    }
+//    public void addOrderItem(OrderItem oi){     
+//        orderitems.add(oi);
+//    }
 
     public static int getCounter() {
         return counter;
@@ -64,21 +61,10 @@ public class Service {
         Service.counter = counter;
     }
 
-    public String getpID() {
-        return pID;
+    public String getsID() {
+        return sID;
     }
 
-    public void setpID(String pID) {
-        this.pID = pID;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     public String getCategory() {
         return category;
@@ -88,22 +74,31 @@ public class Service {
         this.category = category;
     }
 
-    public boolean isPrescriptionRequired() {
-        return prescriptionRequired;
+    public int getAllottedTime() {
+        return allottedTime;
     }
 
-    public void setPrescriptionRequired(boolean prescriptionRequired) {
-        this.prescriptionRequired = prescriptionRequired;
+    public void setAllottedTime(int estimatedTime) {
+        this.allottedTime = estimatedTime;
     }
 
-    public ArrayList<OrderItem> getOrderitems() {
-        return orderitems;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOrderitems(ArrayList<OrderItem> orderitems) {
-        this.orderitems = orderitems;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
+    public ArrayList<ServiceOrder> getRenderedServices() {
+        return renderedServices;
+    }
+
+    public void setRenderedServices(ArrayList<ServiceOrder> renderedServices) {
+        this.renderedServices = renderedServices;
+    }
+
+    
     public String getName() {
         return name;
     }
@@ -116,7 +111,7 @@ public class Service {
     
     @Override
     public String toString(){
-        return pID;
+        return sID;
     }
     
 

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author vraosharma
  */
-public class Order {
+public class ProductOrder {
     private static int counter = 0;
     String oID;
     String status;
@@ -23,15 +23,16 @@ public class Order {
     ProductOrganization store;
     UserAccount pharmacist;
     
-    public Order(UserAccount client) {
+    public ProductOrder(UserAccount client) {
         oID = "pID" + counter++;
         productsPurchased = new ArrayList();
         this.client = client;
-        client.addCustomerOrder(this); //we link the order to the customer
+        Client tiedClied = (Client) client.getPerson();
+        tiedClied.addClientProductOrder(this);
         status = "in process";
     }
     
-    public OrderItem addToCart(Product p, int qty, Order o){
+    public OrderItem addToCart(Product p, int qty, ProductOrder o){
         OrderItem oi = new OrderItem(p, qty, this);
         this.productsPurchased.add(oi);
         return oi;

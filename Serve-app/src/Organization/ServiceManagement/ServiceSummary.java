@@ -11,14 +11,14 @@ import Organization.ProductManagement.*;
  *
  * @author vraosharma
  */
-public class ProductSummary {
-    Service subjectproduct;
-    double productRevenue;
+public class ServiceSummary {
+    Service subjectService;
+    int totalHoursRendered;
     
-    public ProductSummary(Service p){
+    public ServiceSummary(Service s){
         
-        productRevenue = p.productRevenue();
-        subjectproduct = p; 
+        totalHoursRendered = s.serviceHoursRendered();
+        subjectService = s; 
     }
     
 }

@@ -79,6 +79,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
 
         jLabel3.setText("jLabel1");
 
+        backBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         backBtn.setText("LOGOUT");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,13 +87,15 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
 
-        productCatalogBtn.setText("My Products");
+        productCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productCatalogBtn.setText("My Services");
         productCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productCatalogBtnActionPerformed(evt);
             }
         });
 
+        productReportBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn.setText("My Reports");
         productReportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,25 +110,22 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel4)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(productCatalogBtn))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(backBtn)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel4)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(backBtn))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(productReportBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(productCatalogBtn))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(productReportBtn)))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +144,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(714, Short.MAX_VALUE))
+                .addContainerGap(712, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -159,7 +159,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 982, Short.MAX_VALUE)
+            .addGap(0, 983, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -179,9 +179,15 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.organization.getOrganizationType().equals("Hospital")){
             this.jSplitPane1.setRightComponent(new myServicesHospitalOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-        }else{
-            this.jSplitPane1.setRightComponent(new (appSystem, enterprise,organization,useraccount));
-        }        
+        }else this.jSplitPane1.setRightComponent(new myServicesHospitalOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+        
+//        }else if (this.organization.getOrganizationType().equals("Hospital")){
+//            this.jSplitPane1.setRightComponent(new myServicesLawOfficeOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+//        }else if (this.organization.getOrganizationType().equals("Hospital")){
+//            this.jSplitPane1.setRightComponent(new myServicesLawOfficeOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+//        }else if (this.organization.getOrganizationType().equals("Hospital")){
+//            this.jSplitPane1.setRightComponent(new myServicesLawOfficeOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+//        }        
     }//GEN-LAST:event_productCatalogBtnActionPerformed
 
     private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
