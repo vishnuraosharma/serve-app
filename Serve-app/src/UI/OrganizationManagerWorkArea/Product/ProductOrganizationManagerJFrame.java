@@ -78,6 +78,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
 
         jLabel3.setText("jLabel1");
 
+        backBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         backBtn.setText("LOGOUT");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +86,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
 
+        productCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productCatalogBtn.setText("My Products");
         productCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +94,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
 
+        productReportBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn.setText("My Reports");
         productReportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +127,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
                 .addComponent(productCatalogBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(productReportBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)

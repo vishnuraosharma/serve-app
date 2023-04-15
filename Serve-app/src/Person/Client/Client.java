@@ -4,7 +4,8 @@
  */
 package Person.Client;
 
-import Organization.ServiceManagement.Order;
+import Organization.ProductManagement.ProductOrder;
+import Organization.ServiceManagement.ServiceOrder;
 import Person.Person;
 import java.util.ArrayList;
 
@@ -15,15 +16,22 @@ import java.util.ArrayList;
 public class Client extends Person{
     String emergencyContactName;
     String emergencyContactNumber;
-    ArrayList<Order> orders;
+    ArrayList<ProductOrder> prodOrders;
+    ArrayList<ServiceOrder> servOrders;
+   
     
     public Client(){
         
     }
     
-    public Order addClientOrder(Order o){
-        this.orders.add(o);
+    public ProductOrder addClientProductOrder(ProductOrder o){
+        this.prodOrders.add(o);
         return o;
+    }
+    
+    public ServiceOrder addClientServiceOrder(ServiceOrder so){
+        this.servOrders.add(so);
+        return so;
     }
     
 }

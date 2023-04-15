@@ -11,20 +11,20 @@ import Organization.ProductManagement.*;
  *
  * @author vraosharma
  */
-public class OrderItem {
-    Service selectedProduct;
-    int quantity;
-    Order associatedOrder;
-    
-    public OrderItem(Service p, int q, Order o) {
-        selectedProduct = p;
-        p.addOrderItem(this); //make sure product links back to the item
-        quantity = q;
-        this.associatedOrder = o;
-    }
-    
-    public double getOrderItemRevenue(){
-        return this.selectedProduct.getPrice() * quantity;
-    }
-    
-}
+//public class OrderItem {
+//    Service selectedProduct;
+//    int quantity;
+//    ServiceOrder associatedOrder;
+//    
+//    public OrderItem(Service p, int q, ServiceOrder o) {
+//        selectedProduct = p;
+//        p.addOrderItem(this); //make sure product links back to the item
+//        quantity = q;
+//        this.associatedOrder = o;
+//    }
+//    
+//    public double getOrderItemRevenue(){
+//        return this.selectedProduct.getPrice() * quantity;
+//    }
+//    
+//}

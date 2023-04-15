@@ -12,9 +12,9 @@ package Organization.ProductManagement;
 public class OrderItem {
     Product selectedProduct;
     int quantity;
-    Order associatedOrder;
+    ProductOrder associatedOrder;
     
-    public OrderItem(Product p, int q, Order o) {
+    public OrderItem(Product p, int q, ProductOrder o) {
         selectedProduct = p;
         p.addOrderItem(this); //make sure product links back to the item
         quantity = q;

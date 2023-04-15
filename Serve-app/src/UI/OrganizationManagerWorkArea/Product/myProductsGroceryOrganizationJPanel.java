@@ -7,9 +7,13 @@ package UI.OrganizationManagerWorkArea.Product;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
-import Organization.ServiceManagement.ProductCatalog;
+import Organization.ProductManagement.Product;
+import Organization.ProductManagement.ProductCatalog;
 import Organization.ProductOrganization;
 import UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,7 +24,8 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
     private UserAccount useraccount;
     Enterprise enterprise;
     ProductOrganization organization;
-    ProductCatalog catalog = organization.getProductCatalog();
+    DefaultTableModel tModel;
+    Product currProduct;
     /**
      * Creates new form PharmacyOrganizationJPanel
      */
@@ -31,11 +36,73 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = (ProductOrganization) organization;
+        this.tModel = (DefaultTableModel) this.jTable1.getModel();
+        populateProducts();
+    }
+    
+    
+    
+    public boolean validatePA(){
+        boolean flag = true;
+        if(productName1.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Product Name can not be blank.",TOOL_TIP_TEXT_KEY, HEIGHT);
+            return false;
+        } 
+        try {
+                double price = Double.parseDouble(productPrice.getText());
+                if (price < 0) {
+                    return false;
+                }
+        }catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Product Price must be a valid price.",TOOL_TIP_TEXT_KEY, HEIGHT);
+                return false;
+            }
+        if(productCategory.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Product Name can not be blank.",TOOL_TIP_TEXT_KEY, HEIGHT);
+            return false;
+        } 
+        return true;
+    }
+    
+    public boolean validateMP(){
+        boolean flag = true;
+        if(productName4.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Product Name can not be blank.",TOOL_TIP_TEXT_KEY, HEIGHT);
+            return false;
+        } 
+        try {
+                double price = Double.parseDouble(productName5.getText());
+                if (price < 0) {
+                    return false;
+                }
+        }catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Product Price must be a valid price.",TOOL_TIP_TEXT_KEY, HEIGHT);
+                return false;
+            }
+        if(productName3.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Product Name can not be blank.",TOOL_TIP_TEXT_KEY, HEIGHT);
+            return false;
+        } 
+        return true;
     }
     
     public void populateProducts(){
-        if(this.catalog != null & this.catalog.
+        tModel.setRowCount(0);
+        ProductCatalog catalog = this.organization.getProductCatalog();
+        if(catalog != null & catalog.getAllProducts() != null){
+            for (Product p : catalog.getAllProducts()){
+                Object[] row = new Object[5];
+                row[0] = p;
+                row[1] = p.getName();
+                row[2] = String.format("$%.2f",p.getPrice());
+                row[3] = p.getCategory();
+                row[4] = p.isPrescriptionRequired();
+                tModel.addRow(row);
+            }
+        }
     }
+    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,186 +113,194 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        productName = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        productName1 = new javax.swing.JTextField();
-        productName2 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        productName3 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel8 = new javax.swing.JLabel();
-        addBtn = new javax.swing.JButton();
-        productName3 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         productName4 = new javax.swing.JTextField();
         productName5 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        addBtn1 = new javax.swing.JButton();
-        addBtn2 = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
+        updateBtn1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        addBtn = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        productName1 = new javax.swing.JTextField();
+        productPrice = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        productCategory = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        productName.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
-        productName.addActionListener(new java.awt.event.ActionListener() {
+        productName3.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
+        productName3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productNameActionPerformed(evt);
+                productName3ActionPerformed(evt);
             }
         });
-        add(productName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 110, -1));
-
-        jLabel9.setFont(new java.awt.Font("Krub", 1, 36)); // NOI18N
-        jLabel9.setText("Product Addition");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
-        jLabel10.setText("Product Name");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
-        jLabel11.setText("Product Price");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
-
-        productName1.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
-        productName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productName1ActionPerformed(evt);
-            }
-        });
-        add(productName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 110, -1));
-
-        productName2.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
-        productName2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productName2ActionPerformed(evt);
-            }
-        });
-        add(productName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 110, -1));
-
-        jLabel6.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
-        jLabel6.setText("Product Category");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+        add(productName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 610, 110, -1));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jTable1.setFont(new java.awt.Font("Impact", 0, 13)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("My Products");
+
+        jTable1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Product ID", "Product Name", "Product Price", "Product Category", "Prescription Required?"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
-
-        jLabel8.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("My Products");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 810, 740));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 750, 850));
 
-        addBtn.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
-        addBtn.setText("Add Product");
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, -1, -1));
-
-        productName3.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
-        productName3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productName3ActionPerformed(evt);
-            }
-        });
-        add(productName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 710, 110, -1));
-
-        jLabel12.setFont(new java.awt.Font("Krub", 1, 36)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
         jLabel12.setText("Manage Products");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, -1, -1));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 460, -1, 40));
 
-        jLabel13.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel13.setText("Product Name");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, -1, -1));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, -1, 30));
 
-        jLabel14.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel14.setText("Product Price");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 640, -1, -1));
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 560, -1, 30));
 
-        productName4.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
+        productName4.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productName4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productName4ActionPerformed(evt);
             }
         });
-        add(productName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, 110, -1));
+        add(productName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 510, 110, -1));
 
-        productName5.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
+        productName5.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productName5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productName5ActionPerformed(evt);
             }
         });
-        add(productName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, 110, -1));
+        add(productName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 560, 110, -1));
 
-        jLabel15.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel15.setText("Product Category");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 710, -1, -1));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 610, -1, 30));
 
-        addBtn1.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
-        addBtn1.setText("Update Details");
-        add(addBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 850, -1, -1));
+        updateBtn.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
+        updateBtn.setText("Update Details");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+        add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 680, -1, -1));
 
-        addBtn2.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
-        addBtn2.setText("Delete Product");
-        add(addBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 900, -1, -1));
+        updateBtn1.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
+        updateBtn1.setText("Delete Product");
+        updateBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtn1ActionPerformed(evt);
+            }
+        });
+        add(updateBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 720, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
+        jLabel9.setText("Product Addition");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, -1, -1));
+
+        addBtn.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
+        addBtn.setText("Add Product");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 260, 131, -1));
+
+        jLabel10.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
+        jLabel10.setText("Product Name");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, 30));
+
+        jLabel11.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
+        jLabel11.setText("Product Price");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 160, -1, 30));
+
+        productName1.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
+        productName1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productName1ActionPerformed(evt);
+            }
+        });
+        add(productName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 110, 110, -1));
+
+        productPrice.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
+        productPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productPriceActionPerformed(evt);
+            }
+        });
+        add(productPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 160, 110, -1));
+
+        jLabel6.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
+        jLabel6.setText("Product Category");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, -1, 30));
+
+        productCategory.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
+        productCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productCategoryActionPerformed(evt);
+            }
+        });
+        add(productCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 210, 110, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void productNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productNameActionPerformed
-
-    private void productName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productName1ActionPerformed
-
-    private void productName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productName2ActionPerformed
 
     private void productName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName3ActionPerformed
         // TODO add your handling code here:
@@ -239,11 +314,66 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_productName5ActionPerformed
 
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        // TODO add your handling code here:
+        int selRow = jTable1.getSelectedRow();
+        
+        if(selRow >= 0){
+            if(validateMP()){
+                currProduct.setName(productName4.getText());
+                currProduct.setPrice(Double.parseDouble(productName5.getText()));
+                currProduct.setCategory(productName3.getText());
+                populateProducts();
+            JOptionPane.showMessageDialog(null, "The product has been updated!");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a product to update.");
+        }
+        
+    }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int selRow = jTable1.getSelectedRow();
+        this.currProduct = (Product) tModel.getValueAt(selRow, 0);
+        productName4.setText(currProduct.getName());
+        productName5.setText(String.valueOf(currProduct.getPrice()));
+        productName3.setText(currProduct.getCategory());
+        
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void productName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productName1ActionPerformed
+
+    private void productPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productPriceActionPerformed
+
+    private void productCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productCategoryActionPerformed
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        // TODO add your handling code here:
+        if (validatePA()){
+            this.organization.getProductCatalog().newProduct(productName1.getText(), Double.parseDouble(productPrice.getText()), productCategory.getText());
+            JOptionPane.showMessageDialog(null, "Your product has been added!");
+        }
+        populateProducts();
+    }//GEN-LAST:event_addBtnActionPerformed
+
+    private void updateBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtn1ActionPerformed
+        // TODO add your handling code here:
+        ProductCatalog catalog = this.organization.getProductCatalog();
+        Product removedProd = catalog.removeProduct(currProduct);
+        populateProducts();
+        JOptionPane.showMessageDialog(null, removedProd.toString() +" has been removed.");
+    }//GEN-LAST:event_updateBtn1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
-    private javax.swing.JButton addBtn1;
-    private javax.swing.JButton addBtn2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -256,11 +386,13 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField productName;
+    private javax.swing.JTextField productCategory;
     private javax.swing.JTextField productName1;
-    private javax.swing.JTextField productName2;
     private javax.swing.JTextField productName3;
     private javax.swing.JTextField productName4;
     private javax.swing.JTextField productName5;
+    private javax.swing.JTextField productPrice;
+    private javax.swing.JButton updateBtn;
+    private javax.swing.JButton updateBtn1;
     // End of variables declaration//GEN-END:variables
 }

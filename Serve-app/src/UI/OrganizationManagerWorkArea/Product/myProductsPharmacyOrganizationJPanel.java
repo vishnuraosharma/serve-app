@@ -148,7 +148,7 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 productName3ActionPerformed(evt);
             }
         });
-        add(productName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 670, 110, 40));
+        add(productName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 610, 110, -1));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -208,19 +208,19 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel7.setText("Perscription?");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 740, -1, 30));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 670, -1, 30));
 
         jLabel12.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
         jLabel12.setText("Manage Products");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 480, -1, 40));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 460, -1, 40));
 
         jLabel13.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel13.setText("Product Name");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 530, -1, 30));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, -1, 30));
 
         jLabel14.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel14.setText("Product Price");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 600, -1, 30));
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 560, -1, 30));
 
         productName4.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productName4.addActionListener(new java.awt.event.ActionListener() {
@@ -228,7 +228,7 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 productName4ActionPerformed(evt);
             }
         });
-        add(productName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 530, 110, 40));
+        add(productName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 510, 110, -1));
 
         productName5.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productName5.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +236,7 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 productName5ActionPerformed(evt);
             }
         });
-        add(productName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 600, 110, 40));
+        add(productName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 560, 110, -1));
 
         jToggleButton2.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jToggleButton2.setText("NO");
@@ -245,11 +245,11 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 jToggleButton2ActionPerformed(evt);
             }
         });
-        add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 740, 80, -1));
+        add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 670, 80, -1));
 
         jLabel15.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel15.setText("Product Category");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 670, -1, 30));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 610, -1, 30));
 
         updateBtn.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         updateBtn.setText("Update Details");
@@ -258,7 +258,7 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 updateBtnActionPerformed(evt);
             }
         });
-        add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 790, -1, -1));
+        add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 730, -1, -1));
 
         updateBtn1.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         updateBtn1.setText("Delete Product");
@@ -267,11 +267,11 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 updateBtn1ActionPerformed(evt);
             }
         });
-        add(updateBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 830, -1, -1));
+        add(updateBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 770, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
         jLabel9.setText("Product Addition");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 80, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, -1, -1));
 
         addBtn.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         addBtn.setText("Add Product");
@@ -280,15 +280,15 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 addBtnActionPerformed(evt);
             }
         });
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 390, 131, -1));
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 320, 131, -1));
 
         jLabel10.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel10.setText("Product Name");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 120, -1, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, 30));
 
         jLabel11.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel11.setText("Product Price");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 190, -1, 30));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 160, -1, 30));
 
         productName1.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productName1.addActionListener(new java.awt.event.ActionListener() {
@@ -296,7 +296,7 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 productName1ActionPerformed(evt);
             }
         });
-        add(productName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 120, 110, 40));
+        add(productName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 110, 110, -1));
 
         productPrice.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productPrice.addActionListener(new java.awt.event.ActionListener() {
@@ -304,7 +304,7 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 productPriceActionPerformed(evt);
             }
         });
-        add(productPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 190, 110, 40));
+        add(productPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 160, 110, -1));
 
         jToggleButton1.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jToggleButton1.setText("NO");
@@ -313,11 +313,11 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 330, 80, -1));
+        add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 260, 80, -1));
 
         jLabel6.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel6.setText("Product Category");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 260, -1, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, -1, 30));
 
         productCategory.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -325,11 +325,11 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
                 productCategoryActionPerformed(evt);
             }
         });
-        add(productCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, 110, 40));
+        add(productCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 210, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel5.setText("Perscription?");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, -1, 30));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 260, -1, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void productName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName3ActionPerformed
