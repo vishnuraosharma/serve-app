@@ -4,10 +4,16 @@
  */
 package Organization.ProductManagement;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author vishnu rao-sharma
+ * @author vraosharma
  */
-public class ProductReport {
+public class MasterOrderReport {
+    ArrayList<OrderSummary> ordersummarylist;
     
+    public MasterOrderReport(){       
+        ordersummarylist = new ArrayList();
+    }
 }
