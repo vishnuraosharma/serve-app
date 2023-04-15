@@ -4,9 +4,8 @@
  */
 package Organization;
 
-import Organization.ProductManagement.ProductReport;
-import Organization.ProductManagement.ProductCatalog;
 import Enterprise.Enterprise;
+import Organization.ProductManagement.ProductCatalog;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
 
@@ -16,13 +15,13 @@ import UserAccount.UserAccountDirectory;
  */
 public class ProductOrganization extends Organization {
     ProductCatalog productCatalog;
-    ProductReport productreport;
     OrderDirectory orderDirectory;
     
     
     public ProductOrganization(String name, Enterprise e, String type) {
         super(name, e);
         super.type = type;
+        productCatalog = new ProductCatalog();
     }
 
     public ProductCatalog getProductCatalog() {
@@ -33,14 +32,7 @@ public class ProductOrganization extends Organization {
         this.productCatalog = productCatalog;
     }
 
-    public ProductReport getProductreport() {
-        return productreport;
-    }
-
-    public void setProductreport(ProductReport productreport) {
-        this.productreport = productreport;
-    }
-
+    
     public OrderDirectory getOrderDirectory() {
         return orderDirectory;
     }

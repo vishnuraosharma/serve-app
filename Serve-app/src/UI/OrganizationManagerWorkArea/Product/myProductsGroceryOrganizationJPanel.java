@@ -7,6 +7,7 @@ package UI.OrganizationManagerWorkArea.Product;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import Organization.ServiceManagement.ProductCatalog;
 import Organization.ProductOrganization;
 import UserAccount.UserAccount;
 
@@ -19,6 +20,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
     private UserAccount useraccount;
     Enterprise enterprise;
     ProductOrganization organization;
+    ProductCatalog catalog = organization.getProductCatalog();
     /**
      * Creates new form PharmacyOrganizationJPanel
      */
@@ -29,17 +31,12 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = (ProductOrganization) organization;
-        test();
-        
     }
-
-    public void test(){
-        jLabel1.setText(String.valueOf(this.useraccount.getUserName()));
-        jLabel2.setText(String.valueOf(this.enterprise.getName()));
-        jLabel3.setText(String.valueOf(this.organization.getName()));
-        jLabel4.setText(String.valueOf(this.organization.getClass()));
-        
+    
+    public void populateProducts(){
+        if(this.catalog != null & this.catalog.
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,56 +46,221 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        productName = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        productName1 = new javax.swing.JTextField();
+        productName2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        addBtn = new javax.swing.JButton();
+        productName3 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        productName4 = new javax.swing.JTextField();
+        productName5 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        addBtn1 = new javax.swing.JButton();
+        addBtn2 = new javax.swing.JButton();
 
-        jLabel4.setText("jLabel1");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("jLabel1");
+        productName.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
+        productName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productNameActionPerformed(evt);
+            }
+        });
+        add(productName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 110, -1));
 
-        jLabel2.setText("jLabel1");
+        jLabel9.setFont(new java.awt.Font("Krub", 1, 36)); // NOI18N
+        jLabel9.setText("Product Addition");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
-        jLabel3.setText("jLabel1");
+        jLabel10.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        jLabel10.setText("Product Name");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(179, 179, 179)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel4))
-                    .addContainerGap(179, Short.MAX_VALUE)))
+        jLabel11.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        jLabel11.setText("Product Price");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+
+        productName1.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
+        productName1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productName1ActionPerformed(evt);
+            }
+        });
+        add(productName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 110, -1));
+
+        productName2.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
+        productName2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productName2ActionPerformed(evt);
+            }
+        });
+        add(productName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 110, -1));
+
+        jLabel6.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        jLabel6.setText("Product Category");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+
+        jTable1.setFont(new java.awt.Font("Impact", 0, 13)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabel8.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("My Products");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(88, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(78, 78, 78)
-                    .addComponent(jLabel2)
-                    .addGap(29, 29, 29)
-                    .addComponent(jLabel1)
-                    .addGap(29, 29, 29)
-                    .addComponent(jLabel3)
-                    .addGap(18, 18, 18)
-                    .addComponent(jLabel4)
-                    .addContainerGap(78, Short.MAX_VALUE)))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
         );
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 810, 740));
+
+        addBtn.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        addBtn.setText("Add Product");
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, -1, -1));
+
+        productName3.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
+        productName3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productName3ActionPerformed(evt);
+            }
+        });
+        add(productName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 710, 110, -1));
+
+        jLabel12.setFont(new java.awt.Font("Krub", 1, 36)); // NOI18N
+        jLabel12.setText("Manage Products");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 500, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        jLabel13.setText("Product Name");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        jLabel14.setText("Product Price");
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 640, -1, -1));
+
+        productName4.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
+        productName4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productName4ActionPerformed(evt);
+            }
+        });
+        add(productName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 570, 110, -1));
+
+        productName5.setFont(new java.awt.Font("KoHo", 0, 18)); // NOI18N
+        productName5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productName5ActionPerformed(evt);
+            }
+        });
+        add(productName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 640, 110, -1));
+
+        jLabel15.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        jLabel15.setText("Product Category");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 710, -1, -1));
+
+        addBtn1.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        addBtn1.setText("Update Details");
+        add(addBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 850, -1, -1));
+
+        addBtn2.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
+        addBtn2.setText("Delete Product");
+        add(addBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 900, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void productNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productNameActionPerformed
+
+    private void productName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productName1ActionPerformed
+
+    private void productName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productName2ActionPerformed
+
+    private void productName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productName3ActionPerformed
+
+    private void productName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productName4ActionPerformed
+
+    private void productName5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productName5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton addBtn;
+    private javax.swing.JButton addBtn1;
+    private javax.swing.JButton addBtn2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField productName;
+    private javax.swing.JTextField productName1;
+    private javax.swing.JTextField productName2;
+    private javax.swing.JTextField productName3;
+    private javax.swing.JTextField productName4;
+    private javax.swing.JTextField productName5;
     // End of variables declaration//GEN-END:variables
 }

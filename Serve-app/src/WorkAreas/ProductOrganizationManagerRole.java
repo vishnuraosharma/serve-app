@@ -23,9 +23,7 @@ public class ProductOrganizationManagerRole extends AbstractRole {
         roleType = "Organization Manager";
     }      
 
-    public JFrame createWorkArea(Network applicationSystem, Enterprise enterprise, ProductOrganization organization,UserAccount useraccount) {
-        return new ProductOrganizationManagerJFrame(applicationSystem, enterprise, organization,useraccount);
-    }
+   
     
     @Override
     public String toString() {

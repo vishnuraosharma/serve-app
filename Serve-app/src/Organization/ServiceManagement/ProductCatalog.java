@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Organization.ProductManagement;
+package Organization.ServiceManagement;
 
+import Organization.ProductManagement.*;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * @author vishnu rao-sharma
  */
 public class ProductCatalog {
-    ArrayList<Product> allProducts;
+    ArrayList<Service> allProducts;
     ArrayList<ProductSummary> productReport;
     
     public ProductCatalog(){
@@ -19,30 +20,30 @@ public class ProductCatalog {
         
     }
     
-    public Product newPharmacyProduct(String n, double p, String category, boolean perscribed){
-        Product prod = new Product(n, p, category, perscribed);
+    public Service newPharmacyProduct(String n, double p, String category, boolean perscribed){
+        Service prod = new Service(n, p, category, perscribed);
         this.allProducts.add(prod); 
         return prod;
     }
     
-    public Product removeProduct(Product p){
+    public Service removeProduct(Service p){
         this.allProducts.remove(p);
         return p;
     }
     
     public ArrayList<ProductSummary> generateProductReport(){
-        for (Product p : allProducts){
+        for (Service p : allProducts){
             ProductSummary ps = new ProductSummary(p);
             productReport.add(ps);
         }
         return this.productReport;
     }
 
-    public ArrayList<Product> getAllProducts() {
+    public ArrayList<Service> getAllProducts() {
         return allProducts;
     }
 
-    public void setAllProducts(ArrayList<Product> allProducts) {
+    public void setAllProducts(ArrayList<Service> allProducts) {
         this.allProducts = allProducts;
     }
 
