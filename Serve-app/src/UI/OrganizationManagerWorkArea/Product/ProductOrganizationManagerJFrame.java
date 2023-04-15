@@ -7,12 +7,13 @@ package UI.OrganizationManagerWorkArea.Product;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import Organization.ProductOrganization;
 import UI.MainJFrame;
 import UserAccount.UserAccount;
 
 /**
  *
- * @author siqiyang
+ * @author vraosharma
  */
 public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
     private Network appSystem;
@@ -25,11 +26,6 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
     public ProductOrganizationManagerJFrame() {
         initComponents();
         this.setVisible(true);
-        this.appSystem = appSystem;
-        this.useraccount = useraccount;
-        this.enterprise = enterprise;
-        this.organization = organization;
-        
     }
     
     public ProductOrganizationManagerJFrame(Network appSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
@@ -82,6 +78,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
 
         jLabel3.setText("jLabel1");
 
+        backBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         backBtn.setText("LOGOUT");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +86,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
 
+        productCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productCatalogBtn.setText("My Products");
         productCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +94,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
 
+        productReportBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn.setText("My Reports");
         productReportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,38 +107,27 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel4)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(productCatalogBtn))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(backBtn)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(productReportBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4)
+                    .addComponent(productCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backBtn)
+                    .addComponent(productReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(backBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(54, 54, 54)
                 .addComponent(productCatalogBtn)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(productReportBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
@@ -147,7 +135,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(331, 331, 331))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -158,11 +146,11 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGap(0, 1347, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 983, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -180,6 +168,11 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
 
     private void productCatalogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productCatalogBtnActionPerformed
         // TODO add your handling code here:
+        if(this.organization.getOrganizationType().equals("Pharmacy")){
+            this.jSplitPane1.setRightComponent(new myProductsPharmacyOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+        }else{
+            this.jSplitPane1.setRightComponent(new myProductsGroceryOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+        }        
     }//GEN-LAST:event_productCatalogBtnActionPerformed
 
     private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
@@ -211,6 +204,12 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ProductOrganizationManagerJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

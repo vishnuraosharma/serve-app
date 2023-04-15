@@ -2,19 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Organization;
+package Organization.ProductManagement;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author khatna
+ * @author vraosharma
  */
-public class ServiceCatalog {
-    ArrayList<Service> servicesList;
+public class MasterOrderReport {
+    ArrayList<OrderSummary> ordersummarylist;
     
-    public ServiceCatalog(){
-        this.servicesList = new ArrayList();
+    public MasterOrderReport(){       
+        ordersummarylist = new ArrayList();
     }
-   
 }

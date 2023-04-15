@@ -14,8 +14,8 @@ import javax.swing.JFrame;
  *
  * @author siqiyang
  */
-public class RecipientRole extends AbstractRole{
-    public RecipientRole(){
+public class ClientRole extends AbstractRole{
+    public ClientRole(){
         super.roleType = "Recipient";
     }      
 
