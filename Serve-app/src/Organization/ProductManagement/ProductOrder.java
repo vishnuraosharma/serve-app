@@ -19,16 +19,15 @@ public class ProductOrder {
     String oID;
     String status;
     ArrayList<OrderItem> productsPurchased;
-    UserAccount client;
+    Client client;
     ProductOrganization store;
     UserAccount pharmacist;
     
-    public ProductOrder(UserAccount client) {
-        oID = "pID" + counter++;
+    public ProductOrder(Client client) {
+        oID = "oID" + counter++;
         productsPurchased = new ArrayList();
         this.client = client;
-        Client tiedClied = (Client) client.getPerson();
-        tiedClied.addClientProductOrder(this);
+        this.client.addClientProductOrder(this);
         status = "in process";
     }
     
@@ -75,14 +74,15 @@ public class ProductOrder {
         this.productsPurchased = productsPurchased;
     }
 
-    public UserAccount getClient() {
+    public Client getClient() {
         return client;
     }
 
-    public void setClient(UserAccount client) {
+    public void setClient(Client client) {
         this.client = client;
     }
 
+    
     public ProductOrganization getStore() {
         return store;
     }

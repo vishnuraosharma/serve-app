@@ -20,6 +20,11 @@ public class OrderItem {
         quantity = q;
         this.associatedOrder = o;
     }
+
+    public OrderItem(Product p, int qty) {
+        selectedProduct = p;
+        quantity = qty;
+    }
     
     public double getOrderItemRevenue(){
         return this.selectedProduct.getPrice() * quantity;

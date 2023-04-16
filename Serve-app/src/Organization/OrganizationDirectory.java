@@ -57,6 +57,15 @@ public class OrganizationDirectory {
         return null;  
     }
     
+    public Organization findOrganizationbyType(String type){
+        for (Organization o: this.getOrganizationList()){
+            if (o.getOrganizationType().equals(type)){
+                return o;
+            }
+        }
+        return null;  
+    }
+    
     public void deleteOrganization(Organization o){
         organizationList.remove(o);
     }

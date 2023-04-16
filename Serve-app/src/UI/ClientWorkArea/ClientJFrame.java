@@ -65,6 +65,8 @@ public class ClientJFrame extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         productCatalogBtn = new javax.swing.JButton();
         productReportBtn = new javax.swing.JButton();
+        productReportBtn1 = new javax.swing.JButton();
+        productReportBtn2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,7 +90,7 @@ public class ClientJFrame extends javax.swing.JFrame {
         });
 
         productCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        productCatalogBtn.setText("My Products");
+        productCatalogBtn.setText("Convenience");
         productCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productCatalogBtnActionPerformed(evt);
@@ -96,10 +98,26 @@ public class ClientJFrame extends javax.swing.JFrame {
         });
 
         productReportBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        productReportBtn.setText("My Reports");
+        productReportBtn.setText("Legal");
         productReportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productReportBtnActionPerformed(evt);
+            }
+        });
+
+        productReportBtn1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productReportBtn1.setText("Health");
+        productReportBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productReportBtn1ActionPerformed(evt);
+            }
+        });
+
+        productReportBtn2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productReportBtn2.setText("Connection");
+        productReportBtn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productReportBtn2ActionPerformed(evt);
             }
         });
 
@@ -108,32 +126,45 @@ public class ClientJFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(productCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(backBtn)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(productReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(backBtn))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(productReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(productCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(productReportBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(productReportBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(16, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(backBtn)
-                .addGap(60, 60, 60)
+                .addGap(62, 62, 62)
                 .addComponent(productCatalogBtn)
-                .addGap(18, 18, 18)
+                .addGap(74, 74, 74)
                 .addComponent(productReportBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 340, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(productReportBtn2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
@@ -142,6 +173,11 @@ public class ClientJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(331, 331, 331))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(154, 154, 154)
+                    .addComponent(productReportBtn1)
+                    .addContainerGap(805, Short.MAX_VALUE)))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -182,6 +218,14 @@ public class ClientJFrame extends javax.swing.JFrame {
     private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_productReportBtnActionPerformed
+
+    private void productReportBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productReportBtn1ActionPerformed
+
+    private void productReportBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productReportBtn2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,5 +288,7 @@ public class ClientJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton productCatalogBtn;
     private javax.swing.JButton productReportBtn;
+    private javax.swing.JButton productReportBtn1;
+    private javax.swing.JButton productReportBtn2;
     // End of variables declaration//GEN-END:variables
 }

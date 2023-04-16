@@ -36,7 +36,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = (ProductOrganization) organization;
-        this.tModel = (DefaultTableModel) this.jTable1.getModel();
+        this.tModel = (DefaultTableModel) this.jTable2.getModel();
         populateProducts();
     }
     
@@ -117,7 +117,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable2 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -152,29 +152,29 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("My Products");
 
-        jTable1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Product ID", "Product Name", "Product Price", "Product Category", "Prescription Required?"
+                "Product ID", "Product Name", "Product Price", "Product Category"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jTable2MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTable2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -316,7 +316,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
         // TODO add your handling code here:
-        int selRow = jTable1.getSelectedRow();
+        int selRow = jTable2.getSelectedRow();
         
         if(selRow >= 0){
             if(validateMP()){
@@ -332,15 +332,15 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_updateBtnActionPerformed
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
-        int selRow = jTable1.getSelectedRow();
+        int selRow = jTable2.getSelectedRow();
         this.currProduct = (Product) tModel.getValueAt(selRow, 0);
         productName4.setText(currProduct.getName());
         productName5.setText(String.valueOf(currProduct.getPrice()));
         productName3.setText(currProduct.getCategory());
         
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_jTable2MouseClicked
 
     private void productName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName1ActionPerformed
         // TODO add your handling code here:
@@ -385,7 +385,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField productCategory;
     private javax.swing.JTextField productName1;
     private javax.swing.JTextField productName3;
