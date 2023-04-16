@@ -40,11 +40,8 @@ public class PersonDirectory {
         return c;
     }
     
-    public Person createPerson(String id, String name) {
-        Person p = new Person();
-        p.setId(id);
-        p.setName(name);
-      
+    public Person createPerson(String name) {
+        Person p = new Person(name);
         this.personList.add(p);
         return p;
     }
