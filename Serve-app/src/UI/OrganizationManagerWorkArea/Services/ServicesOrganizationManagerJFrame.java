@@ -9,6 +9,7 @@ import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
 import Organization.ProductOrganization;
+import Organization.ServicesOrganization;
 import UI.MainJFrame;
 import UserAccount.UserAccount;
 
@@ -20,7 +21,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
     private Network appSystem;
     private UserAccount useraccount;
     Enterprise enterprise;
-    Organization organization;
+    ServicesOrganization organization;
     /**
      * Creates new form OrganizationManagerJFrame
      */
@@ -35,10 +36,17 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         this.appSystem = appSystem;
         this.useraccount = useraccount;
         this.enterprise = enterprise;
-        this.organization = organization;
+        this.organization = (ServicesOrganization) organization;
+        test();
+    }
+    
+    public void test(){
+        jLabel1.setText(String.valueOf(this.useraccount.getUserName()));
+        jLabel2.setText(String.valueOf(this.enterprise.getName()));
+        jLabel3.setText(String.valueOf(this.organization.getName()));
+        jLabel4.setText(String.valueOf(this.organization.getClass()));
         
     }
-  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,6 +66,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         productCatalogBtn = new javax.swing.JButton();
         productReportBtn = new javax.swing.JButton();
+        productReportBtn1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,12 +75,6 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
 
         jLabel4.setText("jLabel1");
 
-<<<<<<< HEAD
-        jButton2.setText("Manage Applications");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-=======
         jLabel1.setText("jLabel1");
 
         jLabel2.setText("jLabel1");
@@ -87,7 +90,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         });
 
         productCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        productCatalogBtn.setText("My Services");
+        productCatalogBtn.setText("My Products");
         productCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productCatalogBtnActionPerformed(evt);
@@ -99,7 +102,14 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         productReportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productReportBtnActionPerformed(evt);
->>>>>>> origin
+            }
+        });
+
+        productReportBtn1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productReportBtn1.setText("Create Application");
+        productReportBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productReportBtn1ActionPerformed(evt);
             }
         });
 
@@ -108,58 +118,43 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-<<<<<<< HEAD
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(275, 275, 275)
-                .addComponent(jButton2)
-                .addContainerGap(109, Short.MAX_VALUE))
-=======
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(backBtn))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(productCatalogBtn))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(productReportBtn)))
-                .addContainerGap(10, Short.MAX_VALUE))
->>>>>>> origin
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4)
+                    .addComponent(backBtn))
+                .addContainerGap(64, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(productCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(productReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(productReportBtn1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(backBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(54, 54, 54)
                 .addComponent(productCatalogBtn)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(productReportBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(productReportBtn1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(29, 29, 29)
-<<<<<<< HEAD
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-=======
                 .addComponent(jLabel1)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(712, Short.MAX_VALUE))
->>>>>>> origin
+                .addGap(331, 331, 331))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -170,19 +165,11 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addGap(0, 632, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 292, Short.MAX_VALUE)
-=======
-            .addGap(0, 1391, Short.MAX_VALUE)
+            .addGap(0, 1347, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 983, Short.MAX_VALUE)
->>>>>>> origin
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -192,11 +179,6 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setBottomComponent(new ManageApplications(appSystem,useraccount,enterprise,organization));
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -205,23 +187,22 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
 
     private void productCatalogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productCatalogBtnActionPerformed
         // TODO add your handling code here:
-        if(this.organization.getOrganizationType().equals("Hospital")){
-            this.jSplitPane1.setRightComponent(new myServicesHospitalOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-        }else this.jSplitPane1.setRightComponent(new myServicesHospitalOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-        
-//        }else if (this.organization.getOrganizationType().equals("Hospital")){
-//            this.jSplitPane1.setRightComponent(new myServicesLawOfficeOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-//        }else if (this.organization.getOrganizationType().equals("Hospital")){
-//            this.jSplitPane1.setRightComponent(new myServicesLawOfficeOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-//        }else if (this.organization.getOrganizationType().equals("Hospital")){
-//            this.jSplitPane1.setRightComponent(new myServicesLawOfficeOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-//        }        
+        if(this.organization.getOrganizationType().equals("Pharmacy")){
+            this.jSplitPane1.setRightComponent(new myProductsPharmacyOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+        }else{
+            this.jSplitPane1.setRightComponent(new myProductsGroceryOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+        }        
     }//GEN-LAST:event_productCatalogBtnActionPerformed
 
     private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_productReportBtnActionPerformed
 
+    private void productReportBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn1ActionPerformed
+        // TODO add your handling code here:
+        this.jSplitPane1.setRightComponent(new ManageApplications(appSystem, enterprise,organization,useraccount));
+        
+    }//GEN-LAST:event_productReportBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,11 +261,43 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new ProductOrganizationManagerJFrame().setVisible(true);
+                //new ServicesOrganizationManagerJFrame().setVisible(true);
             }
         });
     }
@@ -300,5 +313,6 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton productCatalogBtn;
     private javax.swing.JButton productReportBtn;
+    private javax.swing.JButton productReportBtn1;
     // End of variables declaration//GEN-END:variables
 }

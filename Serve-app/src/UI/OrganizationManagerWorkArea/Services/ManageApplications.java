@@ -9,6 +9,7 @@ import Applicant.Application;
 import Applicant.ApplicationDirectory;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import Organization.ServicesOrganization;
 import Person.Person;
 import Person.PersonDirectory;
 import Requests.ApplicationRequest;
@@ -30,6 +31,14 @@ public class ManageApplications extends javax.swing.JPanel {
     Enterprise enterprise;
     Organization organization;
      public ManageApplications( Network appSystem,UserAccount useraccount, Enterprise enterprise, Organization organization) {
+        initComponents();
+        this.appSystem = appSystem;
+        this.useraccount = useraccount;
+        this.enterprise = enterprise;
+        this.organization = organization;
+    }
+
+    public ManageApplications(Network appSystem, Enterprise enterprise, ServicesOrganization organization, UserAccount useraccount) {
         initComponents();
         this.appSystem = appSystem;
         this.useraccount = useraccount;

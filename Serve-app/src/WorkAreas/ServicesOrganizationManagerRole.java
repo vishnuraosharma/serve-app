@@ -10,6 +10,7 @@ import Organization.Organization;
 import UI.EnterpriseManagerWorkArea.EnterpriseManagerJFrame;
 import UI.OrganizationManagerWorkArea.Product.ProductOrganizationManagerJFrame;
 import UI.OrganizationManagerWorkArea.Services.ServicesOrganizationManagerJFrame;
+import UI.OrganizationManagerWorkArea.Services.ServicesOrganizationManagerJFrame;
 import UserAccount.UserAccount;
 import javax.swing.JFrame;
 
