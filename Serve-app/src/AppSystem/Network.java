@@ -79,12 +79,12 @@ public class Network {
         Organization o7 = convenience.getOrganizationDirectory().createOrganization("ConvenienceVolOrganization", convenience);
         
         //comment out to remove fake data
-        faker(o1,o2,o3,o4,o5,o6);
+        adminFakers(o1,o2,o3,o4,o5,o6);
         
         return app;
     }
 
-    public static void faker(Organization o1, Organization o2,Organization o3,Organization o4,Organization o5,Organization o6){
+    public static void adminFakers(Organization o1, Organization o2,Organization o3,Organization o4,Organization o5,Organization o6){
         UserAccount convUA = o2.getOrganizationAccountDirectory().createUserAccount("conv", "conv", new EnterpriseManagerRole());
         Person convP = personDirectory.createPerson( convUA.getAccountId(), "Connie Venience");
         convUA.setPerson(convP);

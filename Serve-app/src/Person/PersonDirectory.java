@@ -4,6 +4,7 @@
  */
 package Person;
 
+import Person.Client.Client;
 import java.util.ArrayList;
 
 /**
@@ -30,7 +31,14 @@ public class PersonDirectory {
         this.personList = personList;
     }
     
+    public Person createClient(String id, String name) {
+        Client c = new Client();
+        c.setId(id);
+        c.setName(name);
       
+        this.personList.add(c);
+        return c;
+    }
     
     public Person createPerson(String id, String name) {
         Person p = new Person();
