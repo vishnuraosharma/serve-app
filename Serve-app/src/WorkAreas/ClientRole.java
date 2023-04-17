@@ -7,6 +7,7 @@ package WorkAreas;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import UI.ClientWorkArea.ClientJFrame;
 import UserAccount.UserAccount;
 import javax.swing.JFrame;
 
@@ -22,7 +23,7 @@ public class ClientRole extends AbstractRole{
     
     @Override
     public JFrame createWorkArea(Network applicationSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
-        return new RecipientJFrame(applicationSystem, enterprise, organization,useraccount);
+        return new ClientJFrame(applicationSystem, enterprise, organization,useraccount);
     }
     
     @Override

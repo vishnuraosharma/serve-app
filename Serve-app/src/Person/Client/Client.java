@@ -21,7 +21,10 @@ public class Client extends Person{
    
     
     public Client(){
-        
+        emergencyContactName = "Mom";
+        emergencyContactNumber = "8457418165";
+        prodOrders = new  ArrayList<ProductOrder>();
+        servOrders = new ArrayList<ServiceOrder>();
     }
     
     public ProductOrder addClientProductOrder(ProductOrder o){

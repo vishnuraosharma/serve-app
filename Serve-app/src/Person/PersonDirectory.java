@@ -31,9 +31,8 @@ public class PersonDirectory {
         this.personList = personList;
     }
     
-    public Person createClient(String id, String name) {
+    public Person createClient(String name) {
         Client c = new Client();
-        c.setId(id);
         c.setName(name);
       
         this.personList.add(c);
