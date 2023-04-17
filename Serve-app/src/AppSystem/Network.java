@@ -130,24 +130,24 @@ public class Network {
         o2.getE().getUseraccountDirectory().getUserAccountList().add(ua2);
         
         Person p3 = personDirectory.createPerson(  "John Dorian");
-        UserAccount ua3 = o3.getOrganizationAccountDirectory().createUserAccount("hos", "hos", new ProductOrganizationManagerRole());
+        UserAccount ua3 = o3.getOrganizationAccountDirectory().createUserAccount("hos", "hos", new ServicesOrganizationManagerRole());
         o3.setOrganizationManager(ua3);
         ua3.setPerson(p3);
         o3.getE().getUseraccountDirectory().getUserAccountList().add(ua3);
         
-        UserAccount ua4 = o4.getOrganizationAccountDirectory().createUserAccount("law", "law", new ProductOrganizationManagerRole());
+        UserAccount ua4 = o4.getOrganizationAccountDirectory().createUserAccount("law", "law", new ServicesOrganizationManagerRole());
         o4.setOrganizationManager(ua4);
         Person p4 = personDirectory.createPerson( "Bob Loblaw");
         ua4.setPerson(p4);
         o4.getE().getUseraccountDirectory().getUserAccountList().add(ua4);
         
-        UserAccount ua5 = o5.getOrganizationAccountDirectory().createUserAccount("boy", "boy", new ProductOrganizationManagerRole());
+        UserAccount ua5 = o5.getOrganizationAccountDirectory().createUserAccount("boy", "boy", new ServicesOrganizationManagerRole());
         o5.setOrganizationManager(ua5);
         Person p5 = personDirectory.createPerson( "Baden Powell");
         ua5.setPerson(p5);
         o5.getE().getUseraccountDirectory().getUserAccountList().add(ua5);
         
-        UserAccount ua6 = o6.getOrganizationAccountDirectory().createUserAccount("scho", "scho", new ProductOrganizationManagerRole());
+        UserAccount ua6 = o6.getOrganizationAccountDirectory().createUserAccount("scho", "scho", new ServicesOrganizationManagerRole());
         o6.setOrganizationManager(ua6);
         Person p6 = personDirectory.createPerson(  "Reese S.");
         ua6.setPerson(p6);

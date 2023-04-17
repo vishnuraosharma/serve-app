@@ -29,6 +29,8 @@ public class ProductOrder {
         this.client = client;
         status = "in process";
         this.store = store;
+        this.store.getMasterOrderList().addProductOrder(this);
+        this.store.getConvenienceCastedEnterprise().getMPOL().addProductOrder(this);
     }
     
     public OrderItem moveFromCartToOrder(OrderItem oi){

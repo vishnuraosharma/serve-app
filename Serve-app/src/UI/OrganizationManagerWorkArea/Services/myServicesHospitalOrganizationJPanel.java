@@ -98,8 +98,8 @@ public class myServicesHospitalOrganizationJPanel extends javax.swing.JPanel {
         if(catalog != null & catalog.getAllServices()!= null){
             for (Service s : catalog.getAllServices()){
                 Object[] row = new Object[5];
-                row[0] = s;
-                row[1] = s.getName();
+                row[0] = s.getsID();
+                row[1] = s;
                 if (s.getAllottedTime() == 1) {
                 row[2] =  String.format("%d minute", s.getAllottedTime());
                  } else {
@@ -428,7 +428,7 @@ public class myServicesHospitalOrganizationJPanel extends javax.swing.JPanel {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int selRow = jTable1.getSelectedRow();
-        this.currService = (Service) tModel.getValueAt(selRow, 0);
+        this.currService = (Service) tModel.getValueAt(selRow, 1);
         serviceName.setText(currService.getName());
         aTime.setText(String.valueOf(currService.getAllottedTime()));
         catName.setText(currService.getCategory());

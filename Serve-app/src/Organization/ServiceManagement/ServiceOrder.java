@@ -18,18 +18,22 @@ public class ServiceOrder {
     private static int counter = 0;
     String oID;
     String status;
-    Service s;
-    UserAccount clientAccount;
+    Service service;
+    Client clientAccount;
     ServicesOrganization org;
     int hoursRendered;
     
-    public ServiceOrder(UserAccount client, Service s) {
+    public ServiceOrder(Client client, Service s, ServicesOrganization servOrg) {
         oID = "soID" + counter++;
-        this.s = s;
+        this.service = s;
         s.serviceOrdered(this);
+        
         this.clientAccount = client;
-        Client tiedClied = (Client) client.getPerson();
-        tiedClied.addClientServiceOrder(this);
+        this.clientAccount.addClientServiceOrder(this);
+        this.org = servOrg;
+        this.org.getMasterOrderList().addServiceOrder(this);
+        this.org.getE().getMSOL().addServiceOrder(this);
+        
         status = "in process";
     }
     
@@ -69,20 +73,20 @@ public class ServiceOrder {
     }
 
     public Service getS() {
-        return s;
+        return service;
     }
 
     public void setS(Service s) {
-        this.s = s;
+        this.service = s;
     }
 
    
 
-    public UserAccount getClient() {
+    public Client getClient() {
         return clientAccount;
     }
 
-    public void setClient(UserAccount client) {
+    public void setClient(Client client) {
         this.clientAccount = client;
     }
 

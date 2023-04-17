@@ -48,10 +48,6 @@ public class Service {
         this.allottedTime = newTime;
         return this; //returns itself
     }
-    
-//    public void addOrderItem(OrderItem oi){     
-//        orderitems.add(oi);
-//    }
 
     public static int getCounter() {
         return counter;
@@ -111,7 +107,7 @@ public class Service {
     
     @Override
     public String toString(){
-        return sID;
+        return name;
     }
     
 

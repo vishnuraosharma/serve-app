@@ -4,7 +4,9 @@
  */
 package Organization;
 
+import Enterprise.Convenience;
 import Enterprise.Enterprise;
+import Organization.ProductManagement.MasterProductOrderList;
 import Organization.ProductManagement.ProductCatalog;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
@@ -15,12 +17,14 @@ import UserAccount.UserAccountDirectory;
  */
 public class ProductOrganization extends Organization {
     ProductCatalog productCatalog;
-    OrderDirectory orderDirectory;
+    MasterProductOrderList MPOL;
+    Convenience convenienceCastedEnterprise;
     
     
     public ProductOrganization(String name, Enterprise e, String type) {
         super(name, e);
         super.type = type;
+        this.convenienceCastedEnterprise = (Convenience) e;
         productCatalog = new ProductCatalog();
     }
 
@@ -31,16 +35,6 @@ public class ProductOrganization extends Organization {
     public void setProductCatalog(ProductCatalog productCatalog) {
         this.productCatalog = productCatalog;
     }
-
-    
-    public OrderDirectory getOrderDirectory() {
-        return orderDirectory;
-    }
-
-    public void setOrderDirectory(OrderDirectory orderDirectory) {
-        this.orderDirectory = orderDirectory;
-    }
-
    
 
     public Enterprise getParentEnterprise() {
@@ -73,6 +67,22 @@ public class ProductOrganization extends Organization {
 
     public void setOrganizationAccounts(UserAccountDirectory organizationAccounts) {
         this.organizationAccounts = organizationAccounts;
+    }
+
+    public MasterProductOrderList getMasterOrderList() {
+        return MPOL;
+    }
+
+    public void setAllOrders(MasterProductOrderList allOrders) {
+        this.MPOL = allOrders;
+    }
+
+    public Convenience getConvenienceCastedEnterprise() {
+        return convenienceCastedEnterprise;
+    }
+
+    public void setConvenienceCastedEnterprise(Convenience ConvenienceCastedEnterprise) {
+        this.convenienceCastedEnterprise = ConvenienceCastedEnterprise;
     }
     
     
