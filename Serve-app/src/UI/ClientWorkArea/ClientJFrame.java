@@ -36,15 +36,7 @@ public class ClientJFrame extends javax.swing.JFrame {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = organization;
-        test();
-    }
-    
-    public void test(){
-        jLabel1.setText(String.valueOf(this.useraccount.getUserName()));
-        jLabel2.setText(String.valueOf(this.enterprise.getName()));
-        jLabel3.setText(String.valueOf(this.organization.getName()));
-        jLabel4.setText(String.valueOf(this.organization.getClass()));
-        
+     
     }
 
     /**
@@ -208,11 +200,8 @@ public class ClientJFrame extends javax.swing.JFrame {
 
     private void productCatalogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productCatalogBtnActionPerformed
         // TODO add your handling code here:
-        if(this.organization.getOrganizationType().equals("Pharmacy")){
-            this.jSplitPane1.setRightComponent(new myProductsPharmacyOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-        }else{
-            this.jSplitPane1.setRightComponent(new myProductsGroceryOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-        }        
+        this.jSplitPane1.setRightComponent(new ConvenienceMP(appSystem, enterprise,organization,useraccount));
+            
     }//GEN-LAST:event_productCatalogBtnActionPerformed
 
     private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed

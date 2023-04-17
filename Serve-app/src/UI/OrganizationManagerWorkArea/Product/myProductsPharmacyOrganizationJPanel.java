@@ -92,8 +92,8 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
         if(catalog != null & catalog.getAllProducts() != null){
             for (Product p : catalog.getAllProducts()){
                 Object[] row = new Object[5];
-                row[0] = p;
-                row[1] = p.getName();
+                row[0] = p.getpID();
+                row[1] = p;
                 row[2] = String.format("$%.2f",p.getPrice());
                 row[3] = p.getCategory();
                 row[4] = p.isPrescriptionRequired();
@@ -377,7 +377,7 @@ public class myProductsPharmacyOrganizationJPanel extends javax.swing.JPanel {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int selRow = jTable1.getSelectedRow();
-        this.currProduct = (Product) tModel.getValueAt(selRow, 0);
+        this.currProduct = (Product) tModel.getValueAt(selRow, 1);
         productName4.setText(currProduct.getName());
         productName5.setText(String.valueOf(currProduct.getPrice()));
         productName3.setText(currProduct.getCategory());

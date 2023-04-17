@@ -4,6 +4,7 @@
  */
 package Organization.ServiceManagement;
 
+import Person.Client.Client;
 import UserAccount.UserAccount;
 import java.util.ArrayList;
 
@@ -13,13 +14,14 @@ import java.util.ArrayList;
  */
 public class MasterServiceOrderList {
     ArrayList<ServiceOrder> serviceOrderList;
+    MasterServiceOrderReport serviceOrderReport;
     
     public MasterServiceOrderList (){
         this.serviceOrderList = new ArrayList<>();
     }
     
-    public ServiceOrder newServiceOrder(UserAccount client, Service s){
-        ServiceOrder so = new ServiceOrder(client, s);
+    public ServiceOrder addServiceOrder(ServiceOrder so){
+        //ServiceOrder so = new ServiceOrder(client, s);
         this.serviceOrderList.add(so);
         
         return so;

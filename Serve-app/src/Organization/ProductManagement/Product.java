@@ -115,8 +115,10 @@ public class Product {
     
     @Override
     public String toString(){
-        return pID;
+        return this.name;
     }
+    
+    
     
 
 }

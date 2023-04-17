@@ -23,16 +23,17 @@ public class ProductOrder {
     ProductOrganization store;
     UserAccount pharmacist;
     
-    public ProductOrder(Client client) {
+    public ProductOrder(Client client, ProductOrganization store) {
         oID = "oID" + counter++;
         productsPurchased = new ArrayList();
         this.client = client;
-        this.client.addClientProductOrder(this);
         status = "in process";
+        this.store = store;
+        this.store.getMasterOrderList().addProductOrder(this);
+        this.store.getConvenienceCastedEnterprise().getMPOL().addProductOrder(this);
     }
     
-    public OrderItem addToCart(Product p, int qty, ProductOrder o){
-        OrderItem oi = new OrderItem(p, qty, this);
+    public OrderItem moveFromCartToOrder(OrderItem oi){
         this.productsPurchased.add(oi);
         return oi;
     }

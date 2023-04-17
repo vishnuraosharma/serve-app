@@ -90,7 +90,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         });
 
         productCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        productCatalogBtn.setText("My Products");
+        productCatalogBtn.setText("My Services");
         productCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productCatalogBtnActionPerformed(evt);
@@ -187,10 +187,10 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
 
     private void productCatalogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productCatalogBtnActionPerformed
         // TODO add your handling code here:
-        if(this.organization.getOrganizationType().equals("Pharmacy")){
-            this.jSplitPane1.setRightComponent(new myProductsPharmacyOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+        if(this.organization.getOrganizationType().equals("Hospital")){
+            this.jSplitPane1.setRightComponent(new myServicesHospitalOrganizationJPanel(appSystem, enterprise,organization,useraccount));
         }else{
-            this.jSplitPane1.setRightComponent(new myProductsGroceryOrganizationJPanel(appSystem, enterprise,organization,useraccount));
+            this.jSplitPane1.setRightComponent(new myServicesHospitalOrganizationJPanel(appSystem, enterprise,organization,useraccount));
         }        
     }//GEN-LAST:event_productCatalogBtnActionPerformed
 

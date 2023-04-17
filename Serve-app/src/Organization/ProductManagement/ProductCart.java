@@ -4,6 +4,7 @@
  */
 package Organization.ProductManagement;
 
+import Organization.ProductOrganization;
 import Person.Client.Client;
 import UserAccount.UserAccount;
 import java.util.ArrayList;
@@ -22,15 +23,16 @@ public class ProductCart {
     //add to cart
     public OrderItem addToCart(Product p, int qty){
         OrderItem oi = new OrderItem(p, qty);
+        productCart.add(oi);
         return oi;
     }
     
     //process cart/ order items, add each order item to selected product's <OrderItem>
-    public ProductOrder processCart(Client client){
-        ProductOrder po = new ProductOrder(client);
+    public ProductOrder processCart(Client client, ProductOrganization store){
+        ProductOrder po = new ProductOrder(client, store);
         if (this.productCart != null){
             for(OrderItem oi : productCart){
-                po.getProductsPurchased().add(oi);
+                po.moveFromCartToOrder(oi);
                 oi.associatedOrder = po;
                 oi.selectedProduct.addOrderItem(oi);
             }
@@ -44,6 +46,15 @@ public class ProductCart {
     public void emptyCart(){
         this.productCart = new ArrayList<>(); 
     }
+
+    public ArrayList<OrderItem> getCartOrderItems() {
+        return productCart;
+    }
+
+    public void setCartOrderItems(ArrayList<OrderItem> productCart) {
+        this.productCart = productCart;
+    }
+    
     
     
 }

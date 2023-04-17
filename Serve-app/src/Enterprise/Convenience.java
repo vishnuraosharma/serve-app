@@ -5,6 +5,7 @@
 package Enterprise;
 
 import Organization.OrganizationDirectory;
+import Organization.ProductManagement.MasterProductOrderList;
 import UserAccount.UserAccountDirectory;
 import Volunteer.VolunteerDirectory;
 
@@ -14,6 +15,7 @@ import Volunteer.VolunteerDirectory;
  */
 public class Convenience extends Enterprise {
     VolunteerDirectory volunteerList;
+    MasterProductOrderList MPOL;
     
     public Convenience(String name){
         super(name);
@@ -60,6 +62,15 @@ public class Convenience extends Enterprise {
     public void setUseraccountDirectory(UserAccountDirectory useraccountDirectory) {
         this.useraccountDirectory = useraccountDirectory;
     }
+
+    public MasterProductOrderList getMPOL() {
+        return MPOL;
+    }
+
+    public void setMPOL(MasterProductOrderList MPOL) {
+        this.MPOL = MPOL;
+    }
+    
     
     
 }

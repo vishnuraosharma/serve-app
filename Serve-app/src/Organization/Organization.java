@@ -18,6 +18,8 @@ public class Organization {
     UserAccount organizationManager;
     UserAccountDirectory organizationAccounts;
     String type = "";
+        
+
 
 
     public Organization(String name, Enterprise e) {
