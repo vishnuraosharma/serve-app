@@ -27,12 +27,14 @@ public class ServicesCart {
     }
     
     //process cart/ order items, add each order item to selected product's <OrderItem>
-    public ArrayList<ServiceOrder> processCart(Client client, ServicesOrganization servOrg){
+    public ArrayList<ServiceOrder> processCart(Client client, ServicesOrganization servOrg, ArrayList<String> reqDets){
         ArrayList<ServiceOrder> tempCart = new ArrayList<ServiceOrder>();
         if (this.serviceCart != null){
+            int idx = 0;
             for(Service s : serviceCart){
-                ServiceOrder so = new ServiceOrder(client, s, servOrg);
+                ServiceOrder so = new ServiceOrder(client, s, servOrg, reqDets.get(idx));
                 tempCart.add(so);
+                idx++;
             }
         }
         emptyCart();

@@ -22,11 +22,13 @@ public class ServiceOrder {
     Client clientAccount;
     ServicesOrganization org;
     int hoursRendered;
+    String orderDetails;
     
-    public ServiceOrder(Client client, Service s, ServicesOrganization servOrg) {
+    public ServiceOrder(Client client, Service s, ServicesOrganization servOrg, String orderDetails) {
         oID = "soID" + counter++;
         this.service = s;
         s.serviceOrdered(this);
+        this.orderDetails = orderDetails;
         
         this.clientAccount = client;
         this.clientAccount.addClientServiceOrder(this);
@@ -96,6 +98,38 @@ public class ServiceOrder {
 
     public void setOrg(ServicesOrganization org) {
         this.org = org;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
+    }
+
+    public Client getClientAccount() {
+        return clientAccount;
+    }
+
+    public void setClientAccount(Client clientAccount) {
+        this.clientAccount = clientAccount;
+    }
+
+    public int getHoursRendered() {
+        return hoursRendered;
+    }
+
+    public void setHoursRendered(int hoursRendered) {
+        this.hoursRendered = hoursRendered;
+    }
+
+    public String getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(String orderDetails) {
+        this.orderDetails = orderDetails;
     }
 
    
