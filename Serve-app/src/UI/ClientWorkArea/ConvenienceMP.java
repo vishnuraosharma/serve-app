@@ -15,7 +15,13 @@ import Organization.ProductOrganization;
 import Person.Client.Client;
 import UserAccount.UserAccount;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -77,10 +83,16 @@ public class ConvenienceMP extends javax.swing.JPanel {
     
     public void addIcons(){
         String filepath = "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/cart.jpeg";
-            ImageIcon icon = new ImageIcon(filepath);
-            Image formattedImage = icon.getImage().getScaledInstance(25,7, Image.SCALE_SMOOTH);            
-            cartImage1.setIcon(icon); 
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new File(filepath));
+            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(image);
+            cartImage1.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
+    }
     
     public void populateCurrPharmCart(){
         pharCartModel.setRowCount(0);
@@ -110,7 +122,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         if(catalog != null & catalog.getAllProducts() != null){
             for (Product p : catalog.getAllProducts()){
                 Object[] row = new Object[4];
-                row[0] = p.getName();
+                row[0] = p;
                 row[1] = String.format("$%.2f",p.getPrice());
                 row[2] = p.getCategory();
                 row[3] = p.isPrescriptionRequired();
@@ -163,6 +175,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         productDets = new javax.swing.JPanel();
         pharQtySpinner = new javax.swing.JSpinner();
         productImage2 = new javax.swing.JLabel();
@@ -253,7 +266,6 @@ public class ConvenienceMP extends javax.swing.JPanel {
 
         jLayeredPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cartImage1.setText("cart");
         cartImage1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cartImage1MouseEntered(evt);
@@ -268,7 +280,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
                 cartImage1MouseReleased(evt);
             }
         });
-        jLayeredPane2.add(cartImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 180, 60));
+        jLayeredPane2.add(cartImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 76, 61));
 
         jPanel5.setBackground(new java.awt.Color(255, 204, 255));
 
@@ -326,7 +338,8 @@ public class ConvenienceMP extends javax.swing.JPanel {
 
         jLayeredPane2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 750, 850));
 
-        pharmPopup.setBackground(new java.awt.Color(102, 102, 102));
+        pharmPopup.setBackground(new java.awt.Color(255, 255, 255));
+        pharmPopup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pharmPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pharmCartTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -370,6 +383,10 @@ public class ConvenienceMP extends javax.swing.JPanel {
             }
         });
         pharmPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel4.setText("Your Total");
+        pharmPopup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
         jLayeredPane2.add(pharmPopup, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 70, 376, 362));
 
@@ -428,7 +445,15 @@ public class ConvenienceMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selRow = pharTable.getSelectedRow();
         this.currProduct = (Product) pharProdModel.getValueAt(selRow, 0);
-        productImage.setText(currProduct.getName());
+        
+        try {
+            BufferedImage bufferedImage = ImageIO.read(currProduct.getProductImageFile());
+            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(image);
+            productImage.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_pharTableMouseClicked
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
@@ -476,6 +501,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel2;

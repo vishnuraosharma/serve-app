@@ -4,7 +4,7 @@
  */
 package Organization.ServiceManagement;
 
-import Organization.ProductManagement.*;
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +18,7 @@ public class Service {
     private int allottedTime;
     String category;
     String description;
+    File productImageFile = new File( "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/NoImage.jpeg");
     
    ArrayList<ServiceOrder> renderedServices;
     
@@ -27,6 +28,7 @@ public class Service {
         allottedTime= t;
         this.category = cat;
         this.description=desc;
+        renderedServices = new ArrayList<ServiceOrder>();
     }
    
     
@@ -101,6 +103,14 @@ public class Service {
     
     public void setName(String n){
         name = n;
+    }
+
+    public File getProductImageFile() {
+        return productImageFile;
+    }
+
+    public void setServiceImageFile(File productImageFile) {
+        this.productImageFile = productImageFile;
     }
     
     

@@ -15,8 +15,8 @@ public class ServiceCatalog {
     ArrayList<ServiceSummary> servicesReport;
     
     public ServiceCatalog(){
-        allServices = new ArrayList();
-        servicesReport = new ArrayList();
+        allServices = new ArrayList<>();
+        servicesReport = new ArrayList<>();
         
     }
     
