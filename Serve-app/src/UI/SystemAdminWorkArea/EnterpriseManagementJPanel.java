@@ -237,8 +237,8 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         if(foundDuplicate == false) {
             Enterprise e = appSystem.getEnterprises().findEnterprise((String) enterprisenNameBox.getSelectedItem());
             if(e.getUseraccountDirectory().getUserAccountList().size()==0){
+            Person p = appSystem.getPersonDirectory().createPerson(nameField.getText());
             UserAccount user= e.getUseraccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new EnterpriseManagerRole());
-            Person p = appSystem.getPersonDirectory().createPerson( user.getAccountId(), nameField.getText());
             user.setPerson(p); 
             JOptionPane.showMessageDialog(null, "Manager created");
             }else{
@@ -281,12 +281,22 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_updateEnterpriseBtnActionPerformed
     public void  tablePopulate() {
         
-        ArrayList<Enterprise> enterprise = this.appSystem.getEnterprises().getEnterpiseList();
+        ArrayList<Enterprise> enterprises = this.appSystem.getEnterprises().getEnterpiseList();
         
-        if(enterprise.size()>0){
+        if(enterprises != null){
             viewtableModel.setRowCount(0);
-            for (Enterprise e : enterprise){
+            for (Enterprise e : enterprises){
+                if(e.getUseraccountDirectory() != null && e.getUseraccountDirectory().getUserAccountList() != null){
                 for(UserAccount u: e.getUseraccountDirectory().getUserAccountList()){
+                    System.out.println(u.toString());
+                    System.out.println();
+                    System.out.println(u.getRole());
+
+                    System.out.println();
+                    
+                    System.out.println(u.getRole().getRoleType());
+                    System.out.println();
+
                     if(u.getRole().getRoleType().equals("Enterprise Manager")){
                         Object row[] = new Object[5];
                         row[0] = e;
@@ -299,6 +309,7 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
                         viewtableModel.addRow(row);
                     }
                 }
+            }
           } 
         } else {
             System.out.print("");

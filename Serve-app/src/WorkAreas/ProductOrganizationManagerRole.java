@@ -20,7 +20,7 @@ import javax.swing.JFrame;
 public class ProductOrganizationManagerRole extends AbstractRole {
     String roleType;
     public ProductOrganizationManagerRole(){
-        roleType = "Organization Manager";
+        super.roleType = "Organization Manager";
     }      
 
    
