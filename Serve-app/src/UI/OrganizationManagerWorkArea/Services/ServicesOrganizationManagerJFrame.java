@@ -200,7 +200,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
 
     private void productReportBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn1ActionPerformed
         // TODO add your handling code here:
-        this.jSplitPane1.setRightComponent(new ManageApplications(appSystem, enterprise,organization,useraccount));
+        this.jSplitPane1.setRightComponent(new ManageApplicationsJPanel(appSystem, enterprise,organization,useraccount));
         
     }//GEN-LAST:event_productReportBtn1ActionPerformed
 

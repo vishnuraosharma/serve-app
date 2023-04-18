@@ -21,7 +21,7 @@ import java.util.Date;
  *
  * @author khatna
  */
-public class ManageApplications extends javax.swing.JPanel {
+public class ManageApplicationsJPanel extends javax.swing.JPanel {
     
     /**
      * Creates new form ManageApplications
@@ -30,7 +30,7 @@ public class ManageApplications extends javax.swing.JPanel {
     private UserAccount useraccount;
     Enterprise enterprise;
     Organization organization;
-     public ManageApplications( Network appSystem,UserAccount useraccount, Enterprise enterprise, Organization organization) {
+     public ManageApplicationsJPanel( Network appSystem,UserAccount useraccount, Enterprise enterprise, Organization organization) {
         initComponents();
         this.appSystem = appSystem;
         this.useraccount = useraccount;
@@ -38,7 +38,7 @@ public class ManageApplications extends javax.swing.JPanel {
         this.organization = organization;
     }
 
-    public ManageApplications(Network appSystem, Enterprise enterprise, ServicesOrganization organization, UserAccount useraccount) {
+    public ManageApplicationsJPanel(Network appSystem, Enterprise enterprise, ServicesOrganization organization, UserAccount useraccount) {
         initComponents();
         this.appSystem = appSystem;
         this.useraccount = useraccount;
