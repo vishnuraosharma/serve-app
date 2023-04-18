@@ -28,6 +28,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
     public ServicesOrganizationManagerJFrame() {
         initComponents();
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
     
     public ServicesOrganizationManagerJFrame(Network appSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
@@ -37,6 +38,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = (ServicesOrganization) organization;
+        this.setLocationRelativeTo(null);
         test();
     }
     
@@ -146,7 +148,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 .addComponent(productReportBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(productReportBtn1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
@@ -160,16 +162,17 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jSplitPane1.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1300, 800));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1347, Short.MAX_VALUE)
+            .addGap(0, 1135, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 983, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
