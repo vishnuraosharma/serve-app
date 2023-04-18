@@ -21,7 +21,6 @@ public class ProductOrder {
     ArrayList<OrderItem> productsPurchased;
     Client client;
     ProductOrganization store;
-    UserAccount pharmacist;
     
     public ProductOrder(Client client, ProductOrganization store) {
         oID = "oID" + counter++;
@@ -92,13 +91,7 @@ public class ProductOrder {
         this.store = store;
     }
 
-    public UserAccount getPharmacist() {
-        return pharmacist;
-    }
 
-    public void setPharmacist(UserAccount pharmacist) {
-        this.pharmacist = pharmacist;
-    }
     
     
     

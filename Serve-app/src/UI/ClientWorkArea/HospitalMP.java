@@ -13,11 +13,25 @@ import Organization.ServiceManagement.ServicesCart;
 import Organization.ServicesOrganization;
 import Person.Client.Client;
 import UserAccount.UserAccount;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.html.ImageView;
+import java.awt.Image;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
+import javax.swing.text.Element;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,6 +47,7 @@ public class HospitalMP extends javax.swing.JPanel {
     DefaultTableModel hosCartModel;
     
     Client client;
+    ArrayList<Service> unfulfilledServices;
     
     DefaultTableModel groProductModel;
     Service currService;
@@ -62,10 +77,18 @@ public class HospitalMP extends javax.swing.JPanel {
     
     public void addIcons(){
         String filepath = "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/cart.jpeg";
-            ImageIcon icon = new ImageIcon(filepath);
-            Image formattedImage = icon.getImage().getScaledInstance(25,7, Image.SCALE_SMOOTH);            
-            cartImage1.setIcon(icon); 
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new File(filepath));
+            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(image);
+            cartImage1.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
+    }
+    
+    
     
     public void populateCurrHospCart(){
         hosCartModel.setRowCount(0);
@@ -117,11 +140,16 @@ public class HospitalMP extends javax.swing.JPanel {
         }
     }
     
-    public boolean validateService(){
+    public boolean validateService(Service s){
         if (currService == null){
             JOptionPane.showMessageDialog(null,"Please select a service.");
             return false;
         }
+        if (this.client.getUnfulfilledServices().contains(s)){
+            JOptionPane.showMessageDialog(null,"You have already requested this service. Please wait until your existing request is fulfilled before requesting another.");
+            return false;
+        }
+        
         return true;
     }
     
@@ -156,7 +184,6 @@ public class HospitalMP extends javax.swing.JPanel {
 
         jLayeredPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cartImage1.setText("cart");
         cartImage1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 cartImage1MouseEntered(evt);
@@ -171,7 +198,7 @@ public class HospitalMP extends javax.swing.JPanel {
                 cartImage1MouseReleased(evt);
             }
         });
-        jLayeredPane2.add(cartImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 180, 60));
+        jLayeredPane2.add(cartImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 10, 76, 61));
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -230,7 +257,7 @@ public class HospitalMP extends javax.swing.JPanel {
                     .addContainerGap(75, Short.MAX_VALUE)))
         );
 
-        jLayeredPane2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 750, 850));
+        jLayeredPane2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 850));
 
         hospCartPopup.setBackground(new java.awt.Color(255, 255, 255));
         hospCartPopup.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -270,7 +297,7 @@ public class HospitalMP extends javax.swing.JPanel {
                 jButton6ActionPerformed(evt);
             }
         });
-        hospCartPopup.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
+        hospCartPopup.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 110, -1));
 
         jButton7.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         jButton7.setText("Clear Cart");
@@ -285,7 +312,7 @@ public class HospitalMP extends javax.swing.JPanel {
         cartTotalLabel.setText("cartTotal");
         hospCartPopup.add(cartTotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
-        jLayeredPane2.add(hospCartPopup, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 70, 376, 362));
+        jLayeredPane2.add(hospCartPopup, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 70, 376, 362));
 
         productDets.setBackground(new java.awt.Color(255, 255, 255));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -294,7 +321,7 @@ public class HospitalMP extends javax.swing.JPanel {
         productDets.add(serviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        jButton2.setText("Add to Cart");
+        jButton2.setText("Add Service");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -302,7 +329,7 @@ public class HospitalMP extends javax.swing.JPanel {
         });
         productDets.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
 
-        jLayeredPane2.add(productDets, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, 328, 365));
+        jLayeredPane2.add(productDets, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 328, 365));
 
         add(jLayeredPane2, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
@@ -330,9 +357,10 @@ public class HospitalMP extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if (validateService()){
+        if (validateService(currService)){
             this.hospCart.addToCart(currService);
-        }
+            JOptionPane.showMessageDialog(null,"Service added to cart.");
+        } 
         populateCurrHospCart();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -353,9 +381,12 @@ public class HospitalMP extends javax.swing.JPanel {
         ArrayList<Service> currOrderItems = this.hospCart.getStagedServicesinCart();
         if(currOrderItems != null){
             hospCart.processCart((Client) this.useraccount.getPerson(), this.hospOrg);
+            for (Service s : currOrderItems){
+                this.client.getUnfulfilledServices().add(s);
+            }
             JOptionPane.showMessageDialog(null,"Your order has been placed.");
         }else{
-            JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
+            JOptionPane.showMessageDialog(null,"Please add at least one service to cart to place an order.");
         }
         populateCurrHospCart();
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -364,7 +395,16 @@ public class HospitalMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selRow = hosServicesTable.getSelectedRow();
         this.currService = (Service) hosServModel.getValueAt(selRow, 0);
-        serviceName.setText(currService.getName());
+        try {
+            BufferedImage bufferedImage = ImageIO.read(currService.getProductImageFile());
+            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(image);
+            serviceName.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_hosServicesTableMouseClicked
 
 

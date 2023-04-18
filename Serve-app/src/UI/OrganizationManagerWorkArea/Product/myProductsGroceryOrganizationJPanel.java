@@ -11,8 +11,12 @@ import Organization.ProductManagement.Product;
 import Organization.ProductManagement.ProductCatalog;
 import Organization.ProductOrganization;
 import UserAccount.UserAccount;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -134,6 +138,9 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         productPrice = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         productCategory = new javax.swing.JTextField();
+        imgDisp = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        imageBrowser = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -144,7 +151,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 productName3ActionPerformed(evt);
             }
         });
-        add(productName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 610, 110, -1));
+        add(productName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 610, 110, -1));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -181,38 +188,37 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
+                        .addGap(227, 227, 227)
                         .addComponent(jLabel8))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 750, 850));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 990));
 
         jLabel12.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
         jLabel12.setText("Manage Products");
-        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 460, -1, 40));
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 460, -1, 40));
 
         jLabel13.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel13.setText("Product Name");
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, -1, 30));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 510, -1, 30));
 
         jLabel14.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel14.setText("Product Price");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 560, -1, 30));
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, -1, 30));
 
         productName4.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productName4.addActionListener(new java.awt.event.ActionListener() {
@@ -220,7 +226,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 productName4ActionPerformed(evt);
             }
         });
-        add(productName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 510, 110, -1));
+        add(productName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 510, 110, -1));
 
         productName5.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productName5.addActionListener(new java.awt.event.ActionListener() {
@@ -228,11 +234,11 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 productName5ActionPerformed(evt);
             }
         });
-        add(productName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 560, 110, -1));
+        add(productName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 560, 110, -1));
 
         jLabel15.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel15.setText("Product Category");
-        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 610, -1, 30));
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 610, -1, 30));
 
         updateBtn.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         updateBtn.setText("Update Details");
@@ -241,7 +247,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 updateBtnActionPerformed(evt);
             }
         });
-        add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 680, -1, -1));
+        add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 780, 140, 30));
 
         updateBtn1.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         updateBtn1.setText("Delete Product");
@@ -250,11 +256,11 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 updateBtn1ActionPerformed(evt);
             }
         });
-        add(updateBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 720, -1, -1));
+        add(updateBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 860, 140, 30));
 
         jLabel9.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
         jLabel9.setText("Product Addition");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 50, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 50, -1, -1));
 
         addBtn.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         addBtn.setText("Add Product");
@@ -263,15 +269,15 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 addBtnActionPerformed(evt);
             }
         });
-        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 260, 131, -1));
+        add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 260, 131, -1));
 
         jLabel10.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel10.setText("Product Name");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, -1, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 110, -1, 30));
 
         jLabel11.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel11.setText("Product Price");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 160, -1, 30));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 160, -1, 30));
 
         productName1.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productName1.addActionListener(new java.awt.event.ActionListener() {
@@ -279,7 +285,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 productName1ActionPerformed(evt);
             }
         });
-        add(productName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 110, 110, -1));
+        add(productName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 110, 110, -1));
 
         productPrice.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productPrice.addActionListener(new java.awt.event.ActionListener() {
@@ -287,11 +293,11 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 productPriceActionPerformed(evt);
             }
         });
-        add(productPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 160, 110, -1));
+        add(productPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 160, 110, -1));
 
         jLabel6.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
         jLabel6.setText("Product Category");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, -1, 30));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 210, -1, 30));
 
         productCategory.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
         productCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -299,7 +305,23 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 productCategoryActionPerformed(evt);
             }
         });
-        add(productCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 210, 110, -1));
+        add(productCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 210, 110, -1));
+
+        imgDisp.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
+        add(imgDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 660, 110, 90));
+
+        jLabel17.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
+        jLabel17.setText("Current Image");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 680, -1, 30));
+
+        imageBrowser.setFont(new java.awt.Font("Krub", 0, 14)); // NOI18N
+        imageBrowser.setText("Update Imagery");
+        imageBrowser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imageBrowserActionPerformed(evt);
+            }
+        });
+        add(imageBrowser, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 820, 140, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void productName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productName3ActionPerformed
@@ -371,15 +393,44 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, removedProd.toString() +" has been removed.");
     }//GEN-LAST:event_updateBtn1ActionPerformed
 
+    private void imageBrowserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imageBrowserActionPerformed
+        // TODO add your handling code here:
+        JFileChooser browseImageFile = new JFileChooser();
+
+        //Specify file filtered to imgs only
+        FileNameExtensionFilter filter = new FileNameExtensionFilter ("IMAGES", "jpg", "jpeg");
+        browseImageFile.addChoosableFileFilter(filter);
+
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+
+        //If matches filter, accept file and set the RecipeImagePath attr.
+        if (filter.accept(browseImageFile.getSelectedFile())){
+            File selectedImageFile = browseImageFile.getSelectedFile();
+            String selectedImagePath = selectedImageFile.getAbsolutePath();
+            ImageIcon icon = new ImageIcon(selectedImagePath);
+            int input = JOptionPane.showConfirmDialog(null, "Would you like to save this image?", "Product Imagery", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, icon);
+            if (input == 0){
+                currProduct.setProductImageFile(selectedImageFile);
+                imgDisp.setIcon(icon);
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Please provide a 'jpeg' file", "Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_imageBrowserActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
+    private javax.swing.JButton imageBrowser;
+    private javax.swing.JLabel imgDisp;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

@@ -26,6 +26,7 @@ public class ProductOrganization extends Organization {
         super.type = type;
         this.convenienceCastedEnterprise = (Convenience) e;
         productCatalog = new ProductCatalog();
+        MPOL = new MasterProductOrderList();
     }
 
     public ProductCatalog getProductCatalog() {

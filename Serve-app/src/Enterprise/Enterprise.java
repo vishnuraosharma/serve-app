@@ -25,6 +25,7 @@ public class Enterprise {
         this.name = name;        
         this.organizationDirectory = new OrganizationDirectory();
         this.useraccountDirectory = new UserAccountDirectory();
+        MSOL = new MasterServiceOrderList();
     }
 
     public Enterprise() {
@@ -32,6 +33,8 @@ public class Enterprise {
         this.name = name;
         this.organizationDirectory = new OrganizationDirectory();
         this.useraccountDirectory = new UserAccountDirectory();
+        MSOL = new MasterServiceOrderList();
+
     }
 
     public String getName() {

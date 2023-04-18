@@ -59,6 +59,7 @@ public class ClientJFrame extends javax.swing.JFrame {
         productReportBtn = new javax.swing.JButton();
         productReportBtn1 = new javax.swing.JButton();
         productReportBtn2 = new javax.swing.JButton();
+        productReportBtn3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,6 +114,14 @@ public class ClientJFrame extends javax.swing.JFrame {
             }
         });
 
+        productReportBtn3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productReportBtn3.setText("My Requests");
+        productReportBtn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productReportBtn3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -120,25 +129,31 @@ public class ClientJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel4)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(backBtn))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(productReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(productCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(productReportBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                                .addGap(16, 16, 16)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel4)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(backBtn))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(productReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(productCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(productReportBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 10, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(productReportBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -164,7 +179,9 @@ public class ClientJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(331, 331, 331))
+                .addGap(239, 239, 239)
+                .addComponent(productReportBtn3)
+                .addGap(68, 68, 68))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(154, 154, 154)
@@ -210,11 +227,16 @@ public class ClientJFrame extends javax.swing.JFrame {
 
     private void productReportBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn1ActionPerformed
         // TODO add your handling code here:
+        this.jSplitPane1.setRightComponent(new HospitalMP(appSystem, enterprise,organization,useraccount));
     }//GEN-LAST:event_productReportBtn1ActionPerformed
 
     private void productReportBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_productReportBtn2ActionPerformed
+
+    private void productReportBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productReportBtn3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,5 +301,6 @@ public class ClientJFrame extends javax.swing.JFrame {
     private javax.swing.JButton productReportBtn;
     private javax.swing.JButton productReportBtn1;
     private javax.swing.JButton productReportBtn2;
+    private javax.swing.JButton productReportBtn3;
     // End of variables declaration//GEN-END:variables
 }

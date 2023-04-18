@@ -35,6 +35,7 @@ public class ServicesOrganization extends Organization {
   
         volunteerDir = new VolunteerDirectory();
         services = new ServiceCatalog();
+        MSOL = new MasterServiceOrderList();
     }
 
     public UserAccount getOrgManager() {
