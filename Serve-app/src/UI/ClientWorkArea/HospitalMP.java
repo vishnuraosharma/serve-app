@@ -51,6 +51,8 @@ public class HospitalMP extends javax.swing.JPanel {
     
     DefaultTableModel groProductModel;
     Service currService;
+    
+    
     /**
      * Creates new form ConvenienceMP
      */
@@ -178,6 +180,9 @@ public class HospitalMP extends javax.swing.JPanel {
         productDets = new javax.swing.JPanel();
         serviceName = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
@@ -316,9 +321,7 @@ public class HospitalMP extends javax.swing.JPanel {
 
         productDets.setBackground(new java.awt.Color(255, 255, 255));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        serviceName.setText("Product Image");
-        productDets.add(serviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
+        productDets.add(serviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 90, 100));
 
         jButton2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         jButton2.setText("Add Service");
@@ -328,6 +331,16 @@ public class HospitalMP extends javax.swing.JPanel {
             }
         });
         productDets.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        productDets.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel4.setText("Service Request Details");
+        productDets.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
 
         jLayeredPane2.add(productDets, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 328, 365));
 
@@ -419,10 +432,13 @@ public class HospitalMP extends javax.swing.JPanel {
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel productDets;
     private javax.swing.JLabel serviceName;
     // End of variables declaration//GEN-END:variables
