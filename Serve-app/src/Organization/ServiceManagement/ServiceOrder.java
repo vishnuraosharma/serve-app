@@ -24,10 +24,11 @@ public class ServiceOrder {
     int hoursRendered;
     String orderDetails;
     
-    public ServiceOrder(Client client, Service s, ServicesOrganization servOrg) {
+    public ServiceOrder(Client client, Service s, ServicesOrganization servOrg, String orderDetails) {
         oID = "soID" + counter++;
         this.service = s;
         s.serviceOrdered(this);
+        this.orderDetails = orderDetails;
         
         this.clientAccount = client;
         this.clientAccount.addClientServiceOrder(this);
