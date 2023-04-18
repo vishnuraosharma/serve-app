@@ -30,11 +30,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setSize(screenSize.width, screenSize.height);
-        System.out.print(screenSize.width);
-        System.out.println("");
-        System.out.print(screenSize.height);
+        
         this.setLocationRelativeTo(null);
         this.appSystem = Network.createSystemInstance();
     }
@@ -42,7 +38,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame(Network appSystem,Enterprise enterprise, Organization organization, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
-         
+        this.setLocationRelativeTo(null);
         this.appSystem = appSystem;
         this.useraccount = useraccount;
         this.enterprise = enterprise;
@@ -95,7 +91,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(613, 613, 613)
+                .addGap(452, 452, 452)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,12 +106,12 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(53, 53, 53)
                         .addComponent(jButton2)))
-                .addContainerGap(632, Short.MAX_VALUE))
+                .addContainerGap(581, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(383, 383, 383)
+                .addGap(266, 266, 266)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -127,7 +123,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(455, Short.MAX_VALUE))
+                .addContainerGap(390, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);

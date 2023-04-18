@@ -25,12 +25,14 @@ public class ClientJFrame extends javax.swing.JFrame {
      * Creates new form OrganizationManagerJFrame
      */
     public ClientJFrame() {
+        this.setLocationRelativeTo(null);
         initComponents();
         this.setVisible(true);
     }
     
     public ClientJFrame(Network appSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.appSystem = appSystem;
         this.useraccount = useraccount;
@@ -171,7 +173,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 .addComponent(productReportBtn)
                 .addGap(18, 18, 18)
                 .addComponent(productReportBtn2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(29, 29, 29)
                 .addComponent(jLabel1)
@@ -186,7 +188,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(154, 154, 154)
                     .addComponent(productReportBtn1)
-                    .addContainerGap(805, Short.MAX_VALUE)))
+                    .addContainerGap(622, Short.MAX_VALUE)))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -195,11 +197,11 @@ public class ClientJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1347, Short.MAX_VALUE)
+            .addGap(0, 1300, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 983, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);

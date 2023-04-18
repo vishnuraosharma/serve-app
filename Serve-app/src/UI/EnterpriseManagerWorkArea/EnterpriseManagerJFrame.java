@@ -25,7 +25,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
     public EnterpriseManagerJFrame(Network appSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
-
+        this.setLocationRelativeTo(null);
         this.appSystem = appSystem;
         this.useraccount = useraccount;
         this.enterprise = enterprise;
@@ -83,6 +83,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         jSplitPane1.setTopComponent(controlPanel);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1300, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jSplitPane1.setRightComponent(jPanel1);
 
