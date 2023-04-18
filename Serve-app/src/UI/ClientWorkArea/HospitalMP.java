@@ -52,6 +52,8 @@ public class HospitalMP extends javax.swing.JPanel {
     DefaultTableModel groProductModel;
     Service currService;
     
+    ArrayList<String> reqDetails;
+    
     
     /**
      * Creates new form ConvenienceMP
@@ -70,6 +72,7 @@ public class HospitalMP extends javax.swing.JPanel {
         this.hospCart = new ServicesCart();
         
         hospCartPopup.setVisible(false);
+        reqDetails = new ArrayList<String>();
         
         populateHospServices();
         populateCurrHospCart();
@@ -151,6 +154,11 @@ public class HospitalMP extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"You have already requested this service. Please wait until your existing request is fulfilled before requesting another.");
             return false;
         }
+        if(reqDetailsTextArea.getText().isBlank()){
+            JOptionPane.showMessageDialog(null,"Please enter any helpful details so a volunteer can be of better assistance.");
+
+            return false;
+        }
         
         return true;
     }
@@ -181,7 +189,7 @@ public class HospitalMP extends javax.swing.JPanel {
         serviceName = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        reqDetailsTextArea = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -332,9 +340,9 @@ public class HospitalMP extends javax.swing.JPanel {
         });
         productDets.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        reqDetailsTextArea.setColumns(20);
+        reqDetailsTextArea.setRows(5);
+        jScrollPane2.setViewportView(reqDetailsTextArea);
 
         productDets.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
@@ -372,6 +380,7 @@ public class HospitalMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (validateService(currService)){
             this.hospCart.addToCart(currService);
+            reqDetails.add(reqDetailsTextArea.getText());
             JOptionPane.showMessageDialog(null,"Service added to cart.");
         } 
         populateCurrHospCart();
@@ -382,6 +391,7 @@ public class HospitalMP extends javax.swing.JPanel {
         ArrayList<Service> currOrderItems = this.hospCart.getStagedServicesinCart();
         if(currOrderItems != null){
             this.hospCart.emptyCart();
+            reqDetails = new ArrayList<String>();
             JOptionPane.showMessageDialog(null,"Your cart has been emptied.");
         }else{
             JOptionPane.showMessageDialog(null,"Cart is already empty.");
@@ -393,10 +403,13 @@ public class HospitalMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         ArrayList<Service> currOrderItems = this.hospCart.getStagedServicesinCart();
         if(currOrderItems != null){
-            hospCart.processCart((Client) this.useraccount.getPerson(), this.hospOrg);
+            hospCart.processCart((Client) this.useraccount.getPerson(), this.hospOrg, reqDetails);
             for (Service s : currOrderItems){
-                this.client.getUnfulfilledServices().add(s);
+                if(!this.client.getUnfulfilledServices().contains(s)){
+                    this.client.getUnfulfilledServices().add(s);
+                }
             }
+            reqDetails = new ArrayList<String>();
             JOptionPane.showMessageDialog(null,"Your order has been placed.");
         }else{
             JOptionPane.showMessageDialog(null,"Please add at least one service to cart to place an order.");
@@ -438,8 +451,8 @@ public class HospitalMP extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel productDets;
+    private javax.swing.JTextArea reqDetailsTextArea;
     private javax.swing.JLabel serviceName;
     // End of variables declaration//GEN-END:variables
 }
