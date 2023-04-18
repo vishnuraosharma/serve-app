@@ -20,9 +20,38 @@ public class OrderItem {
         quantity = q;
         this.associatedOrder = o;
     }
+
+    public OrderItem(Product p, int qty) {
+        selectedProduct = p;
+        quantity = qty;
+    }
     
     public double getOrderItemRevenue(){
         return this.selectedProduct.getPrice() * quantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public ProductOrder getAssociatedOrder() {
+        return associatedOrder;
+    }
+
+    public void setAssociatedOrder(ProductOrder associatedOrder) {
+        this.associatedOrder = associatedOrder;
+    }
+
+    public Product getSelectedProduct() {
+        return selectedProduct;
+    }
+
+    public void setSelectedProduct(Product selectedProduct) {
+        this.selectedProduct = selectedProduct;
     }
     
 }

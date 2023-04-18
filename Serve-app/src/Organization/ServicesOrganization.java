@@ -5,6 +5,7 @@
 package Organization;
 
 import Enterprise.Enterprise;
+import Organization.ServiceManagement.MasterServiceOrderList;
 import Organization.ServiceManagement.ServiceCatalog;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
@@ -21,6 +22,7 @@ public class ServicesOrganization extends Organization {
 
     UserAccount orgManager;
     ServiceCatalog services;
+    MasterServiceOrderList MSOL;
 //    ServiceReport serviceReport;
 
     VolunteerDirectory volunteerDir;
@@ -33,6 +35,7 @@ public class ServicesOrganization extends Organization {
   
         volunteerDir = new VolunteerDirectory();
         services = new ServiceCatalog();
+        MSOL = new MasterServiceOrderList();
     }
 
     public UserAccount getOrgManager() {
@@ -89,6 +92,22 @@ public class ServicesOrganization extends Organization {
 
     public void setOrganizationAccounts(UserAccountDirectory organizationAccounts) {
         this.organizationAccounts = organizationAccounts;
+    }
+
+    public MasterServiceOrderList getMasterOrderList() {
+        return MSOL;
+    }
+
+    public void setMSOL(MasterServiceOrderList MSOL) {
+        this.MSOL = MSOL;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     

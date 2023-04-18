@@ -64,7 +64,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
-        productCatalogBtn = new javax.swing.JButton();
+        servicesCatalogBtn = new javax.swing.JButton();
         productReportBtn = new javax.swing.JButton();
         productReportBtn1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -89,11 +89,11 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
 
-        productCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        productCatalogBtn.setText("My Products");
-        productCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
+        servicesCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        servicesCatalogBtn.setText("My Services");
+        servicesCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productCatalogBtnActionPerformed(evt);
+                servicesCatalogBtnActionPerformed(evt);
             }
         });
 
@@ -129,7 +129,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(productCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(servicesCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(productReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(productReportBtn1, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -141,7 +141,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(backBtn)
                 .addGap(54, 54, 54)
-                .addComponent(productCatalogBtn)
+                .addComponent(servicesCatalogBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(productReportBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,14 +185,10 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         new MainJFrame(appSystem, enterprise,organization,useraccount);
     }//GEN-LAST:event_backBtnActionPerformed
 
-    private void productCatalogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productCatalogBtnActionPerformed
+    private void servicesCatalogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicesCatalogBtnActionPerformed
         // TODO add your handling code here:
-        if(this.organization.getOrganizationType().equals("Pharmacy")){
-            this.jSplitPane1.setRightComponent(new myProductsPharmacyOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-        }else{
-            this.jSplitPane1.setRightComponent(new myProductsGroceryOrganizationJPanel(appSystem, enterprise,organization,useraccount));
-        }        
-    }//GEN-LAST:event_productCatalogBtnActionPerformed
+        this.jSplitPane1.setRightComponent(new myServicesJPanel(appSystem, enterprise,organization,useraccount));      
+    }//GEN-LAST:event_servicesCatalogBtnActionPerformed
 
     private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
         // TODO add your handling code here:
@@ -311,8 +307,8 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JButton productCatalogBtn;
     private javax.swing.JButton productReportBtn;
     private javax.swing.JButton productReportBtn1;
+    private javax.swing.JButton servicesCatalogBtn;
     // End of variables declaration//GEN-END:variables
 }

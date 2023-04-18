@@ -6,6 +6,7 @@ package Enterprise;
 
 import Organization.Organization;
 import Organization.OrganizationDirectory;
+import Organization.ServiceManagement.MasterServiceOrderList;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
 
@@ -18,11 +19,13 @@ public class Enterprise {
     OrganizationDirectory organizationDirectory;
     UserAccountDirectory useraccountDirectory;
     UserAccount enterpriseAdmin;
+    MasterServiceOrderList MSOL;
 
     public Enterprise(String name) {
         this.name = name;        
         this.organizationDirectory = new OrganizationDirectory();
         this.useraccountDirectory = new UserAccountDirectory();
+        MSOL = new MasterServiceOrderList();
     }
 
     public Enterprise() {
@@ -30,6 +33,8 @@ public class Enterprise {
         this.name = name;
         this.organizationDirectory = new OrganizationDirectory();
         this.useraccountDirectory = new UserAccountDirectory();
+        MSOL = new MasterServiceOrderList();
+
     }
 
     public String getName() {
@@ -62,6 +67,14 @@ public class Enterprise {
 
     public void setEnterpriseAdmin(UserAccount enterpriseAdmin) {
         this.enterpriseAdmin = enterpriseAdmin;
+    }
+
+    public MasterServiceOrderList getMSOL() {
+        return MSOL;
+    }
+
+    public void setMSOL(MasterServiceOrderList MSOL) {
+        this.MSOL = MSOL;
     }
    
   

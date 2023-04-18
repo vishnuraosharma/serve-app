@@ -4,6 +4,7 @@
  */
 package Organization.ProductManagement;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +18,7 @@ public class Product {
     private double price;
     String category;
     boolean prescriptionRequired;
+    File productImageFile = new File( "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/NoImage.jpeg");
     
     ArrayList<OrderItem> orderitems;
     
@@ -110,13 +112,23 @@ public class Product {
     public void setName(String n){
         name = n;
     }
+
+    public File getProductImageFile() {
+        return productImageFile;
+    }
+
+    public void setProductImageFile(File productImageFile) {
+        this.productImageFile = productImageFile;
+    }
     
     
     
     @Override
     public String toString(){
-        return pID;
+        return this.name;
     }
+    
+    
     
 
 }
