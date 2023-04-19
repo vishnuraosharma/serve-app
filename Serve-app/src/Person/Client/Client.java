@@ -83,7 +83,7 @@ public class Client extends Person{
         this.emergencyContactNumber = emergencyContactNumber;
     }
 
-    public ArrayList<Product> getPerscripedMeds() {
+    public ArrayList<Product> getPerscribedMeds() {
         return perscripedMeds;
     }
 

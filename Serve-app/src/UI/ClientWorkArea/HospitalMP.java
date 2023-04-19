@@ -173,11 +173,6 @@ public class HospitalMP extends javax.swing.JPanel {
     private void initComponents() {
 
         jLayeredPane2 = new javax.swing.JLayeredPane();
-        cartImage1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        hosServicesTable = new javax.swing.JTable();
         hospCartPopup = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         hosCartTable = new javax.swing.JTable();
@@ -185,6 +180,11 @@ public class HospitalMP extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         cartTotalLabel = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        cartImage1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        hosServicesTable = new javax.swing.JTable();
         productDets = new javax.swing.JPanel();
         serviceName = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -195,82 +195,8 @@ public class HospitalMP extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
-        jLayeredPane2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        cartImage1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cartImage1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                cartImage1MouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                cartImage1MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                cartImage1MouseReleased(evt);
-            }
-        });
-        jLayeredPane2.add(cartImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 10, 76, 61));
-
-        jPanel5.setBackground(new java.awt.Color(204, 255, 255));
-
-        jLabel10.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Hospital Services");
-
-        hosServicesTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        hosServicesTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Service Name", "Allotted Time", "Service Category", "Description"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        hosServicesTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                hosServicesTableMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(hosServicesTable);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(177, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(172, 172, 172))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 709, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(21, Short.MAX_VALUE)))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(805, 805, 805))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(75, 75, 75)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(75, Short.MAX_VALUE)))
-        );
-
-        jLayeredPane2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 850));
+        jLayeredPane2.setBackground(new java.awt.Color(255, 118, 0));
+        jLayeredPane2.setPreferredSize(new java.awt.Dimension(1150, 800));
 
         hospCartPopup.setBackground(new java.awt.Color(255, 255, 255));
         hospCartPopup.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -325,7 +251,53 @@ public class HospitalMP extends javax.swing.JPanel {
         cartTotalLabel.setText("cartTotal");
         hospCartPopup.add(cartTotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
-        jLayeredPane2.add(hospCartPopup, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 70, 376, 362));
+        jLayeredPane2.add(hospCartPopup);
+        hospCartPopup.setBounds(760, 70, 376, 362);
+
+        jPanel5.setBackground(new java.awt.Color(255, 118, 0));
+
+        cartImage1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cartImage1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cartImage1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cartImage1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                cartImage1MouseReleased(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Hospital Services");
+
+        hosServicesTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        hosServicesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Service Name", "Allotted Time", "Service Category", "Description"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        hosServicesTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hosServicesTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(hosServicesTable);
 
         productDets.setBackground(new java.awt.Color(255, 255, 255));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -350,7 +322,45 @@ public class HospitalMP extends javax.swing.JPanel {
         jLabel4.setText("Service Request Details");
         productDets.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
 
-        jLayeredPane2.add(productDets, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 230, 328, 365));
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 504, Short.MAX_VALUE)
+                .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(488, Short.MAX_VALUE)))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(204, 204, 204)
+                .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(236, 236, 236))
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(75, 75, 75)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(102, Short.MAX_VALUE)))
+        );
+
+        jLayeredPane2.add(jPanel5);
+        jPanel5.setBounds(0, 0, 1190, 820);
 
         add(jLayeredPane2, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
