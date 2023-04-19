@@ -4,6 +4,7 @@
  */
 package UserAccount;
 
+import Applicant.Application;
 import WorkAreas.AbstractRole;
 import java.util.ArrayList;
 
@@ -80,4 +81,13 @@ public class UserAccountDirectory {
     public void deleteApplicationManager(UserAccount u){
         this.userAccountList.remove(u);
     }
+    
+    public Boolean checkApplicationUsernameUnique(String username){
+        for (UserAccount u: this.userAccountList){
+            if(u.getUserName().equals(username)){
+                return false;            
+            }
+        }        
+        return true;
+    } 
 }

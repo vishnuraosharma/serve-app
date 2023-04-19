@@ -22,7 +22,7 @@ public class Application {
     Person person;     
     
      public Application(String name, String ssn, String address,
-            Date dob, String email,String ecn, String ecname, String occ, String contactNum){
+            Date dob, String email,String ecn, String ecname, String occ, String contactNum,String username, String password){
 //        this.e = this.useraccount.getEnterprise();
         this.applicationId = "app" + count++;
         this.status = "Pending";

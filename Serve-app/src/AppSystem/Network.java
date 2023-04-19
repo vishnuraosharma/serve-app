@@ -81,7 +81,7 @@ public class Network {
         Organization o6 = connection.getOrganizationDirectory().createServicesOrganization("School",connection, "School");  
         
         
-        Organization o7 = convenience.getOrganizationDirectory().createOrganization("ConvenienceVolOrganization", convenience);
+        Organization o7 = convenience.getOrganizationDirectory().createVolunteerOrganization("ConvenienceVolOrganization", convenience,"Volunteer");
         
         //comment out to remove fake data
 

@@ -15,8 +15,9 @@ public class ConvenienceVolOrganization extends Organization {
     String name;
     VolunteerDirectory volunteerDir;
     
-    public ConvenienceVolOrganization(String name, Enterprise e){
+    public ConvenienceVolOrganization(String name, Enterprise e, String t){
         super(name,e);
+        super.type=t;
         volunteerDir = new VolunteerDirectory();
     }
 }

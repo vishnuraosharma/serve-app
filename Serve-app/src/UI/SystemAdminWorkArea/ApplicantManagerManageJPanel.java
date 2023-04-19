@@ -218,8 +218,8 @@ public class ApplicantManagerManageJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
         }
         if(foundDuplicate == false){
+                Person p = appSystem.getPersonDirectory().createPerson( nameField.getText());
                 UserAccount applicationManager =appSystem.getTopLevelUserAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ApplicationManagerRole());
-                Person p = appSystem.getPersonDirectory().createPerson( applicationManager.getAccountId(), nameField.getText());
                 applicationManager.setPerson(p);
                 JOptionPane.showMessageDialog(null, "Application Manager created");
             }else{
