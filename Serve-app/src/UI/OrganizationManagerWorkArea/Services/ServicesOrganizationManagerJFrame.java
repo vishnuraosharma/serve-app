@@ -74,23 +74,19 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("jLabel1");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(16, 452, 42, 17);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 452, -1, -1));
 
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(16, 371, 42, 17);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 371, -1, -1));
 
         jLabel2.setText("jLabel1");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(16, 325, 42, 17);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 325, -1, -1));
 
         jLabel3.setText("jLabel1");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(16, 417, 42, 17);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 417, -1, -1));
 
         backBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         backBtn.setText("LOGOUT");
@@ -99,8 +95,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(backBtn);
-        backBtn.setBounds(16, 24, 80, 24);
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 24, -1, -1));
 
         servicesCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         servicesCatalogBtn.setText("My Services");
@@ -109,8 +104,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 servicesCatalogBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(servicesCatalogBtn);
-        servicesCatalogBtn.setBounds(6, 102, 141, 24);
+        jPanel1.add(servicesCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 102, 141, -1));
 
         productReportBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn.setText("My Reports");
@@ -119,8 +113,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 productReportBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn);
-        productReportBtn.setBounds(6, 132, 141, 24);
+        jPanel1.add(productReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 132, 141, -1));
 
         productReportBtn1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn1.setText("Create Application");
@@ -129,8 +122,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 productReportBtn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn1);
-        productReportBtn1.setBounds(6, 162, 141, 24);
+        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 162, -1, -1));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
@@ -141,7 +133,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1300, Short.MAX_VALUE)
+            .addGap(0, 1294, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

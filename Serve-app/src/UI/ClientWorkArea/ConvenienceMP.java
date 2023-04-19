@@ -222,11 +222,11 @@ public class ConvenienceMP extends javax.swing.JPanel {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
+        cartImage2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         groTable = new javax.swing.JTable();
-        cartImage2 = new javax.swing.JLabel();
         groPopup = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         groCartTable = new javax.swing.JTable();
@@ -269,11 +269,28 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(1150, 800));
         jPanel2.setLayout(null);
 
+        cartImage2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cartImage2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cartImage2MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cartImage2MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                cartImage2MouseReleased(evt);
+            }
+        });
+        jPanel2.add(cartImage2);
+        cartImage2.setBounds(1050, 10, 76, 61);
+
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel9.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 118, 0));
-        jLabel9.setText("Grocery Products");
+        jLabel9.setText("Shop Grocery");
 
         groTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         groTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -304,13 +321,14 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(170, 170, 170))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel9)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,23 +342,6 @@ public class ConvenienceMP extends javax.swing.JPanel {
 
         jPanel2.add(jPanel4);
         jPanel4.setBounds(0, 0, 730, 820);
-
-        cartImage2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cartImage2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                cartImage2MouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                cartImage2MousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                cartImage2MouseReleased(evt);
-            }
-        });
-        jPanel2.add(cartImage2);
-        cartImage2.setBounds(1050, 10, 76, 61);
 
         groPopup.setBackground(new java.awt.Color(255, 255, 255));
         groPopup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -392,21 +393,19 @@ public class ConvenienceMP extends javax.swing.JPanel {
         groPopup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
         jPanel2.add(groPopup);
-        groPopup.setBounds(750, 70, 376, 362);
+        groPopup.setBounds(750, 60, 376, 362);
 
         productDets1.setBackground(new java.awt.Color(255, 118, 0));
         productDets1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         groQtySpinner.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         groQtySpinner.setToolTipText("");
-        productDets1.add(groQtySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
+        productDets1.add(groQtySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
         productImage3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productImage3.setText("Quantity");
-        productDets1.add(productImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
-
-        productImage1.setText("Product Image");
-        productDets1.add(productImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
+        productDets1.add(productImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        productDets1.add(productImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 200, 160));
 
         jButton3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         jButton3.setText("Add to Cart");
@@ -444,7 +443,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jLabel10.setBackground(new java.awt.Color(255, 118, 0));
         jLabel10.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 118, 0));
-        jLabel10.setText("Pharmacy Products");
+        jLabel10.setText("Shop Pharmacy");
 
         pharTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         pharTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -475,13 +474,14 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addComponent(jLabel10)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(183, 183, 183))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -553,14 +553,12 @@ public class ConvenienceMP extends javax.swing.JPanel {
 
         pharQtySpinner.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         pharQtySpinner.setToolTipText("");
-        productDets.add(pharQtySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
+        productDets.add(pharQtySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
         productImage2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productImage2.setText("Quantity");
-        productDets.add(productImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
-
-        productImage.setText("Product Image");
-        productDets.add(productImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
+        productDets.add(productImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        productDets.add(productImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 190));
 
         addPharmtoCart.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         addPharmtoCart.setText("Add to Cart");
@@ -585,10 +583,10 @@ public class ConvenienceMP extends javax.swing.JPanel {
 
     private void cartImage1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartImage1MousePressed
         // TODO add your handling code here:
-        if (!this.groPopup.isVisible()){
-            this.groPopup.setVisible(true);
+        if (!this.pharmPopup.isVisible()){
+            this.pharmPopup.setVisible(true);
         } else {
-            this.groPopup.setVisible(false);
+            this.pharmPopup.setVisible(false);
         }
     }//GEN-LAST:event_cartImage1MousePressed
 
@@ -656,6 +654,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         ArrayList<OrderItem> currOrderItems = this.pharmCart.getCartOrderItems();
         if(currOrderItems != null){
             pharmCart.processCart((Client) this.useraccount.getPerson(), this.pharmacyOrg);
+            this.pharmPopup.setVisible(false);
             JOptionPane.showMessageDialog(null,"Your order has been placed.");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
@@ -665,6 +664,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
 
     private void cartImage2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartImage2MouseEntered
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_cartImage2MouseEntered
 
     private void cartImage2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartImage2MouseExited
@@ -673,6 +673,11 @@ public class ConvenienceMP extends javax.swing.JPanel {
 
     private void cartImage2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartImage2MousePressed
         // TODO add your handling code here:
+        if (!this.groPopup.isVisible()){
+            this.groPopup.setVisible(true);
+        } else {
+            this.groPopup.setVisible(false);
+        }
     }//GEN-LAST:event_cartImage2MousePressed
 
     private void cartImage2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cartImage2MouseReleased
@@ -684,6 +689,8 @@ public class ConvenienceMP extends javax.swing.JPanel {
         ArrayList<OrderItem> currOrderItems = this.groCart.getCartOrderItems();
         if(currOrderItems != null){
             groCart.processCart((Client) this.useraccount.getPerson(), this.grocery);
+            this.groPopup.setVisible(false);
+          //  this.appSystem.getReqDir().;
             JOptionPane.showMessageDialog(null,"Your order has been placed.");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");

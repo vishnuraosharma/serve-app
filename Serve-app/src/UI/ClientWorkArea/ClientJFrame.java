@@ -38,6 +38,7 @@ public class ClientJFrame extends javax.swing.JFrame {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = organization;
+        appSystem.addIcon(0, jLabel5);
      
     }
 
@@ -63,18 +64,26 @@ public class ClientJFrame extends javax.swing.JFrame {
         productReportBtn2 = new javax.swing.JButton();
         productReportBtn3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setSize(new java.awt.Dimension(150, 800));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("jLabel1");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
 
         jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 371, -1, -1));
 
         jLabel2.setText("jLabel1");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 325, -1, -1));
 
         jLabel3.setText("jLabel1");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 417, -1, -1));
 
         backBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         backBtn.setText("LOGOUT");
@@ -83,6 +92,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 17, -1, -1));
 
         productCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productCatalogBtn.setText("Convenience");
@@ -91,6 +101,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productCatalogBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(productCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 104, 120, -1));
 
         productReportBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn.setText("Legal");
@@ -99,6 +110,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtnActionPerformed(evt);
             }
         });
+        jPanel1.add(productReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 202, 120, -1));
 
         productReportBtn1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn1.setText("Health");
@@ -107,6 +119,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn1ActionPerformed(evt);
             }
         });
+        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 154, 120, -1));
 
         productReportBtn2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn2.setText("Connection");
@@ -115,6 +128,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn2ActionPerformed(evt);
             }
         });
+        jPanel1.add(productReportBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 244, 120, -1));
 
         productReportBtn3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn3.setText("My Requests");
@@ -123,87 +137,26 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn3ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel4)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(productReportBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(productCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(productReportBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(productReportBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(productReportBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(backBtn)
-                .addGap(63, 63, 63)
-                .addComponent(productCatalogBtn)
-                .addGap(74, 74, 74)
-                .addComponent(productReportBtn)
-                .addGap(18, 18, 18)
-                .addComponent(productReportBtn2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(239, 239, 239)
-                .addComponent(productReportBtn3)
-                .addGap(68, 68, 68))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(154, 154, 154)
-                    .addComponent(productReportBtn1)
-                    .addContainerGap(622, Short.MAX_VALUE)))
-        );
+        jPanel1.add(productReportBtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 708, 120, -1));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1145, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1150, 800));
+        jPanel2.setSize(new java.awt.Dimension(1150, 800));
+        jPanel2.setVerifyInputWhenFocusTarget(false);
+        jPanel2.setLayout(null);
+
+        jLabel5.setSize(new java.awt.Dimension(558, 376));
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(290, 230, 558, 376);
+
+        jLabel8.setBackground(new java.awt.Color(255, 118, 0));
+        jLabel8.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 118, 0));
+        jLabel8.setText("Building stronger communities for seniors.");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(90, 120, 1020, 70);
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -297,6 +250,8 @@ public class ClientJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

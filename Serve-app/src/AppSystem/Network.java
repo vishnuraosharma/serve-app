@@ -13,6 +13,7 @@ import Person.Client.Client;
 import Person.Person;
 import Person.PersonDirectory;
 import Requests.RequestDirectory;
+import UI.ClientWorkArea.HospitalMP;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
 import WorkAreas.ClientRole;
@@ -20,7 +21,15 @@ import WorkAreas.EnterpriseManagerRole;
 import WorkAreas.ProductOrganizationManagerRole;
 import WorkAreas.ServicesOrganizationManagerRole;
 import WorkAreas.SystemAdminRole;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -162,7 +171,24 @@ public class Network {
         ua.setPerson(c);
     }
 
-
+    public void addIcon(int i, javax.swing.JLabel lbl){
+        String filepath;
+        if (i == 1){
+             filepath = "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/servelogo1.jpeg";
+        } else{
+             filepath = "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/servelogo2.jpeg";
+        }
+        
+        try {
+            BufferedImage bufferedImage = ImageIO.read(new File(filepath));
+            Image image = bufferedImage.getScaledInstance(lbl.getWidth(),lbl.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(image);
+            lbl.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
     
     public String getName() {
         return name;
