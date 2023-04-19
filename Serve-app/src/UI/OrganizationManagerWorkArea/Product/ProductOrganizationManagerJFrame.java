@@ -44,7 +44,8 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         jLabel1.setText(String.valueOf(this.useraccount.getUserName()));
         jLabel2.setText(String.valueOf(this.enterprise.getName()));
         jLabel3.setText(String.valueOf(this.organization.getName()));
-        jLabel4.setText(String.valueOf(this.organization.getClass()));
+        jLabel5.setText(String.valueOf(this.organization.getClass()));
+        appSystem.addIcon(1, jLabel4);
         
     }
 
@@ -59,23 +60,25 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         productCatalogBtn = new javax.swing.JButton();
         productReportBtn = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        setSize(new java.awt.Dimension(1300, 800));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(150, 800));
+        jPanel1.setSize(new java.awt.Dimension(150, 800));
         jPanel1.setLayout(null);
-
-        jLabel4.setText("jLabel1");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(16, 452, 42, 17);
 
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
@@ -119,25 +122,21 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel1.add(productReportBtn);
         productReportBtn.setBounds(10, 130, 120, 24);
 
+        jLabel5.setText("jLabel1");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(16, 452, 42, 17);
+
         jSplitPane1.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1300, 800));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1135, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
+        jPanel2.setLayout(null);
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(260, 160, 610, 430);
 
         jSplitPane1.setRightComponent(jPanel2);
 
-        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -209,6 +208,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

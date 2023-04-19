@@ -254,7 +254,8 @@ public class HospitalMP extends javax.swing.JPanel {
         jLayeredPane2.add(hospCartPopup);
         hospCartPopup.setBounds(760, 70, 376, 362);
 
-        jPanel5.setBackground(new java.awt.Color(255, 118, 0));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setForeground(new java.awt.Color(255, 118, 0));
 
         cartImage1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -271,9 +272,10 @@ public class HospitalMP extends javax.swing.JPanel {
             }
         });
 
+        jLabel10.setBackground(new java.awt.Color(255, 118, 0));
         jLabel10.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Hospital Services");
+        jLabel10.setForeground(new java.awt.Color(255, 118, 0));
+        jLabel10.setText("Health & Wellness Services");
 
         hosServicesTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         hosServicesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -310,7 +312,7 @@ public class HospitalMP extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        productDets.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
+        productDets.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
 
         reqDetailsTextArea.setColumns(20);
         reqDetailsTextArea.setRows(5);
@@ -327,9 +329,9 @@ public class HospitalMP extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 504, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
                 .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
@@ -347,16 +349,16 @@ public class HospitalMP extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(204, 204, 204)
+                    .addComponent(cartImage1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(207, 207, 207)
                 .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(236, 236, 236))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(75, 75, 75)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(102, Short.MAX_VALUE)))
+                    .addContainerGap(105, Short.MAX_VALUE)))
         );
 
         jLayeredPane2.add(jPanel5);
