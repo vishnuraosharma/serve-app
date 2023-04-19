@@ -21,9 +21,10 @@ public class ApplicationDirectory {
     
     
     public Application createApplication(String name, String ssn, String address,
-            Date dob, String email,String ecn, String ecname, String occ, String contactNum){
+            Date dob, String email,String ecn, String ecname, String occ, String contactNum, 
+            String username, String password){
         Application a = new Application(name,ssn,address,
-            dob,email, ecn, ecname, occ, contactNum);
+            dob,email, ecn, ecname, occ, contactNum,username,password);
         this.applicationList.add(a);
         return a;
     }
@@ -33,6 +34,6 @@ public class ApplicationDirectory {
     public ArrayList<Application> getApplicationList() {
         return applicationList;
     }
-
     
+     
 }

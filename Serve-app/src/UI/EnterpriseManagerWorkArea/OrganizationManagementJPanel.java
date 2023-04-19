@@ -269,7 +269,7 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
                 //create new Org Manager for selected organization
                 UserAccount newManager = o.getOrganizationAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ProductOrganizationManagerRole());
                 //assign person to useraccount
-                Person p = appSystem.getPersonDirectory().createPerson( newManager.getAccountId(), nameField.getText());
+                Person p = appSystem.getPersonDirectory().createPerson( nameField.getText());
                 //
                 newManager.setPerson(p);
                 //set this useraccount as the manager role
@@ -283,7 +283,7 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
                 //create new Org Manager for selected organization
                 UserAccount newManager = o.getOrganizationAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ServicesOrganizationManagerRole());
                 //assign person to useraccount
-                Person p = appSystem.getPersonDirectory().createPerson( newManager.getAccountId(), nameField.getText());
+                Person p = appSystem.getPersonDirectory().createPerson( nameField.getText());
                 newManager.setPerson(p);
                 //set this useraccount as the manager role
                 o.setOrganizationManager(newManager);
