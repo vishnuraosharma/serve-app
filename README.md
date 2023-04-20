@@ -1,4 +1,6 @@
- <img width="800" alt="Serve-High-Level-Model" src="Resources/servelogo1.jpeg">
+<pre>                              <img width="500" alt="Serve-High-Level-Model" src="Resources/servelogo1.jpeg">                </pre> 
+
+
 # Serve
 Roughly 1 in 3 senior citizens in the United States live below the Federal Poverty Line. With **Serve**, this population gains access to essential Convenience, Health, Legal, and Connection services. 
 
