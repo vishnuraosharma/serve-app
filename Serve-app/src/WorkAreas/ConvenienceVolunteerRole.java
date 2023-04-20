@@ -7,6 +7,7 @@ package WorkAreas;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import UI.ConvenienceVolunteerWorkArea.ConvenienceVolunteerJFrame;
 import UserAccount.UserAccount;
 import javax.swing.JFrame;
 

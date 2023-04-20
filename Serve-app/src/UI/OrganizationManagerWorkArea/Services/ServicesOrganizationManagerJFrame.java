@@ -67,7 +67,6 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         servicesCatalogBtn = new javax.swing.JButton();
-        productReportBtn = new javax.swing.JButton();
         productReportBtn1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
@@ -104,16 +103,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 servicesCatalogBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(servicesCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 102, 141, -1));
-
-        productReportBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        productReportBtn.setText("My Reports");
-        productReportBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productReportBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(productReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 132, 141, -1));
+        jPanel1.add(servicesCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 140, 30));
 
         productReportBtn1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn1.setText("Create Application");
@@ -122,7 +112,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 productReportBtn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 162, -1, -1));
+        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, 30));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
@@ -157,10 +147,6 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.jSplitPane1.setRightComponent(new myServicesJPanel(appSystem, enterprise,organization,useraccount));      
     }//GEN-LAST:event_servicesCatalogBtnActionPerformed
-
-    private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productReportBtnActionPerformed
 
     private void productReportBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn1ActionPerformed
         // TODO add your handling code here:
@@ -275,7 +261,6 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JButton productReportBtn;
     private javax.swing.JButton productReportBtn1;
     private javax.swing.JButton servicesCatalogBtn;
     // End of variables declaration//GEN-END:variables

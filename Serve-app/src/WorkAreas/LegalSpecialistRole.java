@@ -7,6 +7,7 @@ package WorkAreas;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import UI.ServiceVolunteerWorkArea.LegalSpecialistVolunteerJFrame;
 import UserAccount.UserAccount;
 import javax.swing.JFrame;
 
@@ -22,7 +23,7 @@ public class LegalSpecialistRole extends AbstractRole{
     
     @Override
     public JFrame createWorkArea(Network applicationSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
-        return new LegalSpecialistJFrame(applicationSystem, enterprise, organization,useraccount);
+        return new LegalSpecialistVolunteerJFrame(applicationSystem, enterprise, organization,useraccount);
     }
     
     @Override

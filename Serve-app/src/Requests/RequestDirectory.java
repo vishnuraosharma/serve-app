@@ -21,11 +21,19 @@ public class RequestDirectory {
         this.allRequests = new HashMap();
     }
     
-     public ApplicationRequest createApplicationRequest(UserAccount ua, Application app) {
+     public ApplicationRequest createVolunteerApplicationRequest(UserAccount ua, Application app) {
         ApplicationRequest appReq = new ApplicationRequest(ua,app);
-        allRequests.put("Application",appReq);
+        allRequests.put("Volunteer Application",appReq);
         return appReq;
     }
+    
+    public ApplicationRequest createClientApplicationRequest(UserAccount ua, Application app) {
+        ApplicationRequest appReq = new ApplicationRequest(ua,app);
+        allRequests.put("Client Application",appReq);
+        return appReq;
+    }
+     
+     
      public ConvenienceRequest createConvenienceRequest(UserAccount ua, ProductOrder po) {
          ConvenienceRequest conReq = new ConvenienceRequest(ua,po);
         allRequests.put("Convenience",conReq);

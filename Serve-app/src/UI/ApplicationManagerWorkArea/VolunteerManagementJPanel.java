@@ -108,8 +108,8 @@ public class VolunteerManagementJPanel extends javax.swing.JPanel {
 //            if(statusComboBox.getSelectedItem().equals("Reject")&& rr.getMagazine()!=null){
 //
 //                rr.getMagazine().setIsAvailablityFlag(true);
-            }
-        }
+//            }
+//        }
         displayVolunteerApplication();
 
     }//GEN-LAST:event_accepteBtnActionPerformed
@@ -130,14 +130,14 @@ public class VolunteerManagementJPanel extends javax.swing.JPanel {
 //                row[3]= rr.getDuration();
 //                row[4] = rr.getBook();
 //                row[5] = rr.getMagazine();
-                
-                volunteertableModel.addRow(row);
-                
-              }
-            }
- 
-            }
-        }
+//                
+//                volunteertableModel.addRow(row);
+//                
+//              }
+//            }
+// 
+//            }
+//        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

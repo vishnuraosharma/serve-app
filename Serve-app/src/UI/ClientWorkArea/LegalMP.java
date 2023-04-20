@@ -37,19 +37,18 @@ import java.util.logging.Logger;
  *
  * @author vraosharma
  */
-public class HospitalMP extends javax.swing.JPanel {
+public class LegalMP extends javax.swing.JPanel {
     private Network appSystem;
     private UserAccount useraccount;
     
-    ServicesOrganization hospOrg;
-    ServicesCart hospCart;
-    DefaultTableModel hosServModel;
-    DefaultTableModel hosCartModel;
+    ServicesOrganization lawOrg;
+    ServicesCart lawCart;
+    DefaultTableModel lawServModel;
+    DefaultTableModel lawCartModel;
     
     Client client;
     ArrayList<Service> unfulfilledServices;
     
-    DefaultTableModel groProductModel;
     Service currService;
     
     ArrayList<String> reqDetails;
@@ -58,7 +57,7 @@ public class HospitalMP extends javax.swing.JPanel {
     /**
      * Creates new form ConvenienceMP
      */
-    public HospitalMP(Network appSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
+    public LegalMP(Network appSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
         this.appSystem = appSystem;
@@ -66,10 +65,10 @@ public class HospitalMP extends javax.swing.JPanel {
         this.client = (Client) useraccount.getPerson();
        
         //find pharmacy org, create product/cart table models, init new cart every time user shops convenience
-        this.hospOrg =(ServicesOrganization) appSystem.getEnterprises().findEnterprise("Health").getOrganizationDirectory().findOrganizationbyType("Hospital");
-        this.hosServModel = (DefaultTableModel) this.hosServicesTable.getModel();
-        this.hosCartModel = (DefaultTableModel) this.hosCartTable.getModel();
-        this.hospCart = new ServicesCart();
+        this.lawOrg =(ServicesOrganization) appSystem.getEnterprises().findEnterprise("Legal").getOrganizationDirectory().findOrganizationbyType("Law Office");
+        this.lawServModel = (DefaultTableModel) this.lawServicesTable.getModel();
+        this.lawCartModel = (DefaultTableModel) this.lawCartTable.getModel();
+        this.lawCart = new ServicesCart();
         
         hospCartPopup.setVisible(false);
         reqDetails = new ArrayList<String>();
@@ -88,14 +87,16 @@ public class HospitalMP extends javax.swing.JPanel {
             ImageIcon icon = new ImageIcon(image);
             cartImage1.setIcon(icon);
         } catch (IOException ex) {
-            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LegalMP.class.getName()).log(Level.SEVERE, null, ex);
         }
        
     }
     
+    
+    
     public void populateCurrHospCart(){
-        hosCartModel.setRowCount(0);
-        ArrayList<Service> currServiceCart = this.hospCart.getStagedServicesinCart();
+        lawCartModel.setRowCount(0);
+        ArrayList<Service> currServiceCart = this.lawCart.getStagedServicesinCart();
         if(currServiceCart != null){
             int count = 0;
             int cartTotal = 0;
@@ -107,7 +108,7 @@ public class HospitalMP extends javax.swing.JPanel {
                 row[2] = s.getAllottedTime();
                 cartTotal += s.getAllottedTime();
                 
-                hosCartModel.addRow(row);
+                lawCartModel.addRow(row);
             }
             cartTotalLabel.setText(displayHoursMinutes(cartTotal));
         }
@@ -125,8 +126,8 @@ public class HospitalMP extends javax.swing.JPanel {
         }
     
     public void populateHospServices(){
-        hosServModel.setRowCount(0);
-        ServiceCatalog catalog = this.hospOrg.getServices();
+        lawServModel.setRowCount(0);
+        ServiceCatalog catalog = this.lawOrg.getServices();
         if(catalog != null & catalog.getAllServices()!= null){
             for (Service s : catalog.getAllServices()){
                 Object[] row = new Object[4];
@@ -138,7 +139,7 @@ public class HospitalMP extends javax.swing.JPanel {
                  }
                 row[2] = s.getCategory();
                 row[3] = s.getDescription();
-                hosServModel.addRow(row);
+                lawServModel.addRow(row);
             }
         }
     }
@@ -173,7 +174,7 @@ public class HospitalMP extends javax.swing.JPanel {
         jLayeredPane2 = new javax.swing.JLayeredPane();
         hospCartPopup = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        hosCartTable = new javax.swing.JTable();
+        lawCartTable = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -182,7 +183,7 @@ public class HospitalMP extends javax.swing.JPanel {
         cartImage1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        hosServicesTable = new javax.swing.JTable();
+        lawServicesTable = new javax.swing.JTable();
         productDets = new javax.swing.JPanel();
         serviceName = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -200,7 +201,7 @@ public class HospitalMP extends javax.swing.JPanel {
         hospCartPopup.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         hospCartPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        hosCartTable.setModel(new javax.swing.table.DefaultTableModel(
+        lawCartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -216,9 +217,9 @@ public class HospitalMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(hosCartTable);
-        if (hosCartTable.getColumnModel().getColumnCount() > 0) {
-            hosCartTable.getColumnModel().getColumn(2).setResizable(false);
+        jScrollPane5.setViewportView(lawCartTable);
+        if (lawCartTable.getColumnModel().getColumnCount() > 0) {
+            lawCartTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
         hospCartPopup.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
@@ -273,10 +274,10 @@ public class HospitalMP extends javax.swing.JPanel {
         jLabel10.setBackground(new java.awt.Color(255, 118, 0));
         jLabel10.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 118, 0));
-        jLabel10.setText("Meet with a Health Specialist");
+        jLabel10.setText("Meet a Legal Specialist");
 
-        hosServicesTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        hosServicesTable.setModel(new javax.swing.table.DefaultTableModel(
+        lawServicesTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        lawServicesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -292,12 +293,12 @@ public class HospitalMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        hosServicesTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        lawServicesTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                hosServicesTableMouseClicked(evt);
+                lawServicesTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(hosServicesTable);
+        jScrollPane1.setViewportView(lawServicesTable);
 
         productDets.setBackground(new java.awt.Color(255, 255, 255));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -327,32 +328,36 @@ public class HospitalMP extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82)
-                        .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))))
+                .addGap(108, 108, 108)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(782, Short.MAX_VALUE)
+                .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(488, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cartImage1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(207, 207, 207)
                 .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(236, 236, 236))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(75, 75, 75)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(105, Short.MAX_VALUE)))
         );
 
         jLayeredPane2.add(jPanel5);
@@ -385,7 +390,7 @@ public class HospitalMP extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if (validateService(currService)){
-            this.hospCart.addToCart(currService);
+            this.lawCart.addToCart(currService);
             reqDetails.add(reqDetailsTextArea.getText());
             JOptionPane.showMessageDialog(null,"Service added to cart.");
         } 
@@ -394,9 +399,9 @@ public class HospitalMP extends javax.swing.JPanel {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Service> currOrderItems = this.hospCart.getStagedServicesinCart();
+        ArrayList<Service> currOrderItems = this.lawCart.getStagedServicesinCart();
         if(currOrderItems != null){
-            this.hospCart.emptyCart();
+            this.lawCart.emptyCart();
             reqDetails = new ArrayList<String>();
             JOptionPane.showMessageDialog(null,"Your cart has been emptied.");
         }else{
@@ -407,9 +412,9 @@ public class HospitalMP extends javax.swing.JPanel {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        ArrayList<Service> currOrderItems = this.hospCart.getStagedServicesinCart();
+        ArrayList<Service> currOrderItems = this.lawCart.getStagedServicesinCart();
         if(currOrderItems != null){
-            hospCart.processCart((Client) this.useraccount.getPerson(), this.hospOrg, reqDetails);
+            lawCart.processCart((Client) this.useraccount.getPerson(), this.lawOrg, reqDetails);
             for (Service s : currOrderItems){
                 if(!this.client.getUnfulfilledServices().contains(s)){
                     this.client.getUnfulfilledServices().add(s);
@@ -423,28 +428,26 @@ public class HospitalMP extends javax.swing.JPanel {
         populateCurrHospCart();
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void hosServicesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hosServicesTableMouseClicked
+    private void lawServicesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lawServicesTableMouseClicked
         // TODO add your handling code here:
-        int selRow = hosServicesTable.getSelectedRow();
-        this.currService = (Service) hosServModel.getValueAt(selRow, 0);
+        int selRow = lawServicesTable.getSelectedRow();
+        this.currService = (Service) lawServModel.getValueAt(selRow, 0);
         try {
             BufferedImage bufferedImage = ImageIO.read(currService.getProductImageFile());
             Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
             ImageIcon icon = new ImageIcon(image);
             serviceName.setIcon(icon);
         } catch (IOException ex) {
-            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LegalMP.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
-    }//GEN-LAST:event_hosServicesTableMouseClicked
+    }//GEN-LAST:event_lawServicesTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cartImage1;
     private javax.swing.JLabel cartTotalLabel;
-    private javax.swing.JTable hosCartTable;
-    private javax.swing.JTable hosServicesTable;
     private javax.swing.JPanel hospCartPopup;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
@@ -457,6 +460,8 @@ public class HospitalMP extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTable lawCartTable;
+    private javax.swing.JTable lawServicesTable;
     private javax.swing.JPanel productDets;
     private javax.swing.JTextArea reqDetailsTextArea;
     private javax.swing.JLabel serviceName;

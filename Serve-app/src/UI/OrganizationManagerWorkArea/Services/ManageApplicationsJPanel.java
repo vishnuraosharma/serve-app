@@ -246,10 +246,13 @@ public class ManageApplicationsJPanel extends javax.swing.JPanel {
         String ecname = ecNameField.getText();
         String ecnum  = ecNumberField.getText();
         String occ = occField.getText();
-        Application app = appDir.createApplication(name, ssn, address, dob, email, occ, ecname, occ, ecnum);
+        
+        // Vishnu commented out temporarily
+       // Application app = appDir.createApplication(name, ssn, address, dob, email, occ, ecname, occ, ecnum, );
         
         RequestDirectory reqDir = appSystem.getReqDir();
-        ApplicationRequest appRequest = reqDir.createApplicationRequest(useraccount, app);
+        // Vishnu commented out temporarily
+   //     ApplicationRequest appRequest = reqDir.createVolunteerApplicationRequest(useraccount, app);
     }//GEN-LAST:event_sendAppBtnActionPerformed
 
 

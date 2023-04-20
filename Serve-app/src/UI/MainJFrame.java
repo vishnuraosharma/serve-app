@@ -66,7 +66,6 @@ public class MainJFrame extends javax.swing.JFrame {
         clientSignUpBtn = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         volunteerSignUpBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,8 +77,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         Left.setBackground(new java.awt.Color(236, 100, 44));
         Left.setPreferredSize(new java.awt.Dimension(650, 800));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
 
         javax.swing.GroupLayout LeftLayout = new javax.swing.GroupLayout(Left);
         Left.setLayout(LeftLayout);
@@ -124,7 +121,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         clientSignUpBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         clientSignUpBtn.setForeground(new java.awt.Color(236, 100, 44));
-        clientSignUpBtn.setText("Client Sign up");
+        clientSignUpBtn.setText("New Client?");
         clientSignUpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clientSignUpBtnActionPerformed(evt);
@@ -133,16 +130,13 @@ public class MainJFrame extends javax.swing.JFrame {
 
         passwordField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 44)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Krub", 1, 44)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(236, 100, 44));
         jLabel4.setText("Welcome");
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel5.setText("I don't have an account");
-
         volunteerSignUpBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         volunteerSignUpBtn.setForeground(new java.awt.Color(236, 100, 44));
-        volunteerSignUpBtn.setText("Volunteer Sign up");
+        volunteerSignUpBtn.setText("New Volunteer?");
         volunteerSignUpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volunteerSignUpBtnActionPerformed(evt);
@@ -153,11 +147,12 @@ public class MainJFrame extends javax.swing.JFrame {
         right.setLayout(rightLayout);
         rightLayout.setHorizontalGroup(
             rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightLayout.createSequentialGroup()
+                .addGap(0, 251, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(206, 206, 206))
             .addGroup(rightLayout.createSequentialGroup()
                 .addGroup(rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(rightLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(loginBtn))
                     .addGroup(rightLayout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addGroup(rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,16 +162,14 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addComponent(userNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
                                 .addComponent(passwordField))
                             .addGroup(rightLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addGroup(rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(volunteerSignUpBtn)
-                                    .addComponent(clientSignUpBtn))))))
-                .addContainerGap(86, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(206, 206, 206))
+                                .addGap(201, 201, 201)
+                                .addComponent(loginBtn))))
+                    .addGroup(rightLayout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addGroup(rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(volunteerSignUpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(clientSignUpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         rightLayout.setVerticalGroup(
             rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,15 +184,13 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(loginBtn)
-                .addGap(39, 39, 39)
-                .addGroup(rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(clientSignUpBtn))
                 .addGap(18, 18, 18)
+                .addComponent(loginBtn)
+                .addGap(40, 40, 40)
+                .addComponent(clientSignUpBtn)
+                .addGap(12, 12, 12)
                 .addComponent(volunteerSignUpBtn)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         jPanel1.add(right);
@@ -307,7 +298,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginBtn;
     private javax.swing.JPasswordField passwordField;

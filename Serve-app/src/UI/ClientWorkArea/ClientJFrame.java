@@ -179,6 +179,7 @@ public class ClientJFrame extends javax.swing.JFrame {
 
     private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
         // TODO add your handling code here:
+        this.jSplitPane1.setRightComponent(new LegalMP(appSystem, enterprise,organization,useraccount));
     }//GEN-LAST:event_productReportBtnActionPerformed
 
     private void productReportBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn1ActionPerformed
@@ -188,6 +189,7 @@ public class ClientJFrame extends javax.swing.JFrame {
 
     private void productReportBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn2ActionPerformed
         // TODO add your handling code here:
+        this.jSplitPane1.setRightComponent(new ConnectionMP(appSystem, enterprise,organization,useraccount));
     }//GEN-LAST:event_productReportBtn2ActionPerformed
 
     private void productReportBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn3ActionPerformed

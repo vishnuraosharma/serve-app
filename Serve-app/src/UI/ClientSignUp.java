@@ -10,6 +10,7 @@ import Applicant.Application;
 import Applicant.ApplicationDirectory;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import Person.Client.Client;
 import Person.Person;
 import UserAccount.UserAccount;
 import WorkAreas.ConvenienceVolunteerRole;
@@ -20,25 +21,23 @@ import javax.swing.JOptionPane;
  *
  * @author siqiyang
  */
-public class VolunteerSignUp extends javax.swing.JFrame {
+public class ClientSignUp extends javax.swing.JFrame {
         private Network appSystem; 
         private UserAccount useraccount;
         Enterprise enterprise;
         Organization organization;
-        private Boolean isnull = false;
-
+        private Boolean isnull = false; 
     /**
      * Creates new form VolunteerSignUp
      */
-    public VolunteerSignUp(Network appSystem,Organization organization) {
+    public ClientSignUp(Network appSystem) {
         initComponents();
         this.appSystem = appSystem;
-        this.organization = organization;
         this.setLocationRelativeTo(null);
     }
 
     
-    public VolunteerSignUp(Network appSystem,Enterprise enterprise, Organization organization, UserAccount useraccount) {
+    public ClientSignUp(Network appSystem,Enterprise enterprise, Organization organization, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -132,7 +131,8 @@ public class VolunteerSignUp extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 44)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(236, 100, 44));
-        jLabel4.setText("Volunteer Sign Up");
+        jLabel4.setText("Client Sign Up");
+        jLabel4.setToolTipText("");
 
         backBtn.setBackground(new java.awt.Color(236, 100, 44));
         backBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -216,7 +216,10 @@ public class VolunteerSignUp extends javax.swing.JFrame {
                                     .addComponent(ecnumField, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)
                                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(passwordField)))
+                            .addComponent(passwordField)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(98, 98, 98))))
                     .addGroup(rightLayout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(submitBtn)
@@ -224,10 +227,6 @@ public class VolunteerSignUp extends javax.swing.JFrame {
                         .addComponent(backBtn)
                         .addGap(99, 99, 99)))
                 .addGap(97, 97, 97))
-            .addGroup(rightLayout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         rightLayout.setVerticalGroup(
             rightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,20 +348,20 @@ public class VolunteerSignUp extends javax.swing.JFrame {
             boolean i=this.appSystem.getTopLevelUserAccountDirectory().checkApplicationUsernameUnique(username);
             
             if(i){
-                Person p = appSystem.getPersonDirectory().createPerson(Name);
+                Client c = (Client) appSystem.getPersonDirectory().createPerson(Name);
                 Application application = this.appSystem.getApplicantDirectory().createApplication(Name, 
                         ssn, address, date, email, ssn, Name, ssn, contactNum, 
                         username, password);
                 
-                application.setPerson(p);
-                this.appSystem.getReqDir().createVolunteerApplicationRequest(null, application);
+                application.setPerson(c);
+                this.appSystem.getReqDir().createClientApplicationRequest(null, application);
 
                 JOptionPane.showMessageDialog(null, "Application Created");
             }else{
                 JOptionPane.showMessageDialog(null, "Username already exists");
                 userNameField.setText("");
        
-        }                             
+                }                             
         }
 
     }//GEN-LAST:event_submitBtnActionPerformed
@@ -370,7 +369,7 @@ public class VolunteerSignUp extends javax.swing.JFrame {
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new MainJFrame(appSystem, enterprise,organization,useraccount);
+            MainJFrame mainJFrame = new MainJFrame(appSystem, enterprise,organization,useraccount);
     }//GEN-LAST:event_backBtnActionPerformed
 
     /**
@@ -390,14 +389,15 @@ public class VolunteerSignUp extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VolunteerSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VolunteerSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VolunteerSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VolunteerSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientSignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

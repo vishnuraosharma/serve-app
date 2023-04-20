@@ -5,6 +5,7 @@
 package Applicant;
 
 import Enterprise.Enterprise;
+import Person.Client.Client;
 import Person.Person;
 import UserAccount.UserAccount;
 import java.util.Date;
@@ -27,6 +28,15 @@ public class Application {
         this.applicationId = "app" + count++;
         this.status = "Pending";
         this.person = new Person(name,ssn,address,
+            dob,email, ecn, ecname, occ, contactNum);
+    }
+     
+     public Application(String name, String ssn, String address,
+            Date dob, String email,String ecn, String ecname, String occ, String contactNum,String username, String password, String s){
+//        this.e = this.useraccount.getEnterprise();
+        this.applicationId = "app" + count++;
+        this.status = "Pending";
+        this.person = (Client) new Person(name,ssn,address,
             dob,email, ecn, ecname, occ, contactNum);
     }
 
