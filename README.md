@@ -1,4 +1,4 @@
-<pre>                              <img width="500" alt="Serve-High-Level-Model" src="Resources/servelogo1.jpeg">                </pre> 
+<pre>                <img width="500" alt="Serve-High-Level-Model" src="Resources/servelogo1.jpeg">                </pre> 
 
 
 # Serve
