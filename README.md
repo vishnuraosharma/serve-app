@@ -15,8 +15,8 @@ Serve is a Java Desktop application that motivates community members & specialis
 
 |Contributor     | App-Scope |Requirements-Scope |
 |--|--|--|
-|  Vishnu Rao-Sharma| Client Marketplace, Service Organization Management, Product Organization Management, Client Registration|Cross-Organization Request Creation, Request Creation, Form Validations, Sample Data, Documentation (README, UML, Component Diagram)|
+|  Vishnu Rao-Sharma| Client Marketplace, Service Organization Management, Product Organization Management, Client Registration|Cross-Organization Request Creation, Request Creation, Form Validations, Documentation (README, UML, Component Diagram)|
 |  Khatantuul Batbold|Product Request Management, Service Request Management, Application Request Management (Client, Volunteer, Specialist) |Request Management, Status Management, Cross-Enterprise Request Creation,| 
 |  Siqi Yang| System Admin Management, Enterprise Admin Management, User Login, Volunteer Registration  |System Admin CRUD, Enterprise Admin CRUD, Unique IDs|
-|  *Group*| Serve "Model" Package|Model, System Admin Chart, Enterprise Charts, Git VC, Error Handling/Null Checks, UI/UX design and Alignment, Relevant Data Types|
+|  *Group*| Serve "Model" Package|Model, System Admin Chart, Enterprise Charts, Git VC, Error Handling/Null Checks, UI/UX design and Alignment, Relevant Data Types, Sample Data|
 
