@@ -9,7 +9,7 @@ Serve is a Java Desktop application that motivates community members & specialis
 - Healthcare and Legal organizations set-up a catalog of specialized services and register Serve-verified physicians and lawyers to fulfill client requests
 - Schools and other Community Organizations (Boy Scouts of America) manage a catalog of activities aimed to engage seniors on a human level; volunteer cohorts sign-up for activities on client request
 
-<img width="1240" alt="Serve-High-Level-Model" src="/serve-app/blob/main/Serve-High-Level-Model.png">
+<img width="1240" alt="Serve-High-Level-Model" src="/Serve-High-Level-Model.png">
 
 ## Who contributed to Serve?
 
