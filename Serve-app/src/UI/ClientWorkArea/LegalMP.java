@@ -80,7 +80,7 @@ public class LegalMP extends javax.swing.JPanel {
     }
     
     public void addIcons(){
-        String filepath = "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/cart.jpeg";
+        String filepath = "src/Resources/cart.jpeg";
         try {
             BufferedImage bufferedImage = ImageIO.read(new File(filepath));
             Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
@@ -271,10 +271,12 @@ public class LegalMP extends javax.swing.JPanel {
             }
         });
 
-        jLabel10.setBackground(new java.awt.Color(255, 118, 0));
+        jLabel10.setBackground(new java.awt.Color(236, 100, 44));
         jLabel10.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 118, 0));
+        jLabel10.setForeground(new java.awt.Color(236, 100, 44));
         jLabel10.setText("Meet a Legal Specialist");
+
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(450, 400));
 
         lawServicesTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         lawServicesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -293,6 +295,7 @@ public class LegalMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        lawServicesTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         lawServicesTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lawServicesTableMouseClicked(evt);
@@ -300,7 +303,8 @@ public class LegalMP extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(lawServicesTable);
 
-        productDets.setBackground(new java.awt.Color(255, 255, 255));
+        productDets.setBackground(new java.awt.Color(236, 100, 44));
+        productDets.setForeground(new java.awt.Color(236, 100, 44));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         productDets.add(serviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 90, 100));
 
@@ -330,18 +334,18 @@ public class LegalMP extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(108, 108, 108)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 416, Short.MAX_VALUE)
                 .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(782, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
+                .addGap(84, 84, 84))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(20, 20, 20)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(488, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 682, Short.MAX_VALUE)
+                    .addGap(488, 488, 488)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,9 +354,9 @@ public class LegalMP extends javax.swing.JPanel {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cartImage1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(207, 207, 207)
+                .addGap(221, 221, 221)
                 .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(236, 236, 236))
+                .addGap(222, 222, 222))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(75, 75, 75)

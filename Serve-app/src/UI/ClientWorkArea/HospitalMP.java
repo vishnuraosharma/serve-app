@@ -81,7 +81,7 @@ public class HospitalMP extends javax.swing.JPanel {
     }
     
     public void addIcons(){
-        String filepath = "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/cart.jpeg";
+        String filepath = "src/Resources/cart.jpeg";
         try {
             BufferedImage bufferedImage = ImageIO.read(new File(filepath));
             Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
@@ -272,7 +272,7 @@ public class HospitalMP extends javax.swing.JPanel {
 
         jLabel10.setBackground(new java.awt.Color(255, 118, 0));
         jLabel10.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 118, 0));
+        jLabel10.setForeground(new java.awt.Color(236, 100, 44));
         jLabel10.setText("Meet with a Health Specialist");
 
         hosServicesTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
@@ -299,7 +299,8 @@ public class HospitalMP extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(hosServicesTable);
 
-        productDets.setBackground(new java.awt.Color(255, 255, 255));
+        productDets.setBackground(new java.awt.Color(236, 100, 44));
+        productDets.setForeground(new java.awt.Color(236, 100, 44));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         productDets.add(serviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 90, 100));
 
@@ -328,26 +329,25 @@ public class HospitalMP extends javax.swing.JPanel {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63))
+                        .addGap(363, 363, 363)
+                        .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82)
-                        .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))))
+                        .addGap(71, 71, 71)
+                        .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(63, 63, 63))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cartImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addGap(232, 232, 232)
                 .addComponent(productDets, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(236, 236, 236))
+                .addGap(156, 156, 156))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

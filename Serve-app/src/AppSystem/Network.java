@@ -25,6 +25,9 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -172,13 +175,11 @@ public class Network {
     }
 
     public void addIcon(int i, javax.swing.JLabel lbl){
-        String filepath;
-        if (i == 1){
-             filepath = "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/servelogo1.jpeg";
-        } else{
-             filepath = "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/servelogo2.jpeg";
-        }
         
+        String filepath = "src/Resources/servelogo2.jpeg";
+        if (i == 1){
+             filepath = "src/Resources/servelogo1.jpeg";
+        }
         try {
             BufferedImage bufferedImage = ImageIO.read(new File(filepath));
             Image image = bufferedImage.getScaledInstance(lbl.getWidth(),lbl.getHeight(), Image.SCALE_SMOOTH);
