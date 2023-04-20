@@ -1,5 +1,8 @@
+<pre>                <img width="500" alt="Serve-High-Level-Model" src="Resources/servelogo1.jpeg">                </pre> 
+
+
 # Serve
-Roughly 1 in 3 senior citizens in the United States live below the Federal Poverty Line. With **Serve**, this population gains access to crucial Convenience, Health, Legal, and Connection services. 
+Roughly 1 in 3 senior citizens in the United States live below the Federal Poverty Line. With **Serve**, this population gains access to essential Convenience, Health, Legal, and Connection services. 
 
 ## What is Serve?
 Serve is a Java Desktop application that motivates community members & specialists to consciously build their community through volunteerism.
