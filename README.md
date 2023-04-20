@@ -1,4 +1,4 @@
-# Serve
+# Serve <img width="1240" alt="Serve-High-Level-Model" src="/Serve-High-Level-Model.png">
 Roughly 1 in 3 senior citizens in the United States live below the Federal Poverty Line. With **Serve**, this population gains access to essential Convenience, Health, Legal, and Connection services. 
 
 ## What is Serve?
