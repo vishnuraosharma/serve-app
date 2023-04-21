@@ -96,7 +96,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="clientApplicationsBtn">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body style=&apos;width: 50px; text-align: left;&apos;&gt;Volunteer Applications &lt;/body&gt;&lt;/html&gt;&#xa;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;body style=&apos;width: 50px; text-align: left;&apos;&gt;Client Applications &lt;/body&gt;&lt;/html&gt;&#xa;"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clientApplicationsBtnActionPerformed"/>

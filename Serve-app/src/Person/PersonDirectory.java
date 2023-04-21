@@ -31,13 +31,21 @@ public class PersonDirectory {
         this.personList = personList;
     }
     
-    public Person createClient(String name) {
-        Client c = new Client();
+    public Client createClient(String name) {
+        Client c = new Client(name);
         c.setName(name);
       
         this.personList.add(c);
         return c;
     }
+    public Client createClient(Person p) {
+        Client c = new Client(p);
+           
+        this.personList.add(c);
+        return c;
+    }
+    
+    
     
     public Person createPerson(String name) {
         Person p = new Person(name);

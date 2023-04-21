@@ -4,6 +4,7 @@
  */
 package Requests;
 
+import AppSystem.Network;
 import Applicant.Application;
 import Organization.Organization;
 import Organization.ProductManagement.ProductOrder;
@@ -49,8 +50,8 @@ public class RequestDirectory {
     }
      
     
-    public ApplicationRequest createClientApplicationRequest(Application app) {
-        ApplicationRequest appReq = new ApplicationRequest(app);
+    public ApplicationRequest createClientApplicationRequest(Application app, Network appSystem) {
+        ApplicationRequest appReq = new ApplicationRequest(app,appSystem);
         List<Request> requests = allRequests.getOrDefault("Client Applications", new ArrayList<>());
         requests.add(appReq);
         allRequests.put("Client Applications", requests);

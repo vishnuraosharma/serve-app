@@ -4,15 +4,19 @@
  */
 package Requests;
 
+import AppSystem.Network;
 import Applicant.Application;
 import Enterprise.Convenience;
 import Enterprise.Enterprise;
 import Organization.ConvenienceVolOrganization;
 import Organization.Organization;
 import Organization.ServicesOrganization;
+import Person.Client.Client;
+import Person.PersonDirectory;
 import UserAccount.UserAccount;
 import Volunteer.VolunteerProfile;
 import WorkAreas.AbstractRole;
+import WorkAreas.ClientRole;
 import WorkAreas.ConnectionVolunteerRole;
 import WorkAreas.ConvenienceVolunteerRole;
 import WorkAreas.HealthcareSpecialistRole;
@@ -25,10 +29,12 @@ import WorkAreas.LegalSpecialistRole;
 public class ApplicationRequest extends Request {
      Application app;
      Organization forOrganization;
+     Network network;
     
-    public ApplicationRequest(Application app) {
+    public ApplicationRequest(Application app, Network appSystem) {
         super(null);
         this.app = app;
+        this.network = appSystem;
     }
     public ApplicationRequest(Application app, Organization so) {
         super(null);
@@ -66,6 +72,18 @@ public class ApplicationRequest extends Request {
              
   
         //sending email
+    }
+    
+    public void processClients(){
+        super.setStatus("Completed");
+        this.app.setStatus("Approved");
+        
+        AbstractRole role = new ClientRole();
+        PersonDirectory perDir = this.network.getPersonDirectory();
+        Client c = perDir.createClient(this.app.getPerson());
+        UserAccount ua = this.network.getTopLevelUserAccountDirectory().createUserAccount(this.app.getUsername(), this.app.getPassword(), role);
+        c.setUseraccount(ua);
+        
     }
     
     public void rejectApplication(){

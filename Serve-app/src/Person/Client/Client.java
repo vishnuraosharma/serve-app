@@ -10,27 +10,37 @@ import Organization.ServiceManagement.Service;
 import Organization.ServiceManagement.ServiceOrder;
 import Person.Person;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author siqiyang
  */
-public class Client extends Person{
-    String emergencyContactName;
-    String emergencyContactNumber;
-    ArrayList<ProductOrder> prodOrders;
-    ArrayList<ServiceOrder> servOrders;
-    ArrayList<Service> unfulfilledServices;
-    ArrayList<Product> perscripedMeds;
-   
-    
-    public Client(){
-        emergencyContactName = "Mom";
-        emergencyContactNumber = "8457418165";
-        prodOrders = new  ArrayList<ProductOrder>();
-        servOrders = new ArrayList<ServiceOrder>();
-        unfulfilledServices = new ArrayList<>();
-        perscripedMeds = new ArrayList<>();
+public class Client extends Person {
+//    private String username;
+//    private String password;
+    private ArrayList<ProductOrder> prodOrders;
+    private ArrayList<ServiceOrder> servOrders;
+    private ArrayList<Service> unfulfilledServices;
+    private ArrayList<Product> perscripedMeds;
+
+    public Client(String name) {
+        super(name);
+//        this.username = username;
+//        this.password = password;
+        this.prodOrders = new ArrayList<>();
+        this.servOrders = new ArrayList<>();
+        this.unfulfilledServices = new ArrayList<>();
+        this.perscripedMeds = new ArrayList<>();
+    }
+    public Client(Person p) {
+        super(p.getName(), p.getSsn(), p.getAddress(), p.getDob(), p.getEmail(), p.getEmergencyContactNumber(), p.getEmergencyContactName(), p.getOccupation(), p.getContactNum());
+//        this.username = username;
+//        this.password = password;
+        this.prodOrders = new ArrayList<>();
+        this.servOrders = new ArrayList<>();
+        this.unfulfilledServices = new ArrayList<>();
+        this.perscripedMeds = new ArrayList<>();
     }
     
     public ProductOrder addClientProductOrder(ProductOrder o){
@@ -67,21 +77,21 @@ public class Client extends Person{
         this.unfulfilledServices = unfulfilledServices;
     }
 
-    public String getEmergencyContactName() {
-        return emergencyContactName;
-    }
-
-    public void setEmergencyContactName(String emergencyContactName) {
-        this.emergencyContactName = emergencyContactName;
-    }
-
-    public String getEmergencyContactNumber() {
-        return emergencyContactNumber;
-    }
-
-    public void setEmergencyContactNumber(String emergencyContactNumber) {
-        this.emergencyContactNumber = emergencyContactNumber;
-    }
+//    public String getEmergencyContactName() {
+//        return emergencyContactName;
+//    }
+//
+//    public void setEmergencyContactName(String emergencyContactName) {
+//        this.emergencyContactName = emergencyContactName;
+//    }
+//
+//    public String getEmergencyContactNumber() {
+//        return emergencyContactNumber;
+//    }
+//
+//    public void setEmergencyContactNumber(String emergencyContactNumber) {
+//        this.emergencyContactNumber = emergencyContactNumber;
+//    }
 
     public ArrayList<Product> getPerscribedMeds() {
         return perscripedMeds;

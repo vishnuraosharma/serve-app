@@ -21,6 +21,7 @@ public class Application {
     String applicationId; 
     String status;
     Person person;
+    Client client;
     String username;
     String password;
     
@@ -42,8 +43,9 @@ public class Application {
         this.status = "Pending";
         this.username = username;
         this.password = password;
-        this.person = (Client) new Person(name,ssn,address,
+        this.person = new Person(name,ssn,address,
             dob,email, ecn, ecname, occ, contactNum);
+        this.client = new Client(this.person);
     }
 
     public String getApplicationId() {

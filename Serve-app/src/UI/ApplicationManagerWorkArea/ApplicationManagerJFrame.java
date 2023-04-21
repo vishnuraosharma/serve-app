@@ -77,7 +77,7 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         });
         controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, 40));
 
-        clientApplicationsBtn.setText("<html><body style='width: 50px; text-align: left;'>Volunteer Applications </body></html>\n");
+        clientApplicationsBtn.setText("<html><body style='width: 50px; text-align: left;'>Client Applications </body></html>\n");
         clientApplicationsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clientApplicationsBtnActionPerformed(evt);
@@ -111,7 +111,7 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
 
     private void clientApplicationsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientApplicationsBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new VolunteerManagementJPanel(appSystem,enterprise,organization,useraccount));
+        jSplitPane1.setRightComponent(new ClientManagementJPanel(appSystem,enterprise,organization,useraccount));
     }//GEN-LAST:event_clientApplicationsBtnActionPerformed
 
     /**

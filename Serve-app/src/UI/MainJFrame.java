@@ -203,6 +203,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void clientSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientSignUpBtnActionPerformed
         // TODO add your handling code here:
+        ClientSignUp clientSignUp = new ClientSignUp(this.appSystem);
+        clientSignUp.setVisible(true);
+        clientSignUp.pack();
+        clientSignUp.setLocationRelativeTo(null); 
+        this.dispose();
 
     }//GEN-LAST:event_clientSignUpBtnActionPerformed
 

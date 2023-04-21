@@ -37,14 +37,14 @@ public class ClientSignUp extends javax.swing.JFrame {
     }
 
     
-    public ClientSignUp(Network appSystem,Enterprise enterprise, Organization organization, UserAccount useraccount) {
+    public ClientSignUp(Network appSystem, UserAccount useraccount) {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.appSystem = appSystem;
         this.useraccount = useraccount;
-        this.enterprise = enterprise;
-        this.organization = organization;
+//        this.enterprise = enterprise;
+//        this.organization = organization;
 
     }       
 
@@ -348,13 +348,13 @@ public class ClientSignUp extends javax.swing.JFrame {
             boolean i=this.appSystem.getTopLevelUserAccountDirectory().checkApplicationUsernameUnique(username);
             
             if(i){
-                Client c = (Client) appSystem.getPersonDirectory().createPerson(Name);
+//                Client c = (Client) appSystem.getPersonDirectory().createPerson(Name);
                 Application application = this.appSystem.getApplicantDirectory().createApplication(Name, 
                         ssn, address, date, email, ssn, Name, ssn, contactNum, 
                         username, password);
                 
 //                application.setPerson(c);
-                this.appSystem.getReqDir().createClientApplicationRequest(application);
+                this.appSystem.getReqDir().createClientApplicationRequest(application, this.appSystem);
 
                 JOptionPane.showMessageDialog(null, "Application Submitted!");
             }else{
