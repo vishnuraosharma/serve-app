@@ -72,7 +72,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         this.grocery =(ProductOrganization) appSystem.getEnterprises().findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store");
         this.groProdModel = (DefaultTableModel) this.groTable.getModel();
         this.groCartModel = (DefaultTableModel) this.groCartTable.getModel();
-        this.pharmCart = new ProductCart();
+        this.groCart = new ProductCart();
         
         
         
@@ -90,7 +90,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
     }
     
     public void addIcons(){
-        String filepath = "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/cart.jpeg";
+        String filepath = "src/Resources/cart.jpeg";
         try {
             BufferedImage bufferedImage = ImageIO.read(new File(filepath));
             Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
@@ -254,7 +254,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
-        jTabbedPane1.setBackground(new java.awt.Color(255, 118, 0));
+        jTabbedPane1.setBackground(new java.awt.Color(236, 100, 44));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setFont(new java.awt.Font("Krub", 0, 18)); // NOI18N
 
@@ -282,7 +282,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel9.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 118, 0));
+        jLabel9.setForeground(new java.awt.Color(236, 100, 44));
         jLabel9.setText("Shop Grocery");
 
         groTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
@@ -388,7 +388,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jPanel2.add(groPopup);
         groPopup.setBounds(750, 60, 376, 362);
 
-        productDets1.setBackground(new java.awt.Color(255, 118, 0));
+        productDets1.setBackground(new java.awt.Color(236, 100, 44));
         productDets1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         groQtySpinner.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
@@ -433,9 +433,9 @@ public class ConvenienceMP extends javax.swing.JPanel {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel10.setBackground(new java.awt.Color(255, 118, 0));
+        jLabel10.setBackground(new java.awt.Color(236, 100, 44));
         jLabel10.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 118, 0));
+        jLabel10.setForeground(new java.awt.Color(236, 100, 44));
         jLabel10.setText("Shop Pharmacy");
 
         pharTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
@@ -541,7 +541,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jLayeredPane2.add(pharmPopup);
         pharmPopup.setBounds(770, 60, 376, 362);
 
-        productDets.setBackground(new java.awt.Color(255, 255, 255));
+        productDets.setBackground(new java.awt.Color(236, 100, 44));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pharQtySpinner.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N

@@ -81,6 +81,20 @@ public class UserAccountDirectory {
     public void deleteApplicationManager(UserAccount u){
         this.userAccountList.remove(u);
     }
+
+//    public void deleteOrganizationManager(String accountId){
+//        for(UserAccount u: this.getUserAccountList()){
+//            if(u.getAccountId().equals(accountId)){
+//               this.userAccountList.remove(u);
+//            }
+//        }
+//    } 
+    public void deleteOrganizationManager(UserAccount u){
+        System.out.println("!!!!!!!!!!!");
+        System.out.println(u.getUserName());
+        this.userAccountList.remove(u);
+        
+    }      
     
     public Boolean checkApplicationUsernameUnique(String username){
         for (UserAccount u: this.userAccountList){
