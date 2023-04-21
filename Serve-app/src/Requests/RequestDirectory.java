@@ -23,13 +23,23 @@ public class RequestDirectory {
     private HashMap<String, List<Request>> allRequests;
     private HashMap<String, ApplicationRequest> conVolApplicationRequests;
     private HashMap<String, ApplicationRequest> volApplicationRequests;
-    private HashMap<String, ApplicationRequest> clientApplicationRequests;
-    
+    private HashMap<String, ApplicationRequest> clientApplicationRequests;  
+    private HashMap<String, ConvenienceRequest> convenienceRequests;
+    private HashMap<String, DeliveryRequest> deliveryRequests;
+    private HashMap<String, HealthRequest> healthRequests;
+    private HashMap<String, LegalRequest> legalRequests;
+    private HashMap<String, ConnectionRequest> connectionRequests;
+        
     public RequestDirectory(){
         this.allRequests = new HashMap<>();
         this.conVolApplicationRequests = new HashMap<>();
         this.volApplicationRequests = new HashMap<>();
         this.clientApplicationRequests = new HashMap<>();
+        this.convenienceRequests = new HashMap<>();
+        this.deliveryRequests = new HashMap<>();
+        this.healthRequests = new HashMap<>();
+        this.legalRequests = new HashMap<>();
+        this.connectionRequests = new HashMap<>();
     }
     
    public ApplicationRequest createConVolunteerApplicationRequest(Application app,Organization so) {
@@ -58,35 +68,48 @@ public class RequestDirectory {
         clientApplicationRequests.put(appReq.getRequestID(), appReq);
         return appReq;
     }
+    public ConvenienceRequest createConvenienceRequest(UserAccount requester, ProductOrder po) {
+        ConvenienceRequest convenienceReq = new ConvenienceRequest(requester,po);
+        List<Request> requests = allRequests.getOrDefault("Convenience purchases", new ArrayList<>());
+        requests.add(convenienceReq);
+        allRequests.put("Convenience purchases", requests);
+        convenienceRequests.put(convenienceReq.getRequestID(), convenienceReq);
+        return convenienceReq;
+    }
+    public DeliveryRequest createDeliveryRequest(UserAccount requester, ConvenienceRequest conReq) {
+        DeliveryRequest deliveryReq = new DeliveryRequest(requester,conReq);
+        List<Request> requests = allRequests.getOrDefault("Convenience delivery", new ArrayList<>());
+        requests.add(deliveryReq);
+        allRequests.put("Convenience delivery", requests);
+        deliveryRequests.put(deliveryReq.getRequestID(), deliveryReq);
+        return deliveryReq;
+    }
+    public HealthRequest createHealthRequest(UserAccount requester, ServiceOrder so) {
+        HealthRequest healthReq = new HealthRequest(requester,so);
+        List<Request> requests = allRequests.getOrDefault("Health requests", new ArrayList<>());
+        requests.add(healthReq);
+        allRequests.put("Health requests", requests);
+        healthRequests.put(healthReq.getRequestID(), healthReq);
+        return healthReq;
+    }
+    public LegalRequest createLegalRequest(UserAccount requester, ServiceOrder so) {
+        LegalRequest legalReq = new LegalRequest(requester,so);
+        List<Request> requests = allRequests.getOrDefault("Legal requests", new ArrayList<>());
+        requests.add(legalReq);
+        allRequests.put("Legal requests", requests);
+        legalRequests.put(legalReq.getRequestID(), legalReq);
+        return legalReq;
+    }
+    public ConnectionRequest createConnectionRequest(UserAccount requester, ServiceOrder so) {
+        ConnectionRequest connectionReq = new ConnectionRequest(requester,so);
+        List<Request> requests = allRequests.getOrDefault("Connection requests", new ArrayList<>());
+        requests.add(connectionReq);
+        allRequests.put("Connection requests", requests);
+        connectionRequests.put(connectionReq.getRequestID(), connectionReq);
+        return connectionReq;
+    }
      
-    public ConvenienceRequest createConvenienceRequest(UserAccount ua, ProductOrder po) {
-    ConvenienceRequest conReq = new ConvenienceRequest(ua,po);
-    List<Request> requests = allRequests.getOrDefault("Convenience", new ArrayList<>());
-    requests.add(conReq);
-    allRequests.put("Convenience", requests);
-    return conReq;
-}
-     
-//     public ConvenienceRequest createConvenienceRequest(UserAccount ua, ProductOrder po) {
-//         ConvenienceRequest conReq = new ConvenienceRequest(ua,po);
-//        allRequests.put("Convenience",conReq);
-//        return conReq;
-//    }
-//     public HealthRequest createHealthRequest(UserAccount ua, ServiceOrder so) {
-//         HealthRequest healthReq = new HealthRequest(ua,so);
-//        allRequests.put("Health",healthReq);
-//        return healthReq;
-//    }
-//     public ConnectionRequest createConnectionRequest(UserAccount ua, ServiceOrder so) {
-//         ConnectionRequest connectionReq = new ConnectionRequest(ua,so);
-//        allRequests.put("Connection",connectionReq);
-//        return connectionReq;
-//    }
-//     public LegalRequest createLegalRequest(UserAccount ua, ServiceOrder so) {
-//         LegalRequest legalReq = new LegalRequest(ua,so);
-//        allRequests.put("Legal",legalReq);
-//        return legalReq;
-//    }
+ 
 
     public HashMap<String, List<Request>> getAllRequests() {
         return allRequests;

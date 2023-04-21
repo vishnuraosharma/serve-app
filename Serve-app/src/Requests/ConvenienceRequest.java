@@ -27,6 +27,9 @@ public class ConvenienceRequest extends Request {
        super.setStatus("Pending for delivery");
        
     }
-    
-    
+
+    public ProductOrder getProductOrder() {
+        return productOrder;
+    }
+        
 }
