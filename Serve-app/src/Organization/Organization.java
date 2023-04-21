@@ -69,7 +69,14 @@ public class Organization {
     public void setType(String type) {
         this.type = type;
     }
-    
+
+    public Enterprise getParentEnterprise() {
+        return parentEnterprise;
+    }
+
+    public UserAccountDirectory getOrganizationAccounts() {
+        return organizationAccounts;
+    }
     
     
     @Override

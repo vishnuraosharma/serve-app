@@ -12,7 +12,6 @@ import Volunteer.VolunteerDirectory;
  * @author khatna
  */
 public class ConvenienceVolOrganization extends Organization {
-    String name;
     VolunteerDirectory volunteerDir;
     
     public ConvenienceVolOrganization(String name, Enterprise e, String t){
@@ -20,4 +19,18 @@ public class ConvenienceVolOrganization extends Organization {
         super.type=t;
         volunteerDir = new VolunteerDirectory();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public VolunteerDirectory getVolunteerDir() {
+        return volunteerDir;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
 }

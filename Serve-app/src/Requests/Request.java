@@ -6,6 +6,7 @@ package Requests;
 
 import UserAccount.UserAccount;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  *
@@ -16,13 +17,13 @@ public abstract class Request {
     static int counter = 1;
     UserAccount requester; //ignore the datatype for now, we should discuss
     UserAccount requestResponder; //ignore the datatype for now, we should discuss
-    LocalDateTime requestDate;
+    Date requestDate;
     String status;
     
     public Request(UserAccount requester){
         this.requestID = "req" + counter++;
         this.requester = requester;
-        this.requestDate = LocalDateTime.now();
+        this.requestDate = new Date();
         this.status = "Created";
     }
     
@@ -40,7 +41,7 @@ public abstract class Request {
         return requestResponder;
     }
 
-    public LocalDateTime getRequestDate() {
+    public Date getRequestDate() {
         return requestDate;
     }
 
@@ -56,7 +57,7 @@ public abstract class Request {
         this.requestResponder = requestResponder;
     }
 
-    public void setRequestDate(LocalDateTime requestDate) {
+    public void setRequestDate(Date requestDate) {
         this.requestDate = requestDate;
     }
 
