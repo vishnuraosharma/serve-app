@@ -212,37 +212,47 @@ public class MainJFrame extends javax.swing.JFrame {
         Boolean foundUser = false;
         Boolean orgLevel = false;
         Boolean entLevel = false;
+        String pass = new String(passwordField.getPassword());
         for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()) {
             for(Organization org: enterprise.getOrganizationDirectory().getOrganizationList()){
-                if(org.getOrganizationAccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText()) != null) {
-                    UserAccount orgLvlUser = org.getOrganizationAccountDirectory().authenticateUser(String.valueOf(passwordField.getPassword()), userNameField.getText());
-                    foundUser = true; orgLevel = true;
+                if(org.getOrganizationAccountDirectory().authenticateUser(userNameField.getText(), pass) != null) {
+                    UserAccount orgLvlUser = org.getOrganizationAccountDirectory().authenticateUser(userNameField.getText(),pass);
+                    foundUser = true; 
+                    orgLevel = true;
                     orgLvlUser.getRole().createWorkArea(appSystem, enterprise, org, orgLvlUser);
                     this.setVisible(false);
+                    System.out.println("logedin as org manager" + orgLvlUser.getUserName());
+                    break;
                 }
             }
         }
-        if(!orgLevel){
+        if(!foundUser && !orgLevel){
             for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()) {
-                if(enterprise.getUseraccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText()) != null) {
-                    UserAccount entLvlUser = enterprise.getUseraccountDirectory().authenticateUser(passwordField.getText(), userNameField.getText());
+                if(enterprise.getUseraccountDirectory().authenticateUser(userNameField.getText(), pass)!=null) {
+                    UserAccount entLvlUser = enterprise.getUseraccountDirectory().authenticateUser(userNameField.getText(),pass);
                     foundUser = true;
+                    entLevel = true;
                     entLvlUser.getRole().createWorkArea(appSystem, enterprise, organization, entLvlUser);
                     this.setVisible(false);
+                    System.out.println("logedin as enter manager" + entLvlUser.getUserName());
+                    break;
                 }
             }
         }
-        if (!orgLevel && !entLevel){
-            if(this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText()) != null) {
-                UserAccount sysLvlUser = this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), passwordField.getText());
+        if (!foundUser  && !orgLevel && !entLevel){
+            if(this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), pass) != null) {
+                UserAccount sysLvlUser = this.appSystem.getTopLevelUserAccountDirectory().authenticateUser(userNameField.getText(), pass);
                 foundUser = true;
                 sysLvlUser.getRole().createWorkArea(appSystem, enterprise, organization, sysLvlUser);
                 this.setVisible(false);
+                System.out.println("logedin as sys manager" + sysLvlUser.getUserName());
             }
         }
-        if(!foundUser) {
+        if(!foundUser) 
+        {
             JOptionPane.showMessageDialog(null, "Invalid Credentials");
         }
+        System.out.println("logedin done");
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void volunteerSignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volunteerSignUpBtnActionPerformed

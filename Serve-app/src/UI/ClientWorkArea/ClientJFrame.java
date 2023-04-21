@@ -101,7 +101,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productCatalogBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(productCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 104, 120, -1));
+        jPanel1.add(productCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 104, 110, -1));
 
         productReportBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn.setText("Legal");
@@ -110,7 +110,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 202, 120, -1));
+        jPanel1.add(productReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 100, -1));
 
         productReportBtn1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn1.setText("Health");
@@ -119,7 +119,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 154, 120, -1));
+        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 100, -1));
 
         productReportBtn2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn2.setText("Connection");
@@ -128,7 +128,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn2ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 244, 120, -1));
+        jPanel1.add(productReportBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 100, -1));
 
         productReportBtn3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productReportBtn3.setText("My Requests");

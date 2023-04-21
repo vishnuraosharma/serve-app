@@ -48,7 +48,7 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
     
     public void populateEnterprise() {   
         enterprisenNameBox.addItem("Convenience");
-        enterprisenNameBox.addItem("Healthcare");
+        enterprisenNameBox.addItem("Health");
         enterprisenNameBox.addItem("Connection");
         enterprisenNameBox.addItem("Legal");
     }
@@ -79,6 +79,9 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         updatePasswordTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        setSize(new java.awt.Dimension(1300, 800));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -137,41 +140,42 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(addEnterpriseManagerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(DeleteEnterpriseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(updateEnterpriseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nameField)
-                            .addComponent(enterprisenNameBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(usernameField)
-                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel5)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addComponent(addEnterpriseManagerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
+                        .addComponent(DeleteEnterpriseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(updateEnterpriseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(updatePasswordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(updateNameField))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nameField)
+                                    .addComponent(enterprisenNameBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(usernameField)
+                                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel5)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(updatePasswordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                    .addComponent(updateNameField))))))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +211,7 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updatePasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -218,12 +222,14 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
 //        JOptionPane.showMessageDialog(null, "Enterprise Created");
 //        displayEnterpriseInfo();
         Boolean foundDuplicate = false;
+        System.out.print("found dup is set to false");
 
         for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()){
             UserAccountDirectory ua = enterprise.getUseraccountDirectory();
         
             if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
                 foundDuplicate = true;
+                System.out.print("found dup at enterprise level");
                 JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
                 break;
             }
@@ -232,15 +238,19 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         UserAccountDirectory ua = this.appSystem.getTopLevelUserAccountDirectory();
         if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
             foundDuplicate = true;
+            System.out.print("found dup at app level");
             JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
         }
         if(foundDuplicate == false) {
-            Enterprise e = appSystem.getEnterprises().findEnterprise((String) enterprisenNameBox.getSelectedItem());
-            if(e.getUseraccountDirectory().getUserAccountList().size()==0){
-            Person p = appSystem.getPersonDirectory().createPerson(nameField.getText());
-            UserAccount user= e.getUseraccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new EnterpriseManagerRole());
-            user.setPerson(p); 
-            JOptionPane.showMessageDialog(null, "Manager created");
+            Enterprise e = this.appSystem.getEnterprises().findEnterprise((String) enterprisenNameBox.getSelectedItem());
+            System.out.print(e.getUseraccountDirectory().getUserAccountList().size());
+//            System.out.println(e.getEnterpriseAdmin().getUserName());
+            if(e.getEnterpriseAdmin()==null){
+                Person p = appSystem.getPersonDirectory().createPerson(nameField.getText());
+                UserAccount user= e.getUseraccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new EnterpriseManagerRole());
+                user.setPerson(p); 
+                e.setEnterpriseAdmin(user);
+                JOptionPane.showMessageDialog(null, "Manager created");
             }else{
                 JOptionPane.showMessageDialog(null, "Manager exists");
             }
@@ -257,6 +267,10 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         UserAccount u = (UserAccount) jTable1.getValueAt(selectedRow, 1);
         Enterprise e = (Enterprise) jTable1.getValueAt(selectedRow, 0);
         e.getUseraccountDirectory().deleteEnterpriseManager(u);
+        this.appSystem.getTopLevelUserAccountDirectory().deleteEnterpriseManager(u);
+        e.setEnterpriseAdmin(null);
+//        System.out.println("======================");
+//        System.out.println(e.getUseraccountDirectory().getUserAccountList());
 
         if (this.appSystem.getTopLevelUserAccountDirectory().getUserAccountList().size()>0){
             tablePopulate();
@@ -288,15 +302,6 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             for (Enterprise e : enterprises){
                 if(e.getUseraccountDirectory() != null && e.getUseraccountDirectory().getUserAccountList() != null){
                 for(UserAccount u: e.getUseraccountDirectory().getUserAccountList()){
-                    System.out.println(u.toString());
-                    System.out.println();
-                    System.out.println(u.getRole());
-
-                    System.out.println();
-                    
-                    System.out.println(u.getRole().getRoleType());
-                    System.out.println();
-
                     if(u.getRole().getRoleType().equals("Enterprise Manager")){
                         Object row[] = new Object[5];
                         row[0] = e;
