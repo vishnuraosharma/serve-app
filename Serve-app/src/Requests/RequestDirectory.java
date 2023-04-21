@@ -26,9 +26,7 @@ public class RequestDirectory {
     private HashMap<String, ApplicationRequest> clientApplicationRequests;  
     private HashMap<String, ConvenienceRequest> convenienceRequests;
     private HashMap<String, DeliveryRequest> deliveryRequests;
-    private HashMap<String, HealthRequest> healthRequests;
-    private HashMap<String, LegalRequest> legalRequests;
-    private HashMap<String, ConnectionRequest> connectionRequests;
+    private HashMap<String, ServiceRequest> serviceRequests;
         
     public RequestDirectory(){
         this.allRequests = new HashMap<>();
@@ -37,9 +35,7 @@ public class RequestDirectory {
         this.clientApplicationRequests = new HashMap<>();
         this.convenienceRequests = new HashMap<>();
         this.deliveryRequests = new HashMap<>();
-        this.healthRequests = new HashMap<>();
-        this.legalRequests = new HashMap<>();
-        this.connectionRequests = new HashMap<>();
+        this.serviceRequests = new HashMap<>();
     }
     
    public ApplicationRequest createConVolunteerApplicationRequest(Application app,Organization so) {
@@ -84,29 +80,14 @@ public class RequestDirectory {
         deliveryRequests.put(deliveryReq.getRequestID(), deliveryReq);
         return deliveryReq;
     }
-    public HealthRequest createHealthRequest(UserAccount requester, ServiceOrder so) {
-        HealthRequest healthReq = new HealthRequest(requester,so);
-        List<Request> requests = allRequests.getOrDefault("Health requests", new ArrayList<>());
-        requests.add(healthReq);
-        allRequests.put("Health requests", requests);
-        healthRequests.put(healthReq.getRequestID(), healthReq);
-        return healthReq;
-    }
-    public LegalRequest createLegalRequest(UserAccount requester, ServiceOrder so) {
-        LegalRequest legalReq = new LegalRequest(requester,so);
-        List<Request> requests = allRequests.getOrDefault("Legal requests", new ArrayList<>());
-        requests.add(legalReq);
-        allRequests.put("Legal requests", requests);
-        legalRequests.put(legalReq.getRequestID(), legalReq);
-        return legalReq;
-    }
-    public ConnectionRequest createConnectionRequest(UserAccount requester, ServiceOrder so) {
-        ConnectionRequest connectionReq = new ConnectionRequest(requester,so);
-        List<Request> requests = allRequests.getOrDefault("Connection requests", new ArrayList<>());
-        requests.add(connectionReq);
-        allRequests.put("Connection requests", requests);
-        connectionRequests.put(connectionReq.getRequestID(), connectionReq);
-        return connectionReq;
+    
+    public Request createServiceRequest(UserAccount requester, ServiceOrder so) {
+        ServiceRequest serviceReq = new ServiceRequest(requester,so);
+        List<Request> requests = allRequests.getOrDefault("Service requests", new ArrayList<>());
+        requests.add(serviceReq);
+        allRequests.put("Service requests", requests);
+        serviceRequests.put(serviceReq.getRequestID(), serviceReq);
+        return serviceReq;
     }
      
  
