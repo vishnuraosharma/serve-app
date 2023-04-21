@@ -159,7 +159,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         });
         add(productName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, 110, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 118, 0));
+        jPanel1.setBackground(new java.awt.Color(236, 100, 44));
 
         jLabel8.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));

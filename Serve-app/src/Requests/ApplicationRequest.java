@@ -83,6 +83,7 @@ public class ApplicationRequest extends Request {
         Client c = perDir.createClient(this.app.getPerson());
         UserAccount ua = this.network.getTopLevelUserAccountDirectory().createUserAccount(this.app.getUsername(), this.app.getPassword(), role);
         c.setUseraccount(ua);
+        ua.setPerson(c);
         
     }
     
