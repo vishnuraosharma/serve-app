@@ -46,7 +46,50 @@ public class ManageApplicationsJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.organization = organization;
     }
+    public boolean validate_fields(){
+        String name = nameField.getText();
+        String ssn = ssnField.getText();
+        String address = addressField.getText();
+        Date dob = dobChooser.getDate();
+        String email = emailField.getText();
+        String ecname = ecNameField.getText();
+        String ecnum  = ecNumberField.getText();
+        String occ = occField.getText();
+        String conNum = contactNumField.getText();
+        String username = userNameField.getText();
+        String password = passwordField.getText();
 
+        if(name.equals("")||ssn.equals("")||address.equals("")||dob==null|| 
+                email.equals("")||ecname.equals("")||ecnum.equals("")||
+                occ.equals("")||conNum.equals("")||username.equals("")||
+                password.equals("")){
+            
+            JOptionPane.showMessageDialog(null, "Please fill all fields");  
+            return false;
+        }
+        if(email.isBlank() || !(email.contains("@")) || !(email.contains(".")) || 
+                (email.indexOf("@") > email.indexOf(".")) || 
+                !(email.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.com+$"))){
+                JOptionPane.showMessageDialog(null, "Please enter a valid Email Address\nHint: Use the emailname@domain.com format", "Warning",JOptionPane.WARNING_MESSAGE);
+                return false;
+        }
+        
+        else if(ecnum.isBlank() || (ecnum.length() != 10) || !ecnum.matches("[0-9]+")){
+            JOptionPane.showMessageDialog(null, "Please enter a valid 10 digit Emergency Contact phone number", "Warning",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        else if ((ssn.length() != 9) || !ssn.matches("[0-9]+")){
+            JOptionPane.showMessageDialog(null, "Please enter a valid 9 digit social security number", "Warning",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        else if(conNum.isBlank() || (conNum.length() != 10) || !conNum.matches("[0-9]+")){
+            JOptionPane.showMessageDialog(null, "Please enter a valid 10 digit Contact phone number", "Warning",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        
+        return true;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -336,22 +379,23 @@ public class ManageApplicationsJPanel extends javax.swing.JPanel {
         String username = userNameField.getText();
         String password = passwordField.getText();
         
-         if(name.equals("")||email.equals("")||conNum.equals("")||dob==null|| 
-                ssn.equals("")||occ.equals("")||ecname.equals("")||
-                ecnum.equals("")||address.equals("")||username.equals("")||
-                password.equals("")){
+          if(validate_fields()){
+              boolean i=this.appSystem.getTopLevelUserAccountDirectory().checkApplicationUsernameUnique(username);
             
-            JOptionPane.showMessageDialog(null, "Please fill all fields");  
-            
-        } else {
-            ApplicationDirectory appDir = appSystem.getApplicantDirectory();
-            Application app = appDir.createApplication(name, ssn, address, dob, email,ecnum,ecname,occ,conNum,username,password );
-//            System.out.println(app.getApplicationId());
-            RequestDirectory reqDir = appSystem.getReqDir();
-            ApplicationRequest appRequest = reqDir.createVolunteerApplicationRequest(useraccount, app,this.organization);
-            System.out.println(reqDir.getAllRequests().size());
-            
-            JOptionPane.showMessageDialog(null, "Application sent!");
+            if(i){ 
+                ApplicationDirectory appDir = appSystem.getApplicantDirectory();
+                Application app = appDir.createApplication(name, ssn, address, dob, email,ecnum,ecname,occ,conNum,username,password );
+    //            System.out.println(app.getApplicationId());
+                RequestDirectory reqDir = appSystem.getReqDir();
+                ApplicationRequest appRequest = reqDir.createVolunteerApplicationRequest(useraccount, app,this.organization);
+                System.out.println(reqDir.getAllRequests().size());
+
+                JOptionPane.showMessageDialog(null, "Application sent!");
+            }
+            else {
+                                JOptionPane.showMessageDialog(null, "Username unavailable.");
+
+            }
          }
     }//GEN-LAST:event_sendAppBtnActionPerformed
 

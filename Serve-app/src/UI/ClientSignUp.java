@@ -47,7 +47,54 @@ public class ClientSignUp extends javax.swing.JFrame {
 //        this.organization = organization;
 
     }       
+    
+    public boolean validate_fields(){
+        String Name = NameField.getText();
+        Date date = jDateChooser1.getDate();
+        String email =emailField.getText();
+        String contactNum =contactNumField.getText();
+        
+        String ssn = ssnField.getText();
+        String occupation =occupationField.getText();
+       
+        String emergencyContactName =ecnField.getText();
+        String emergencyContactNum =ecnumField.getText();        
+        String address = addressField.getText();
+        
+        String username = userNameField.getText();
+        String password = passwordField.getText();
 
+        if(Name.equals("")||email.equals("")||contactNum.equals("")||date==null|| 
+                ssn.equals("")||occupation.equals("")||emergencyContactName.equals("")||
+                emergencyContactNum.equals("")||address.equals("")||username.equals("")||
+                password.equals("")){
+            
+            JOptionPane.showMessageDialog(null, "Please fill all fields");  
+            return false;
+        }
+        if(email.isBlank() || !(email.contains("@")) || !(email.contains(".")) || 
+                (email.indexOf("@") > email.indexOf(".")) || 
+                !(email.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.com+$"))){
+                JOptionPane.showMessageDialog(null, "Please enter a valid Email Address\nHint: Use the emailname@domain.com format", "Warning",JOptionPane.WARNING_MESSAGE);
+                return false;
+        }
+        
+        else if(emergencyContactNum.isBlank() || (emergencyContactNum.length() != 10) || !emergencyContactNum.matches("[0-9]+")){
+            JOptionPane.showMessageDialog(null, "Please enter a valid 10 digit Emergency Contact phone number", "Warning",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        else if ((ssn.length() != 9) || !ssn.matches("[0-9]+")){
+            JOptionPane.showMessageDialog(null, "Please enter a valid 9 digit social security number", "Warning",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        else if(contactNum.isBlank() || (contactNum.length() != 10) || !contactNum.matches("[0-9]+")){
+            JOptionPane.showMessageDialog(null, "Please enter a valid 10 digit Contact phone number", "Warning",JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        
+        return true;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -320,7 +367,7 @@ public class ClientSignUp extends javax.swing.JFrame {
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         // TODO add your handling code here:
 
-        String Name = NameField.getText();
+       String Name = NameField.getText();
         Date date = jDateChooser1.getDate();
         String email =emailField.getText();
         String contactNum =contactNumField.getText();
@@ -335,17 +382,8 @@ public class ClientSignUp extends javax.swing.JFrame {
         String username = userNameField.getText();
         String password = passwordField.getText();
 
-        if(Name.equals("")||email.equals("")||contactNum.equals("")||date==null|| 
-                ssn.equals("")||occupation.equals("")||emergencyContactName.equals("")||
-                emergencyContactNum.equals("")||address.equals("")||username.equals("")||
-                password.equals("")){
-            
-            this.isnull = true;
-            JOptionPane.showMessageDialog(null, "Please fill all fields");  
-            
-        } else {
-            
-            boolean i=this.appSystem.getTopLevelUserAccountDirectory().checkApplicationUsernameUnique(username);
+        if(validate_fields()){
+              boolean i=this.appSystem.getTopLevelUserAccountDirectory().checkApplicationUsernameUnique(username);
             
             if(i){
 //                Client c = (Client) appSystem.getPersonDirectory().createPerson(Name);
