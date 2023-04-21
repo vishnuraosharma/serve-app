@@ -137,7 +137,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn3ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 708, 120, -1));
+        jPanel1.add(productReportBtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 708, 110, -1));
 
         jSplitPane1.setLeftComponent(jPanel1);
 

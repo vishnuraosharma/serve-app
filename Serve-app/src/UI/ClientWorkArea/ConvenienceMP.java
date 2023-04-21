@@ -648,7 +648,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         if(currOrderItems != null){
             pharmCart.processCart((Client) this.useraccount.getPerson(), this.pharmacyOrg);
             this.pharmPopup.setVisible(false);
-            JOptionPane.showMessageDialog(null,"Your order has been placed.");
+            JOptionPane.showMessageDialog(null,"Your order has been placed. See the 'My Product Requests' page in 'My Requests' to see delivery status. ");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
         }
@@ -684,7 +684,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
             groCart.processCart((Client) this.useraccount.getPerson(), this.grocery);
             this.groPopup.setVisible(false);
           //  this.appSystem.getReqDir().;
-            JOptionPane.showMessageDialog(null,"Your order has been placed.");
+            JOptionPane.showMessageDialog(null,"Your order has been placed. See the 'My Product Requests' page in 'My Requests' to see delivery status.");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
         }
