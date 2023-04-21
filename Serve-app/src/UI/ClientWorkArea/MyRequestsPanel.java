@@ -53,48 +53,47 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.client = (Client) useraccount.getPerson();
         servReqModel = (DefaultTableModel) servReqTable.getModel();
-        prodReqModel = (DefaultTableModel) servReqTable.getModel();
+        prodReqModel = (DefaultTableModel) prodReqTable.getModel();
     }
-        
-    public void populateCurrScoutCart(){
-        servReqModel.setRowCount(0);
-        ArrayList<Service> currServiceCart = this.schoolCart.getStagedServicesinCart();
-        if(currServiceCart != null){
-            int count = 0;
-            int cartTotal = 0;
-            for (Service s : currServiceCart){
-                Object[] row = new Object[3];
-                
-                row[0] = count++;
-                row[1] = s.getName();
-                row[2] = s.getAllottedTime();
-                cartTotal += s.getAllottedTime();
-                
-                servReqModel.addRow(row);
-            }
-            cartTotalLabel1.setText(displayHoursMinutes(cartTotal));
-        }
-        
-    }
-        public void populatePharmProducts(){
-        prodReqModel.setRowCount(0);
-        ProductCatalog catalog = this.pharmacyOrg.getProductCatalog();
-        if(catalog != null & catalog.getAllProducts() != null){
-            for (Product p : catalog.getAllProducts()){
-                if(!p.isPrescriptionRequired() || this.client.getPerscribedMeds().contains(p)){
-                    Object[] row = new Object[4];
-                    row[0] = p;
-                    row[1] = String.format("$%.2f",p.getPrice());
-                    row[2] = p.getCategory();
-                    row[3] = p.isPrescriptionRequired();
-                    prodReqModel.addRow(row);
-                }
-            }
-        }
-    }
-    
-    
-    
+//        
+//    public void populateCurrScoutCart(){
+//        servReqModel.setRowCount(0);
+//        ArrayList<Service> currServiceCart = this.schoolCart.getStagedServicesinCart();
+//        if(currServiceCart != null){
+//            int count = 0;
+//            int cartTotal = 0;
+//            for (Service s : currServiceCart){
+//                Object[] row = new Object[3];
+//                
+//                row[0] = count++;
+//                row[1] = s.getName();
+//                row[2] = s.getAllottedTime();
+//                cartTotal += s.getAllottedTime();
+//                
+//                servReqModel.addRow(row);
+//            }
+//            cartTotalLabel1.setText(displayHoursMinutes(cartTotal));
+//        }
+//        
+//    }
+//        public void populatePharmProducts(){
+//        prodReqModel.setRowCount(0);
+//        ProductCatalog catalog = this.pharmacyOrg.getProductCatalog();
+//        if(catalog != null & catalog.getAllProductwsw()){
+//                if(!p.isPrescriptionRequired() || this.client.getPerscribedMeds().contains(p)){
+//                    Object[] row = new Object[4];
+//                    row[0] = p;
+//                    row[1] = String.format("$%.2f",p.getPrice());
+//                    row[2] = p.getCategory();
+//                    row[3] = p.isPrescriptionRequired();
+//                    prodReqModel.addRow(row);
+//                }
+//            }
+//        }
+//    }
+//    
+//    
+//    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -202,33 +201,33 @@ public class MyRequestsPanel extends javax.swing.JPanel {
 
     private void servReqTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_servReqTableMouseClicked
         // TODO add your handling code here:
-        int selRow = servReqTable.getSelectedRow();
-        this.currServ1 = (Service) schoolProdModel.getValueAt(selRow, 0);
-
-        try {
-            BufferedImage bufferedImage = ImageIO.read(currServ1.getProductImageFile());
-            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
-            ImageIcon icon = new ImageIcon(image);
-            productImage1.setIcon(icon);
-        } catch (IOException ex) {
-            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        int selRow = servReqTable.getSelectedRow();
+//        this.currServ1 = (Service) schoolProdModel.getValueAt(selRow, 0);
+//
+//        try {
+//            BufferedImage bufferedImage = ImageIO.read(currServ1.getProductImageFile());
+//            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+//            ImageIcon icon = new ImageIcon(image);
+//            productImage1.setIcon(icon);
+//        } catch (IOException ex) {
+//            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
     }//GEN-LAST:event_servReqTableMouseClicked
 
     private void prodReqTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prodReqTableMouseClicked
         // TODO add your handling code here:
-        int selRow = prodReqTable.getSelectedRow();
-        this.currProduct = (Product) prodReqModel.getValueAt(selRow, 0);
-
-        try {
-            BufferedImage bufferedImage = ImageIO.read(currProduct.getProductImageFile());
-            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
-            ImageIcon icon = new ImageIcon(image);
-            productImage.setIcon(icon);
-        } catch (IOException ex) {
-            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        int selRow = prodReqTable.getSelectedRow();
+//        this.currProduct = (Product) prodReqModel.getValueAt(selRow, 0);
+//
+//        try {
+//            BufferedImage bufferedImage = ImageIO.read(currProduct.getProductImageFile());
+//            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+//            ImageIcon icon = new ImageIcon(image);
+//            productImage.setIcon(icon);
+//        } catch (IOException ex) {
+//            Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_prodReqTableMouseClicked
 
 

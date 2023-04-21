@@ -18,7 +18,7 @@ public class Service {
     private int allottedTime;
     String category;
     String description;
-    File productImageFile = new File( "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/NoImage.jpeg");
+    File productImageFile = new File( "src/Resources/NoImage.jpeg");
     
    ArrayList<ServiceOrder> renderedServices;
     

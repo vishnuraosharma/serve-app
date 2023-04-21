@@ -9,6 +9,7 @@ import Enterprise.Enterprise;
 import Organization.Organization;
 import Organization.ServiceManagement.Service;
 import Organization.ServiceManagement.ServiceCatalog;
+import Organization.ServiceManagement.ServiceOrder;
 import Organization.ServiceManagement.ServicesCart;
 import Organization.ServicesOrganization;
 import Person.Client.Client;
@@ -409,11 +410,14 @@ public class HospitalMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         ArrayList<Service> currOrderItems = this.hospCart.getStagedServicesinCart();
         if(currOrderItems != null){
-            hospCart.processCart((Client) this.useraccount.getPerson(), this.hospOrg, reqDetails);
+            ArrayList<ServiceOrder> sos = hospCart.processCart((Client) this.useraccount.getPerson(), this.hospOrg, reqDetails);
             for (Service s : currOrderItems){
                 if(!this.client.getUnfulfilledServices().contains(s)){
                     this.client.getUnfulfilledServices().add(s);
                 }
+            }
+            for (ServiceOrder so : sos){
+                this.appSystem.getReqDir().createServiceRequest(this.useraccount, so);
             }
             reqDetails = new ArrayList<String>();
             JOptionPane.showMessageDialog(null,"Your order has been placed.");

@@ -18,7 +18,7 @@ public class Product {
     private double price;
     String category;
     boolean prescriptionRequired;
-    File productImageFile = new File( "/Users/vraosharma/Desktop/Java/AED/serve-app/Resources/NoImage.jpeg");
+    File productImageFile = new File( "src/Resources/NoImage.jpeg");
     
     ArrayList<OrderItem> orderitems;
     

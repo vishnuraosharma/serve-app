@@ -10,8 +10,15 @@ import Organization.Organization;
 import Organization.ProductManagement.Product;
 import Organization.ProductManagement.ProductCatalog;
 import Organization.ProductOrganization;
+import UI.ClientWorkArea.HospitalMP;
 import UserAccount.UserAccount;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -62,7 +69,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
                 return false;
             }
         if(productCategory.getText().isBlank()){
-            JOptionPane.showMessageDialog(null, "Product Name can not be blank.",TOOL_TIP_TEXT_KEY, HEIGHT);
+            JOptionPane.showMessageDialog(null, "Product Category can not be blank.",TOOL_TIP_TEXT_KEY, HEIGHT);
             return false;
         } 
         return true;
@@ -95,12 +102,11 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         ProductCatalog catalog = this.organization.getProductCatalog();
         if(catalog != null & catalog.getAllProducts() != null){
             for (Product p : catalog.getAllProducts()){
-                Object[] row = new Object[5];
+                Object[] row = new Object[4];
                 row[0] = p.getpID();
                 row[1] = p;
                 row[2] = String.format("$%.2f",p.getPrice());
                 row[3] = p.getCategory();
-                row[4] = p.isPrescriptionRequired();
                 tModel.addRow(row);
             }
         }
@@ -361,6 +367,14 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         productName4.setText(currProduct.getName());
         productName5.setText(String.valueOf(currProduct.getPrice()));
         productName3.setText(currProduct.getCategory());
+        try {
+            BufferedImage bufferedImage = ImageIO.read(currProduct.getProductImageFile());
+            Image image = bufferedImage.getScaledInstance(imgDisp.getWidth(), imgDisp.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(image);
+            imgDisp.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(myProductsGroceryOrganizationJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -379,7 +393,8 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
         if (validatePA()){
-            this.organization.getProductCatalog().newProduct(productName1.getText(), Double.parseDouble(productPrice.getText()), productCategory.getText());
+            Product p = this.organization.getProductCatalog().newProduct(productName1.getText(), Double.parseDouble(productPrice.getText()), productCategory.getText());
+            System.out.println(p.getCategory());
             JOptionPane.showMessageDialog(null, "Your product has been added!");
         }
         populateProducts();

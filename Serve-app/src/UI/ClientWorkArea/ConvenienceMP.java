@@ -111,7 +111,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
             int count = 0;
             double cartTotal = 0;
             for (OrderItem oi : currOrderItems){
-                Object[] row = new Object[5];
+                Object[] row = new Object[4];
                 
                 row[0] = count++;
                 row[1] = oi.getSelectedProduct();
@@ -132,7 +132,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
             int count = 0;
             double cartTotal = 0;
             for (OrderItem oi : currOrderItems){
-                Object[] row = new Object[5];
+                Object[] row = new Object[4];
                 
                 row[0] = count++;
                 row[1] = oi.getSelectedProduct();
@@ -188,7 +188,11 @@ public class ConvenienceMP extends javax.swing.JPanel {
             }catch (NumberFormatException e){
                 return false;
         }
-        return currProduct != null;
+        if (currProduct == null){
+            JOptionPane.showMessageDialog(null,"Select a product to add to cart.");
+            return false;
+        }
+        return true;
     }
     
     public boolean validateGroOrderItem(){
@@ -202,7 +206,12 @@ public class ConvenienceMP extends javax.swing.JPanel {
             }catch (NumberFormatException e){
                 return false;
         }
-        return currProduct != null;
+        if (currProduct2 == null){
+            JOptionPane.showMessageDialog(null,"Select a product to add to cart.");
+            return false;
+        }
+        return true;
+        
     }
     
     /**
@@ -217,10 +226,6 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         cartImage2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        groTable = new javax.swing.JTable();
         groPopup = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         groCartTable = new javax.swing.JTable();
@@ -228,17 +233,17 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        groTable = new javax.swing.JTable();
         productDets1 = new javax.swing.JPanel();
         groQtySpinner = new javax.swing.JSpinner();
         productImage3 = new javax.swing.JLabel();
-        productImage1 = new javax.swing.JLabel();
+        groProdImg = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         cartImage1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        pharTable = new javax.swing.JTable();
         pharmPopup = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         pharmCartTable = new javax.swing.JTable();
@@ -246,10 +251,14 @@ public class ConvenienceMP extends javax.swing.JPanel {
         purchasePharProds = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        pharTable = new javax.swing.JTable();
         productDets = new javax.swing.JPanel();
         pharQtySpinner = new javax.swing.JSpinner();
         productImage2 = new javax.swing.JLabel();
-        productImage = new javax.swing.JLabel();
+        pharProductImage = new javax.swing.JLabel();
         addPharmtoCart = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -279,6 +288,58 @@ public class ConvenienceMP extends javax.swing.JPanel {
         });
         jPanel2.add(cartImage2);
         cartImage2.setBounds(1050, 10, 76, 61);
+
+        groPopup.setBackground(new java.awt.Color(255, 255, 255));
+        groPopup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        groPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        groCartTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Line Item", "Product Name", "Quantity", "Subtotal"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(groCartTable);
+
+        groPopup.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
+
+        jLabel5.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        groPopup.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 60, 20));
+
+        jButton8.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton8.setText("Place Order");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        groPopup.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
+
+        jButton9.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton9.setText("Clear Cart");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        groPopup.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel6.setText("Your Total");
+        groPopup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+
+        jPanel2.add(groPopup);
+        groPopup.setBounds(750, 60, 376, 362);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -337,58 +398,6 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(0, 0, 730, 820);
 
-        groPopup.setBackground(new java.awt.Color(255, 255, 255));
-        groPopup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        groPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        groCartTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Line Item", "Product Name", "Quantity", "Subtotal"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane6.setViewportView(groCartTable);
-
-        groPopup.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
-
-        jLabel5.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        groPopup.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 60, 20));
-
-        jButton8.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        jButton8.setText("Place Order");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        groPopup.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
-
-        jButton9.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        jButton9.setText("Clear Cart");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        groPopup.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
-        jLabel6.setText("Your Total");
-        groPopup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
-
-        jPanel2.add(groPopup);
-        groPopup.setBounds(750, 60, 376, 362);
-
         productDets1.setBackground(new java.awt.Color(236, 100, 44));
         productDets1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -399,7 +408,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         productImage3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productImage3.setText("Quantity");
         productDets1.add(productImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
-        productDets1.add(productImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 200, 160));
+        productDets1.add(groProdImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 200, 160));
 
         jButton3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         jButton3.setText("Add to Cart");
@@ -411,7 +420,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         productDets1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, -1));
 
         jPanel2.add(productDets1);
-        productDets1.setBounds(780, 300, 328, 365);
+        productDets1.setBounds(770, 230, 328, 365);
 
         jTabbedPane1.addTab("Grocery", jPanel2);
 
@@ -431,6 +440,58 @@ public class ConvenienceMP extends javax.swing.JPanel {
         });
         jLayeredPane2.add(cartImage1);
         cartImage1.setBounds(1070, 0, 76, 61);
+
+        pharmPopup.setBackground(new java.awt.Color(255, 255, 255));
+        pharmPopup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pharmPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pharmCartTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Line Item", "Product Name", "Quantity", "Subtotal"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(pharmCartTable);
+
+        pharmPopup.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
+
+        jLabel3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        pharmPopup.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
+
+        purchasePharProds.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        purchasePharProds.setText("Place Order");
+        purchasePharProds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                purchasePharProdsActionPerformed(evt);
+            }
+        });
+        pharmPopup.add(purchasePharProds, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
+
+        jButton7.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton7.setText("Clear Cart");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        pharmPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel4.setText("Your Total");
+        pharmPopup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+
+        jLayeredPane2.add(pharmPopup);
+        pharmPopup.setBounds(770, 60, 376, 362);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -490,58 +551,6 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jLayeredPane2.add(jPanel5);
         jPanel5.setBounds(0, 0, 740, 820);
 
-        pharmPopup.setBackground(new java.awt.Color(255, 255, 255));
-        pharmPopup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        pharmPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        pharmCartTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Line Item", "Product Name", "Quantity", "Subtotal"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane5.setViewportView(pharmCartTable);
-
-        pharmPopup.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
-
-        jLabel3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        pharmPopup.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
-
-        purchasePharProds.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        purchasePharProds.setText("Place Order");
-        purchasePharProds.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                purchasePharProdsActionPerformed(evt);
-            }
-        });
-        pharmPopup.add(purchasePharProds, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
-
-        jButton7.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        jButton7.setText("Clear Cart");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        pharmPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
-        jLabel4.setText("Your Total");
-        pharmPopup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
-
-        jLayeredPane2.add(pharmPopup);
-        pharmPopup.setBounds(770, 60, 376, 362);
-
         productDets.setBackground(new java.awt.Color(236, 100, 44));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -552,7 +561,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         productImage2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         productImage2.setText("Quantity");
         productDets.add(productImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
-        productDets.add(productImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 190));
+        productDets.add(pharProductImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 190));
 
         addPharmtoCart.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         addPharmtoCart.setText("Add to Cart");
@@ -599,9 +608,9 @@ public class ConvenienceMP extends javax.swing.JPanel {
         
         try {
             BufferedImage bufferedImage = ImageIO.read(currProduct.getProductImageFile());
-            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            Image image = bufferedImage.getScaledInstance(pharProductImage.getWidth(), pharProductImage.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon icon = new ImageIcon(image);
-            productImage.setIcon(icon);
+            pharProductImage.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -611,12 +620,12 @@ public class ConvenienceMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selRow = groTable.getSelectedRow();
         this.currProduct2 = (Product) groProdModel.getValueAt(selRow, 0);
-        
+        System.out.println(currProduct2);
         try {
             BufferedImage bufferedImage = ImageIO.read(currProduct2.getProductImageFile());
-            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            Image image = bufferedImage.getScaledInstance(groProdImg.getWidth(), groProdImg.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon icon = new ImageIcon(image);
-            productImage2.setIcon(icon);
+            groProdImg.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(HospitalMP.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -627,6 +636,8 @@ public class ConvenienceMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (validatePharOrderItem()){
             this.pharmCart.addToCart(currProduct, (int) pharQtySpinner.getValue());
+            JOptionPane.showMessageDialog(null,"Order Item added to cart.");
+
         }
         populateCurrPharmCart();
     }//GEN-LAST:event_addPharmtoCartActionPerformed
@@ -709,7 +720,9 @@ public class ConvenienceMP extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         if (validateGroOrderItem()){
-            this.groCart.addToCart(currProduct2, (int) pharQtySpinner.getValue());
+            this.groCart.addToCart(currProduct2, (int) groQtySpinner.getValue());
+            JOptionPane.showMessageDialog(null,"Order Item added to cart.");
+
         }
         populateCurrGroCart();
           
@@ -722,6 +735,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
     private javax.swing.JLabel cartImage2;
     private javax.swing.JTable groCartTable;
     private javax.swing.JPanel groPopup;
+    private javax.swing.JLabel groProdImg;
     private javax.swing.JSpinner groQtySpinner;
     private javax.swing.JTable groTable;
     private javax.swing.JButton jButton3;
@@ -743,14 +757,13 @@ public class ConvenienceMP extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel pharProductImage;
     private javax.swing.JSpinner pharQtySpinner;
     private javax.swing.JTable pharTable;
     private javax.swing.JTable pharmCartTable;
     private javax.swing.JPanel pharmPopup;
     private javax.swing.JPanel productDets;
     private javax.swing.JPanel productDets1;
-    private javax.swing.JLabel productImage;
-    private javax.swing.JLabel productImage1;
     private javax.swing.JLabel productImage2;
     private javax.swing.JLabel productImage3;
     private javax.swing.JButton purchasePharProds;

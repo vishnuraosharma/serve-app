@@ -56,6 +56,7 @@ public class ProductCatalog {
 
     public Product newProduct(String n, double p, String cat) {
         Product prod = new Product(n, p, cat);
+        prod.setCategory(cat);
         this.allProducts.add(prod); 
         return prod;
     }

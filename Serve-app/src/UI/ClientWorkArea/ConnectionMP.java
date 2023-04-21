@@ -14,6 +14,7 @@ import Organization.ProductManagement.ProductCatalog;
 import Organization.ProductOrganization;
 import Organization.ServiceManagement.Service;
 import Organization.ServiceManagement.ServiceCatalog;
+import Organization.ServiceManagement.ServiceOrder;
 import Organization.ServiceManagement.ServicesCart;
 import Organization.ServicesOrganization;
 import Person.Client.Client;
@@ -691,11 +692,14 @@ public class ConnectionMP extends javax.swing.JPanel {
         // TODO add your handling code here: place phar order
         ArrayList<Service> currOrderItems = this.scoutServCart.getStagedServicesinCart();
         if(currOrderItems != null){
-            scoutServCart.processCart((Client) this.useraccount.getPerson(), this.scoutsOrg, reqDetailsScouts);
+            ArrayList<ServiceOrder> sos = scoutServCart.processCart((Client) this.useraccount.getPerson(), this.scoutsOrg, reqDetailsScouts);
             for (Service s : currOrderItems){
                 if(!this.client.getUnfulfilledServices().contains(s)){
                     this.client.getUnfulfilledServices().add(s);
                 }
+            }
+            for (ServiceOrder so : sos){
+                this.appSystem.getReqDir().createServiceRequest(this.useraccount, so);
             }
             reqDetailsScouts = new ArrayList<String>();
             JOptionPane.showMessageDialog(null,"Your order has been placed.");
@@ -731,11 +735,14 @@ public class ConnectionMP extends javax.swing.JPanel {
         // TODO add your handling code here: place order
         ArrayList<Service> currOrderItems = this.schoolCart.getStagedServicesinCart();
         if(currOrderItems != null){
-            schoolCart.processCart((Client) this.useraccount.getPerson(), this.schoolOrg, reqDetailsSchool);
+            ArrayList<ServiceOrder> sos = schoolCart.processCart((Client) this.useraccount.getPerson(), this.schoolOrg, reqDetailsSchool);
             for (Service s : currOrderItems){
                 if(!this.client.getUnfulfilledServices().contains(s)){
                     this.client.getUnfulfilledServices().add(s);
                 }
+            }
+            for (ServiceOrder so : sos){
+                this.appSystem.getReqDir().createServiceRequest(this.useraccount, so);
             }
             reqDetailsSchool = new ArrayList<String>();
             JOptionPane.showMessageDialog(null,"Your order has been placed.");

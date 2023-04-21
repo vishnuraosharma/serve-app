@@ -9,6 +9,7 @@ import Enterprise.Enterprise;
 import Organization.Organization;
 import Organization.ServiceManagement.Service;
 import Organization.ServiceManagement.ServiceCatalog;
+import Organization.ServiceManagement.ServiceOrder;
 import Organization.ServiceManagement.ServicesCart;
 import Organization.ServicesOrganization;
 import Person.Client.Client;
@@ -418,11 +419,14 @@ public class LegalMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         ArrayList<Service> currOrderItems = this.lawCart.getStagedServicesinCart();
         if(currOrderItems != null){
-            lawCart.processCart((Client) this.useraccount.getPerson(), this.lawOrg, reqDetails);
+            ArrayList<ServiceOrder> sos = lawCart.processCart((Client) this.useraccount.getPerson(), this.lawOrg, reqDetails);
             for (Service s : currOrderItems){
                 if(!this.client.getUnfulfilledServices().contains(s)){
                     this.client.getUnfulfilledServices().add(s);
                 }
+            }
+            for (ServiceOrder so : sos){
+                this.appSystem.getReqDir().createServiceRequest(this.useraccount, so);
             }
             reqDetails = new ArrayList<String>();
             JOptionPane.showMessageDialog(null,"Your order has been placed.");

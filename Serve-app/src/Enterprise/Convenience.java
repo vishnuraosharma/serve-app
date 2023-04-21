@@ -20,6 +20,7 @@ public class Convenience extends Enterprise {
     public Convenience(String name){
         super(name);
         this.volunteerList = new VolunteerDirectory();
+        MPOL = new MasterProductOrderList();
     }
 
     public Convenience(VolunteerDirectory volunteerList, String name, String type) {
