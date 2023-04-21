@@ -4,16 +4,33 @@
  */
 package Volunteer;
 
+import Person.Person;
+import WorkAreas.AbstractRole;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author siqiyang
  */
 public class VolunteerDirectory {
-    ArrayList<VolunteerProfile> volunteerList;
+//    ArrayList<VolunteerProfile> volunteerList;
+    
+    HashMap<String, VolunteerProfile> volunteerRoles;
     
     public VolunteerDirectory(){
-        this.volunteerList = new ArrayList();
+//        this.volunteerList = new ArrayList();
+        this.volunteerRoles = new HashMap();
     }
+    
+    public VolunteerProfile createNewVolunteer(Person p, AbstractRole role){
+        VolunteerProfile volunteer = new VolunteerProfile(p,role);
+        String name = (volunteer.getRole().getRoleType().equals("Healthcare Specialist") ? "Healthcare" 
+                : (volunteer.getRole().getRoleType().equals("Legal Specialist") ? "Legal"
+                : (volunteer.getRole().getRoleType().equals("Connection Volunteer") ? "Connection"
+                : "Convenience")));
+        this.volunteerRoles.put(name, volunteer);
+        return volunteer;
+    }
+    
 }

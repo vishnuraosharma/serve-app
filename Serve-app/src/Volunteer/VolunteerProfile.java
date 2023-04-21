@@ -5,13 +5,37 @@
 package Volunteer;
 
 import Person.Person;
+import WorkAreas.AbstractRole;
 
 /**
  *
  * @author siqiyang
  */
-public class VolunteerProfile extends Person{
-    String name;
-    String id; 
+public class VolunteerProfile{
+    Person p;
+    AbstractRole role;
 
+    public VolunteerProfile(Person p, AbstractRole role) {
+        this.p = p;
+        this.role = role;
+    }
+
+    public Person getP() {
+        return p;
+    }
+
+    public AbstractRole getRole() {
+        return role;
+    }
+
+    public void setP(Person p) {
+        this.p = p;
+    }
+
+    public void setRole(AbstractRole role) {
+        this.role = role;
+    }
+    
+    
+    
 }
