@@ -30,6 +30,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = organization;
+        System.out.print("here"+enterprise);
     }
 
     /**
@@ -49,6 +50,8 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1300, 800));
+        setSize(new java.awt.Dimension(1300, 800));
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 800));
@@ -64,7 +67,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         });
         controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 30));
 
-        addOrgBtn.setText("Add Organization");
+        addOrgBtn.setText("Manage Organization");
         addOrgBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addOrgBtnActionPerformed(evt);
@@ -72,7 +75,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         });
         controlPanel.add(addOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 150, 60));
 
-        manageOrgBtn.setText("Manage Organization");
+        manageOrgBtn.setText("Dashboard");
         manageOrgBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrgBtnActionPerformed(evt);

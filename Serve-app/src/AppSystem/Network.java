@@ -85,37 +85,39 @@ public class Network {
         
         //comment out to remove fake data
 
-        adminfaker(o1,o2,o3,o4,o5,o6);
+        adminfaker(app, convenience,healthcare,legal,connection,o1,o2,o3,o4,o5,o6);
         clientfaker();
         
         return app;
     }
 
 
-    public static void adminfaker(Organization o1, Organization o2,Organization o3,Organization o4,Organization o5,Organization o6){
+    public static void adminfaker(Network app, Enterprise convenience, Enterprise healthcare,Enterprise legal,Enterprise connection,Organization o1, Organization o2,Organization o3,Organization o4,Organization o5,Organization o6){
+
         Person convP = personDirectory.createPerson( "Connie Venience");
-        UserAccount convUA = o2.getOrganizationAccountDirectory().createUserAccount("conv", "conv", new EnterpriseManagerRole());
+        UserAccount convUA = app.getTopLevelUserAccountDirectory().createUserAccount("conv", "conv", new EnterpriseManagerRole());
         convUA.setPerson(convP);
-        o1.getE().setEnterpriseAdmin(convUA);
-        o1.getE().getUseraccountDirectory().getUserAccountList().add(convUA);
+        convenience.setEnterpriseAdmin(convUA);
+        convenience.getUseraccountDirectory().getUserAccountList().add(convUA);
         
         Person healthP = personDirectory.createPerson( "Happ Peabody");
-        UserAccount healthUA = o3.getOrganizationAccountDirectory().createUserAccount("health", "health", new EnterpriseManagerRole());
+        UserAccount healthUA = app.getTopLevelUserAccountDirectory().createUserAccount("health", "health", new EnterpriseManagerRole());
         healthUA.setPerson(healthP);
-        o3.getE().setEnterpriseAdmin(healthUA);
-        o3.getE().getUseraccountDirectory().getUserAccountList().add(healthUA);
+        healthcare.setEnterpriseAdmin(healthUA);
+        healthcare.getUseraccountDirectory().getUserAccountList().add(healthUA);
+        
         
         Person lawP = personDirectory.createPerson("Justice N. Fairtrial");
-        UserAccount lawUA = o4.getOrganizationAccountDirectory().createUserAccount("law", "law", new EnterpriseManagerRole());
+        UserAccount lawUA = app.getTopLevelUserAccountDirectory().createUserAccount("lawe", "lawe", new EnterpriseManagerRole());
         lawUA.setPerson(lawP);
-        o4.getE().setEnterpriseAdmin(lawUA);
-        o4.getE().getUseraccountDirectory().getUserAccountList().add(lawUA);
+        legal.setEnterpriseAdmin(lawUA);
+        legal.getUseraccountDirectory().getUserAccountList().add(lawUA);
 
         Person connP = personDirectory.createPerson( "Love Tim Eatwood");
-        UserAccount connUA = o5.getOrganizationAccountDirectory().createUserAccount("conn", "conn", new EnterpriseManagerRole());
+        UserAccount connUA = app.getTopLevelUserAccountDirectory().createUserAccount("conn", "conn", new EnterpriseManagerRole());
         connUA.setPerson(connP);
-        o5.getE().setEnterpriseAdmin(connUA);
-        o5.getE().getUseraccountDirectory().getUserAccountList().add(connUA);
+        connection.setEnterpriseAdmin(connUA);
+        connection.getUseraccountDirectory().getUserAccountList().add(connUA);
         
         Person p1 = personDirectory.createPerson( "Moe Trin");
         UserAccount ua1 = o1.getOrganizationAccountDirectory().createUserAccount("phar", "phar", new ProductOrganizationManagerRole());
