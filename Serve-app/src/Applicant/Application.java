@@ -20,13 +20,17 @@ public class Application {
 //    Enterprise e;
     String applicationId; 
     String status;
-    Person person;     
+    Person person;
+    String username;
+    String password;
     
      public Application(String name, String ssn, String address,
             Date dob, String email,String ecn, String ecname, String occ, String contactNum,String username, String password){
 //        this.e = this.useraccount.getEnterprise();
         this.applicationId = "app" + count++;
         this.status = "Pending";
+        this.username = username;
+        this.password = password;
         this.person = new Person(name,ssn,address,
             dob,email, ecn, ecname, occ, contactNum);
     }
@@ -36,6 +40,8 @@ public class Application {
 //        this.e = this.useraccount.getEnterprise();
         this.applicationId = "app" + count++;
         this.status = "Pending";
+        this.username = username;
+        this.password = password;
         this.person = (Client) new Person(name,ssn,address,
             dob,email, ecn, ecname, occ, contactNum);
     }
@@ -64,6 +70,15 @@ public class Application {
         this.person = person;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    
+    
      
     
 }

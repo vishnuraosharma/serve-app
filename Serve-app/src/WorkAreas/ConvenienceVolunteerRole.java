@@ -25,4 +25,9 @@ public class ConvenienceVolunteerRole extends AbstractRole {
         return new ConvenienceVolunteerJFrame(applicationSystem, enterprise,  organization,useraccount);
     } 
     
+    @Override
+    public String toString() {
+        return "Convenience Volunteer";
+    } 
+    
 }

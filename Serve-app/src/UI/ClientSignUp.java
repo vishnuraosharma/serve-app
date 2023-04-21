@@ -353,10 +353,10 @@ public class ClientSignUp extends javax.swing.JFrame {
                         ssn, address, date, email, ssn, Name, ssn, contactNum, 
                         username, password);
                 
-                application.setPerson(c);
-                this.appSystem.getReqDir().createClientApplicationRequest(null, application);
+//                application.setPerson(c);
+                this.appSystem.getReqDir().createClientApplicationRequest(application);
 
-                JOptionPane.showMessageDialog(null, "Application Created");
+                JOptionPane.showMessageDialog(null, "Application Submitted!");
             }else{
                 JOptionPane.showMessageDialog(null, "Username already exists");
                 userNameField.setText("");

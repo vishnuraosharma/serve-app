@@ -5,9 +5,16 @@
 package UI.ApplicationManagerWorkArea;
 
 import AppSystem.Network;
+import Applicant.Application;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import Requests.ApplicationRequest;
+import Requests.Request;
+import Requests.RequestDirectory;
 import UserAccount.UserAccount;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Map;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,17 +27,24 @@ public class SpecialistManagementJPanel extends javax.swing.JPanel {
     DefaultTableModel viewtableModel;
     Enterprise enterprise;
     Organization organization;  
+    DefaultTableModel viewTableModel;
     /**
      * Creates new form ManageSpecialistJPanel
      */
     public SpecialistManagementJPanel(Network appSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
         initComponents();
+        this.setSize(1120,800);
         this.setVisible(true);
 
         this.appSystem = appSystem;
         this.useraccount = useraccount;
         this.enterprise = enterprise;
-        this.organization = organization;        
+        this.organization = organization;   
+        this.viewTableModel = (DefaultTableModel) jTable1.getModel();
+        jPanel1.setVisible(false);
+        approvedIcon.setVisible(false);
+        rejectIcon.setVisible(false);
+        displayApplications();
     }
 
     /**
@@ -42,19 +56,409 @@ public class SpecialistManagementJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        appID = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        appName = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        appDOB = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        appAddress = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        approvedIcon = new javax.swing.JLabel();
+        appSSN = new javax.swing.JLabel();
+        appOccupation = new javax.swing.JLabel();
+        rejectIcon = new javax.swing.JLabel();
+        rejectIcon1 = new javax.swing.JLabel();
+        approveBtn = new javax.swing.JButton();
+        rejectBtn = new javax.swing.JButton();
+        holdBtn = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1120, 800));
+        setSize(new java.awt.Dimension(1120, 800));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "RequestID", "Requester", "Request Date", "Request Status", "Application Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setSelectionBackground(new java.awt.Color(255, 102, 0));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 118, 0), new java.awt.Color(255, 118, 0), null, null), "Application", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 118, 0))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel1.setText("ApplicationID");
+
+        appID.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel3.setText("Applicant Name");
+
+        appName.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel5.setText("Date of Birth");
+
+        appDOB.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel7.setText("Address");
+
+        appAddress.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel9.setText("Social Security Number");
+
+        jLabel15.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel15.setText("Occupation");
+
+        approvedIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ApplicationManagerWorkArea/approved.png"))); // NOI18N
+
+        appSSN.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        appOccupation.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+
+        rejectIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ApplicationManagerWorkArea/reej.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel15)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(jLabel1)
+                                .addGap(17, 17, 17))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(rejectIcon1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(rejectIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(approvedIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(134, 134, 134)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(appSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(appOccupation, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(appAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(appDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(appName, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(appID, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(appID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel3)
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(appName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(appDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(appAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(appSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(appOccupation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(approvedIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rejectIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rejectIcon1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
+        );
+
+        approveBtn.setBackground(new java.awt.Color(255, 118, 0));
+        approveBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        approveBtn.setForeground(new java.awt.Color(255, 255, 255));
+        approveBtn.setText("Approve");
+        approveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                approveBtnActionPerformed(evt);
+            }
+        });
+
+        rejectBtn.setBackground(new java.awt.Color(255, 118, 0));
+        rejectBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        rejectBtn.setForeground(new java.awt.Color(255, 255, 255));
+        rejectBtn.setText("Reject");
+        rejectBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rejectBtnActionPerformed(evt);
+            }
+        });
+
+        holdBtn.setBackground(new java.awt.Color(255, 118, 0));
+        holdBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        holdBtn.setForeground(new java.awt.Color(255, 255, 255));
+        holdBtn.setText("Hold");
+        holdBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                holdBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(approveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(rejectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(holdBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(321, 321, 321))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(approveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rejectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(holdBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        
+        int selectedR = jTable1.getSelectedRow();
+        
+        RequestDirectory reqDir = appSystem.getReqDir();
+        
+        
+        ApplicationRequest selectedRequest = (ApplicationRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+        
+        Application a = selectedRequest.getApp();
+        jPanel1.setVisible(true);
+        DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        
+        appID.setText(a.getApplicationId());
+        appName.setText(a.getPerson().getName());
+
+        String dateStr = format.format(a.getPerson().getDob());
+        appDOB.setText(dateStr);
+        appAddress.setText(a.getPerson().getAddress());
+        appSSN.setText(a.getPerson().getSsn());
+        appOccupation.setText(a.getPerson().getOccupation());
+        
+        if(selectedRequest.getApp().getStatus().equals("Approved")){
+            approvedIcon.setVisible(true);
+            rejectIcon.setVisible(false);
+        }else if (selectedRequest.getApp().getStatus().equals("Denied")){
+            rejectIcon.setVisible(true);
+            approvedIcon.setVisible(false);
+        }else if(selectedRequest.getApp().getStatus().equals("Pending")){
+            rejectIcon.setVisible(false);
+            approvedIcon.setVisible(false);
+            
+        }
+         
+      
+//        Branch b = this.business.findBranchByName(branchesCombo.getSelectedItem().toString());
+//        MasterRentList mrl = b.getLibrary().getRentRequestList();
+//        Customer c = this.business.getCustomerDir().findCustomerByAcc(useraccount);
+//        
+//        if(!bookTable.getSelectionModel().isSelectionEmpty() && magazineTable.getSelectionModel().isSelectionEmpty()){
+//             Book book = b.getLibrary().getBookCatalog().findBookByName(bookTable.getValueAt(selectedR, 1).toString());
+//             if(book.isIsAvailable()){
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void approveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedR = jTable1.getSelectedRow();
+        
+        RequestDirectory reqDir = appSystem.getReqDir();
+   
+//        String requester = jTable1.getValueAt(selectedR, 1).toString();
+//        if(requester.equals("Volunteer")){
+//             ApplicationRequest selectedRequest = (ApplicationRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+//        }
+        ApplicationRequest selectedRequest = (ApplicationRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+        
+        selectedRequest.processRequest();
+        
+        approvedIcon.setVisible(true);
+       
+        viewTableModel.setValueAt((selectedRequest.getStatus().equals("Completed") ? "Completed" : "Created"), selectedR, 3);
+        viewTableModel.setValueAt((selectedRequest.getApp().getStatus().equals("Approved") ? "Approved" : "Pending"), selectedR, 4);
+        viewTableModel.fireTableDataChanged();
+        
+    }//GEN-LAST:event_approveBtnActionPerformed
+
+    private void rejectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedR = jTable1.getSelectedRow();
+        
+        RequestDirectory reqDir = appSystem.getReqDir();
+   
+        ApplicationRequest selectedRequest = (ApplicationRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+        
+        selectedRequest.rejectApplication();
+        
+        rejectIcon.setVisible(true);
+        viewTableModel.setValueAt((selectedRequest.getStatus().equals("Completed") ? "Completed" : "Created"), selectedR, 3);
+        viewTableModel.setValueAt((selectedRequest.getApp().getStatus().equals("Denied") ? "Denied" : "Pending"), selectedR, 4);
+        viewTableModel.fireTableDataChanged();
+    }//GEN-LAST:event_rejectBtnActionPerformed
+
+    private void holdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_holdBtnActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedR = jTable1.getSelectedRow();
+        
+        RequestDirectory reqDir = appSystem.getReqDir();
+   
+        ApplicationRequest selectedRequest = (ApplicationRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+        
+        selectedRequest.holdApplication();
+        
+        viewTableModel.setValueAt((selectedRequest.getStatus().equals("Pending") ? "Pending" : "Created"), selectedR, 3);
+        viewTableModel.setValueAt((selectedRequest.getApp().getStatus().equals("On Hold") ? "On Hold" : "Pending"), selectedR, 4);
+        viewTableModel.fireTableDataChanged();
+        rejectIcon.setVisible(false);
+        approvedIcon.setVisible(false);
+        
+//        onHoldIcon.setVisible(true);
+    }//GEN-LAST:event_holdBtnActionPerformed
+    public void displayApplications(){
+        viewTableModel.setRowCount(0);
+        RequestDirectory reqDir = appSystem.getReqDir();
+        System.out.println(reqDir.getAllRequests().toString());
+        
+        for (Map.Entry<String, ApplicationRequest> entry : reqDir.getVolApplicationRequests().entrySet()) {
+
+                ApplicationRequest appReq = entry.getValue();
+                Object row[] = new Object[5];
+                DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                row[0] = appReq.getRequestID();
+                row[1] = (appReq.getRequester() != null ? appReq.getRequester().getPerson().getName() : "Volunteer");
+                row[2] = format.format(((ApplicationRequest) entry.getValue()).getRequestDate());
+                row[3] = appReq.getStatus();
+                row[4] = appReq.getApp().getStatus();
+                
+                viewTableModel.addRow(row);           
+        }
+        for (Map.Entry<String, ApplicationRequest> entry : reqDir.getConVolApplicationRequests().entrySet()) {
+
+                ApplicationRequest appReq = entry.getValue();
+                Object row[] = new Object[5];
+                DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                row[0] = appReq.getRequestID();
+                row[1] = (appReq.getRequester() != null ? appReq.getRequester().getPerson().getName() : "Volunteer");
+                row[2] = format.format(((ApplicationRequest) entry.getValue()).getRequestDate());
+                row[3] = appReq.getStatus();
+                row[4] = appReq.getApp().getStatus();
+                
+                viewTableModel.addRow(row);           
+        }
+           
+  
+    }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel appAddress;
+    private javax.swing.JLabel appDOB;
+    private javax.swing.JLabel appID;
+    private javax.swing.JLabel appName;
+    private javax.swing.JLabel appOccupation;
+    private javax.swing.JLabel appSSN;
+    private javax.swing.JButton approveBtn;
+    private javax.swing.JLabel approvedIcon;
+    private javax.swing.JButton holdBtn;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton rejectBtn;
+    private javax.swing.JLabel rejectIcon;
+    private javax.swing.JLabel rejectIcon1;
     // End of variables declaration//GEN-END:variables
 }

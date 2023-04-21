@@ -354,10 +354,10 @@ public class VolunteerSignUp extends javax.swing.JFrame {
                         ssn, address, date, email, ssn, Name, ssn, contactNum, 
                         username, password);
                 
-                application.setPerson(p);
-                this.appSystem.getReqDir().createVolunteerApplicationRequest(null, application);
+//                application.setPerson(p);
+                this.appSystem.getReqDir().createConVolunteerApplicationRequest(application,this.organization);
 
-                JOptionPane.showMessageDialog(null, "Application Created");
+                JOptionPane.showMessageDialog(null, "Application submitted!");
             }else{
                 JOptionPane.showMessageDialog(null, "Username already exists");
                 userNameField.setText("");

@@ -30,6 +30,7 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = organization;
+        jSplitPane1.setDividerSize(1);
     }
 
     /**
@@ -44,16 +45,19 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         controlPanel = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
-        userAcccountBtn = new javax.swing.JButton();
-        employeetBtn = new javax.swing.JButton();
+        volApplicationsBtn = new javax.swing.JButton();
+        clientApplicationsBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 25, 1300, 800));
+        setPreferredSize(new java.awt.Dimension(1300, 800));
 
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 800));
 
         controlPanel.setBackground(new java.awt.Color(255, 255, 255));
+        controlPanel.setPreferredSize(new java.awt.Dimension(150, 800));
+        controlPanel.setSize(new java.awt.Dimension(150, 800));
         controlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backBtn.setText("LOGOUT");
@@ -62,23 +66,24 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 30));
+        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, 30));
 
-        userAcccountBtn.setText("Enterprise");
-        userAcccountBtn.addActionListener(new java.awt.event.ActionListener() {
+        volApplicationsBtn.setText("<html><body style='width: 140px; text-align: left;'>Specialist Volunteer Applications </body></html>\n");
+        volApplicationsBtn.setPreferredSize(new java.awt.Dimension(1300, 800));
+        volApplicationsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userAcccountBtnActionPerformed(evt);
+                volApplicationsBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(userAcccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 150, 60));
+        controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, 40));
 
-        employeetBtn.setText("Add Application Manager");
-        employeetBtn.addActionListener(new java.awt.event.ActionListener() {
+        clientApplicationsBtn.setText("<html><body style='width: 50px; text-align: left;'>Volunteer Applications </body></html>\n");
+        clientApplicationsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                employeetBtnActionPerformed(evt);
+                clientApplicationsBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(employeetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 190, 60));
+        controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 140, 40));
 
         jSplitPane1.setTopComponent(controlPanel);
 
@@ -99,15 +104,15 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         new MainJFrame(appSystem, enterprise,organization,useraccount);
     }//GEN-LAST:event_backBtnActionPerformed
 
-    private void userAcccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userAcccountBtnActionPerformed
+    private void volApplicationsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volApplicationsBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new VolunteerManagementJPanel(appSystem, enterprise,organization,useraccount));
-    }//GEN-LAST:event_userAcccountBtnActionPerformed
+        jSplitPane1.setRightComponent(new SpecialistManagementJPanel(appSystem, enterprise,organization,useraccount));
+    }//GEN-LAST:event_volApplicationsBtnActionPerformed
 
-    private void employeetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeetBtnActionPerformed
+    private void clientApplicationsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientApplicationsBtnActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new SpecialistManagementJPanel(appSystem,enterprise,organization,useraccount));
-    }//GEN-LAST:event_employeetBtnActionPerformed
+        jSplitPane1.setRightComponent(new VolunteerManagementJPanel(appSystem,enterprise,organization,useraccount));
+    }//GEN-LAST:event_clientApplicationsBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,10 +151,10 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
+    private javax.swing.JButton clientApplicationsBtn;
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JButton employeetBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JButton userAcccountBtn;
+    private javax.swing.JButton volApplicationsBtn;
     // End of variables declaration//GEN-END:variables
 }
