@@ -102,9 +102,9 @@ public class RequestDirectory {
     }
     public ConnectionRequest createConnectionRequest(UserAccount requester, ServiceOrder so) {
         ConnectionRequest connectionReq = new ConnectionRequest(requester,so);
-        List<Request> requests = allRequests.getOrDefault("Health requests", new ArrayList<>());
+        List<Request> requests = allRequests.getOrDefault("Connection requests", new ArrayList<>());
         requests.add(connectionReq);
-        allRequests.put("Health requests", requests);
+        allRequests.put("Connection requests", requests);
         connectionRequests.put(connectionReq.getRequestID(), connectionReq);
         return connectionReq;
     }
