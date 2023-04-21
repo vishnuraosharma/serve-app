@@ -11,6 +11,7 @@ import Organization.ProductManagement.OrderItem;
 import Organization.ProductManagement.Product;
 import Organization.ProductManagement.ProductCart;
 import Organization.ProductManagement.ProductCatalog;
+import Organization.ProductManagement.ProductOrder;
 import Organization.ProductOrganization;
 import Person.Client.Client;
 import UserAccount.UserAccount;
@@ -646,8 +647,9 @@ public class ConvenienceMP extends javax.swing.JPanel {
         // TODO add your handling code here: place phar order
         ArrayList<OrderItem> currOrderItems = this.pharmCart.getCartOrderItems();
         if(currOrderItems != null){
-            pharmCart.processCart((Client) this.useraccount.getPerson(), this.pharmacyOrg);
+            ProductOrder po = pharmCart.processCart((Client) this.useraccount.getPerson(), this.pharmacyOrg);
             this.pharmPopup.setVisible(false);
+            this.appSystem.getReqDir().createConvenienceRequest(this.useraccount, po);
             JOptionPane.showMessageDialog(null,"Your order has been placed. See the 'My Product Requests' page in 'My Requests' to see delivery status. ");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
@@ -681,9 +683,9 @@ public class ConvenienceMP extends javax.swing.JPanel {
         // TODO add your handling code here: place order
         ArrayList<OrderItem> currOrderItems = this.groCart.getCartOrderItems();
         if(currOrderItems != null){
-            groCart.processCart((Client) this.useraccount.getPerson(), this.grocery);
+            ProductOrder po = groCart.processCart((Client) this.useraccount.getPerson(), this.grocery);
             this.groPopup.setVisible(false);
-          //  this.appSystem.getReqDir().;
+            this.appSystem.getReqDir().createConvenienceRequest(this.useraccount, po);
             JOptionPane.showMessageDialog(null,"Your order has been placed. See the 'My Product Requests' page in 'My Requests' to see delivery status.");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
