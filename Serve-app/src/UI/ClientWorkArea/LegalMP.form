@@ -328,10 +328,10 @@
                 <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="serviceName">
+                <Component class="javax.swing.JLabel" name="serviceImg">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="120" y="40" width="90" height="100"/>
+                      <AbsoluteConstraints x="60" y="30" width="200" height="140"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -357,7 +357,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="50" y="180" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="50" y="221" width="240" height="70"/>
                     </Constraint>
                   </Constraints>
 
@@ -380,7 +380,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="90" y="150" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="90" y="190" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>

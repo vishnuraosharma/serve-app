@@ -10,6 +10,7 @@ import Organization.Organization;
 import Organization.ProductManagement.ProductOrder;
 import Organization.ServiceManagement.ServiceOrder;
 import Organization.ServicesOrganization;
+import Person.Client.Client;
 import UserAccount.UserAccount;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -120,7 +121,19 @@ public class RequestDirectory {
         return serviceRequests;
     }
 
-    
+
+    public HashMap<String, ConvenienceRequest> getConvenienceRequestsbyClient(Client c) {
+        HashMap<String, ConvenienceRequest> clientConvenienceRequests = new HashMap<String, ConvenienceRequest>();
+        //loop through all convenience requests and find the ones that have product orders with the client as the requester
+        for (ConvenienceRequest cr : convenienceRequests.values()) {
+            if (cr.getProductOrder().getClient().equals(c)) {
+                System.out.println("Requests.RequestDirectory.getConvenienceRequestsbyClient()" + c);
+                clientConvenienceRequests.put(cr.getRequestID(), cr);
+            }
+        }
+        return clientConvenienceRequests;
+    }
+
      
     public Request findRequestById(String id) {
     for (List<Request> requests : allRequests.values()) {
@@ -131,6 +144,17 @@ public class RequestDirectory {
         }
     }
     return null;
+    }
+
+    public HashMap<String, ServiceRequest> getServiceRequestsbyClient(Client client) {
+        HashMap<String, ServiceRequest> clientServiceRequests = new HashMap<String, ServiceRequest>();
+        //loop through all convenience requests and find the ones that have product orders with the client as the requester
+        for (ServiceRequest sr : serviceRequests.values()) {
+            if (sr.getServiceOrder().getClient().equals(client)) {
+                clientServiceRequests.put(sr.getRequestID(), sr);
+            }
+        }
+        return clientServiceRequests;
     }
 
      

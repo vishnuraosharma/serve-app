@@ -11,18 +11,23 @@ import Organization.ProductManagement.OrderItem;
 import Organization.ProductManagement.Product;
 import Organization.ProductManagement.ProductCart;
 import Organization.ProductManagement.ProductCatalog;
+import Organization.ProductManagement.ProductOrder;
 import Organization.ProductOrganization;
 import Organization.ServiceManagement.Service;
 import Organization.ServiceManagement.ServiceCatalog;
+import Organization.ServiceManagement.ServiceOrder;
 import Organization.ServiceManagement.ServicesCart;
 import Organization.ServicesOrganization;
 import Person.Client.Client;
+import Requests.ConvenienceRequest;
+import Requests.ServiceRequest;
 import UserAccount.UserAccount;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -54,46 +59,46 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         this.client = (Client) useraccount.getPerson();
         servReqModel = (DefaultTableModel) servReqTable.getModel();
         prodReqModel = (DefaultTableModel) prodReqTable.getModel();
+        
+        populateProdReqTable();
+        populateServReqTable();
     }
-//        
-//    public void populateCurrScoutCart(){
-//        servReqModel.setRowCount(0);
-//        ArrayList<Service> currServiceCart = this.schoolCart.getStagedServicesinCart();
-//        if(currServiceCart != null){
-//            int count = 0;
-//            int cartTotal = 0;
-//            for (Service s : currServiceCart){
-//                Object[] row = new Object[3];
-//                
-//                row[0] = count++;
-//                row[1] = s.getName();
-//                row[2] = s.getAllottedTime();
-//                cartTotal += s.getAllottedTime();
-//                
-//                servReqModel.addRow(row);
-//            }
-//            cartTotalLabel1.setText(displayHoursMinutes(cartTotal));
-//        }
-//        
-//    }
-//        public void populatePharmProducts(){
-//        prodReqModel.setRowCount(0);
-//        ProductCatalog catalog = this.pharmacyOrg.getProductCatalog();
-//        if(catalog != null & catalog.getAllProductwsw()){
-//                if(!p.isPrescriptionRequired() || this.client.getPerscribedMeds().contains(p)){
-//                    Object[] row = new Object[4];
-//                    row[0] = p;
-//                    row[1] = String.format("$%.2f",p.getPrice());
-//                    row[2] = p.getCategory();
-//                    row[3] = p.isPrescriptionRequired();
-//                    prodReqModel.addRow(row);
-//                }
-//            }
-//        }
-//    }
-//    
-//    
-//    
+
+    public void populateProdReqTable(){
+        HashMap<String, ConvenienceRequest> UserProdRequests = this.appSystem.getReqDir().getConvenienceRequestsbyClient(client);
+        System.out.println(UserProdRequests.size());
+        
+        prodReqModel.setRowCount(0);
+        if(UserProdRequests != null) {
+            for(ConvenienceRequest cr : UserProdRequests.values()){
+                ProductOrder currOrder = cr.getProductOrder();
+                Object[] row = new Object[4];
+                row[0] = cr;
+                row[1] = currOrder.getOrderItemsList();
+                row[2] = currOrder.getOrderTotal();
+                row[3] = cr.getStatus();
+                prodReqModel.addRow(row);
+            }
+        }
+    }
+    
+    public void populateServReqTable(){
+        HashMap<String, ServiceRequest> servRequests = this.appSystem.getReqDir().getServiceRequestsbyClient(client);
+        servReqModel.setRowCount(0);
+        if(servRequests != null) {
+            for(ServiceRequest sr : servRequests.values()){
+                ServiceOrder currOrder = sr.getServiceOrder();
+                Object[] row = new Object[5];
+                row[0] = sr;
+                row[1] = currOrder.getService();
+                row[2] = sr.getRequestResponder();
+                row[3] = sr.getStatus();       
+                row[4] = sr.getNotes();
+                servReqModel.addRow(row);
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -130,11 +135,11 @@ public class MyRequestsPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Request ID", "Service Order", "Responsible Party", "Status", "Notes"
+                "Request ID", "Service Ordered", "Responsible Party", "Status", "Notes"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -149,7 +154,7 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(servReqTable);
 
         jPanel2.add(jScrollPane2);
-        jScrollPane2.setBounds(220, 80, 669, 658);
+        jScrollPane2.setBounds(130, 80, 860, 650);
 
         jLabel9.setBackground(new java.awt.Color(236, 100, 44));
         jLabel9.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
