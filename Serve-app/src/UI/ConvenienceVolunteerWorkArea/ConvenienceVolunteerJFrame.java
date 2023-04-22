@@ -8,6 +8,7 @@ import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
 import UI.ClientWorkArea.LegalMP;
+import UI.MyRequests;
 import UI.RequestQueue;
 import UserAccount.UserAccount;
 
@@ -64,6 +65,11 @@ public class ConvenienceVolunteerJFrame extends javax.swing.JFrame {
         });
 
         jButton3.setText("My requests");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,7 +81,7 @@ public class ConvenienceVolunteerJFrame extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,6 +119,11 @@ public class ConvenienceVolunteerJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new RequestQueue(appSystem, enterprise,organization,useraccount));
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new MyRequests(appSystem, enterprise,organization,useraccount));
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
