@@ -10,8 +10,10 @@ import Organization.Organization;
 import Organization.ProductManagement.OrderItem;
 import Organization.ProductManagement.ProductOrder;
 import Requests.ApplicationRequest;
+import Requests.ConvenienceRequest;
 import Requests.DeliveryRequest;
 import Requests.RequestDirectory;
+import Requests.ServiceRequest;
 import UserAccount.UserAccount;
 import Volunteer.VolunteerProfile;
 import java.text.DateFormat;
@@ -32,6 +34,9 @@ public class RequestQueue extends javax.swing.JPanel {
     Enterprise enterprise;
     Organization organization;  
     DefaultTableModel viewTableModel;
+    boolean isDelivery = false;
+    boolean isConvenience = false;
+    boolean isService = false;
     /**
      * Creates new form RequestQueue
      */
@@ -45,7 +50,21 @@ public class RequestQueue extends javax.swing.JPanel {
         this.organization = organization;   
         this.viewTableModel = (DefaultTableModel) jTable1.getModel();
         jPanel1.setVisible(false);
-        displayDeliveryReqs();
+        System.out.println(this.appSystem.getReqDir().getDeliveryRequests().size());
+        switch (this.useraccount.getRole().getRoleType()) {
+            case "Convenience Volunteer":
+                displayDeliveryReqs();
+                break;
+            case "Healthcare Specialist":
+            case "Legal Specialist":
+            case "Connection Volunteer":
+                displayServiceRequests();
+                break;
+            default:
+                displayConvenienceRequests();
+                break;
+        }
+        
     }
 
     /**
@@ -270,13 +289,15 @@ public class RequestQueue extends javax.swing.JPanel {
          DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
          
         reqID.setText(selectedRequest.getRequestID());
-        reqRequester.setText(selectedRequest.getConvenienceReq().getProductOrder().getClient().getName());
+//        reqRequester.setText(selectedRequest.getConvenienceReq().getProductOrder().getClient().getName());
+        reqRequester.setText(selectedRequest.getRequester().getPerson().getName());
         String dateStr = format.format(selectedRequest.getRequestDate());
         reqDate.setText(dateStr);
         
         reqStatus.setText(selectedRequest.getStatus());
         
-        ProductOrder po = selectedRequest.getConvenienceReq().getProductOrder();
+//        ProductOrder po = selectedRequest.getConvenienceReq().getProductOrder();
+        ProductOrder po = selectedRequest.getOrderToBedelivered();
         DefaultListModel<String> listModel = new DefaultListModel<String>();
         for(OrderItem oi: po.getProductsPurchased()){
             listModel.addElement(oi.getSelectedProduct().getName());
@@ -321,7 +342,7 @@ public class RequestQueue extends javax.swing.JPanel {
                 Object row[] = new Object[6];
                 DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 row[0] = delReq.getRequestID();
-                row[1] = delReq.getConvenienceReq().getProductOrder().getClient().getName();
+                row[1] = delReq.getRequester().getPerson().getName();
                 row[2] = format.format(((DeliveryRequest) entry.getValue()).getRequestDate());
                 row[3] = delReq.getDeliveryAddress();
                 row[4] = delReq.getStatus();
@@ -329,22 +350,58 @@ public class RequestQueue extends javax.swing.JPanel {
                 
                 
                 viewTableModel.addRow(row);           
+        }  
+             isDelivery = true;
+             isConvenience = false;
+             isService = false;
+
+    }
+       public void displayConvenienceRequests(){
+            viewTableModel.setRowCount(0);
+            RequestDirectory reqDir = appSystem.getReqDir();
+             
+        for (Map.Entry<String, ConvenienceRequest> entry : reqDir.getConvenienceRequests().entrySet()) {
+
+                ConvenienceRequest convReq = entry.getValue();
+                 
+                 
+                 
+                 Object row[] = new Object[4];
+                DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                row[0] = convReq.getRequestID();
+                row[1] = convReq.getRequester().getPerson().getName();
+                row[2] = format.format(convReq.getRequestDate());
+                row[3] = convReq.getStatus();
+                 
+                viewTableModel.addRow(row);  
+                 
+            }
+        isDelivery = false;
+        isService = false;
+        isConvenience = true;
+        
         }
-//        for (Map.Entry<String, ApplicationRequest> entry : reqDir.getConVolApplicationRequests().entrySet()) {
-//
-//                ApplicationRequest appReq = entry.getValue();
-//                Object row[] = new Object[5];
-//                DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-//                row[0] = appReq.getRequestID();
-//                row[1] = (appReq.getRequester() != null ? appReq.getRequester().getPerson().getName() : "Volunteer");
-//                row[2] = format.format(((ApplicationRequest) entry.getValue()).getRequestDate());
-//                row[3] = appReq.getStatus();
-//                row[4] = appReq.getApp().getStatus();
-//                
-//                viewTableModel.addRow(row);           
-//        }
-           
-  
+       
+        public void displayServiceRequests(){
+        viewTableModel.setRowCount(0);
+        RequestDirectory reqDir = appSystem.getReqDir();
+
+        for (Map.Entry<String, ServiceRequest> entry : reqDir.getServiceRequests().entrySet()) {
+                ServiceRequest serviceReq = entry.getValue();
+                 Object row[] = new Object[4];
+                DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                row[0] = serviceReq.getRequestID();
+                row[1] = serviceReq.getRequester().getPerson().getName();
+                row[2] = format.format(serviceReq.getRequestDate());
+                row[3] = serviceReq.getStatus();
+                 
+                viewTableModel.addRow(row);  
+                 
+            } 
+        isDelivery = false;
+        isConvenience = false;
+        isService = true;
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
