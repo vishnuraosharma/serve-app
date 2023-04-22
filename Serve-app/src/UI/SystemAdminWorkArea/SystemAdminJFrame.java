@@ -9,7 +9,7 @@ import Enterprise.Enterprise;
 import Organization.Organization;
 import UI.MainJFrame;
 import UserAccount.UserAccount;
-
+ import org.jfree.chart.ChartPanel;
 /**
  *
  * @author siqiyang
@@ -47,7 +47,8 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         controlPanel = new javax.swing.JPanel();
         backBtn = new javax.swing.JButton();
         userAcccountBtn = new javax.swing.JButton();
-        employeetBtn = new javax.swing.JButton();
+        sysPerformance = new javax.swing.JButton();
+        employeetBtn1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,15 +74,23 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
                 userAcccountBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(userAcccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 210, 60));
+        controlPanel.add(userAcccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 210, 60));
 
-        employeetBtn.setText("Manage Application Manager");
-        employeetBtn.addActionListener(new java.awt.event.ActionListener() {
+        sysPerformance.setText("System Performance");
+        sysPerformance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                employeetBtnActionPerformed(evt);
+                sysPerformanceActionPerformed(evt);
             }
         });
-        controlPanel.add(employeetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 190, 60));
+        controlPanel.add(sysPerformance, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, 210, 60));
+
+        employeetBtn1.setText("Manage Application Manager");
+        employeetBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeetBtn1ActionPerformed(evt);
+            }
+        });
+        controlPanel.add(employeetBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 210, 60));
 
         jSplitPane1.setTopComponent(controlPanel);
 
@@ -106,10 +115,16 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         jSplitPane1.setRightComponent(new EnterpriseManagementJPanel(appSystem, enterprise,organization,useraccount));
     }//GEN-LAST:event_userAcccountBtnActionPerformed
 
-    private void employeetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeetBtnActionPerformed
+    private void sysPerformanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sysPerformanceActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new ViewStatsJPanel(appSystem));
+    }//GEN-LAST:event_sysPerformanceActionPerformed
+
+    private void employeetBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeetBtn1ActionPerformed
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new ApplicantManagerManageJPanel(appSystem,enterprise,organization,useraccount));
-    }//GEN-LAST:event_employeetBtnActionPerformed
+
+    }//GEN-LAST:event_employeetBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,9 +164,10 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JButton employeetBtn;
+    private javax.swing.JButton employeetBtn1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton sysPerformance;
     private javax.swing.JButton userAcccountBtn;
     // End of variables declaration//GEN-END:variables
 }
