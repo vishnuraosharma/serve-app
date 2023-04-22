@@ -31,5 +31,10 @@ public class ConvenienceRequest extends Request {
     public ProductOrder getProductOrder() {
         return productOrder;
     }
-        
+
+    @Override
+    public String toString() {
+        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+     
 }

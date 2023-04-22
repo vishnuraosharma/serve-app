@@ -85,7 +85,7 @@ public class HospitalMP extends javax.swing.JPanel {
         String filepath = "src/Resources/cart.jpeg";
         try {
             BufferedImage bufferedImage = ImageIO.read(new File(filepath));
-            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            Image image = bufferedImage.getScaledInstance(76, 61,  Image.SCALE_SMOOTH);
             ImageIcon icon = new ImageIcon(image);
             cartImage1.setIcon(icon);
         } catch (IOException ex) {
@@ -155,7 +155,10 @@ public class HospitalMP extends javax.swing.JPanel {
         }
         if(reqDetailsTextArea.getText().isBlank()){
             JOptionPane.showMessageDialog(null,"Please enter any helpful details so a volunteer can be of better assistance.");
-
+            return false;
+        }
+        if (this.hospCart.isInCart(s)){
+            JOptionPane.showMessageDialog(null,"You've already added this service to cart.");
             return false;
         }
         
@@ -303,7 +306,7 @@ public class HospitalMP extends javax.swing.JPanel {
         productDets.setBackground(new java.awt.Color(236, 100, 44));
         productDets.setForeground(new java.awt.Color(236, 100, 44));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        productDets.add(serviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 90, 100));
+        productDets.add(serviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 200, 140));
 
         jButton2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         jButton2.setText("Add Service");
@@ -318,11 +321,11 @@ public class HospitalMP extends javax.swing.JPanel {
         reqDetailsTextArea.setRows(5);
         jScrollPane2.setViewportView(reqDetailsTextArea);
 
-        productDets.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        productDets.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 250, 70));
 
         jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         jLabel4.setText("Service Request Details");
-        productDets.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+        productDets.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -433,7 +436,7 @@ public class HospitalMP extends javax.swing.JPanel {
         this.currService = (Service) hosServModel.getValueAt(selRow, 0);
         try {
             BufferedImage bufferedImage = ImageIO.read(currService.getProductImageFile());
-            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            Image image = bufferedImage.getScaledInstance(200,140, Image.SCALE_SMOOTH);
             ImageIcon icon = new ImageIcon(image);
             serviceName.setIcon(icon);
         } catch (IOException ex) {

@@ -194,6 +194,7 @@ public class ClientJFrame extends javax.swing.JFrame {
 
     private void productReportBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtn3ActionPerformed
         // TODO add your handling code here:
+        this.jSplitPane1.setRightComponent(new MyRequestsPanel(appSystem, enterprise,organization,useraccount));
     }//GEN-LAST:event_productReportBtn3ActionPerformed
 
     /**

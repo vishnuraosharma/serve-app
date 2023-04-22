@@ -91,6 +91,23 @@ public class ProductOrder {
         this.store = store;
     }
 
+    public String getOrderItemsList() {
+        String prettyList = "Order Items: \n";;
+        //grab each order item, get the product name, and quantity, and append to prettyList
+        for(OrderItem oi : this.productsPurchased){
+            prettyList += oi.getSelectedProduct().getName()+ " x " + oi.getQuantity() + "\n";
+         }
+        return prettyList;
+    }
+
+    public String getOrderTotal() {
+        double total = 0;
+        for(OrderItem oi : this.productsPurchased){
+            total += oi.getQuantity() * oi.getSelectedProduct().getPrice();
+        }
+        return String.format("%.2f", total);
+    }
+
 
     
     

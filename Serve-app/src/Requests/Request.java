@@ -19,12 +19,14 @@ public abstract class Request {
     UserAccount requestResponder; //ignore the datatype for now, we should discuss
     Date requestDate;
     String status;
+    String notes;
     
     public Request(UserAccount requester){
         this.requestID = "req" + counter++;
         this.requester = requester;
         this.requestDate = new Date();
         this.status = "Created";
+        notes = "-";
     }
     
     public abstract void processRequest(); //abstract method
@@ -64,5 +66,16 @@ public abstract class Request {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getNotes() {
+        return notes;
+    }
+    
+
+    @Override
+    public String toString() {
+        return this.requestID;
+    }
+    
     
 }

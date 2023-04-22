@@ -159,6 +159,10 @@ public class LegalMP extends javax.swing.JPanel {
 
             return false;
         }
+        if (this.lawCart.isInCart(s)){
+            JOptionPane.showMessageDialog(null,"You've already added this service to cart.");
+            return false;
+        }
         
         return true;
     }
@@ -186,7 +190,7 @@ public class LegalMP extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         lawServicesTable = new javax.swing.JTable();
         productDets = new javax.swing.JPanel();
-        serviceName = new javax.swing.JLabel();
+        serviceImg = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         reqDetailsTextArea = new javax.swing.JTextArea();
@@ -307,7 +311,7 @@ public class LegalMP extends javax.swing.JPanel {
         productDets.setBackground(new java.awt.Color(236, 100, 44));
         productDets.setForeground(new java.awt.Color(236, 100, 44));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        productDets.add(serviceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 90, 100));
+        productDets.add(serviceImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 200, 140));
 
         jButton2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         jButton2.setText("Add Service");
@@ -322,11 +326,11 @@ public class LegalMP extends javax.swing.JPanel {
         reqDetailsTextArea.setRows(5);
         jScrollPane2.setViewportView(reqDetailsTextArea);
 
-        productDets.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        productDets.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 221, 240, 70));
 
         jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         jLabel4.setText("Service Request Details");
-        productDets.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+        productDets.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -442,9 +446,9 @@ public class LegalMP extends javax.swing.JPanel {
         this.currService = (Service) lawServModel.getValueAt(selRow, 0);
         try {
             BufferedImage bufferedImage = ImageIO.read(currService.getProductImageFile());
-            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            Image image = bufferedImage.getScaledInstance(200,140, Image.SCALE_SMOOTH);
             ImageIcon icon = new ImageIcon(image);
-            serviceName.setIcon(icon);
+            serviceImg.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(LegalMP.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -472,6 +476,6 @@ public class LegalMP extends javax.swing.JPanel {
     private javax.swing.JTable lawServicesTable;
     private javax.swing.JPanel productDets;
     private javax.swing.JTextArea reqDetailsTextArea;
-    private javax.swing.JLabel serviceName;
+    private javax.swing.JLabel serviceImg;
     // End of variables declaration//GEN-END:variables
 }
