@@ -47,6 +47,7 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         volApplicationsBtn = new javax.swing.JButton();
         clientApplicationsBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,6 +86,14 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         });
         controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 140, 40));
 
+        jButton1.setText("Vols");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+
         jSplitPane1.setTopComponent(controlPanel);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -113,6 +122,11 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new ClientManagementJPanel(appSystem,enterprise,organization,useraccount));
     }//GEN-LAST:event_clientApplicationsBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new ManageVolsAndClients(appSystem,enterprise,organization,useraccount));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,6 +167,7 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton clientApplicationsBtn;
     private javax.swing.JPanel controlPanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton volApplicationsBtn;

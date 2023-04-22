@@ -335,14 +335,7 @@ public class SpecialistManagementJPanel extends javax.swing.JPanel {
             
         }
          
-      
-//        Branch b = this.business.findBranchByName(branchesCombo.getSelectedItem().toString());
-//        MasterRentList mrl = b.getLibrary().getRentRequestList();
-//        Customer c = this.business.getCustomerDir().findCustomerByAcc(useraccount);
-//        
-//        if(!bookTable.getSelectionModel().isSelectionEmpty() && magazineTable.getSelectionModel().isSelectionEmpty()){
-//             Book book = b.getLibrary().getBookCatalog().findBookByName(bookTable.getValueAt(selectedR, 1).toString());
-//             if(book.isIsAvailable()){
+     
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void approveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveBtnActionPerformed

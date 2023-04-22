@@ -7,6 +7,8 @@ package UI.ConvenienceVolunteerWorkArea;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import UI.ClientWorkArea.LegalMP;
+import UI.RequestQueue;
 import UserAccount.UserAccount;
 
 /**
@@ -17,9 +19,19 @@ public class ConvenienceVolunteerJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form ConnectionVolunteerJFrame
-     */
-    public ConvenienceVolunteerJFrame(Network applicationSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
+     */ 
+    private Network appSystem;
+    private UserAccount useraccount;
+    Enterprise enterprise;
+    Organization organization;
+    public ConvenienceVolunteerJFrame(Network appSystem, Enterprise e, Organization o,UserAccount useraccount) {
         initComponents();
+        this.setVisible(true);
+        this.setSize(1300,800);
+        this.appSystem = appSystem;
+        this.enterprise = e;
+        this.organization = o;
+        this.useraccount = useraccount;
     }
 
     /**
@@ -31,21 +43,76 @@ public class ConvenienceVolunteerJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton1.setText("Logout");
+
+        jButton2.setText("All Requests");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("My requests");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jButton1)
+                .addGap(95, 95, 95)
+                .addComponent(jButton2)
+                .addGap(50, 50, 50)
+                .addComponent(jButton3)
+                .addContainerGap(526, Short.MAX_VALUE))
         );
+
+        jSplitPane1.setLeftComponent(jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1293, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
+
+        jSplitPane1.setRightComponent(jPanel2);
+
+        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new RequestQueue(appSystem, enterprise,organization,useraccount));
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -84,5 +151,11 @@ public class ConvenienceVolunteerJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

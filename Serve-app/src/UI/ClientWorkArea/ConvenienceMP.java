@@ -14,6 +14,7 @@ import Organization.ProductManagement.ProductCatalog;
 import Organization.ProductManagement.ProductOrder;
 import Organization.ProductOrganization;
 import Person.Client.Client;
+import Requests.ConvenienceRequest;
 import UserAccount.UserAccount;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -62,7 +63,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.client = (Client) useraccount.getPerson();
         
-        System.out.println(useraccount.getPerson());
+//        System.out.println(useraccount.getPerson());
         
         //find pharmacy org, create product/cart table models, init new cart every time user shops convenience
         this.pharmacyOrg =(ProductOrganization) appSystem.getEnterprises().findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Pharmacy");
@@ -696,7 +697,8 @@ public class ConvenienceMP extends javax.swing.JPanel {
         if(currOrderItems != null){
             ProductOrder po = groCart.processCart((Client) this.useraccount.getPerson(), this.grocery);
             this.groPopup.setVisible(false);
-            this.appSystem.getReqDir().createConvenienceRequest(this.useraccount, po);
+            ConvenienceRequest conReq = this.appSystem.getReqDir().createConvenienceRequest(this.useraccount, po);
+            this.appSystem.getReqDir().createDeliveryRequest(this.useraccount, conReq);
             JOptionPane.showMessageDialog(null,"Your order has been placed. See the 'My Product Requests' page in 'My Requests' to see delivery status.");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");

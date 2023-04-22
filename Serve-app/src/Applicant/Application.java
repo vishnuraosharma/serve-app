@@ -8,6 +8,7 @@ import Enterprise.Enterprise;
 import Person.Client.Client;
 import Person.Person;
 import UserAccount.UserAccount;
+import Volunteer.VolunteerProfile;
 import java.util.Date;
 
 
@@ -22,6 +23,7 @@ public class Application {
     String status;
     Person person;
     Client client;
+    VolunteerProfile volunteer;
     String username;
     String password;
     
@@ -34,6 +36,7 @@ public class Application {
         this.password = password;
         this.person = new Person(name,ssn,address,
             dob,email, ecn, ecname, occ, contactNum);
+        this.volunteer = new VolunteerProfile(this.person);
     }
      
      public Application(String name, String ssn, String address,

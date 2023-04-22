@@ -5,37 +5,54 @@
 package Volunteer;
 
 import Person.Person;
+import Requests.Request;
 import WorkAreas.AbstractRole;
+import java.util.ArrayList;
 
 /**
  *
  * @author siqiyang
  */
-public class VolunteerProfile{
-    Person p;
+public class VolunteerProfile extends Person{
+//    Person p;
     AbstractRole role;
+    ArrayList<Request> volunteerRequests;
+    
+    
 
+    public VolunteerProfile(Person p) {
+        super(p.getName(), p.getSsn(), p.getAddress(), p.getDob(), p.getEmail(), p.getEmergencyContactNumber(), p.getEmergencyContactName(), p.getOccupation(), p.getContactNum());
+//        this.role = role;
+        volunteerRequests = new ArrayList();
+    }
     public VolunteerProfile(Person p, AbstractRole role) {
-        this.p = p;
+        super(p.getName(), p.getSsn(), p.getAddress(), p.getDob(), p.getEmail(), p.getEmergencyContactNumber(), p.getEmergencyContactName(), p.getOccupation(), p.getContactNum());
         this.role = role;
+        volunteerRequests = new ArrayList();
     }
 
-    public Person getP() {
-        return p;
-    }
+
 
     public AbstractRole getRole() {
         return role;
     }
 
-    public void setP(Person p) {
-        this.p = p;
-    }
 
     public void setRole(AbstractRole role) {
         this.role = role;
     }
+
+    public ArrayList<Request> getVolunteerRequests() {
+        return volunteerRequests;
+    }
     
+    public void addToVolunteerRequests(Request r){
+        this.volunteerRequests.add(r);
+    }
     
+    @Override
+    public String toString(){
+        return this.getName();
+    }
     
 }

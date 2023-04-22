@@ -108,6 +108,18 @@ public class RequestDirectory {
         return clientApplicationRequests;
     }
 
+    public HashMap<String, ConvenienceRequest> getConvenienceRequests() {
+        return convenienceRequests;
+    }
+
+    public HashMap<String, DeliveryRequest> getDeliveryRequests() {
+        return deliveryRequests;
+    }
+
+    public HashMap<String, ServiceRequest> getServiceRequests() {
+        return serviceRequests;
+    }
+
     
      
     public Request findRequestById(String id) {

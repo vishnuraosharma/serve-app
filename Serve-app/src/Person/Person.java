@@ -41,7 +41,7 @@ public class Person {
 
     public Person(String name, String ssn, String address,
             Date dob, String email,String ecn, String ecname, String occ, String contactNum) {
-        
+        this.id = "person"+counter++;
         this.name = name;
         this.ssn = ssn;
         this.address = address;

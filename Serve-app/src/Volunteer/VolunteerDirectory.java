@@ -14,13 +14,13 @@ import java.util.HashMap;
  * @author siqiyang
  */
 public class VolunteerDirectory {
-//    ArrayList<VolunteerProfile> volunteerList;
+    ArrayList<VolunteerProfile> volunteerList;
     
-    HashMap<String, VolunteerProfile> volunteerRoles;
+//    HashMap<String, VolunteerProfile> volunteerRoles;
     
     public VolunteerDirectory(){
-//        this.volunteerList = new ArrayList();
-        this.volunteerRoles = new HashMap();
+        this.volunteerList = new ArrayList();
+//        this.volunteerRoles = new HashMap();
     }
     
     public VolunteerProfile createNewVolunteer(Person p, AbstractRole role){
@@ -29,8 +29,20 @@ public class VolunteerDirectory {
                 : (volunteer.getRole().getRoleType().equals("Legal Specialist") ? "Legal"
                 : (volunteer.getRole().getRoleType().equals("Connection Volunteer") ? "Connection"
                 : "Convenience")));
-        this.volunteerRoles.put(name, volunteer);
+        this.volunteerList.add(volunteer);
         return volunteer;
     }
+
+//    public HashMap<String, VolunteerProfile> getVolunteerRoles() {
+//        return volunteerRoles;
+//    }
+
+    public ArrayList<VolunteerProfile> getVolunteerList() {
+        return volunteerList;
+    }
+    
+    
+    
+    
     
 }

@@ -60,14 +60,18 @@ public class ApplicationRequest extends Request {
              if(e instanceof Convenience){
                  ConvenienceVolOrganization org = (ConvenienceVolOrganization) e.getOrganizationDirectory().findOrganizationbyType(this.forOrganization.getOrganizationType());
                  UserAccount ua = this.forOrganization.getOrganizationAccountDirectory().createUserAccount(app.getUsername(),app.getPassword(), role);
-                this.app.getPerson().setUseraccount(ua);
+//                this.app.getPerson().setUseraccount(ua);
                 VolunteerProfile volunteer = org.getVolunteerDir().createNewVolunteer(this.app.getPerson(), role);
+                volunteer.setUseraccount(ua);
+                ua.setPerson(volunteer);
              }else{
                  ServicesOrganization org = (ServicesOrganization) e.getOrganizationDirectory().findOrganizationbyType(this.forOrganization.getOrganizationType());
         
                 UserAccount ua = this.forOrganization.getOrganizationAccountDirectory().createUserAccount(app.getUsername(),app.getPassword(), role);
-                this.app.getPerson().setUseraccount(ua);
+//                this.app.getPerson().setUseraccount(ua);
                 VolunteerProfile volunteer = org.getVolunteerDir().createNewVolunteer(this.app.getPerson(), role);
+                volunteer.setUseraccount(ua);
+                ua.setPerson(volunteer);
              }
              
   
