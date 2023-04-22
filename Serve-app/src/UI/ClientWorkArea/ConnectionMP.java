@@ -68,17 +68,16 @@ public class ConnectionMP extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.client = (Client) useraccount.getPerson();
         
-        System.out.println(useraccount.getPerson());
         
         //find pharmacy org, create product/cart table models, init new cart every time user shops convenience
         this.schoolOrg =(ServicesOrganization) appSystem.getEnterprises().findEnterprise("Connection").getOrganizationDirectory().findOrganizationbyType("School");
-        this.schoolProdModel = (DefaultTableModel) this.scouTable.getModel();
-        this.schoolCartModel = (DefaultTableModel) this.scoutCartTable.getModel();
+        this.schoolProdModel = (DefaultTableModel) this.stuTable.getModel();
+        this.schoolCartModel = (DefaultTableModel) this.stuCartTable.getModel();
         this.schoolCart = new ServicesCart();
         
         this.scoutsOrg =(ServicesOrganization) appSystem.getEnterprises().findEnterprise("Connection").getOrganizationDirectory().findOrganizationbyType("Community Organization");
-        this.scoutsProdModel = (DefaultTableModel) this.stuTable.getModel();
-        this.scoutsCartModel = (DefaultTableModel) this.stuCartTable.getModel();
+        this.scoutsProdModel = (DefaultTableModel) this.scouTable.getModel();
+        this.scoutsCartModel = (DefaultTableModel) this.scoutCartTable.getModel();
         this.scoutServCart = new ServicesCart();
         
         reqDetailsSchool = new ArrayList<String>();
@@ -175,13 +174,17 @@ public class ConnectionMP extends javax.swing.JPanel {
 
             return false;
         }
+        if (this.schoolCart.isInCart(s)){
+            JOptionPane.showMessageDialog(null,"You've already added this service to cart.");
+            return false;
+        }
         
         return true;
     }
     
     public void populateCurrScoutCart(){
-        schoolCartModel.setRowCount(0);
-        ArrayList<Service> currServiceCart = this.schoolCart.getStagedServicesinCart();
+        scoutsCartModel.setRowCount(0);
+        ArrayList<Service> currServiceCart = this.scoutServCart.getStagedServicesinCart();
         if(currServiceCart != null){
             int count = 0;
             int cartTotal = 0;
@@ -193,9 +196,9 @@ public class ConnectionMP extends javax.swing.JPanel {
                 row[2] = s.getAllottedTime();
                 cartTotal += s.getAllottedTime();
                 
-                schoolCartModel.addRow(row);
+                scoutsCartModel.addRow(row);
             }
-            cartTotalLabel1.setText(displayHoursMinutes(cartTotal));
+            cartTotalLabel2.setText(displayHoursMinutes(cartTotal));
         }
         
     }
@@ -233,6 +236,10 @@ public class ConnectionMP extends javax.swing.JPanel {
 
             return false;
         }
+        if (this.scoutServCart.isInCart(s)){
+            JOptionPane.showMessageDialog(null,"You've already added this service to cart.");
+            return false;
+        }
         
         return true;
     }
@@ -250,10 +257,6 @@ public class ConnectionMP extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         cartImage2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        stuTable = new javax.swing.JTable();
         schoolPopup = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         stuCartTable = new javax.swing.JTable();
@@ -261,6 +264,10 @@ public class ConnectionMP extends javax.swing.JPanel {
         placeSchoolOrder = new javax.swing.JButton();
         clearSchoolCart = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        stuTable = new javax.swing.JTable();
         productDets1 = new javax.swing.JPanel();
         productImage1 = new javax.swing.JLabel();
         addSchoolServiceBTN = new javax.swing.JButton();
@@ -269,10 +276,6 @@ public class ConnectionMP extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         cartImage1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        scouTable = new javax.swing.JTable();
         pharmPopup = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         scoutCartTable = new javax.swing.JTable();
@@ -280,6 +283,11 @@ public class ConnectionMP extends javax.swing.JPanel {
         purchasePharProds = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        cartTotalLabel2 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        scouTable = new javax.swing.JTable();
         productDets = new javax.swing.JPanel();
         productImage = new javax.swing.JLabel();
         addPharmtoCart = new javax.swing.JButton();
@@ -313,7 +321,59 @@ public class ConnectionMP extends javax.swing.JPanel {
             }
         });
         jPanel2.add(cartImage2);
-        cartImage2.setBounds(1050, 10, 76, 61);
+        cartImage2.setBounds(1050, 0, 76, 61);
+
+        schoolPopup.setBackground(new java.awt.Color(255, 255, 255));
+        schoolPopup.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        schoolPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        stuCartTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Line Item", "Service Name", "Minutes"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(stuCartTable);
+
+        schoolPopup.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
+
+        cartTotalLabel1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        schoolPopup.add(cartTotalLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 110, 20));
+
+        placeSchoolOrder.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        placeSchoolOrder.setText("Place Order");
+        placeSchoolOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                placeSchoolOrderActionPerformed(evt);
+            }
+        });
+        schoolPopup.add(placeSchoolOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
+
+        clearSchoolCart.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        clearSchoolCart.setText("Clear Cart");
+        clearSchoolCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearSchoolCartActionPerformed(evt);
+            }
+        });
+        schoolPopup.add(clearSchoolCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel6.setText("Your Total");
+        schoolPopup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+
+        jPanel2.add(schoolPopup);
+        schoolPopup.setBounds(750, 60, 376, 362);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -372,62 +432,10 @@ public class ConnectionMP extends javax.swing.JPanel {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(0, 0, 730, 820);
 
-        schoolPopup.setBackground(new java.awt.Color(255, 255, 255));
-        schoolPopup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        schoolPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        stuCartTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Line Item", "Service Name", "Minutes"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane6.setViewportView(stuCartTable);
-
-        schoolPopup.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
-
-        cartTotalLabel1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        schoolPopup.add(cartTotalLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 60, 20));
-
-        placeSchoolOrder.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        placeSchoolOrder.setText("Place Order");
-        placeSchoolOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                placeSchoolOrderActionPerformed(evt);
-            }
-        });
-        schoolPopup.add(placeSchoolOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
-
-        clearSchoolCart.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        clearSchoolCart.setText("Clear Cart");
-        clearSchoolCart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearSchoolCartActionPerformed(evt);
-            }
-        });
-        schoolPopup.add(clearSchoolCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
-        jLabel6.setText("Your Total");
-        schoolPopup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
-
-        jPanel2.add(schoolPopup);
-        schoolPopup.setBounds(750, 60, 376, 362);
-
         productDets1.setBackground(new java.awt.Color(236, 100, 44));
         productDets1.setForeground(new java.awt.Color(236, 100, 44));
         productDets1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        productDets1.add(productImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 220, 190));
+        productDets1.add(productImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 140));
 
         addSchoolServiceBTN.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         addSchoolServiceBTN.setText("Add Service");
@@ -436,7 +444,7 @@ public class ConnectionMP extends javax.swing.JPanel {
                 addSchoolServiceBTNActionPerformed(evt);
             }
         });
-        productDets1.add(addSchoolServiceBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
+        productDets1.add(addSchoolServiceBTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
 
         reqDetailsTextArea.setColumns(20);
         reqDetailsTextArea.setRows(5);
@@ -449,7 +457,7 @@ public class ConnectionMP extends javax.swing.JPanel {
         productDets1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
         jPanel2.add(productDets1);
-        productDets1.setBounds(780, 300, 328, 365);
+        productDets1.setBounds(750, 200, 328, 365);
 
         jTabbedPane1.addTab("Students", jPanel2);
 
@@ -469,6 +477,64 @@ public class ConnectionMP extends javax.swing.JPanel {
         });
         jLayeredPane2.add(cartImage1);
         cartImage1.setBounds(1070, 0, 76, 61);
+
+        pharmPopup.setBackground(new java.awt.Color(255, 255, 255));
+        pharmPopup.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        pharmPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        scoutCartTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Line Item", "Service Name", "Minutes"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(scoutCartTable);
+        if (scoutCartTable.getColumnModel().getColumnCount() > 0) {
+            scoutCartTable.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        pharmPopup.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
+
+        cartTotalLabel.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        pharmPopup.add(cartTotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
+
+        purchasePharProds.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        purchasePharProds.setText("Place Order");
+        purchasePharProds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                purchasePharProdsActionPerformed(evt);
+            }
+        });
+        pharmPopup.add(purchasePharProds, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
+
+        jButton7.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton7.setText("Clear Cart");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        pharmPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel4.setText("Your Total");
+        pharmPopup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+
+        cartTotalLabel2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        pharmPopup.add(cartTotalLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 110, 20));
+
+        jLayeredPane2.add(pharmPopup);
+        pharmPopup.setBounds(770, 60, 376, 362);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -527,65 +593,10 @@ public class ConnectionMP extends javax.swing.JPanel {
         jLayeredPane2.add(jPanel5);
         jPanel5.setBounds(0, 0, 740, 820);
 
-        pharmPopup.setBackground(new java.awt.Color(255, 255, 255));
-        pharmPopup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        pharmPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        scoutCartTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Line Item", "Service Name", "Minutes"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane5.setViewportView(scoutCartTable);
-        if (scoutCartTable.getColumnModel().getColumnCount() > 0) {
-            scoutCartTable.getColumnModel().getColumn(1).setResizable(false);
-        }
-
-        pharmPopup.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
-
-        cartTotalLabel.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        pharmPopup.add(cartTotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
-
-        purchasePharProds.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        purchasePharProds.setText("Place Order");
-        purchasePharProds.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                purchasePharProdsActionPerformed(evt);
-            }
-        });
-        pharmPopup.add(purchasePharProds, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
-
-        jButton7.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        jButton7.setText("Clear Cart");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        pharmPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
-        jLabel4.setText("Your Total");
-        pharmPopup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
-
-        jLayeredPane2.add(pharmPopup);
-        pharmPopup.setBounds(770, 60, 376, 362);
-
         productDets.setBackground(new java.awt.Color(236, 100, 44));
         productDets.setForeground(new java.awt.Color(236, 100, 44));
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        productDets.add(productImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 220, 170));
+        productDets.add(productImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 140));
 
         addPharmtoCart.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         addPharmtoCart.setText("Add Service");
@@ -600,14 +611,14 @@ public class ConnectionMP extends javax.swing.JPanel {
         reqDetailsTextArea1.setRows(5);
         jScrollPane7.setViewportView(reqDetailsTextArea1);
 
-        productDets.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        productDets.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 251, 240, 60));
 
         jLabel5.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         jLabel5.setText("Service Request Details");
-        productDets.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
+        productDets.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 
         jLayeredPane2.add(productDets);
-        productDets.setBounds(780, 230, 328, 365);
+        productDets.setBounds(770, 200, 328, 365);
 
         jTabbedPane1.addTab("Scouts", jLayeredPane2);
 
@@ -642,7 +653,7 @@ public class ConnectionMP extends javax.swing.JPanel {
         
         try {
             BufferedImage bufferedImage = ImageIO.read(currServ2.getProductImageFile());
-            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            Image image = bufferedImage.getScaledInstance(productImage.getWidth(),productImage.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon icon = new ImageIcon(image);
             productImage.setIcon(icon);
         } catch (IOException ex) {
@@ -654,10 +665,9 @@ public class ConnectionMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selRow = stuTable.getSelectedRow();
         this.currServ1 = (Service) schoolProdModel.getValueAt(selRow, 0);
-        
-        try {
+            try {
             BufferedImage bufferedImage = ImageIO.read(currServ1.getProductImageFile());
-            Image image = bufferedImage.getScaledInstance(76, 61, Image.SCALE_SMOOTH);
+            Image image = bufferedImage.getScaledInstance(productImage1.getWidth(),productImage1.getHeight(), Image.SCALE_SMOOTH);
             ImageIcon icon = new ImageIcon(image);
             productImage1.setIcon(icon);
         } catch (IOException ex) {
@@ -673,7 +683,7 @@ public class ConnectionMP extends javax.swing.JPanel {
             reqDetailsScouts.add(reqDetailsTextArea1.getText());
             JOptionPane.showMessageDialog(null,"Service added to cart.");
         }
-        populateCurrSchoolCart();
+        populateCurrScoutCart();
     }//GEN-LAST:event_addPharmtoCartActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -783,6 +793,7 @@ public class ConnectionMP extends javax.swing.JPanel {
     private javax.swing.JLabel cartImage2;
     private javax.swing.JLabel cartTotalLabel;
     private javax.swing.JLabel cartTotalLabel1;
+    private javax.swing.JLabel cartTotalLabel2;
     private javax.swing.JButton clearSchoolCart;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel10;

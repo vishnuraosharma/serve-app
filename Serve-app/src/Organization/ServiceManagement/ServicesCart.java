@@ -44,7 +44,14 @@ public class ServicesCart {
     public void emptyCart(){
         this.serviceCart = new ArrayList<>(); 
     }
-
+    
+    public boolean isInCart(Service s){
+        if(this.serviceCart.contains(s)){
+            return true;
+        }
+        return false;
+    }
+    
     public ArrayList<Service> getStagedServicesinCart() {
         return serviceCart;
     }

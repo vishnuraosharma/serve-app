@@ -19,6 +19,11 @@ public class ServiceRequest extends Request {
         this.serviceOrder = so;
     }
 
+    public ServiceOrder getServiceOrder() {
+        return serviceOrder;
+    }
+    
+
     @Override
     public void processRequest() {
          super.setStatus("Pending for volunteer");

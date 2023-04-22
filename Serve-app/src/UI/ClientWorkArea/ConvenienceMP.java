@@ -63,8 +63,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         this.useraccount = useraccount;
         this.client = (Client) useraccount.getPerson();
         
-//        System.out.println(useraccount.getPerson());
-        
+
         //find pharmacy org, create product/cart table models, init new cart every time user shops convenience
         this.pharmacyOrg =(ProductOrganization) appSystem.getEnterprises().findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Pharmacy");
         this.pharProdModel = (DefaultTableModel) this.pharTable.getModel();
@@ -291,7 +290,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         cartImage2.setBounds(1050, 10, 76, 61);
 
         groPopup.setBackground(new java.awt.Color(255, 255, 255));
-        groPopup.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        groPopup.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         groPopup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         groCartTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -621,7 +620,6 @@ public class ConvenienceMP extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selRow = groTable.getSelectedRow();
         this.currProduct2 = (Product) groProdModel.getValueAt(selRow, 0);
-        System.out.println(currProduct2);
         try {
             BufferedImage bufferedImage = ImageIO.read(currProduct2.getProductImageFile());
             Image image = bufferedImage.getScaledInstance(groProdImg.getWidth(), groProdImg.getHeight(), Image.SCALE_SMOOTH);
