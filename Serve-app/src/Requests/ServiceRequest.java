@@ -24,4 +24,10 @@ public class ServiceRequest extends Request {
          super.setStatus("Pending for volunteer");
         
          }
+
+    public ServiceOrder getServiceOrder() {
+        return serviceOrder;
+    }
+    
+    
 }

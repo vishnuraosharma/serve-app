@@ -72,8 +72,8 @@ public class RequestDirectory {
         convenienceRequests.put(convenienceReq.getRequestID(), convenienceReq);
         return convenienceReq;
     }
-    public DeliveryRequest createDeliveryRequest(UserAccount requester, ConvenienceRequest conReq) {
-        DeliveryRequest deliveryReq = new DeliveryRequest(requester,conReq);
+    public DeliveryRequest createDeliveryRequest(UserAccount requester, ProductOrder po) {
+        DeliveryRequest deliveryReq = new DeliveryRequest(requester,po);
         List<Request> requests = allRequests.getOrDefault("Convenience delivery", new ArrayList<>());
         requests.add(deliveryReq);
         allRequests.put("Convenience delivery", requests);

@@ -16,33 +16,48 @@ import UserAccount.UserAccount;
  * @author khatna
  */
 public class DeliveryRequest extends Request{
-//    ProductOrder orderToBedelivered;
-    ConvenienceRequest convenienceReq;
+    ProductOrder orderToBedelivered;
+//    ConvenienceRequest convenienceReq;
     String deliveryAddress;
     boolean isUrgent;
 
-    public DeliveryRequest(UserAccount requester,ConvenienceRequest convenienceReq) {
+    public DeliveryRequest(UserAccount requester,ProductOrder po) {
         super(requester);
-        this.convenienceReq = convenienceReq;
-        deliveryAddress = this.convenienceReq.getProductOrder().getClient().getAddress();
+        this.orderToBedelivered = po;
+        deliveryAddress = po.getClient().getAddress();
     }
+//    public DeliveryRequest(UserAccount requester,ConvenienceRequest convenienceReq) {
+//        super(requester);
+//        this.convenienceReq = convenienceReq;
+//        deliveryAddress = this.convenienceReq.getProductOrder().getClient().getAddress();
+//    }
     
     
 
     @Override
     public void processRequest() {
-        super.setStatus("Completed");
-        this.convenienceReq.setStatus("Delivered!");
+        super.setStatus("Delivered!");
+//        this.convenienceReq.setStatus("Delivered!");
+    }
+//    @Override
+//    public void processRequest() {
+//        super.setStatus("Completed");
+//        this.convenienceReq.setStatus("Delivered!");
+//    }
+    
+//    public void updateConvenienceReq(){
+//        this.convenienceReq.setStatus("Assigned for delivery");
+//    }
+
+//    public ConvenienceRequest getConvenienceReq() {
+//        return convenienceReq;
+//    }
+
+    public ProductOrder getOrderToBedelivered() {
+        return orderToBedelivered;
     }
     
-    public void updateConvenienceReq(){
-        this.convenienceReq.setStatus("Assigned for delivery");
-    }
-
-    public ConvenienceRequest getConvenienceReq() {
-        return convenienceReq;
-    }
-
+    
     public String getDeliveryAddress() {
         return deliveryAddress;
     }

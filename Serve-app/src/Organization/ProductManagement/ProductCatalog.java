@@ -61,5 +61,13 @@ public class ProductCatalog {
         return prod;
     }
     
+    public Product findProductByName(String name){
+        for(Product p: this.getAllProducts()){
+            if(p.getName().equals(name)){
+                return p;
+            }
+        }
+        return null;
+    }
     
 }

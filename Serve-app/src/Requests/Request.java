@@ -19,6 +19,8 @@ public abstract class Request {
     UserAccount requestResponder; //ignore the datatype for now, we should discuss
     Date requestDate;
     String status;
+    String requestDetails;
+    String responderComments;
     
     public Request(UserAccount requester){
         this.requestID = "req" + counter++;
@@ -64,5 +66,23 @@ public abstract class Request {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getRequestDetails() {
+        return requestDetails;
+    }
+
+    public String getResponderComments() {
+        return responderComments;
+    }
+
+    public void setRequestDetails(String requestDetails) {
+        this.requestDetails = requestDetails;
+    }
+
+    public void setResponderComments(String responderComments) {
+        this.responderComments = responderComments;
+    }
+ 
+    
     
 }
