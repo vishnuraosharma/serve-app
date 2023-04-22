@@ -8,6 +8,7 @@ import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
 import UI.ClientWorkArea.LegalMP;
+import UI.MainJFrame;
 import UI.MyRequests;
 import UI.RequestQueue;
 import UserAccount.UserAccount;
@@ -56,6 +57,11 @@ public class ConvenienceVolunteerJFrame extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jButton1.setText("Logout");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("All Requests");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +130,12 @@ public class ConvenienceVolunteerJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new MyRequests(appSystem, enterprise,organization,useraccount));
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new MainJFrame(appSystem, enterprise,organization,useraccount);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

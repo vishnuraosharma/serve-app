@@ -7,6 +7,9 @@ package UI.ServiceVolunteerWorkArea;
 import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
+import UI.MainJFrame;
+import UI.MyRequests;
+import UI.RequestQueue;
 import UserAccount.UserAccount;
 
 /**
@@ -18,8 +21,18 @@ public class HealthcareSpecialistJFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public HealthcareSpecialistJFrame(Network applicationSystem, Enterprise enterprise, Organization organization,UserAccount useraccount) {
+    private Network appSystem;
+    private UserAccount useraccount;
+    Enterprise enterprise;
+    Organization organization;
+    public HealthcareSpecialistJFrame(Network appSystem, Enterprise e, Organization o,UserAccount useraccount) {
         initComponents();
+        this.setVisible(true);
+        this.setSize(1300,800);
+        this.appSystem = appSystem;
+        this.enterprise = e;
+        this.organization = o;
+        this.useraccount = useraccount;
     }
 
     /**
@@ -31,21 +44,102 @@ public class HealthcareSpecialistJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane2 = new javax.swing.JSplitPane();
+        jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1293, Short.MAX_VALUE)
+        jButton1.setText("Logout");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("All Requests");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("My requests");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
+                .addContainerGap(7, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jButton2)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jButton1)
+                .addGap(311, 311, 311)
+                .addComponent(jButton3)
+                .addContainerGap(377, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(351, 351, 351)
+                    .addComponent(jButton2)
+                    .addContainerGap(424, Short.MAX_VALUE)))
+        );
+
+        jSplitPane2.setLeftComponent(jPanel3);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1172, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 798, Short.MAX_VALUE)
         );
 
+        jSplitPane2.setRightComponent(jPanel1);
+
+        getContentPane().add(jSplitPane2, java.awt.BorderLayout.CENTER);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jSplitPane2.setRightComponent(new RequestQueue(appSystem, enterprise,organization,useraccount));
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        jSplitPane2.setRightComponent(new MyRequests(appSystem, enterprise,organization,useraccount));
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new MainJFrame(appSystem, enterprise,organization,useraccount);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -98,5 +192,11 @@ public class HealthcareSpecialistJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSplitPane jSplitPane2;
     // End of variables declaration//GEN-END:variables
 }
