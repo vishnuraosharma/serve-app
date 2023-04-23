@@ -287,7 +287,7 @@ public class RequestQueue extends javax.swing.JPanel {
 
         jLayeredPane1.add(requestQueueDeliveryPanel, "card2");
 
-        requestQueueServicePanel.setBackground(new java.awt.Color(153, 153, 153));
+        requestQueueServicePanel.setBackground(new java.awt.Color(244, 180, 148));
         requestQueueServicePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N

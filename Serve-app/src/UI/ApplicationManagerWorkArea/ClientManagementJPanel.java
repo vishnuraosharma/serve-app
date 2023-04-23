@@ -361,7 +361,7 @@ public class ClientManagementJPanel extends javax.swing.JPanel {
                     message.setFrom(new InternetAddress(from));
                     message.setRecipients(Message.RecipientType.TO,
                         InternetAddress.parse(to));
-                    message.setSubject("Testing Subject");
+                    message.setSubject("Serve App Approval");
                     message.setText(String.format("Dear %s, Your application has been approved. "
                             + "Here is your username and password. Username: %s Password: %s",
                             selectedRequest.getApp().getPerson().getName(),
