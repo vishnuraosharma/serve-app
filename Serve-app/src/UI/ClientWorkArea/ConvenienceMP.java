@@ -262,6 +262,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         addPharmtoCart = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1150, 800));
         setLayout(new java.awt.BorderLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(236, 100, 44));
@@ -317,6 +318,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         groPopup.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 60, 20));
 
         jButton8.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(236, 100, 44));
         jButton8.setText("Place Order");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,15 +328,17 @@ public class ConvenienceMP extends javax.swing.JPanel {
         groPopup.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
 
         jButton9.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(236, 100, 44));
         jButton9.setText("Clear Cart");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-        groPopup.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        groPopup.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 100, -1));
 
         jLabel6.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
         jLabel6.setText("Your Total");
         groPopup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
@@ -396,7 +400,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(0, 0, 730, 820);
+        jPanel4.setBounds(0, 0, 730, 814);
 
         productDets1.setBackground(new java.awt.Color(236, 100, 44));
         productDets1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -406,11 +410,13 @@ public class ConvenienceMP extends javax.swing.JPanel {
         productDets1.add(groQtySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
         productImage3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productImage3.setForeground(new java.awt.Color(255, 255, 255));
         productImage3.setText("Quantity");
         productDets1.add(productImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
         productDets1.add(groProdImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 200, 160));
 
         jButton3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(236, 100, 44));
         jButton3.setText("Add to Cart");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -469,6 +475,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         pharmPopup.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
         purchasePharProds.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        purchasePharProds.setForeground(new java.awt.Color(236, 100, 44));
         purchasePharProds.setText("Place Order");
         purchasePharProds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -478,20 +485,22 @@ public class ConvenienceMP extends javax.swing.JPanel {
         pharmPopup.add(purchasePharProds, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
 
         jButton7.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(236, 100, 44));
         jButton7.setText("Clear Cart");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        pharmPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        pharmPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 300, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(236, 100, 44));
         jLabel4.setText("Your Total");
         pharmPopup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
         jLayeredPane2.add(pharmPopup);
-        pharmPopup.setBounds(770, 60, 376, 362);
+        pharmPopup.setBounds(760, 90, 376, 362);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -529,11 +538,11 @@ public class ConvenienceMP extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(183, 183, 183))))
@@ -559,11 +568,13 @@ public class ConvenienceMP extends javax.swing.JPanel {
         productDets.add(pharQtySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
         productImage2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productImage2.setForeground(new java.awt.Color(255, 255, 255));
         productImage2.setText("Quantity");
         productDets.add(productImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
         productDets.add(pharProductImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 190));
 
         addPharmtoCart.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        addPharmtoCart.setForeground(new java.awt.Color(236, 100, 44));
         addPharmtoCart.setText("Add to Cart");
         addPharmtoCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

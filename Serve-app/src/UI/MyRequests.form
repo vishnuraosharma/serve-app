@@ -347,6 +347,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="healthReqCompleteBtn">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2c" green="64" red="ec" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Mark Complete"/>
               </Properties>
               <Events>
@@ -381,6 +384,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="createConvenienceRequestBtn">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2c" green="64" red="ec" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Create pharmacy request"/>
               </Properties>
               <Events>
@@ -411,6 +417,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="removeBtnPrescriptionList">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2c" green="64" red="ec" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Remove from list"/>
               </Properties>
               <Events>

@@ -229,9 +229,11 @@ public class myServicesJPanel extends javax.swing.JPanel {
         );
 
         jLabel7.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(236, 100, 44));
         jLabel7.setText("Description");
 
         jLabel12.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(236, 100, 44));
         jLabel12.setText("Manage Services");
 
         serviceName.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
@@ -249,9 +251,11 @@ public class myServicesJPanel extends javax.swing.JPanel {
         });
 
         jLabel15.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(236, 100, 44));
         jLabel15.setText("Service Category");
 
-        updateBtn.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        updateBtn.setFont(new java.awt.Font("Krub", 1, 12)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(236, 100, 44));
         updateBtn.setText("Update Details");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,7 +263,8 @@ public class myServicesJPanel extends javax.swing.JPanel {
             }
         });
 
-        updateBtn1.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        updateBtn1.setFont(new java.awt.Font("Krub", 1, 12)); // NOI18N
+        updateBtn1.setForeground(new java.awt.Color(236, 100, 44));
         updateBtn1.setText("Delete Service");
         updateBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,9 +273,11 @@ public class myServicesJPanel extends javax.swing.JPanel {
         });
 
         jLabel9.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(236, 100, 44));
         jLabel9.setText("Service Addition");
 
-        addBtn.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        addBtn.setFont(new java.awt.Font("Krub", 1, 12)); // NOI18N
+        addBtn.setForeground(new java.awt.Color(236, 100, 44));
         addBtn.setText("Add Service");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,9 +286,11 @@ public class myServicesJPanel extends javax.swing.JPanel {
         });
 
         jLabel10.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(236, 100, 44));
         jLabel10.setText("Service Name");
 
         jLabel11.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(236, 100, 44));
         jLabel11.setText("Allotted Time (min.)");
 
         sNamePA.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
@@ -299,6 +308,7 @@ public class myServicesJPanel extends javax.swing.JPanel {
         });
 
         jLabel6.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
         jLabel6.setText("Service Category");
 
         sCatPA.setFont(new java.awt.Font("KoHo", 0, 14)); // NOI18N
@@ -309,21 +319,25 @@ public class myServicesJPanel extends javax.swing.JPanel {
         });
 
         jLabel5.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(236, 100, 44));
         jLabel5.setText("Description");
 
         desc.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         jScrollPane2.setViewportView(desc);
 
         jLabel16.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(236, 100, 44));
         jLabel16.setText("Service Name");
 
         descPA.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         jScrollPane3.setViewportView(descPA);
 
         jLabel13.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(236, 100, 44));
         jLabel13.setText("Allotted Time (min.)");
 
-        imageBrowser.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        imageBrowser.setFont(new java.awt.Font("Krub", 1, 12)); // NOI18N
+        imageBrowser.setForeground(new java.awt.Color(236, 100, 44));
         imageBrowser.setText("Update Imagery");
         imageBrowser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -332,6 +346,7 @@ public class myServicesJPanel extends javax.swing.JPanel {
         });
 
         jLabel17.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(236, 100, 44));
         jLabel17.setText("Current Image");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

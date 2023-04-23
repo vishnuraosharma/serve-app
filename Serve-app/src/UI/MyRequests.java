@@ -229,6 +229,7 @@ public class MyRequests extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Request Details");
 
+        healthReqCompleteBtn.setForeground(new java.awt.Color(236, 100, 44));
         healthReqCompleteBtn.setText("Mark Complete");
         healthReqCompleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,6 +245,7 @@ public class MyRequests extends javax.swing.JPanel {
         healthResponderComment.setRows(5);
         jScrollPane4.setViewportView(healthResponderComment);
 
+        createConvenienceRequestBtn.setForeground(new java.awt.Color(236, 100, 44));
         createConvenienceRequestBtn.setText("Create pharmacy request");
         createConvenienceRequestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,6 +261,7 @@ public class MyRequests extends javax.swing.JPanel {
 
         jScrollPane5.setViewportView(prescriptionList);
 
+        removeBtnPrescriptionList.setForeground(new java.awt.Color(236, 100, 44));
         removeBtnPrescriptionList.setText("Remove from list");
         removeBtnPrescriptionList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

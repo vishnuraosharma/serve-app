@@ -79,7 +79,8 @@ public class SpecialistManagementJPanel extends javax.swing.JPanel {
         holdBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1120, 800));
+        setMinimumSize(new java.awt.Dimension(1150, 800));
+        setPreferredSize(new java.awt.Dimension(1300, 800));
         setSize(new java.awt.Dimension(1120, 800));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -232,7 +233,7 @@ public class SpecialistManagementJPanel extends javax.swing.JPanel {
                 .addGap(26, 26, 26))
         );
 
-        approveBtn.setBackground(new java.awt.Color(255, 118, 0));
+        approveBtn.setBackground(new java.awt.Color(236, 100, 44));
         approveBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         approveBtn.setForeground(new java.awt.Color(255, 255, 255));
         approveBtn.setText("Approve");
@@ -242,7 +243,7 @@ public class SpecialistManagementJPanel extends javax.swing.JPanel {
             }
         });
 
-        rejectBtn.setBackground(new java.awt.Color(255, 118, 0));
+        rejectBtn.setBackground(new java.awt.Color(236, 100, 44));
         rejectBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         rejectBtn.setForeground(new java.awt.Color(255, 255, 255));
         rejectBtn.setText("Reject");
@@ -252,7 +253,7 @@ public class SpecialistManagementJPanel extends javax.swing.JPanel {
             }
         });
 
-        holdBtn.setBackground(new java.awt.Color(255, 118, 0));
+        holdBtn.setBackground(new java.awt.Color(236, 100, 44));
         holdBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         holdBtn.setForeground(new java.awt.Color(255, 255, 255));
         holdBtn.setText("Hold");

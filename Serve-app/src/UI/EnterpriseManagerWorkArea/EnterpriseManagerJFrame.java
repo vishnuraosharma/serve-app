@@ -48,6 +48,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         addOrgBtn = new javax.swing.JButton();
         manageOrgBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1300, 800));
@@ -57,8 +58,12 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 800));
 
         controlPanel.setBackground(new java.awt.Color(255, 255, 255));
+        controlPanel.setPreferredSize(new java.awt.Dimension(80, 80));
         controlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        backBtn.setBackground(new java.awt.Color(236, 100, 44));
+        backBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("LOGOUT");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,27 +72,35 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         });
         controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 30));
 
+        addOrgBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        addOrgBtn.setForeground(new java.awt.Color(236, 100, 44));
         addOrgBtn.setText("Manage Organization");
         addOrgBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addOrgBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(addOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 150, 60));
+        controlPanel.add(addOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 200, 60));
 
+        manageOrgBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        manageOrgBtn.setForeground(new java.awt.Color(236, 100, 44));
         manageOrgBtn.setText("Dashboard");
         manageOrgBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrgBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(manageOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 160, 60));
+        controlPanel.add(manageOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 160, 60));
 
         jSplitPane1.setTopComponent(controlPanel);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1300, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image (1).png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
+
         jSplitPane1.setRightComponent(jPanel1);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -154,6 +167,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JButton addOrgBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel controlPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton manageOrgBtn;

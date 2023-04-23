@@ -172,9 +172,11 @@ public class VolunteerSignUp extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(236, 100, 44));
         jLabel1.setText("Name:");
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("Password:");
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 44)); // NOI18N
@@ -194,37 +196,46 @@ public class VolunteerSignUp extends javax.swing.JFrame {
         userNameField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(236, 100, 44));
         jLabel5.setText("Date of Birth:");
 
         emailField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
         jLabel6.setText("E-mail:");
 
+        jLabel7.setForeground(new java.awt.Color(236, 100, 44));
         jLabel7.setText("SSN:");
 
         ssnField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel8.setForeground(new java.awt.Color(236, 100, 44));
         jLabel8.setText("Address:");
 
         addressField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel9.setForeground(new java.awt.Color(236, 100, 44));
         jLabel9.setText("Occupation:");
 
         occupationField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel10.setForeground(new java.awt.Color(236, 100, 44));
         jLabel10.setText("Contact Number:");
 
         contactNumField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel11.setForeground(new java.awt.Color(236, 100, 44));
         jLabel11.setText("Emergency Contact Name:");
 
+        jLabel12.setForeground(new java.awt.Color(236, 100, 44));
         jLabel12.setText("Emergency Contact Number:");
 
         ecnField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
         ecnumField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel13.setForeground(new java.awt.Color(236, 100, 44));
         jLabel13.setText("UserName:");
 
         passwordField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
