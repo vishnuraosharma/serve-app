@@ -296,6 +296,7 @@ public class ConnectionMP extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1150, 800));
         setLayout(new java.awt.BorderLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(236, 100, 44));
@@ -350,7 +351,8 @@ public class ConnectionMP extends javax.swing.JPanel {
         cartTotalLabel1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         schoolPopup.add(cartTotalLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 110, 20));
 
-        placeSchoolOrder.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        placeSchoolOrder.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        placeSchoolOrder.setForeground(new java.awt.Color(236, 100, 44));
         placeSchoolOrder.setText("Place Order");
         placeSchoolOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -359,16 +361,18 @@ public class ConnectionMP extends javax.swing.JPanel {
         });
         schoolPopup.add(placeSchoolOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
 
-        clearSchoolCart.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        clearSchoolCart.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        clearSchoolCart.setForeground(new java.awt.Color(236, 100, 44));
         clearSchoolCart.setText("Clear Cart");
         clearSchoolCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearSchoolCartActionPerformed(evt);
             }
         });
-        schoolPopup.add(clearSchoolCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        schoolPopup.add(clearSchoolCart, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 110, -1));
 
         jLabel6.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
         jLabel6.setText("Your Total");
         schoolPopup.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
@@ -430,14 +434,15 @@ public class ConnectionMP extends javax.swing.JPanel {
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(0, 0, 730, 820);
+        jPanel4.setBounds(0, 0, 730, 814);
 
         productDets1.setBackground(new java.awt.Color(236, 100, 44));
         productDets1.setForeground(new java.awt.Color(236, 100, 44));
         productDets1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         productDets1.add(productImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 140));
 
-        addSchoolServiceBTN.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        addSchoolServiceBTN.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        addSchoolServiceBTN.setForeground(new java.awt.Color(236, 100, 44));
         addSchoolServiceBTN.setText("Add Service");
         addSchoolServiceBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -453,6 +458,7 @@ public class ConnectionMP extends javax.swing.JPanel {
         productDets1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 230, 60));
 
         jLabel7.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Service Request Details");
         productDets1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
@@ -508,7 +514,8 @@ public class ConnectionMP extends javax.swing.JPanel {
         cartTotalLabel.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         pharmPopup.add(cartTotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
-        purchasePharProds.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        purchasePharProds.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        purchasePharProds.setForeground(new java.awt.Color(236, 100, 44));
         purchasePharProds.setText("Place Order");
         purchasePharProds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -517,16 +524,18 @@ public class ConnectionMP extends javax.swing.JPanel {
         });
         pharmPopup.add(purchasePharProds, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
 
-        jButton7.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(236, 100, 44));
         jButton7.setText("Clear Cart");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        pharmPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        pharmPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 110, -1));
 
         jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(236, 100, 44));
         jLabel4.setText("Your Total");
         pharmPopup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
@@ -598,7 +607,8 @@ public class ConnectionMP extends javax.swing.JPanel {
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         productDets.add(productImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 140));
 
-        addPharmtoCart.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        addPharmtoCart.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        addPharmtoCart.setForeground(new java.awt.Color(236, 100, 44));
         addPharmtoCart.setText("Add Service");
         addPharmtoCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -614,6 +624,7 @@ public class ConnectionMP extends javax.swing.JPanel {
         productDets.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 251, 240, 60));
 
         jLabel5.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Service Request Details");
         productDets.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, -1, -1));
 

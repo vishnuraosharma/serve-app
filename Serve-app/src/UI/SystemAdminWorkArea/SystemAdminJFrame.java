@@ -49,6 +49,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         userAcccountBtn = new javax.swing.JButton();
         employeetBtn = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1300, 800));
@@ -59,6 +60,9 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         controlPanel.setBackground(new java.awt.Color(255, 255, 255));
         controlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        backBtn.setBackground(new java.awt.Color(236, 100, 44));
+        backBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("LOGOUT");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,26 +71,34 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         });
         controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 30));
 
+        userAcccountBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        userAcccountBtn.setForeground(new java.awt.Color(236, 100, 44));
         userAcccountBtn.setText("Manage Enterprise Admin");
         userAcccountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userAcccountBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(userAcccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 210, 60));
+        controlPanel.add(userAcccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 210, 60));
 
+        employeetBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        employeetBtn.setForeground(new java.awt.Color(236, 100, 44));
         employeetBtn.setText("Manage Application Manager");
         employeetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 employeetBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(employeetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 190, 60));
+        controlPanel.add(employeetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 250, 60));
 
         jSplitPane1.setTopComponent(controlPanel);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image (1).png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
+
         jSplitPane1.setRightComponent(jPanel1);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -150,6 +162,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JButton employeetBtn;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton userAcccountBtn;

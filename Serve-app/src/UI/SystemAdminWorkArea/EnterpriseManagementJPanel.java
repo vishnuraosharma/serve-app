@@ -80,7 +80,8 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1300, 800));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1150, 800));
         setSize(new java.awt.Dimension(1300, 800));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -96,6 +97,8 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable1);
 
+        addEnterpriseManagerBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addEnterpriseManagerBtn.setForeground(new java.awt.Color(236, 100, 44));
         addEnterpriseManagerBtn.setText("Add Enterprise Manager");
         addEnterpriseManagerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +106,8 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             }
         });
 
+        DeleteEnterpriseBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        DeleteEnterpriseBtn.setForeground(new java.awt.Color(236, 100, 44));
         DeleteEnterpriseBtn.setText("Delete Enterprise Manager");
         DeleteEnterpriseBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,12 +115,16 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(236, 100, 44));
         jLabel1.setText("Enterprise Name: ");
 
+        jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("Manager Name:");
 
+        jLabel3.setForeground(new java.awt.Color(236, 100, 44));
         jLabel3.setText("User Name:");
 
+        jLabel4.setForeground(new java.awt.Color(236, 100, 44));
         jLabel4.setText("Password");
 
         usernameField.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +133,8 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             }
         });
 
+        updateEnterpriseBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        updateEnterpriseBtn.setForeground(new java.awt.Color(236, 100, 44));
         updateEnterpriseBtn.setText("Update Enterprise Manager");
         updateEnterpriseBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +142,10 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setForeground(new java.awt.Color(236, 100, 44));
         jLabel5.setText("Update Manager Name:");
 
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
         jLabel6.setText("Update Password:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -149,6 +149,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         imageBrowser = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1150, 800));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         productName3.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
@@ -215,14 +216,17 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 870));
 
         jLabel12.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(236, 100, 44));
         jLabel12.setText("Manage Products");
         add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 330, -1, 40));
 
         jLabel13.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(236, 100, 44));
         jLabel13.setText("Product Name");
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 380, -1, 30));
 
         jLabel14.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(236, 100, 44));
         jLabel14.setText("Product Price");
         add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 430, -1, 30));
 
@@ -243,10 +247,12 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         add(productName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 430, 110, -1));
 
         jLabel15.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(236, 100, 44));
         jLabel15.setText("Product Category");
         add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, -1, 30));
 
-        updateBtn.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        updateBtn.setFont(new java.awt.Font("Krub", 1, 12)); // NOI18N
+        updateBtn.setForeground(new java.awt.Color(236, 100, 44));
         updateBtn.setText("Update Details");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,7 +261,8 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         });
         add(updateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, 140, 30));
 
-        updateBtn1.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        updateBtn1.setFont(new java.awt.Font("Krub", 1, 12)); // NOI18N
+        updateBtn1.setForeground(new java.awt.Color(236, 100, 44));
         updateBtn1.setText("Delete Product");
         updateBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,10 +272,12 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         add(updateBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 730, 140, 30));
 
         jLabel9.setFont(new java.awt.Font("Krub", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(236, 100, 44));
         jLabel9.setText("Product Addition");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 60, -1, -1));
 
-        addBtn.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        addBtn.setFont(new java.awt.Font("Krub", 1, 12)); // NOI18N
+        addBtn.setForeground(new java.awt.Color(236, 100, 44));
         addBtn.setText("Add Product");
         addBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,10 +287,12 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         add(addBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 270, 131, 30));
 
         jLabel10.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(236, 100, 44));
         jLabel10.setText("Product Name");
         add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, -1, 30));
 
         jLabel11.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(236, 100, 44));
         jLabel11.setText("Product Price");
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 170, -1, 30));
 
@@ -302,6 +313,7 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         add(productPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 170, 110, -1));
 
         jLabel6.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
         jLabel6.setText("Product Category");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 220, -1, 30));
 
@@ -317,10 +329,12 @@ public class myProductsGroceryOrganizationJPanel extends javax.swing.JPanel {
         add(imgDisp, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 530, 110, 90));
 
         jLabel17.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(236, 100, 44));
         jLabel17.setText("Current Image");
         add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 530, -1, 30));
 
-        imageBrowser.setFont(new java.awt.Font("Krub", 0, 12)); // NOI18N
+        imageBrowser.setFont(new java.awt.Font("Krub", 1, 12)); // NOI18N
+        imageBrowser.setForeground(new java.awt.Color(236, 100, 44));
         imageBrowser.setText("Update Imagery");
         imageBrowser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

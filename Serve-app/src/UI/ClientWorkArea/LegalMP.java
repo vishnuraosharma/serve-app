@@ -230,10 +230,12 @@ public class LegalMP extends javax.swing.JPanel {
         hospCartPopup.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
 
         jLabel3.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(236, 100, 44));
         jLabel3.setText("Your Total");
         hospCartPopup.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
-        jButton6.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(236, 100, 44));
         jButton6.setText("Place Order");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,16 +244,18 @@ public class LegalMP extends javax.swing.JPanel {
         });
         hospCartPopup.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 110, -1));
 
-        jButton7.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(236, 100, 44));
         jButton7.setText("Clear Cart");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        hospCartPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        hospCartPopup.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 110, -1));
 
         cartTotalLabel.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        cartTotalLabel.setForeground(new java.awt.Color(236, 100, 44));
         cartTotalLabel.setText("cartTotal");
         hospCartPopup.add(cartTotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
@@ -313,7 +317,8 @@ public class LegalMP extends javax.swing.JPanel {
         productDets.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         productDets.add(serviceImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 200, 140));
 
-        jButton2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(236, 100, 44));
         jButton2.setText("Add Service");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,6 +334,7 @@ public class LegalMP extends javax.swing.JPanel {
         productDets.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 221, 240, 70));
 
         jLabel4.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Service Request Details");
         productDets.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
 

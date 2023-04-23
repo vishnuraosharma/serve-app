@@ -299,6 +299,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="12" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Description"/>
       </Properties>
     </Component>
@@ -306,6 +309,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="24" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Services"/>
       </Properties>
@@ -335,13 +341,19 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="12" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Service Category"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="updateBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Krub" size="12" style="0"/>
+          <Font name="Krub" size="12" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Update Details"/>
       </Properties>
@@ -352,7 +364,10 @@
     <Component class="javax.swing.JButton" name="updateBtn1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Krub" size="12" style="0"/>
+          <Font name="Krub" size="12" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Delete Service"/>
       </Properties>
@@ -365,13 +380,19 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="24" style="1"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Service Addition"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="addBtn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Krub" size="12" style="0"/>
+          <Font name="Krub" size="12" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Add Service"/>
       </Properties>
@@ -384,6 +405,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="12" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Service Name"/>
       </Properties>
     </Component>
@@ -391,6 +415,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="12" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Allotted Time (min.)"/>
       </Properties>
@@ -420,6 +447,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="12" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Service Category"/>
       </Properties>
     </Component>
@@ -437,6 +467,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="12" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Description"/>
       </Properties>
@@ -462,6 +495,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="12" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Service Name"/>
       </Properties>
     </Component>
@@ -486,13 +522,19 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="12" style="0"/>
         </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Allotted Time (min.)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="imageBrowser">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Krub" size="12" style="0"/>
+          <Font name="Krub" size="12" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Update Imagery"/>
       </Properties>
@@ -504,6 +546,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Krub" size="12" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="2c" green="64" red="ec" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Current Image"/>
       </Properties>
