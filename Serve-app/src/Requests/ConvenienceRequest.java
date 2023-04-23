@@ -24,7 +24,7 @@ public class ConvenienceRequest extends Request {
 
     @Override
     public void processRequest() {
-       super.setStatus("Completed");
+       super.setStatus("Pending for volunteer");
     }
 
     public ProductOrder getProductOrder() {

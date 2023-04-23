@@ -47,7 +47,6 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         volApplicationsBtn = new javax.swing.JButton();
         clientApplicationsBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,14 +68,14 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         });
         controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, 30));
 
-        volApplicationsBtn.setText("<html><body style='width: 140px; text-align: left;'>Specialist Volunteer Applications </body></html>\n");
+        volApplicationsBtn.setText("<html><body style='width: 80px; text-align: left;'>Volunteer Applications </body></html>\n");
         volApplicationsBtn.setPreferredSize(new java.awt.Dimension(1300, 800));
         volApplicationsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volApplicationsBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 140, 40));
+        controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 140, 40));
 
         clientApplicationsBtn.setText("<html><body style='width: 50px; text-align: left;'>Client Applications </body></html>\n");
         clientApplicationsBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -84,15 +83,7 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
                 clientApplicationsBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 140, 40));
-
-        jButton1.setText("Vols");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 140, 40));
 
         jSplitPane1.setTopComponent(controlPanel);
 
@@ -122,11 +113,6 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new ClientManagementJPanel(appSystem,enterprise,organization,useraccount));
     }//GEN-LAST:event_clientApplicationsBtnActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new ManageVolsAndClients(appSystem,enterprise,organization,useraccount));
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,7 +153,6 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton clientApplicationsBtn;
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton volApplicationsBtn;

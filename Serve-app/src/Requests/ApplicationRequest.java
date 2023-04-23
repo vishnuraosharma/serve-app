@@ -76,6 +76,7 @@ public class ApplicationRequest extends Request {
              
   
         //sending email
+        
     }
     
     public void processClients(){
