@@ -138,8 +138,8 @@ public class ViewSystemStatsJPanel extends javax.swing.JPanel {
       int h2 = getOpenReqs(allreqs.get("Service requests"), health);
       int h3 = h1 + h2;
       
-      int cv1 = getClosedReqs(allreqs.get("Convenience purchases"));
-      int cv2 = getOpenReqs(allreqs.get("Convenience purchases"));
+      int cv1 = getClosedReqs(allreqs.get("Convenience delivery"));
+      int cv2 = getOpenReqs(allreqs.get("Convenience delivery"));
       int cv3 = cv1 + cv2;
       
       int l1 = getClosedReqs(allreqs.get("Service requests"), legal);
