@@ -213,48 +213,69 @@ public class ApplicantManagerManageJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public boolean validate_additonfields(){
+        if(nameField.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Please enter a name.");
+            return false;
+        }if(usernameField.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Please enter a username.");
+            return false;
+        }if(passwordField.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Please enter a password.");
+            return false;
+        }
+        
+        return true;
+    }
+    
+    
     private void addApplicationManagerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addApplicationManagerBtnActionPerformed
         // TODO add your handling code here:
-        Boolean foundDuplicate = false;
+        if (validate_additonfields()){
+            Boolean foundDuplicate = false;
 
-        for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()){
-            UserAccountDirectory ua = enterprise.getUseraccountDirectory();
+            for(Enterprise enterprise: this.appSystem.getEnterprises().getEnterpiseList()){
+                UserAccountDirectory ua = enterprise.getUseraccountDirectory();
 
+                if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
+                    foundDuplicate = true;
+                    JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
+                    break;
+                }
+
+            }
+            UserAccountDirectory ua = this.appSystem.getTopLevelUserAccountDirectory();
             if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
                 foundDuplicate = true;
                 JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
-                break;
             }
+            if(foundDuplicate == false){
+                    Person p = appSystem.getPersonDirectory().createPerson( nameField.getText());
+                    UserAccount applicationManager =appSystem.getTopLevelUserAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ApplicationManagerRole());
+                    applicationManager.setPerson(p);
+                    JOptionPane.showMessageDialog(null, "Application Manager created");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Application Manager exists");
+                }
 
+                tablePopulate();
         }
-        UserAccountDirectory ua = this.appSystem.getTopLevelUserAccountDirectory();
-        if(ua.accountExists(usernameField.getText(), passwordField.getText())) {
-            foundDuplicate = true;
-            JOptionPane.showMessageDialog(null, "Sorry credentials are taken.");
-        }
-        if(foundDuplicate == false){
-                Person p = appSystem.getPersonDirectory().createPerson( nameField.getText());
-                UserAccount applicationManager =appSystem.getTopLevelUserAccountDirectory().createUserAccount(usernameField.getText(), passwordField.getText(), new ApplicationManagerRole());
-                applicationManager.setPerson(p);
-                JOptionPane.showMessageDialog(null, "Application Manager created");
-            }else{
-                JOptionPane.showMessageDialog(null, "Application Manager exists");
-            }
-
-            tablePopulate();
-        
         
     }//GEN-LAST:event_addApplicationManagerBtnActionPerformed
 
     private void DeleteApplicationManageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteApplicationManageBtnActionPerformed
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select an Application Manager to delete.");
+        }else{
         UserAccount u = (UserAccount) jTable1.getValueAt(selectedRow, 0);
         this.appSystem.getTopLevelUserAccountDirectory().deleteApplicationManager(u);
         if (this.appSystem.getTopLevelUserAccountDirectory().getUserAccountList().size()>0){
             tablePopulate();
         }else{
             viewtableModel.setRowCount(0);
+        }
         }
     }//GEN-LAST:event_DeleteApplicationManageBtnActionPerformed
 
@@ -272,7 +293,7 @@ public class ApplicantManagerManageJPanel extends javax.swing.JPanel {
 
         tablePopulate();
         } else {
-            JOptionPane.showMessageDialog(null, "Please select a row!");
+            JOptionPane.showMessageDialog(null, "Please select an Application Manager to update.");
         }
     }//GEN-LAST:event_updateApplicationManagerBtnActionPerformed
     public void  tablePopulate() {

@@ -9,6 +9,7 @@ import Enterprise.Enterprise;
 import Organization.Organization;
 import Requests.ApplicationRequest;
 import Requests.ConvenienceRequest;
+import Requests.DeliveryRequest;
 import Requests.Request;
 import Requests.ServiceRequest;
 import java.awt.BorderLayout;
@@ -68,8 +69,8 @@ public class ViewEntStatsJPanel extends javax.swing.JPanel {
         int open_count = 0;
         if(entRequests != null){
             for (Request r : entRequests){
-                ConvenienceRequest sr = (ConvenienceRequest) r;
-                if(!r.getStatus().equals("Completed") && sr.getProductOrder().getStore().equals(o)){
+                DeliveryRequest sr = (DeliveryRequest) r;
+                if(!r.getStatus().equals("Completed") && sr.getOrderToBedelivered().getStore().equals(o)){
                     open_count++;
                 }
             }
@@ -95,8 +96,8 @@ public class ViewEntStatsJPanel extends javax.swing.JPanel {
         int closed_count = 0;
         if(entRequests != null){
             for (Request r : entRequests){
-                ConvenienceRequest sr = (ConvenienceRequest) r;
-                if(r.getStatus().equals("Completed") && sr.getProductOrder().getStore().equals(o)){
+                 DeliveryRequest sr = (DeliveryRequest) r;
+                if(r.getStatus().equals("Completed") && sr.getOrderToBedelivered().getStore().equals(o)){
                     closed_count++;
                 }
             }
@@ -112,12 +113,12 @@ public class ViewEntStatsJPanel extends javax.swing.JPanel {
         final String AllReq = "All";
         //Convenience
         if (this.ent.getName().equals("Convenience")){
-            int phar1 = getConvClosedReqs(allreqs.get("Convenience purchases"), this.currOrgs.get(0));
-            int phar2 = getConvOpenReqs(allreqs.get("Convenience purchases"), this.currOrgs.get(0));
+            int phar1 = getConvClosedReqs(allreqs.get("Convenience delivery"), this.currOrgs.get(0));
+            int phar2 = getConvOpenReqs(allreqs.get("Convenience delivery"), this.currOrgs.get(0));
             int phar3 = phar1 + phar2;
             
-            int gro1 = getConvClosedReqs(allreqs.get("Convenience purchases"), this.currOrgs.get(1));
-            int gro2 = getConvOpenReqs(allreqs.get("Convenience purchases"), this.currOrgs.get(1));
+            int gro1 = getConvClosedReqs(allreqs.get("Convenience delivery"), this.currOrgs.get(1));
+            int gro2 = getConvOpenReqs(allreqs.get("Convenience delivery"), this.currOrgs.get(1));
             int gro3 = gro1 + gro2;
             
             DefaultCategoryDataset dataset = new DefaultCategoryDataset( );  
@@ -197,6 +198,21 @@ public class ViewEntStatsJPanel extends javax.swing.JPanel {
        plot.getRangeAxis().setLowerBound(0);
        plot.getRangeAxis().setAutoRangeMinimumSize(WIDTH);
        BufferedImage chartimg = barChart.createBufferedImage(600, 500);
+       
+       if (this.ent.getName().equals("Convenience")){
+           barChart = ChartFactory.createBarChart(
+         "Delivery Requests by Organization",           
+         "Request Status",            
+         "Number of Requests",            
+         createEntepriseRequestsDataset(),          
+         PlotOrientation.VERTICAL,           
+         true, true, false);
+       barChart.setBackgroundPaint(Color.white);
+       plot.getRangeAxis().setLowerBound(0);
+       plot.getRangeAxis().setAutoRangeMinimumSize(WIDTH);
+       chartimg = barChart.createBufferedImage(600, 500);
+       }
+       
        return new ImageIcon(chartimg);
    }
 

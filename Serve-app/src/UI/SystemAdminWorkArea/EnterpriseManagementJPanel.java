@@ -277,6 +277,9 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
     private void DeleteEnterpriseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEnterpriseBtnActionPerformed
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select an Enterprise Manager to delete.");
+        }else{
         UserAccount u = (UserAccount) jTable1.getValueAt(selectedRow, 1);
         Enterprise e = (Enterprise) jTable1.getValueAt(selectedRow, 0);
         e.getUseraccountDirectory().deleteEnterpriseManager(u);
@@ -290,7 +293,7 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         }else{
             viewtableModel.setRowCount(0);
         }
-
+        }
     }//GEN-LAST:event_DeleteEnterpriseBtnActionPerformed
 
     private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
@@ -300,10 +303,14 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
     private void updateEnterpriseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateEnterpriseBtnActionPerformed
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select an Enterprise Manager to update.");
+        }else{
         UserAccount u = (UserAccount) jTable1.getValueAt(selectedRow, 1);
         u.getPerson().setName(updateNameField.getText());
         u.setPassword(updatePasswordTextField.getText());
          tablePopulate();
+        }
         
     }//GEN-LAST:event_updateEnterpriseBtnActionPerformed
     public void  tablePopulate() {

@@ -113,7 +113,9 @@ public class Service {
         this.productImageFile = productImageFile;
     }
     
-    
+    public void setProductImageFilewithFilePath(String productImageFilePath) {
+        this.productImageFile = new File(productImageFilePath );
+    }
     
     @Override
     public String toString(){
