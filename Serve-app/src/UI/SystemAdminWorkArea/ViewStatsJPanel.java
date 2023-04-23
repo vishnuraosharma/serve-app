@@ -5,6 +5,7 @@
 package UI.SystemAdminWorkArea;
 import AppSystem.Network;
 import Enterprise.Enterprise;
+import Requests.ApplicationRequest;
 import Requests.Request;
 import Requests.ServiceRequest;
 import java.awt.BorderLayout;
@@ -35,7 +36,8 @@ public class ViewStatsJPanel extends javax.swing.JPanel {
         initComponents();
         this.setVisible(true);
         this.appSystem = appSystem;
-        jLabel1.setIcon(CreateChart());
+        jLabel1.setIcon(CreateEntepriseRequestsChart());
+        jLabel2.setIcon(CreateApplicationChart());
     }
     
     public int getOpenReqs(List<Request> entRequests){
@@ -63,6 +65,20 @@ public class ViewStatsJPanel extends javax.swing.JPanel {
         return open_count;
     }
     
+    public int getOpenApplicationReqs(List<Request> entRequests, Enterprise e){
+        int open_count = 0;
+        if(entRequests != null){
+            for (Request r : entRequests){
+                ApplicationRequest ar = (ApplicationRequest) r;
+                if(!r.getStatus().equals("Completed") && ar.getForOrganization().getE().equals(e)){
+                    open_count++;
+                }
+            }
+        }
+        return open_count;
+    }
+    
+    
     public int getClosedReqs(List<Request> entRequests){
         int closed_count = 0;
         if(entRequests != null){
@@ -88,8 +104,21 @@ public class ViewStatsJPanel extends javax.swing.JPanel {
         return closed_count;
     }
     
+    public int getClosedAppReqs(List<Request> entRequests, Enterprise e){
+        int closed_count = 0;
+        if(entRequests != null){
+            for (Request r : entRequests){
+                 ApplicationRequest ar = (ApplicationRequest) r;
+                if(r.getStatus().equals("Completed") && ar.getForOrganization().getE().equals(e)){
+                    closed_count++;
+                }
+            }
+        }
+        return closed_count;
+    }
     
-    private CategoryDataset createDataset( ) {
+    
+    private CategoryDataset createEntepriseRequestsDataset( ) {
       final String ConvenienceEnt = "Convenience";
       Enterprise health = appSystem.getEnterprises().findEnterprise("Health");
       Enterprise conn = appSystem.getEnterprises().findEnterprise("Connection");
@@ -101,7 +130,7 @@ public class ViewStatsJPanel extends javax.swing.JPanel {
       
       
       HashMap<String, List<Request>> allreqs = this.appSystem.getReqDir().getAllRequests();
-      System.out.println("UI.SystemAdminWorkArea.ViewStatsJPanel.createDataset()" +allreqs.get("Service requests").size());
+//      System.out.println("UI.SystemAdminWorkArea.ViewStatsJPanel.createDataset()" +allreqs.get("Service requests").size());
 
       
     // 1 = completed, 2 = open, 3 = all
@@ -147,19 +176,105 @@ public class ViewStatsJPanel extends javax.swing.JPanel {
       return dataset; 
    }
     
-   public ImageIcon CreateChart(){
+    private CategoryDataset createApplicationRequestsDataset( ) {
+      final String ConvenienceEnt = "Convenience";
+      Enterprise health = appSystem.getEnterprises().findEnterprise("Health");
+      Enterprise conn = appSystem.getEnterprises().findEnterprise("Connection");
+      Enterprise legal = appSystem.getEnterprises().findEnterprise("Legal");
+
+      final String client = "Client";
+      final String deliveryVols = "Delivery Volunteers";
+      final String doctor = "Health Specialist";
+      final String lawyer = "Legal Specialist";
+      final String connVol = "Connection Volunteer";
+      
+
+      
+      
+      HashMap<String, List<Request>> allreqs = this.appSystem.getReqDir().getAllRequests();
+
+      
+    // 1 = completed, 2 = open, 3 = all
+      int cl1 = getClosedReqs(allreqs.get("Client Applications"));
+      int cl2 = getOpenReqs(allreqs.get("Client Applications"));
+      int cl3 = cl1 + cl2;
+    
+      int conDel1 = getClosedReqs(allreqs.get("Convenience Volunteers Applications"));
+      int conDel2 = getOpenReqs(allreqs.get("Convenience Volunteers Applications"));
+      int conDel3 = conDel1 + conDel2;
+      
+      int h1 = getClosedAppReqs(allreqs.get("Service Volunteers Applications"), health);
+      int h2 = getOpenApplicationReqs(allreqs.get("Service Volunteers Applications"), health);
+      int h3 = h1 + h2;
+      
+      int l1 = getClosedAppReqs(allreqs.get("Service Volunteers Applications"), legal);
+      int l2 = getOpenApplicationReqs(allreqs.get("Service Volunteers Applications"),legal);
+      int l3 = l1 + l2;
+      
+      int cn1 = getClosedAppReqs(allreqs.get("Service Volunteers Applications"), conn);
+      int cn2 = getOpenApplicationReqs(allreqs.get("Service Volunteers Applications"), conn);
+      int cn3 = cn1 + cn2;
+      
+      
+      final String OpenReq = "Open";        
+      final String CompletedReq = "Approved";        
+      final String AllReq = "All";        
+      final DefaultCategoryDataset dataset = 
+      new DefaultCategoryDataset( );  
+
+      dataset.addValue( cl1 , client , CompletedReq ); 
+      dataset.addValue( cl2 , client , OpenReq );        
+      dataset.addValue( cl3 , client , AllReq ); 
+      
+      dataset.addValue( conDel1 , deliveryVols , CompletedReq ); 
+      dataset.addValue( conDel2 , deliveryVols , OpenReq );        
+      dataset.addValue( conDel3 , deliveryVols , AllReq );        
+
+      dataset.addValue( h1 , doctor , CompletedReq );        
+      dataset.addValue( h2 , doctor , OpenReq );       
+      dataset.addValue( h3 , doctor ,  AllReq);        
+
+      dataset.addValue( l1 , lawyer , CompletedReq );        
+      dataset.addValue( l2, lawyer ,  OpenReq);        
+      dataset.addValue( l3 , lawyer ,  AllReq);        
+      
+      dataset.addValue( cn1 , connVol , CompletedReq );        
+      dataset.addValue( cn2 , connVol , OpenReq );        
+      dataset.addValue( cn3 , connVol , AllReq ); 
+      
+      return dataset; 
+   }
+    
+    
+   public ImageIcon CreateEntepriseRequestsChart(){
        JFreeChart barChart = ChartFactory.createBarChart(
          "Network Requests by Enterprise",           
          "Request Status",            
          "Number of Requests",            
-         createDataset(),          
+         createEntepriseRequestsDataset(),          
          PlotOrientation.VERTICAL,           
          true, true, false);
        barChart.setBackgroundPaint(Color.white);
        CategoryPlot plot = barChart.getCategoryPlot();
        plot.getRangeAxis().setLowerBound(0);
        plot.getRangeAxis().setAutoRangeMinimumSize(WIDTH);
-       BufferedImage chartimg = barChart.createBufferedImage(800, 550);
+       BufferedImage chartimg = barChart.createBufferedImage(600, 500);
+       return new ImageIcon(chartimg);
+   }
+   
+   public ImageIcon CreateApplicationChart(){
+       JFreeChart barChart = ChartFactory.createBarChart(
+         "Application Volume",           
+         "Request Status",            
+         "Number of Requests",            
+         createApplicationRequestsDataset(),          
+         PlotOrientation.VERTICAL,           
+         true, true, false);
+       barChart.setBackgroundPaint(Color.white);
+       CategoryPlot plot = barChart.getCategoryPlot();
+       plot.getRangeAxis().setLowerBound(0);
+       plot.getRangeAxis().setAutoRangeMinimumSize(WIDTH);
+       BufferedImage chartimg = barChart.createBufferedImage(600, 500);
        return new ImageIcon(chartimg);
    }
     
@@ -174,27 +289,35 @@ public class ViewStatsJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(241, 241, 241)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
