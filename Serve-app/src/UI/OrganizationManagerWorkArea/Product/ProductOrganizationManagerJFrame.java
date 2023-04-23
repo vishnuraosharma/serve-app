@@ -9,6 +9,7 @@ import Enterprise.Enterprise;
 import Organization.Organization;
 import Organization.ProductOrganization;
 import UI.MainJFrame;
+import UI.MyRequests;
 import UserAccount.UserAccount;
 
 /**
@@ -37,6 +38,11 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         this.useraccount = useraccount;
         this.enterprise = enterprise;
         this.organization = organization;
+         if(this.organization.getName().equals("Pharmacy")){
+            pharmOrgManagerRequestsBtn.setVisible(true);
+        }else{
+            pharmOrgManagerRequestsBtn.setVisible(false);
+        }
         test();
     }
     
@@ -67,6 +73,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         productCatalogBtn = new javax.swing.JButton();
         productReportBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        pharmOrgManagerRequestsBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -105,7 +112,9 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backBtn);
+
         backBtn.setBounds(10, 10, 100, 23);
+
 
         productCatalogBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productCatalogBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -116,6 +125,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(productCatalogBtn);
+
         productCatalogBtn.setBounds(10, 100, 120, 23);
 
         productReportBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
@@ -127,12 +137,23 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(productReportBtn);
+
         productReportBtn.setBounds(10, 130, 120, 23);
+
 
         jLabel5.setForeground(new java.awt.Color(236, 100, 44));
         jLabel5.setText("jLabel1");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(16, 452, 42, 17);
+
+        pharmOrgManagerRequestsBtn.setText("My requests");
+        pharmOrgManagerRequestsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pharmOrgManagerRequestsBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(pharmOrgManagerRequestsBtn);
+        pharmOrgManagerRequestsBtn.setBounds(10, 230, 103, 23);
 
         jSplitPane1.setLeftComponent(jPanel1);
 
@@ -167,6 +188,11 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
     private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_productReportBtnActionPerformed
+
+    private void pharmOrgManagerRequestsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmOrgManagerRequestsBtnActionPerformed
+        // TODO add your handling code here:
+        jSplitPane1.setRightComponent(new MyRequests(appSystem, enterprise,organization,useraccount));
+    }//GEN-LAST:event_pharmOrgManagerRequestsBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,6 +246,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton pharmOrgManagerRequestsBtn;
     private javax.swing.JButton productCatalogBtn;
     private javax.swing.JButton productReportBtn;
     // End of variables declaration//GEN-END:variables

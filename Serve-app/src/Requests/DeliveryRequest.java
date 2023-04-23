@@ -36,7 +36,7 @@ public class DeliveryRequest extends Request{
 
     @Override
     public void processRequest() {
-        super.setStatus("Delivered!");
+        super.setStatus("Completed");
 //        this.convenienceReq.setStatus("Delivered!");
     }
 //    @Override

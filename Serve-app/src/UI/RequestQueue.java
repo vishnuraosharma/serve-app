@@ -8,7 +8,10 @@ import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
 import Organization.ProductManagement.OrderItem;
+import Organization.ProductManagement.Product;
+import Organization.ProductManagement.ProductCatalog;
 import Organization.ProductManagement.ProductOrder;
+import Organization.ProductOrganization;
 import Requests.ApplicationRequest;
 import Requests.ConvenienceRequest;
 import Requests.DeliveryRequest;
@@ -49,7 +52,7 @@ public class RequestQueue extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.organization = organization;   
         this.viewTableModel = (DefaultTableModel) jTable1.getModel();
-        jPanel1.setVisible(false);
+        requestQueueDeliveryPanel.setVisible(false);
         System.out.println(this.appSystem.getReqDir().getDeliveryRequests().size());
         switch (this.useraccount.getRole().getRoleType()) {
             case "Convenience Volunteer":
@@ -61,9 +64,10 @@ public class RequestQueue extends javax.swing.JPanel {
                 displayServiceRequests();
                 break;
             default:
-                displayConvenienceRequests();
+//                displayConvenienceRequests();
                 break;
         }
+         jLayeredPane1.removeAll();
         
     }
 
@@ -78,7 +82,8 @@ public class RequestQueue extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        requestQueueDeliveryPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         reqID = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -92,7 +97,22 @@ public class RequestQueue extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         reqLocation = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        requestQueueDeliveryAssignBtn = new javax.swing.JButton();
+        requestQueueServicePanel = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        reqID1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        reqRequester1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        reqDate1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        reqStatus1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        requestQueueServiceAssignBtn = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel12 = new javax.swing.JLabel();
+        reqService = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1300, 800));
@@ -102,11 +122,11 @@ public class RequestQueue extends javax.swing.JPanel {
 
             },
             new String [] {
-                "RequestID", "Requester", "Request Date", "Delivery Location", "Request Status", "Assigned To"
+                "RequestID", "Requester", "Request Date", "Request Status", "Assigned To"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -120,8 +140,10 @@ public class RequestQueue extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jLayeredPane1.setLayout(new java.awt.CardLayout());
+
+        requestQueueDeliveryPanel.setBackground(new java.awt.Color(153, 153, 153));
+        requestQueueDeliveryPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -174,90 +196,227 @@ public class RequestQueue extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Delivery Location");
 
+
         jButton1.setBackground(new java.awt.Color(236, 100, 44));
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Assign to me");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                requestQueueDeliveryAssignBtnActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout requestQueueDeliveryPanelLayout = new javax.swing.GroupLayout(requestQueueDeliveryPanel);
+        requestQueueDeliveryPanel.setLayout(requestQueueDeliveryPanelLayout);
+        requestQueueDeliveryPanelLayout.setHorizontalGroup(
+            requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
+                        .addGroup(requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(reqID, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(reqRequester, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 275, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                        .addComponent(requestQueueDeliveryAssignBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
+                                .addGroup(requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(reqDate, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(56, 56, 56)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(reqStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                                 .addComponent(reqLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(316, Short.MAX_VALUE))
+                                .addContainerGap(363, Short.MAX_VALUE))
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        requestQueueDeliveryPanelLayout.setVerticalGroup(
+            requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(reqStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(reqDate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(reqRequester, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(reqID, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGroup(requestQueueDeliveryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(requestQueueDeliveryPanelLayout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(reqLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(113, 113, 113)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(requestQueueDeliveryAssignBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
         );
+
+        jLayeredPane1.add(requestQueueDeliveryPanel, "card2");
+
+        requestQueueServicePanel.setBackground(new java.awt.Color(153, 153, 153));
+        requestQueueServicePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Request ID");
+
+        reqID1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqID1.setForeground(new java.awt.Color(255, 255, 255));
+        reqID1.setText("jLabel1");
+
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Requester");
+
+        reqRequester1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqRequester1.setForeground(new java.awt.Color(255, 255, 255));
+        reqRequester1.setText("jLabel1");
+
+        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Request Date");
+
+        reqDate1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqDate1.setForeground(new java.awt.Color(255, 255, 255));
+        reqDate1.setText("jLabel1");
+
+        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Request Status");
+
+        reqStatus1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqStatus1.setForeground(new java.awt.Color(255, 255, 255));
+        reqStatus1.setText("jLabel1");
+
+        jLabel11.setFont(new java.awt.Font("Helvetica Neue", 3, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Request details");
+
+        requestQueueServiceAssignBtn.setText("Assign to me");
+        requestQueueServiceAssignBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestQueueServiceAssignBtnActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        jLabel12.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Request Service");
+
+        reqService.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqService.setForeground(new java.awt.Color(255, 255, 255));
+        reqService.setText("jLabel1");
+
+        javax.swing.GroupLayout requestQueueServicePanelLayout = new javax.swing.GroupLayout(requestQueueServicePanel);
+        requestQueueServicePanel.setLayout(requestQueueServicePanelLayout);
+        requestQueueServicePanelLayout.setHorizontalGroup(
+            requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(requestQueueServicePanelLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(requestQueueServicePanelLayout.createSequentialGroup()
+                        .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reqID1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)
+                        .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reqRequester1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(47, 47, 47))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, requestQueueServicePanelLayout.createSequentialGroup()
+                            .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(reqDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(reqStatus1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(69, 69, 69))
+                        .addComponent(requestQueueServiceAssignBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reqService, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 102, Short.MAX_VALUE))
+        );
+        requestQueueServicePanelLayout.setVerticalGroup(
+            requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(requestQueueServicePanelLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, requestQueueServicePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reqStatus1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(requestQueueServicePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reqDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(requestQueueServicePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reqRequester1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(requestQueueServicePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reqID1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(55, 55, 55)
+                .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(requestQueueServicePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(requestQueueServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(requestQueueServiceAssignBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(requestQueueServicePanelLayout.createSequentialGroup()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76))))
+                    .addGroup(requestQueueServicePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reqService, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.add(requestQueueServicePanel, "card3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -266,75 +425,106 @@ public class RequestQueue extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE))
-                .addContainerGap(229, Short.MAX_VALUE))
+                    .addComponent(jLayeredPane1)
+                    .addComponent(jScrollPane1))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         
-        int selectedR = jTable1.getSelectedRow();
-        
+       int selectedR = jTable1.getSelectedRow();
+       
         RequestDirectory reqDir = appSystem.getReqDir();
-              
-        DeliveryRequest selectedRequest = (DeliveryRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
-         jPanel1.setVisible(true);
+
+
          DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
          
-        reqID.setText(selectedRequest.getRequestID());
-//        reqRequester.setText(selectedRequest.getConvenienceReq().getProductOrder().getClient().getName());
-        reqRequester.setText(selectedRequest.getRequester().getPerson().getName());
-        String dateStr = format.format(selectedRequest.getRequestDate());
-        reqDate.setText(dateStr);
-        
-        reqStatus.setText(selectedRequest.getStatus());
-        
-//        ProductOrder po = selectedRequest.getConvenienceReq().getProductOrder();
-        ProductOrder po = selectedRequest.getOrderToBedelivered();
-        DefaultListModel<String> listModel = new DefaultListModel<String>();
-        for(OrderItem oi: po.getProductsPurchased()){
-            listModel.addElement(oi.getSelectedProduct().getName());
+        if(isDelivery){
+            DeliveryRequest selectedRequest = (DeliveryRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+            jLayeredPane1.removeAll();
+            jLayeredPane1.add(requestQueueDeliveryPanel);
+           jLayeredPane1.repaint();
+           jLayeredPane1.revalidate();
+
+            reqID.setText(selectedRequest.getRequestID());
+            reqRequester.setText(selectedRequest.getRequester().getPerson().getName());
+            String dateStr = format.format(selectedRequest.getRequestDate());
+            reqDate.setText(dateStr);
+            reqStatus.setText(selectedRequest.getStatus());
+            
+            ProductOrder po = selectedRequest.getOrderToBedelivered();
+            DefaultListModel<String> listModel = new DefaultListModel<String>();
+            for(OrderItem oi: po.getProductsPurchased()){
+                listModel.addElement(oi.getSelectedProduct().getName());
+            }
+            jList1.setModel(listModel);
+
+            reqLocation.setText(selectedRequest.getDeliveryAddress());
+            
         }
-        jList1.setModel(listModel);
-        
-        reqLocation.setText(selectedRequest.getDeliveryAddress());
+        if(isService){
+            
+            ServiceRequest serviceRequest = (ServiceRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+                jLayeredPane1.removeAll();
+                jLayeredPane1.add(requestQueueServicePanel);
+               jLayeredPane1.repaint();
+               jLayeredPane1.revalidate();
+                reqID1.setText(serviceRequest.getRequestID());
+                reqRequester1.setText(serviceRequest.getRequester().getPerson().getName());
+                String dateStr = format.format(serviceRequest.getRequestDate());
+                reqDate1.setText(dateStr);
+                reqStatus1.setText(serviceRequest.getStatus());
+                
+                jTextArea1.setText(serviceRequest.getRequestDetails());
+                reqService.setText(serviceRequest.getServiceOrder().getService().getName());
+            }
         
        
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void requestQueueDeliveryAssignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestQueueDeliveryAssignBtnActionPerformed
         // TODO add your handling code here:
         int selectedR = jTable1.getSelectedRow();
-        
+
         RequestDirectory reqDir = appSystem.getReqDir();
-              
+
         DeliveryRequest selectedRequest = (DeliveryRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
         selectedRequest.setRequestResponder(this.useraccount);
-        viewTableModel.setValueAt((selectedRequest.getRequestResponder() != null ? "Out For Delivery" : "Created"), selectedR, 4);
-        viewTableModel.setValueAt(selectedRequest.getRequestResponder().getPerson().getName(), selectedR, 5);
-        
+//        viewTableModel.setValueAt((selectedRequest.getRequestResponder() != null ? "Out For Delivery" : "Created"), selectedR, 4);
+        viewTableModel.setValueAt(selectedRequest.getRequestResponder().getPerson().getName(), selectedR, 4);
+
         VolunteerProfile vol = (VolunteerProfile) this.useraccount.getPerson();
         vol.addToVolunteerRequests(selectedRequest);
-        JOptionPane.showConfirmDialog(null, "Thank you for your time and care!");
-                
-//                : "Created"), selectedR, 3);
-//        viewTableModel.setValueAt((selectedRequest.getApp().getStatus().equals("Approved") ? "Approved" : "Pending"), selectedR, 4);
-//        viewTableModel.fireTableDataChanged();
-        
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        JOptionPane.showConfirmDialog(null, "Assigned successfully!");
+
+   
+    }//GEN-LAST:event_requestQueueDeliveryAssignBtnActionPerformed
+
+    private void requestQueueServiceAssignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestQueueServiceAssignBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedR = jTable1.getSelectedRow();
+
+        RequestDirectory reqDir = appSystem.getReqDir();
+
+        ServiceRequest serviceRequest = (ServiceRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+        serviceRequest.setRequestResponder(this.useraccount);
+        viewTableModel.setValueAt(serviceRequest.getRequestResponder().getPerson().getName(), selectedR, 4);
+
+        VolunteerProfile vol = (VolunteerProfile) this.useraccount.getPerson();
+        vol.addToVolunteerRequests(serviceRequest);
+        JOptionPane.showConfirmDialog(null, "Assigned successfully!");
+    }//GEN-LAST:event_requestQueueServiceAssignBtnActionPerformed
      public void displayDeliveryReqs(){
         viewTableModel.setRowCount(0);
         RequestDirectory reqDir = appSystem.getReqDir();
@@ -343,14 +533,14 @@ public class RequestQueue extends javax.swing.JPanel {
         for (Map.Entry<String, DeliveryRequest> entry : reqDir.getDeliveryRequests().entrySet()) {
 
                 DeliveryRequest delReq = entry.getValue();
-                Object row[] = new Object[6];
+                Object row[] = new Object[5];
                 DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 row[0] = delReq.getRequestID();
                 row[1] = delReq.getRequester().getPerson().getName();
                 row[2] = format.format(((DeliveryRequest) entry.getValue()).getRequestDate());
-                row[3] = delReq.getDeliveryAddress();
-                row[4] = delReq.getStatus();
-                row[5] = (delReq.getRequestResponder() != null ? delReq.getRequestResponder().getPerson().getName() : "None") ;
+//                row[3] = delReq.getDeliveryAddress();
+                row[3] = delReq.getStatus();
+                row[4] = (delReq.getRequestResponder() != null ? delReq.getRequestResponder().getPerson().getName() : "None") ;
                 
                 
                 viewTableModel.addRow(row);           
@@ -392,13 +582,13 @@ public class RequestQueue extends javax.swing.JPanel {
 
         for (Map.Entry<String, ServiceRequest> entry : reqDir.getServiceRequests().entrySet()) {
                 ServiceRequest serviceReq = entry.getValue();
-                 Object row[] = new Object[4];
+                 Object row[] = new Object[5];
                 DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 row[0] = serviceReq.getRequestID();
                 row[1] = serviceReq.getRequester().getPerson().getName();
                 row[2] = format.format(serviceReq.getRequestDate());
                 row[3] = serviceReq.getStatus();
-                 
+                row[4] = (serviceReq.getRequestResponder() != null ? serviceReq.getRequestResponder().getPerson().getName() : "None") ;
                 viewTableModel.addRow(row);  
                  
             } 
@@ -409,22 +599,38 @@ public class RequestQueue extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel reqDate;
+    private javax.swing.JLabel reqDate1;
     private javax.swing.JLabel reqID;
+    private javax.swing.JLabel reqID1;
     private javax.swing.JLabel reqLocation;
     private javax.swing.JLabel reqRequester;
+    private javax.swing.JLabel reqRequester1;
+    private javax.swing.JLabel reqService;
     private javax.swing.JLabel reqStatus;
+    private javax.swing.JLabel reqStatus1;
+    private javax.swing.JButton requestQueueDeliveryAssignBtn;
+    private javax.swing.JPanel requestQueueDeliveryPanel;
+    private javax.swing.JButton requestQueueServiceAssignBtn;
+    private javax.swing.JPanel requestQueueServicePanel;
     // End of variables declaration//GEN-END:variables
 }
