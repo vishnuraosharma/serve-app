@@ -146,7 +146,7 @@ public class RequestQueue extends javax.swing.JPanel {
 
         jLayeredPane1.setLayout(new java.awt.CardLayout());
 
-        requestQueueDeliveryPanel.setBackground(new java.awt.Color(244, 180, 148));
+        requestQueueDeliveryPanel.setBackground(new java.awt.Color(153, 153, 153));
         requestQueueDeliveryPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -287,7 +287,7 @@ public class RequestQueue extends javax.swing.JPanel {
 
         jLayeredPane1.add(requestQueueDeliveryPanel, "card2");
 
-        requestQueueServicePanel.setBackground(new java.awt.Color(244, 180, 148));
+        requestQueueServicePanel.setBackground(new java.awt.Color(153, 153, 153));
         requestQueueServicePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -326,6 +326,9 @@ public class RequestQueue extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Request details");
 
+        requestQueueServiceAssignBtn.setBackground(new java.awt.Color(236, 100, 44));
+        requestQueueServiceAssignBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        requestQueueServiceAssignBtn.setForeground(new java.awt.Color(255, 255, 255));
         requestQueueServiceAssignBtn.setText("Assign to me");
         requestQueueServiceAssignBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -440,75 +443,22 @@ public class RequestQueue extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(120, 120, 120)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLayeredPane1)
                     .addComponent(jScrollPane1))
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        
-       int selectedR = jTable1.getSelectedRow();
-       
-        RequestDirectory reqDir = appSystem.getReqDir();
-
-
-         DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-         
-        if(isDelivery){
-            DeliveryRequest selectedRequest = (DeliveryRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
-            jLayeredPane1.removeAll();
-            jLayeredPane1.add(requestQueueDeliveryPanel);
-           jLayeredPane1.repaint();
-           jLayeredPane1.revalidate();
-
-            reqID.setText(selectedRequest.getRequestID());
-            reqRequester.setText(selectedRequest.getRequester().getPerson().getName());
-            String dateStr = format.format(selectedRequest.getRequestDate());
-            reqDate.setText(dateStr);
-            reqStatus.setText(selectedRequest.getStatus());
-            
-            ProductOrder po = selectedRequest.getOrderToBedelivered();
-            DefaultListModel<String> listModel = new DefaultListModel<String>();
-            for(OrderItem oi: po.getProductsPurchased()){
-                listModel.addElement(oi.getSelectedProduct().getName());
-            }
-            jList1.setModel(listModel);
-
-            reqLocation.setText(selectedRequest.getDeliveryAddress());
-            
-        }
-        if(isService){
-            
-            ServiceRequest serviceRequest = (ServiceRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
-                jLayeredPane1.removeAll();
-                jLayeredPane1.add(requestQueueServicePanel);
-               jLayeredPane1.repaint();
-               jLayeredPane1.revalidate();
-                reqID1.setText(serviceRequest.getRequestID());
-                reqRequester1.setText(serviceRequest.getRequester().getPerson().getName());
-                String dateStr = format.format(serviceRequest.getRequestDate());
-                reqDate1.setText(dateStr);
-                reqStatus1.setText(serviceRequest.getStatus());
-                
-                jTextArea1.setText(serviceRequest.getRequestDetails());
-                reqService.setText(serviceRequest.getServiceOrder().getService().getName());
-            }
-        
-       
-    }//GEN-LAST:event_jTable1MouseClicked
 
     private void requestQueueDeliveryAssignBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestQueueDeliveryAssignBtnActionPerformed
         // TODO add your handling code here:
@@ -542,6 +492,56 @@ public class RequestQueue extends javax.swing.JPanel {
         vol.addToVolunteerRequests(serviceRequest);
         JOptionPane.showConfirmDialog(null, "Assigned successfully!");
     }//GEN-LAST:event_requestQueueServiceAssignBtnActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+
+        int selectedR = jTable1.getSelectedRow();
+
+        RequestDirectory reqDir = appSystem.getReqDir();
+
+        DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+        if(isDelivery){
+            DeliveryRequest selectedRequest = (DeliveryRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+            jLayeredPane1.removeAll();
+            jLayeredPane1.add(requestQueueDeliveryPanel);
+            jLayeredPane1.repaint();
+            jLayeredPane1.revalidate();
+
+            reqID.setText(selectedRequest.getRequestID());
+            reqRequester.setText(selectedRequest.getRequester().getPerson().getName());
+            String dateStr = format.format(selectedRequest.getRequestDate());
+            reqDate.setText(dateStr);
+            reqStatus.setText(selectedRequest.getStatus());
+
+            ProductOrder po = selectedRequest.getOrderToBedelivered();
+            DefaultListModel<String> listModel = new DefaultListModel<String>();
+            for(OrderItem oi: po.getProductsPurchased()){
+                listModel.addElement(oi.getSelectedProduct().getName());
+            }
+            jList1.setModel(listModel);
+
+            reqLocation.setText(selectedRequest.getDeliveryAddress());
+
+        }
+        if(isService){
+
+            ServiceRequest serviceRequest = (ServiceRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+            jLayeredPane1.removeAll();
+            jLayeredPane1.add(requestQueueServicePanel);
+            jLayeredPane1.repaint();
+            jLayeredPane1.revalidate();
+            reqID1.setText(serviceRequest.getRequestID());
+            reqRequester1.setText(serviceRequest.getRequester().getPerson().getName());
+            String dateStr = format.format(serviceRequest.getRequestDate());
+            reqDate1.setText(dateStr);
+            reqStatus1.setText(serviceRequest.getStatus());
+
+            jTextArea1.setText(serviceRequest.getRequestDetails());
+            reqService.setText(serviceRequest.getServiceOrder().getService().getName());
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
      public void displayDeliveryReqs(){
         viewTableModel.setRowCount(0);
         RequestDirectory reqDir = appSystem.getReqDir();
