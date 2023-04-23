@@ -8,6 +8,7 @@ package AppSystem;
 import Applicant.ApplicationDirectory;
 import Enterprise.Enterprise;
 import Enterprise.EnterpriseDirectory;
+import Organization.ConvenienceVolOrganization;
 import Organization.Organization;
 import Organization.ProductManagement.Product;
 import Organization.ProductOrganization;
@@ -21,6 +22,7 @@ import UI.ClientWorkArea.HospitalMP;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
 import WorkAreas.ClientRole;
+import WorkAreas.ConvenienceVolunteerRole;
 import WorkAreas.EnterpriseManagerRole;
 import WorkAreas.ProductOrganizationManagerRole;
 import WorkAreas.ServicesOrganizationManagerRole;
@@ -105,7 +107,8 @@ public class Network {
         clientfaker();
         
         productfaker((ProductOrganization)o1, (ProductOrganization) o2);
-        servicefaker((ServicesOrganization) o3,(ServicesOrganization) o4,(ServicesOrganization) o5,(ServicesOrganization) o6);
+//        servicefaker((ServicesOrganization) o3,(ServicesOrganization) o4,(ServicesOrganization) o5,(ServicesOrganization) o6);
+        convVolfaker((ConvenienceVolOrganization) o7);
         return app;
     }
 
@@ -289,18 +292,56 @@ public class Network {
         Product groPro15 =grocery.getProductCatalog().newProduct("Lettuce", 1.99, "Vegetables");
         groPro15.setProductImageFilewithFilePath("src/Resources/ProductImages/Lettuce.jpg");        
     }
-      public static void servicefaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
-      Service hosServ1 = hospital.getServices().newService(n, 0, category, desc);
-      hosServ1.setProductImageFilewithFilePath("");
-      }
+//      public static void servicefaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
+//      Service hosServ1 = hospital.getServices().newService(n, 0, category, desc);
+//      hosServ1.setProductImageFilewithFilePath("");
+//      }
       
        
       
-      public static void servVolfaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
+//      public static void servVolfaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
+//          
+//          Person d1 = this.personDirectory.createPerson("Dr. Rob");
+//          hospital.getVolunteerDir().createNewVolunteer(d1, new )
+//      }
+      
+      public static void convVolfaker(ConvenienceVolOrganization convVolOrg){
+          Person vol1 = Network.personDirectory.createPerson("Dell Man");
+          convVolOrg.getVolunteerDir().createNewVolunteer(vol1, new ConvenienceVolunteerRole());
+          UserAccount vol1ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v1", "v1", new ConvenienceVolunteerRole());
+          vol1.setUseraccount(vol1ua);
+          vol1ua.setPerson(vol1);
           
-          Person d1 = this.personDirectory.createPerson("Dr. Rob");
-          hospital.getVolunteerDir().createNewVolunteer(d1, new )
+          Person vol2 = Network.personDirectory.createPerson("Sandy Mae");
+          convVolOrg.getVolunteerDir().createNewVolunteer(vol2, new ConvenienceVolunteerRole());
+          UserAccount vol2ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v2", "v2", new ConvenienceVolunteerRole());
+          vol2.setUseraccount(vol2ua);
+          vol2ua.setPerson(vol2);
+          
+          Person vol3 = Network.personDirectory.createPerson("Joe F.");
+          convVolOrg.getVolunteerDir().createNewVolunteer(vol3, new ConvenienceVolunteerRole());
+          UserAccount vol3ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v3", "v3", new ConvenienceVolunteerRole());
+          vol3.setUseraccount(vol3ua);
+          vol3ua.setPerson(vol3);
+          
+          Person vol4 = Network.personDirectory.createPerson("Kevin Chang");
+          convVolOrg.getVolunteerDir().createNewVolunteer(vol4, new ConvenienceVolunteerRole());
+          UserAccount vol4ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v4", "v4", new ConvenienceVolunteerRole());
+          vol4.setUseraccount(vol4ua);
+          vol4ua.setPerson(vol4);
+          
+          Person vol5 = Network.personDirectory.createPerson("Michael Sager");
+          convVolOrg.getVolunteerDir().createNewVolunteer(vol5, new ConvenienceVolunteerRole());
+          UserAccount vol5ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v5", "v5", new ConvenienceVolunteerRole());
+          vol5.setUseraccount(vol5ua);
+          vol5ua.setPerson(vol5);
+ 
+          
       }
+      
+//      public static void serviceRequestfaker( convVolOrg){
+//          
+//      }
       
     public void addIcon(int i, javax.swing.JLabel lbl){
         
