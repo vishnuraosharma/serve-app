@@ -107,6 +107,7 @@ public class VolunteerSignUp extends javax.swing.JFrame {
 
         Left = new java.awt.Panel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         right = new java.awt.Panel();
         NameField = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
@@ -139,6 +140,8 @@ public class VolunteerSignUp extends javax.swing.JFrame {
         Left.setBackground(new java.awt.Color(236, 100, 44));
         Left.setPreferredSize(new java.awt.Dimension(650, 800));
 
+        jLabel14.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
+
         javax.swing.GroupLayout LeftLayout = new javax.swing.GroupLayout(Left);
         Left.setLayout(LeftLayout);
         LeftLayout.setHorizontalGroup(
@@ -146,14 +149,21 @@ public class VolunteerSignUp extends javax.swing.JFrame {
             .addGroup(LeftLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel3)
-                .addContainerGap(619, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel14)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftLayout.createSequentialGroup()
-                .addGap(199, 199, 199)
-                .addComponent(jLabel3)
-                .addContainerGap(601, Short.MAX_VALUE))
+                .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LeftLayout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(jLabel3))
+                    .addGroup(LeftLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(jLabel14)))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         right.setBackground(new java.awt.Color(255, 255, 255));
@@ -468,6 +478,7 @@ public class VolunteerSignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

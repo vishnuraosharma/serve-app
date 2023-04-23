@@ -58,7 +58,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 800));
 
         controlPanel.setBackground(new java.awt.Color(255, 255, 255));
-        controlPanel.setPreferredSize(new java.awt.Dimension(80, 80));
+        controlPanel.setPreferredSize(new java.awt.Dimension(1300, 800));
         controlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backBtn.setBackground(new java.awt.Color(236, 100, 44));
@@ -70,7 +70,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 30));
+        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 140, 40));
 
         addOrgBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         addOrgBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -80,7 +80,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
                 addOrgBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(addOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 200, 60));
+        controlPanel.add(addOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 200, 40));
 
         manageOrgBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         manageOrgBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -90,7 +90,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
                 manageOrgBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(manageOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 160, 60));
+        controlPanel.add(manageOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 160, 40));
 
         jSplitPane1.setTopComponent(controlPanel);
 
