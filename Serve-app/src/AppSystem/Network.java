@@ -11,6 +11,8 @@ import Enterprise.EnterpriseDirectory;
 import Organization.Organization;
 import Organization.ProductManagement.Product;
 import Organization.ProductOrganization;
+import Organization.ServiceManagement.Service;
+import Organization.ServicesOrganization;
 import Person.Client.Client;
 import Person.Person;
 import Person.PersonDirectory;
@@ -103,7 +105,7 @@ public class Network {
         clientfaker();
         
         productfaker((ProductOrganization)o1, (ProductOrganization) o2);
-        
+        servicefaker((ServicesOrganization) o3,(ServicesOrganization) o4,(ServicesOrganization) o5,(ServicesOrganization) o6);
         return app;
     }
 
@@ -183,11 +185,123 @@ public class Network {
     public static void productfaker(ProductOrganization pharmacy, ProductOrganization grocery){
         Product pharPro1 = pharmacy.getProductCatalog().newPharmacyProduct("Ibuprofen", 20, "Pain Relief", false);
         pharPro1.setProductImageFilewithFilePath("src/Resources/ProductImages/ibuprofen.jpeg");
+       
+        Product pharPro2 = pharmacy.getProductCatalog().newPharmacyProduct("Amoxicillin", 40, "Antibiotics", true);
+        pharPro2.setProductImageFilewithFilePath("src/Resources/ProductImages/amoxicillin.jpg");     
+       
+        Product pharPro3 = pharmacy.getProductCatalog().newPharmacyProduct("Aspirin", 16, "Pain Relief", false);
+        pharPro3.setProductImageFilewithFilePath("src/Resources/ProductImages/Aspirin.jpg");        
+        
+        Product pharPro4 = pharmacy.getProductCatalog().newPharmacyProduct("Ibuprofen", 30, "Pain Relief", true);
+        pharPro4.setProductImageFilewithFilePath("src/Resources/ProductImages/ibuprofen.jpg");       
+        
+        Product pharPro5 = pharmacy.getProductCatalog().newPharmacyProduct("Loratadine", 24, "Allergy", false);
+        pharPro5.setProductImageFilewithFilePath("src/Resources/ProductImages/Loratadine.jpg");       
+        
+        Product pharPro6 = pharmacy.getProductCatalog().newPharmacyProduct("Naproxen", 36, "Pain Relief", false);
+        pharPro6.setProductImageFilewithFilePath("src/Resources/ProductImages/Naproxen.jpg");        
+        
+        Product pharPro7 = pharmacy.getProductCatalog().newPharmacyProduct("Cetirizine", 18, "Allergy", false);
+        pharPro7.setProductImageFilewithFilePath("src/Resources/ProductImages/Cetirizine.jpg");        
+        
+        Product pharPro8 = pharmacy.getProductCatalog().newPharmacyProduct("Diphenhydramine", 50, "Allergy", false);
+        pharPro8.setProductImageFilewithFilePath("src/Resources/ProductImages/Diphenhydramine.jpg");        
+        
+        Product pharPro9 = pharmacy.getProductCatalog().newPharmacyProduct("Cephalexin", 12, "Antibiotics", true);
+        pharPro9.setProductImageFilewithFilePath("src/Resources/ProductImages/Cephalexin.jpg");        
+        
+        Product pharPro10 = pharmacy.getProductCatalog().newPharmacyProduct("Acetaminophen", 28, "Acid Reducers", false);
+        pharPro10.setProductImageFilewithFilePath("src/Resources/ProductImages/Acetaminophen.jpg");        
+        
+        Product pharPro11 = pharmacy.getProductCatalog().newPharmacyProduct("Omeprazole", 80, "Pain Relief", false);
+        pharPro11.setProductImageFilewithFilePath("src/Resources/ProductImages/Omeprazole.jpg");
+        
+        Product pharPro12 = pharmacy.getProductCatalog().newPharmacyProduct("Hydrocodone", 35, "Blood Pressure", true);
+        pharPro12.setProductImageFilewithFilePath("src/Resources/ProductImages/Hydrocodone.jpg");
+        
+        Product pharPro13 = pharmacy.getProductCatalog().newPharmacyProduct("Lisinopril", 40, "Cholesterol", true);
+        pharPro13.setProductImageFilewithFilePath("src/Resources/ProductImages/Lisinopril.jpg");
+        
+        Product pharPro14 = pharmacy.getProductCatalog().newPharmacyProduct("Simvastatin", 20, "Diabetes", true);
+        pharPro14.setProductImageFilewithFilePath("src/Resources/ProductImages/Simvastatin.jpg");
+       
+        Product pharPro15 = pharmacy.getProductCatalog().newPharmacyProduct("Metformin", 30, "Asthma", true);
+        pharPro15.setProductImageFilewithFilePath("src/Resources/ProductImages/Metformin.jpg");
+        
+        Product pharPro16 = pharmacy.getProductCatalog().newPharmacyProduct("Albuterol", 18, "Inflammation", false);
+        pharPro16.setProductImageFilewithFilePath("src/Resources/ProductImages/Albuterol.jpg");
+        
+        Product pharPro17 = pharmacy.getProductCatalog().newPharmacyProduct("Prednisone", 25, "Diuretics", true);
+        pharPro17.setProductImageFilewithFilePath("src/Resources/ProductImages/Prednisone.jpg");
+        
+        Product pharPro18 = pharmacy.getProductCatalog().newPharmacyProduct("Furosemide", 45, "Asthma", true);
+        pharPro18.setProductImageFilewithFilePath("src/Resources/ProductImages/Furosemide.jpg");
+        
+        Product pharPro19 = pharmacy.getProductCatalog().newPharmacyProduct("Montelukast", 38, "Blood Pressure", true);
+        pharPro19.setProductImageFilewithFilePath("src/Resources/ProductImages/Montelukast.jpg");
+       
+        Product pharPro20 = pharmacy.getProductCatalog().newPharmacyProduct("Losartan", 50, "Inflammation", true);
+        pharPro20.setProductImageFilewithFilePath("src/Resources/ProductImages/Losartan.jpg");
+       
         
         Product groPro1 =grocery.getProductCatalog().newProduct("Apples", 2.99, "Fruits");
         groPro1.setProductImageFilewithFilePath("src/Resources/ProductImages/apple.jpeg");
+
+        Product groPro2 =grocery.getProductCatalog().newProduct("Bananas", 1.99, "Fruits");
+        groPro2.setProductImageFilewithFilePath("src/Resources/ProductImages/Bananas.jpg");
+
+        Product groPro3 =grocery.getProductCatalog().newProduct("Chicken Breast", 5.99, "Meat");
+        groPro3.setProductImageFilewithFilePath("src/Resources/ProductImages/Chicken Breast.jpg");
+
+        Product groPro4 =grocery.getProductCatalog().newProduct("Ground Beef", 4.99, "Meat");
+        groPro4.setProductImageFilewithFilePath("src/Resources/ProductImages/Ground Beef.jpg");        
+
+        Product groPro5 =grocery.getProductCatalog().newProduct("Milk", 3.49, "Dairy");
+        groPro5.setProductImageFilewithFilePath("src/Resources/ProductImages/Milk.jpg");
+
+        Product groPro6 =grocery.getProductCatalog().newProduct("Eggs", 2.49, "Dairy");
+        groPro6.setProductImageFilewithFilePath("src/Resources/ProductImages/Eggs.jpg");
+
+        Product groPro7 =grocery.getProductCatalog().newProduct("Bread", 2.99, "Bakery");
+        groPro7.setProductImageFilewithFilePath("src/Resources/ProductImages/Bread.jpg");
+
+        Product groPro8 =grocery.getProductCatalog().newProduct("Butter", 2.99, "Dairy");
+        groPro8.setProductImageFilewithFilePath("src/Resources/ProductImages/Butter.jpg");
+
+        Product groPro9 =grocery.getProductCatalog().newProduct("Cheese", 4.99, "Dairy");
+        groPro9.setProductImageFilewithFilePath("src/Resources/ProductImages/Cheese.jpg");
+
+        Product groPro10 =grocery.getProductCatalog().newProduct("Rice", 2.99, "Grains");
+        groPro10.setProductImageFilewithFilePath("src/Resources/ProductImages/Rice.jpg");
+
+        Product groPro11 =grocery.getProductCatalog().newProduct("Pasta", 2.49, "Grains");
+        groPro11.setProductImageFilewithFilePath("src/Resources/ProductImages/Pasta.jpg");
+
+        Product groPro12 =grocery.getProductCatalog().newProduct("Tomatoes", 1.99, "Vegetables");
+        groPro12.setProductImageFilewithFilePath("src/Resources/ProductImages/Tomatoes.jpg");
+
+        Product groPro13 =grocery.getProductCatalog().newProduct("Carrots", 1.49, "Vegetables");
+        groPro13.setProductImageFilewithFilePath("src/Resources/ProductImages/Carrots.jpg");
+
+        Product groPro14 =grocery.getProductCatalog().newProduct("Broccoli", 1.99, "Vegetables");
+        groPro14.setProductImageFilewithFilePath("src/Resources/ProductImages/Broccoli.jpg");
+
+        Product groPro15 =grocery.getProductCatalog().newProduct("Lettuce", 1.99, "Vegetables");
+        groPro15.setProductImageFilewithFilePath("src/Resources/ProductImages/Lettuce.jpg");        
     }
-    
+      public static void servicefaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
+      Service hosServ1 = hospital.getServices().newService(n, 0, category, desc);
+      hosServ1.setProductImageFilewithFilePath("");
+      }
+      
+       
+      
+      public static void servVolfaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
+          
+          Person d1 = this.personDirectory.createPerson("Dr. Rob");
+          hospital.getVolunteerDir().createNewVolunteer(d1, new )
+      }
+      
     public void addIcon(int i, javax.swing.JLabel lbl){
         
         String filepath = "src/Resources/servelogo2.jpeg";
