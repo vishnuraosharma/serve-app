@@ -95,7 +95,7 @@ public class ProductOrder {
         String prettyList = "Order Items: \n";;
         //grab each order item, get the product name, and quantity, and append to prettyList
         for(OrderItem oi : this.productsPurchased){
-            prettyList += oi.getSelectedProduct().getName()+ " x " + oi.getQuantity() + "\n";
+            prettyList += oi.getSelectedProduct().getName()+ " x " + oi.getQuantity() + ";\n";
          }
         return prettyList;
     }

@@ -48,6 +48,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         userAcccountBtn = new javax.swing.JButton();
         sysPerformance = new javax.swing.JButton();
+        employeetBtn1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -79,27 +80,32 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
                 userAcccountBtnActionPerformed(evt);
             }
         });
-
         controlPanel.add(userAcccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 210, 40));
 
-        employeetBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        employeetBtn.setForeground(new java.awt.Color(236, 100, 44));
-        employeetBtn.setText("Manage Application Manager");
-        employeetBtn.addActionListener(new java.awt.event.ActionListener() {
-
+        sysPerformance.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        sysPerformance.setForeground(new java.awt.Color(236, 100, 44));
+        sysPerformance.setText("System Performance");
+        sysPerformance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sysPerformanceActionPerformed(evt);
             }
         });
-        controlPanel.add(employeetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 250, 40));
+        controlPanel.add(sysPerformance, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 30, 210, 40));
 
+        employeetBtn1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        employeetBtn1.setForeground(new java.awt.Color(236, 100, 44));
+        employeetBtn1.setText("Manage Application Manager");
+        employeetBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeetBtn1ActionPerformed(evt);
+            }
+        });
+        controlPanel.add(employeetBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 250, 40));
 
         jSplitPane1.setTopComponent(controlPanel);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image (1).png")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, -1, -1));
 
         jSplitPane1.setRightComponent(jPanel1);
@@ -123,7 +129,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
 
     private void sysPerformanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sysPerformanceActionPerformed
         // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new ViewStatsJPanel(appSystem));
+        jSplitPane1.setRightComponent(new ViewSystemStatsJPanel(appSystem));
     }//GEN-LAST:event_sysPerformanceActionPerformed
 
     private void employeetBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeetBtn1ActionPerformed
@@ -170,9 +176,8 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel controlPanel;
-    private javax.swing.JButton employeetBtn;
+    private javax.swing.JButton employeetBtn1;
     private javax.swing.JLabel jLabel1;
-
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton sysPerformance;

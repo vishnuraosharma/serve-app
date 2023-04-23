@@ -27,12 +27,12 @@ import org.jfree.ui.RefineryUtilities;
  *
  * @author vraosharma
  */
-public class ViewStatsJPanel extends javax.swing.JPanel {
+public class ViewSystemStatsJPanel extends javax.swing.JPanel {
     Network appSystem;
     /**
      * Creates new form ViewStatsJPanel
      */
-    public ViewStatsJPanel(Network appSystem) {
+    public ViewSystemStatsJPanel(Network appSystem) {
         initComponents();
         this.setVisible(true);
         this.appSystem = appSystem;
@@ -130,7 +130,7 @@ public class ViewStatsJPanel extends javax.swing.JPanel {
       
       
       HashMap<String, List<Request>> allreqs = this.appSystem.getReqDir().getAllRequests();
-//      System.out.println("UI.SystemAdminWorkArea.ViewStatsJPanel.createDataset()" +allreqs.get("Service requests").size());
+//      System.out.println("UI.SystemAdminWorkArea.ViewSystemStatsJPanel.createDataset()" +allreqs.get("Service requests").size());
 
       
     // 1 = completed, 2 = open, 3 = all

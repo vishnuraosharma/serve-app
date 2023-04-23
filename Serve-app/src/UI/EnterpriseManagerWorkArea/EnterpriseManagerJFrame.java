@@ -8,6 +8,7 @@ import AppSystem.Network;
 import Enterprise.Enterprise;
 import Organization.Organization;
 import UI.MainJFrame;
+import UI.SystemAdminWorkArea.ViewSystemStatsJPanel;
 import UserAccount.UserAccount;
 
 /**
@@ -84,21 +85,19 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
 
         manageOrgBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         manageOrgBtn.setForeground(new java.awt.Color(236, 100, 44));
-        manageOrgBtn.setText("Dashboard");
+        manageOrgBtn.setText("Enterprise Performance");
         manageOrgBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrgBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(manageOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 160, 40));
+        controlPanel.add(manageOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 230, 40));
 
         jSplitPane1.setTopComponent(controlPanel);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1300, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image (1).png")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, -1));
 
         jSplitPane1.setRightComponent(jPanel1);
@@ -122,7 +121,7 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
 
     private void manageOrgBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrgBtnActionPerformed
         // TODO add your handling code here:
-//        jSplitPane1.setRightComponent(new EmployeeManagementJPanel(appSystem,enterprise,organization,useraccount));
+        jSplitPane1.setRightComponent(new ViewEntStatsJPanel(appSystem,enterprise));
     }//GEN-LAST:event_manageOrgBtnActionPerformed
 
     /**
