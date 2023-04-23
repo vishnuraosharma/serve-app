@@ -105,7 +105,7 @@ public class MainJFrame extends javax.swing.JFrame {
         userNameField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
         loginBtn.setBackground(new java.awt.Color(236, 100, 44));
-        loginBtn.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        loginBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         loginBtn.setForeground(new java.awt.Color(255, 255, 255));
         loginBtn.setText("Log in");
         loginBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -114,11 +114,11 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(236, 100, 44));
         jLabel1.setText("User Name:");
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("Password:");
 
@@ -191,8 +191,6 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(volunteerSignUpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(213, Short.MAX_VALUE))
         );
-
-        jLabel4.getAccessibleContext().setAccessibleName("Welcome!");
 
         jPanel1.add(right);
         right.setBounds(650, 0, 650, 800);

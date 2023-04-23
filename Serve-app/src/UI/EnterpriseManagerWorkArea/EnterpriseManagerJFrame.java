@@ -32,6 +32,11 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         this.enterprise = enterprise;
         this.organization = organization;
         System.out.print("here"+enterprise);
+        displayLoginInfo();
+    }
+    public void displayLoginInfo(){
+        jLabel3.setText(String.valueOf(this.useraccount.getPerson().getName()));
+        jLabel5.setText(String.valueOf(this.enterprise.getName()));
     }
 
     /**
@@ -48,6 +53,10 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         addOrgBtn = new javax.swing.JButton();
         manageOrgBtn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -92,6 +101,24 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
             }
         });
         controlPanel.add(manageOrgBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 230, 40));
+
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel2.setText("Hello");
+        controlPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 40, 90, -1));
+
+        jLabel3.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel3.setText("jLabel1");
+        controlPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 40, 120, -1));
+
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel4.setText("Enterprise:");
+        controlPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 40, -1, -1));
+
+        jLabel5.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel5.setText("jLabel5");
+        controlPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 40, -1, -1));
 
         jSplitPane1.setTopComponent(controlPanel);
 
@@ -167,6 +194,10 @@ public class EnterpriseManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton manageOrgBtn;

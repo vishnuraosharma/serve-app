@@ -111,7 +111,7 @@ public class ApplicantManagerManageJPanel extends javax.swing.JPanel {
         jLabel3.setText("User Name:");
 
         jLabel4.setForeground(new java.awt.Color(236, 100, 44));
-        jLabel4.setText("Password");
+        jLabel4.setText("Password:");
 
         usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

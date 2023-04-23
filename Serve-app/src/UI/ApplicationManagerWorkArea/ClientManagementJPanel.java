@@ -90,6 +90,7 @@ public class ClientManagementJPanel extends javax.swing.JPanel {
         rejectBtn = new javax.swing.JButton();
         holdBtn = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1150, 800));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

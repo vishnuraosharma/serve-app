@@ -31,6 +31,14 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         this.enterprise = enterprise;
         this.organization = organization;
         jSplitPane1.setDividerSize(1);
+        
+        displayLoginInfo();
+    }
+    
+    public void displayLoginInfo(){
+        jLabel5.setText(String.valueOf(this.useraccount.getPerson().getName()));
+        jLabel2.setText(String.valueOf(this.useraccount.getRole()));
+
     }
 
     /**
@@ -47,6 +55,13 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         volApplicationsBtn = new javax.swing.JButton();
         clientApplicationsBtn = new javax.swing.JButton();
+
+        jButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,26 +82,20 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 30));
+        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 40));
 
-<<<<<<< HEAD
+
         volApplicationsBtn.setText("<html><body style='width: 80px; text-align: left;'>Volunteer Applications </body></html>\n");
-=======
-        volApplicationsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        volApplicationsBtn.setForeground(new java.awt.Color(236, 100, 44));
-        volApplicationsBtn.setText("<html><body style='width: 140px; text-align: center;'> Specialist Volunteer Applications </body></html> ");
->>>>>>> origin
+
         volApplicationsBtn.setPreferredSize(new java.awt.Dimension(1300, 800));
         volApplicationsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volApplicationsBtnActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
-        controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 140, 40));
-=======
-        controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 160, 170, 40));
->>>>>>> origin
+
+        controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 130, 170, 50));
+
 
         clientApplicationsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         clientApplicationsBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -96,21 +105,39 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
                 clientApplicationsBtnActionPerformed(evt);
             }
         });
-<<<<<<< HEAD
-        controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 140, 40));
-=======
-        controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 160, -1));
+
+        controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, -1));
+
 
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(236, 100, 44));
-        jButton1.setText("Vols");
+        jButton1.setText("<html><body style='width: 50px; text-align: center;'>Volunteer Applications </body></html> ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 160, -1));
->>>>>>> origin
+
+        controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 160, -1));
+
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel6.setText("Hello ");
+        controlPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
+
+        jLabel5.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel5.setText("jLabel1");
+        controlPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
+
+        jLabel2.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel2.setText("jLabel1");
+        controlPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel8.setText("Role:");
+        controlPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, -1, -1));
+
 
         jSplitPane1.setTopComponent(controlPanel);
 
@@ -180,6 +207,13 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton clientApplicationsBtn;
     private javax.swing.JPanel controlPanel;
+
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton volApplicationsBtn;

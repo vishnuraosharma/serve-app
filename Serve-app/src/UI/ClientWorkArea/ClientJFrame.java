@@ -39,9 +39,14 @@ public class ClientJFrame extends javax.swing.JFrame {
         this.enterprise = enterprise;
         this.organization = organization;
         appSystem.addIcon(0, jLabel5);
-     
+        
+        displayLoginInfo();
     }
+    public void displayLoginInfo(){
+        jLabel1.setText(String.valueOf(this.useraccount.getPerson().getName()));
+        jLabel4.setText(String.valueOf(this.useraccount.getPerson().getId()));
 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,19 +81,21 @@ public class ClientJFrame extends javax.swing.JFrame {
 
         jLabel4.setForeground(new java.awt.Color(236, 100, 44));
         jLabel4.setText("jLabel1");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 90, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 90, -1));
 
         jLabel1.setForeground(new java.awt.Color(236, 100, 44));
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 371, 90, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, -1));
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(236, 100, 44));
-        jLabel2.setText("jLabel1");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 325, 90, -1));
+        jLabel2.setText("Welcome");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 90, -1));
 
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(236, 100, 44));
-        jLabel3.setText("jLabel1");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 417, 100, -1));
+        jLabel3.setText("ID:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 100, -1));
 
         backBtn.setBackground(new java.awt.Color(236, 100, 44));
         backBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
@@ -151,7 +158,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn3ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 130, -1));
+        jPanel1.add(productReportBtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 130, -1));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
