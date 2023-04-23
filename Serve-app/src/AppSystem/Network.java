@@ -9,6 +9,8 @@ import Applicant.ApplicationDirectory;
 import Enterprise.Enterprise;
 import Enterprise.EnterpriseDirectory;
 import Organization.Organization;
+import Organization.ProductManagement.Product;
+import Organization.ProductOrganization;
 import Person.Client.Client;
 import Person.Person;
 import Person.PersonDirectory;
@@ -100,6 +102,8 @@ public class Network {
         adminfaker(app, convenience,healthcare,legal,connection,o1,o2,o3,o4,o5,o6);
         clientfaker();
         
+        productfaker((ProductOrganization)o1, (ProductOrganization) o2);
+        
         return app;
     }
 
@@ -176,6 +180,14 @@ public class Network {
         ua.setPerson(c);
     }
 
+    public static void productfaker(ProductOrganization pharmacy, ProductOrganization grocery){
+        Product pharPro1 = pharmacy.getProductCatalog().newPharmacyProduct("Ibuprofen", 20, "Pain Relief", false);
+        pharPro1.setProductImageFilewithFilePath("src/Resources/ProductImages/ibuprofen.jpeg");
+        
+        Product groPro1 =grocery.getProductCatalog().newProduct("Apples", 2.99, "Fruits");
+        groPro1.setProductImageFilewithFilePath("src/Resources/ProductImages/apple.jpeg");
+    }
+    
     public void addIcon(int i, javax.swing.JLabel lbl){
         
         String filepath = "src/Resources/servelogo2.jpeg";
