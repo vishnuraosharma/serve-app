@@ -160,6 +160,9 @@ public class MyRequests extends javax.swing.JPanel {
         jScrollPane10 = new javax.swing.JScrollPane();
         convenienceReqResponderComment = new javax.swing.JTextArea();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1150, 800));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

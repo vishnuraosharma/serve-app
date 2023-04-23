@@ -73,7 +73,6 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 800));
         setSize(new java.awt.Dimension(1300, 800));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -106,7 +105,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 24, -1, -1));
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 40));
 
         servicesCatalogBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         servicesCatalogBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -116,7 +115,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 servicesCatalogBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(servicesCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 150, 30));
+        jPanel1.add(servicesCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 160, 30));
 
         productReportBtn1.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productReportBtn1.setForeground(new java.awt.Color(236, 100, 44));
@@ -126,7 +125,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 productReportBtn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, 30));
+        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 30));
 
         jSplitPane1.setLeftComponent(jPanel1);
 

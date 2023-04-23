@@ -66,6 +66,7 @@ public class ManageVolsAndClients extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1150, 800));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(

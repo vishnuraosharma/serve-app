@@ -68,7 +68,6 @@ public class ClientJFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 800));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(150, 800));
@@ -100,7 +99,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, 30));
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 120, 40));
 
         productCatalogBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productCatalogBtn.setForeground(new java.awt.Color(236, 100, 44));

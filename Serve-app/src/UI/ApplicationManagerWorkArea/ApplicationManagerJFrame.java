@@ -68,7 +68,7 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 140, 30));
+        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 30));
 
         volApplicationsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         volApplicationsBtn.setForeground(new java.awt.Color(236, 100, 44));

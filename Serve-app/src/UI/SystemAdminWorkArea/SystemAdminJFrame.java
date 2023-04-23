@@ -69,7 +69,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 140, 30));
+        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 140, 40));
 
         userAcccountBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         userAcccountBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -79,7 +79,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
                 userAcccountBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(userAcccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 210, 60));
+        controlPanel.add(userAcccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 210, 40));
 
         employeetBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         employeetBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -89,7 +89,7 @@ public class SystemAdminJFrame extends javax.swing.JFrame {
                 employeetBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(employeetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 250, 60));
+        controlPanel.add(employeetBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 250, 40));
 
         jSplitPane1.setTopComponent(controlPanel);
 
