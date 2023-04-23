@@ -107,6 +107,11 @@ public class ApplicationRequest extends Request {
     public Application getApp() {
         return app;
     }
+
+    public Organization getForOrganization() {
+        return forOrganization;
+    }
+    
     
     
 }

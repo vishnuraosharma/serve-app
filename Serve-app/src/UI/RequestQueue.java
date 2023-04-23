@@ -19,6 +19,7 @@ import Requests.RequestDirectory;
 import Requests.ServiceRequest;
 import UserAccount.UserAccount;
 import Volunteer.VolunteerProfile;
+import java.awt.event.ActionEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Map;
@@ -113,8 +114,12 @@ public class RequestQueue extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         reqService = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        reqLocation1 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1300, 800));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -412,6 +417,21 @@ public class RequestQueue extends javax.swing.JPanel {
 
         jLayeredPane1.add(requestQueueServicePanel, "card3");
 
+        jLabel13.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Delivery includes the product items below");
+        jLayeredPane1.add(jLabel13);
+
+        reqLocation1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqLocation1.setForeground(new java.awt.Color(255, 255, 255));
+        reqLocation1.setText("jLabel1");
+        jLayeredPane1.add(reqLocation1);
+
+        jLabel14.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Delivery Location");
+        jLayeredPane1.add(jLabel14);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -421,7 +441,7 @@ public class RequestQueue extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLayeredPane1)
                     .addComponent(jScrollPane1))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -597,6 +617,8 @@ public class RequestQueue extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -617,6 +639,7 @@ public class RequestQueue extends javax.swing.JPanel {
     private javax.swing.JLabel reqID;
     private javax.swing.JLabel reqID1;
     private javax.swing.JLabel reqLocation;
+    private javax.swing.JLabel reqLocation1;
     private javax.swing.JLabel reqRequester;
     private javax.swing.JLabel reqRequester1;
     private javax.swing.JLabel reqService;

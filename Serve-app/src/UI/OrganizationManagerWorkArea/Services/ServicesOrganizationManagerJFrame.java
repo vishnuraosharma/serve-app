@@ -70,9 +70,9 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         servicesCatalogBtn = new javax.swing.JButton();
         productReportBtn1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 800));
         setSize(new java.awt.Dimension(1300, 800));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -80,59 +80,75 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel1.setSize(new java.awt.Dimension(150, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel4.setForeground(new java.awt.Color(236, 100, 44));
         jLabel4.setText("jLabel1");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 452, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 452, 100, -1));
 
+        jLabel1.setForeground(new java.awt.Color(236, 100, 44));
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 371, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 371, 120, -1));
 
+        jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("jLabel1");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 325, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 325, 110, -1));
 
+        jLabel3.setForeground(new java.awt.Color(236, 100, 44));
         jLabel3.setText("jLabel1");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 417, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 417, 110, -1));
 
-        backBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        backBtn.setBackground(new java.awt.Color(236, 100, 44));
+        backBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("LOGOUT");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 24, -1, -1));
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 40));
 
-        servicesCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        servicesCatalogBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
+        servicesCatalogBtn.setForeground(new java.awt.Color(236, 100, 44));
         servicesCatalogBtn.setText("My Services");
         servicesCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 servicesCatalogBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(servicesCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 140, 30));
+        jPanel1.add(servicesCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 160, 30));
 
-        productReportBtn1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productReportBtn1.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
+        productReportBtn1.setForeground(new java.awt.Color(236, 100, 44));
         productReportBtn1.setText("Create Application");
         productReportBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productReportBtn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, 30));
+        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 30));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1300, 800));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1150, 800));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image (1).png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1145, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(246, 246, 246)
+                .addComponent(jLabel5)
+                .addContainerGap(345, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(jLabel5)
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -263,6 +279,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

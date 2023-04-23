@@ -90,6 +90,7 @@ public class ClientManagementJPanel extends javax.swing.JPanel {
         rejectBtn = new javax.swing.JButton();
         holdBtn = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(1150, 800));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -246,7 +247,7 @@ public class ClientManagementJPanel extends javax.swing.JPanel {
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, -1, -1));
 
-        approveBtn.setBackground(new java.awt.Color(255, 118, 0));
+        approveBtn.setBackground(new java.awt.Color(236, 100, 44));
         approveBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         approveBtn.setForeground(new java.awt.Color(255, 255, 255));
         approveBtn.setText("Approve");
@@ -257,7 +258,7 @@ public class ClientManagementJPanel extends javax.swing.JPanel {
         });
         add(approveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 670, 130, 40));
 
-        rejectBtn.setBackground(new java.awt.Color(255, 118, 0));
+        rejectBtn.setBackground(new java.awt.Color(236, 100, 44));
         rejectBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         rejectBtn.setForeground(new java.awt.Color(255, 255, 255));
         rejectBtn.setText("Reject");
@@ -268,7 +269,7 @@ public class ClientManagementJPanel extends javax.swing.JPanel {
         });
         add(rejectBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 670, 130, 40));
 
-        holdBtn.setBackground(new java.awt.Color(255, 118, 0));
+        holdBtn.setBackground(new java.awt.Color(236, 100, 44));
         holdBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         holdBtn.setForeground(new java.awt.Color(255, 255, 255));
         holdBtn.setText("Hold");

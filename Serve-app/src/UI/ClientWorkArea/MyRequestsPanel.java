@@ -20,6 +20,7 @@ import Organization.ServiceManagement.ServicesCart;
 import Organization.ServicesOrganization;
 import Person.Client.Client;
 import Requests.ConvenienceRequest;
+import Requests.DeliveryRequest;
 import Requests.ServiceRequest;
 import UserAccount.UserAccount;
 import java.awt.Image;
@@ -46,6 +47,8 @@ public class MyRequestsPanel extends javax.swing.JPanel {
     ServicesCart schoolCart ;
     DefaultTableModel prodReqModel;
     DefaultTableModel servReqModel;
+    DefaultTableModel delReqModel;
+    
     Client client;
     
     /**
@@ -59,13 +62,15 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         this.client = (Client) useraccount.getPerson();
         servReqModel = (DefaultTableModel) servReqTable.getModel();
         prodReqModel = (DefaultTableModel) prodReqTable.getModel();
-        
+        delReqModel = (DefaultTableModel) prodDelReqTable.getModel();
         populateProdReqTable();
         populateServReqTable();
+        populateDeliveryTable();
     }
 
     public void populateProdReqTable(){
         HashMap<String, ConvenienceRequest> UserProdRequests = this.appSystem.getReqDir().getConvenienceRequestsbyClient(client);
+        
         System.out.println(UserProdRequests.size());
         
         prodReqModel.setRowCount(0);
@@ -93,8 +98,32 @@ public class MyRequestsPanel extends javax.swing.JPanel {
                 row[1] = currOrder.getService();
                 row[2] = sr.getRequestResponder();
                 row[3] = sr.getStatus();       
-                row[4] = sr.getNotes();
+                row[4] = sr.getResponderComments();
                 servReqModel.addRow(row);
+            }
+        }
+    }
+    
+    public void populateDeliveryTable(){
+        HashMap<String, DeliveryRequest> UserDeliveryRequest = this.appSystem.getReqDir().getDeliveryRequestsbyClient(client);
+        
+        System.out.println(UserDeliveryRequest.size());
+        
+        delReqModel.setRowCount(0);
+        if(UserDeliveryRequest != null) {
+            for(DeliveryRequest dr : UserDeliveryRequest.values()){
+                ProductOrder currOrder = dr.getOrderToBedelivered();
+                Object[] row = new Object[6];
+                row[0] = dr;
+                row[1] = currOrder.getOrderItemsList();
+                row[2] = currOrder.getOrderTotal();
+                if(dr.getRequestResponder() != null)
+                {row[3] = dr.getRequestResponder().getPerson().getName();
+                }else{row[3] = "-";}
+                row[4] = dr.getStatus();
+                row[5] = dr.getResponderComments();
+                
+                delReqModel.addRow(row);
             }
         }
     }
@@ -117,6 +146,10 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         prodReqTable = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        prodDelReqTable = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new java.awt.BorderLayout());
@@ -168,9 +201,9 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         jLabel10.setBackground(new java.awt.Color(236, 100, 44));
         jLabel10.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(236, 100, 44));
-        jLabel10.setText("Product Requests");
+        jLabel10.setText("My Pharmacy Requests");
         jLayeredPane2.add(jLabel10);
-        jLabel10.setBounds(360, 20, 475, 64);
+        jLabel10.setBounds(290, 20, 550, 64);
 
         prodReqTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         prodReqTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -199,7 +232,47 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         jLayeredPane2.add(jScrollPane3);
         jScrollPane3.setBounds(180, 100, 770, 580);
 
-        jTabbedPane1.addTab("My Product Requests", jLayeredPane2);
+        jTabbedPane1.addTab("My Pharmacy Requests", jLayeredPane2);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1150, 800));
+        jPanel3.setLayout(null);
+
+        jLabel11.setBackground(new java.awt.Color(236, 100, 44));
+        jLabel11.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel11.setText("My Deliveries");
+        jPanel3.add(jLabel11);
+        jLabel11.setBounds(370, 10, 525, 64);
+
+        prodDelReqTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        prodDelReqTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Request ID", "Order Summary", "Order Price", "Volunteer Name", "Status", "Notes"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        prodDelReqTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                prodDelReqTableMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(prodDelReqTable);
+
+        jPanel3.add(jScrollPane5);
+        jScrollPane5.setBounds(150, 80, 770, 580);
+
+        jTabbedPane1.addTab("My Deliveries", jPanel3);
 
         add(jTabbedPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -235,15 +308,23 @@ public class MyRequestsPanel extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_prodReqTableMouseClicked
 
+    private void prodDelReqTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prodDelReqTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prodDelReqTableMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable prodDelReqTable;
     private javax.swing.JTable prodReqTable;
     private javax.swing.JTable servReqTable;
     // End of variables declaration//GEN-END:variables

@@ -51,44 +51,71 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 25, 1300, 800));
-        setPreferredSize(new java.awt.Dimension(1300, 800));
 
-        jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 800));
+        jSplitPane1.setPreferredSize(new java.awt.Dimension(1300, 800));
 
         controlPanel.setBackground(new java.awt.Color(255, 255, 255));
         controlPanel.setPreferredSize(new java.awt.Dimension(150, 800));
-        controlPanel.setSize(new java.awt.Dimension(150, 800));
         controlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        backBtn.setBackground(new java.awt.Color(236, 100, 44));
+        backBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("LOGOUT");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
             }
         });
-        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, 30));
+        controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 30));
 
+<<<<<<< HEAD
         volApplicationsBtn.setText("<html><body style='width: 80px; text-align: left;'>Volunteer Applications </body></html>\n");
+=======
+        volApplicationsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        volApplicationsBtn.setForeground(new java.awt.Color(236, 100, 44));
+        volApplicationsBtn.setText("<html><body style='width: 140px; text-align: center;'> Specialist Volunteer Applications </body></html> ");
+>>>>>>> origin
         volApplicationsBtn.setPreferredSize(new java.awt.Dimension(1300, 800));
         volApplicationsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volApplicationsBtnActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 140, 40));
+=======
+        controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 160, 170, 40));
+>>>>>>> origin
 
-        clientApplicationsBtn.setText("<html><body style='width: 50px; text-align: left;'>Client Applications </body></html>\n");
+        clientApplicationsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        clientApplicationsBtn.setForeground(new java.awt.Color(236, 100, 44));
+        clientApplicationsBtn.setText("<html><body style='width: 50px; text-align: center;'>Client Applications </body></html> ");
         clientApplicationsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clientApplicationsBtnActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 140, 40));
+=======
+        controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 160, -1));
+
+        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(236, 100, 44));
+        jButton1.setText("Vols");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 160, -1));
+>>>>>>> origin
 
         jSplitPane1.setTopComponent(controlPanel);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1300, 800));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1150, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jSplitPane1.setRightComponent(jPanel1);
 

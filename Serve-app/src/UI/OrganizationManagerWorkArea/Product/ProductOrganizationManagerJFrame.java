@@ -78,7 +78,6 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1300, 800));
         setSize(new java.awt.Dimension(1300, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -87,19 +86,24 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel1.setSize(new java.awt.Dimension(150, 800));
         jPanel1.setLayout(null);
 
+        jLabel1.setForeground(new java.awt.Color(236, 100, 44));
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(16, 371, 42, 17);
 
+        jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("jLabel1");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(16, 325, 42, 17);
 
+        jLabel3.setForeground(new java.awt.Color(236, 100, 44));
         jLabel3.setText("jLabel1");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(16, 417, 42, 17);
 
-        backBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        backBtn.setBackground(new java.awt.Color(236, 100, 44));
+        backBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
+        backBtn.setForeground(new java.awt.Color(255, 255, 255));
         backBtn.setText("LOGOUT");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,9 +111,10 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backBtn);
-        backBtn.setBounds(10, 10, 83, 22);
+        backBtn.setBounds(10, 30, 120, 40);
 
-        productCatalogBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productCatalogBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
+        productCatalogBtn.setForeground(new java.awt.Color(236, 100, 44));
         productCatalogBtn.setText("My Products");
         productCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,9 +122,10 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(productCatalogBtn);
-        productCatalogBtn.setBounds(10, 100, 120, 22);
+        productCatalogBtn.setBounds(10, 100, 120, 23);
 
-        productReportBtn.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        productReportBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
+        productReportBtn.setForeground(new java.awt.Color(236, 100, 44));
         productReportBtn.setText("My Reports");
         productReportBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,12 +133,15 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(productReportBtn);
-        productReportBtn.setBounds(10, 130, 120, 22);
+        productReportBtn.setBounds(10, 140, 120, 23);
 
+        jLabel5.setForeground(new java.awt.Color(236, 100, 44));
         jLabel5.setText("jLabel1");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(16, 452, 42, 17);
 
+        pharmOrgManagerRequestsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        pharmOrgManagerRequestsBtn.setForeground(new java.awt.Color(236, 100, 44));
         pharmOrgManagerRequestsBtn.setText("My requests");
         pharmOrgManagerRequestsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,12 +149,12 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(pharmOrgManagerRequestsBtn);
-        pharmOrgManagerRequestsBtn.setBounds(10, 230, 103, 23);
+        pharmOrgManagerRequestsBtn.setBounds(10, 180, 120, 24);
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(1300, 800));
+        jPanel2.setBackground(new java.awt.Color(236, 100, 44));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1150, 800));
         jPanel2.setLayout(null);
         jPanel2.add(jLabel4);
         jLabel4.setBounds(260, 160, 610, 430);

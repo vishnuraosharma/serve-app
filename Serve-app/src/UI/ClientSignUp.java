@@ -106,6 +106,7 @@ public class ClientSignUp extends javax.swing.JFrame {
 
         Left = new java.awt.Panel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         right = new java.awt.Panel();
         NameField = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
@@ -138,21 +139,27 @@ public class ClientSignUp extends javax.swing.JFrame {
         Left.setBackground(new java.awt.Color(236, 100, 44));
         Left.setPreferredSize(new java.awt.Dimension(650, 800));
 
+        jLabel14.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
+
         javax.swing.GroupLayout LeftLayout = new javax.swing.GroupLayout(Left);
         Left.setLayout(LeftLayout);
         LeftLayout.setHorizontalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(619, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftLayout.createSequentialGroup()
                 .addGap(199, 199, 199)
-                .addComponent(jLabel3)
-                .addContainerGap(601, Short.MAX_VALUE))
+                .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel3))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
 
         right.setBackground(new java.awt.Color(255, 255, 255));
@@ -171,9 +178,11 @@ public class ClientSignUp extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(236, 100, 44));
         jLabel1.setText("Name:");
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("Password:");
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 44)); // NOI18N
@@ -194,37 +203,46 @@ public class ClientSignUp extends javax.swing.JFrame {
         userNameField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(236, 100, 44));
         jLabel5.setText("Date of Birth:");
 
         emailField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
         jLabel6.setText("E-mail:");
 
+        jLabel7.setForeground(new java.awt.Color(236, 100, 44));
         jLabel7.setText("SSN:");
 
         ssnField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel8.setForeground(new java.awt.Color(236, 100, 44));
         jLabel8.setText("Address:");
 
         addressField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel9.setForeground(new java.awt.Color(236, 100, 44));
         jLabel9.setText("Occupation:");
 
         occupationField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel10.setForeground(new java.awt.Color(236, 100, 44));
         jLabel10.setText("Contact Number:");
 
         contactNumField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel11.setForeground(new java.awt.Color(236, 100, 44));
         jLabel11.setText("Emergency Contact Name:");
 
+        jLabel12.setForeground(new java.awt.Color(236, 100, 44));
         jLabel12.setText("Emergency Contact Number:");
 
         ecnField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
         ecnumField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
+        jLabel13.setForeground(new java.awt.Color(236, 100, 44));
         jLabel13.setText("UserName:");
 
         passwordField.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
@@ -461,6 +479,7 @@ public class ClientSignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

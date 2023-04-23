@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1150, 800]"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -347,6 +355,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="healthReqCompleteBtn">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2c" green="64" red="ec" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Mark Complete"/>
               </Properties>
               <Events>
@@ -381,6 +392,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="createConvenienceRequestBtn">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2c" green="64" red="ec" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Create pharmacy request"/>
               </Properties>
               <Events>
@@ -411,6 +425,9 @@
             </Container>
             <Component class="javax.swing.JButton" name="removeBtnPrescriptionList">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="2c" green="64" red="ec" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Remove from list"/>
               </Properties>
               <Events>

@@ -80,7 +80,8 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(1300, 800));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1150, 800));
         setSize(new java.awt.Dimension(1300, 800));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -96,6 +97,8 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable1);
 
+        addEnterpriseManagerBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        addEnterpriseManagerBtn.setForeground(new java.awt.Color(236, 100, 44));
         addEnterpriseManagerBtn.setText("Add Enterprise Manager");
         addEnterpriseManagerBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +106,8 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             }
         });
 
+        DeleteEnterpriseBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        DeleteEnterpriseBtn.setForeground(new java.awt.Color(236, 100, 44));
         DeleteEnterpriseBtn.setText("Delete Enterprise Manager");
         DeleteEnterpriseBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,12 +115,16 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(236, 100, 44));
         jLabel1.setText("Enterprise Name: ");
 
+        jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("Manager Name:");
 
+        jLabel3.setForeground(new java.awt.Color(236, 100, 44));
         jLabel3.setText("User Name:");
 
+        jLabel4.setForeground(new java.awt.Color(236, 100, 44));
         jLabel4.setText("Password");
 
         usernameField.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +133,8 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             }
         });
 
+        updateEnterpriseBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        updateEnterpriseBtn.setForeground(new java.awt.Color(236, 100, 44));
         updateEnterpriseBtn.setText("Update Enterprise Manager");
         updateEnterpriseBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +142,10 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setForeground(new java.awt.Color(236, 100, 44));
         jLabel5.setText("Update Manager Name:");
 
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
         jLabel6.setText("Update Password:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -140,16 +153,16 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
+                        .addGap(20, 20, 20)
                         .addComponent(addEnterpriseManagerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
                         .addComponent(DeleteEnterpriseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
                         .addComponent(updateEnterpriseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,14 +186,14 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(updatePasswordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                                    .addComponent(updateNameField))))))
-                .addContainerGap(115, Short.MAX_VALUE))
+                                    .addComponent(updatePasswordTextField)
+                                    .addComponent(updateNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(380, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,7 +224,7 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(updatePasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
