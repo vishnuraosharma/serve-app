@@ -18,15 +18,11 @@ public class ServiceRequest extends Request {
         super(requester);
         this.serviceOrder = so;
     }
-
-    public ServiceOrder getServiceOrder() {
-        return serviceOrder;
-    }
     
 
     @Override
     public void processRequest() {
-         super.setStatus("Pending for volunteer");
+         super.setStatus("Completed");
         
          }
 

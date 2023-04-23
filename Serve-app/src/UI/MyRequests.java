@@ -143,6 +143,22 @@ public class MyRequests extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         deliveryReqResponderComment = new javax.swing.JTextArea();
+        conveniencePanel = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        reqID3 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        reqRequester3 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        reqDate3 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        reqStatus3 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jLabel25 = new javax.swing.JLabel();
+        convCompleteBtn = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        convenienceReqResponderComment = new javax.swing.JTextArea();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -633,23 +649,157 @@ public class MyRequests extends javax.swing.JPanel {
 
         jLayeredPane1.add(deliveryPanel, "card4");
 
+        conveniencePanel.setBackground(new java.awt.Color(153, 153, 153));
+        conveniencePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        jLabel21.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Request ID");
+
+        reqID3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqID3.setForeground(new java.awt.Color(255, 255, 255));
+        reqID3.setText("jLabel1");
+
+        jLabel22.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Requester");
+
+        reqRequester3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqRequester3.setForeground(new java.awt.Color(255, 255, 255));
+        reqRequester3.setText("jLabel1");
+
+        jLabel23.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Request Date");
+
+        reqDate3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqDate3.setForeground(new java.awt.Color(255, 255, 255));
+        reqDate3.setText("jLabel1");
+
+        jLabel24.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Request Status");
+
+        reqStatus3.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        reqStatus3.setForeground(new java.awt.Color(255, 255, 255));
+        reqStatus3.setText("jLabel1");
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane9.setViewportView(jList2);
+
+        jLabel25.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Request order includes the items below");
+
+        convCompleteBtn.setText("Mark Complete");
+        convCompleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                convCompleteBtnActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setFont(new java.awt.Font("Helvetica Neue", 3, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Leave a message to the requestor (if any)");
+
+        convenienceReqResponderComment.setColumns(20);
+        convenienceReqResponderComment.setRows(5);
+        jScrollPane10.setViewportView(convenienceReqResponderComment);
+
+        javax.swing.GroupLayout conveniencePanelLayout = new javax.swing.GroupLayout(conveniencePanel);
+        conveniencePanel.setLayout(conveniencePanelLayout);
+        conveniencePanelLayout.setHorizontalGroup(
+            conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(conveniencePanelLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(conveniencePanelLayout.createSequentialGroup()
+                        .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reqID3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)
+                        .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reqRequester3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9))
+                .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(conveniencePanelLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reqDate3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)
+                        .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reqStatus3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, conveniencePanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                        .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(convCompleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel26)
+                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(57, 57, 57))))
+        );
+        conveniencePanelLayout.setVerticalGroup(
+            conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(conveniencePanelLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(conveniencePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reqStatus3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(conveniencePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reqDate3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(conveniencePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reqRequester3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(conveniencePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reqID3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(100, 100, 100)
+                .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(conveniencePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane10)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
+                .addComponent(convCompleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+        );
+
+        jLayeredPane1.add(conveniencePanel, "card5");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(300, 300, 300)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLayeredPane1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(145, 145, 145)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(41, 41, 41)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(37, 37, 37)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -696,11 +846,11 @@ public class MyRequests extends javax.swing.JPanel {
                 jLayeredPane1.add(healthPanel);
                jLayeredPane1.repaint();
                jLayeredPane1.revalidate();
-                reqID.setText(serviceRequest.getRequestID());
-                reqRequester.setText(serviceRequest.getRequester().getPerson().getName());
+                reqID1.setText(serviceRequest.getRequestID());
+                reqRequester1.setText(serviceRequest.getRequester().getPerson().getName());
                 String dateStr = format.format(serviceRequest.getRequestDate());
-                reqDate.setText(dateStr);
-                reqStatus.setText(serviceRequest.getStatus());
+                reqDate1.setText(dateStr);
+                reqStatus1.setText(serviceRequest.getStatus());
                 
                 healthReqDetails.setText(serviceRequest.getRequestDetails());
                 ProductOrganization pharm = (ProductOrganization) this.appSystem.getEnterprises().findEnterprise("Convenience").getOrganizationDirectory().findOrganization("Pharmacy");
@@ -714,16 +864,40 @@ public class MyRequests extends javax.swing.JPanel {
                 jLayeredPane1.add(legalAndConnectionPanel);
                 jLayeredPane1.repaint();
                 jLayeredPane1.revalidate();
-                reqID.setText(serviceRequest.getRequestID());
-                reqRequester.setText(serviceRequest.getRequester().getPerson().getName());
+                reqID2.setText(serviceRequest.getRequestID());
+                reqRequester2.setText(serviceRequest.getRequester().getPerson().getName());
                 String dateStr = format.format(serviceRequest.getRequestDate());
-                reqDate.setText(dateStr);
-                reqStatus.setText(serviceRequest.getStatus());
+                reqDate2.setText(dateStr);
+                reqStatus2.setText(serviceRequest.getStatus());
                 legalConnReqDetails.setText(serviceRequest.getRequestDetails());
             }
 
             
         }
+            if(isConvenience){
+                ConvenienceRequest convRequest = (ConvenienceRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+                jLayeredPane1.removeAll();
+                jLayeredPane1.add(conveniencePanel);
+                jLayeredPane1.repaint();
+                jLayeredPane1.revalidate();
+                reqID3.setText(convRequest.getRequestID());
+                reqRequester3.setText(convRequest.getRequester().getPerson().getName());
+                String dateStr = format.format(convRequest.getRequestDate());
+                reqDate3.setText(dateStr);
+                reqStatus3.setText(convRequest.getStatus());
+                
+                ProductOrder po = convRequest.getProductOrder();
+                DefaultListModel<String> listModel = new DefaultListModel<String>();
+                for(OrderItem oi: po.getProductsPurchased()){
+                    listModel.addElement(oi.getSelectedProduct().getName());
+                }
+                jList2.setModel(listModel);
+            }
+        
+//        if(serviceRequest.getServiceOrder().getOrg().getName().equals("Pharmacy")){
+//               
+//            
+//            }
 
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -738,8 +912,9 @@ public class MyRequests extends javax.swing.JPanel {
         
         if(!responderComment.isEmpty()){
             serviceRequest.setResponderComments(responderComment);
-            serviceRequest.setStatus("Completed");
         }
+        serviceRequest.processRequest();
+        viewTableModel.setValueAt("Completed", selectedR, 3);
         JOptionPane.showMessageDialog(null, "Thank you for your time and care!");
     }//GEN-LAST:event_healthReqCompleteBtnActionPerformed
 
@@ -754,10 +929,10 @@ public class MyRequests extends javax.swing.JPanel {
         
         if(!responderComment.isEmpty()){
             serviceRequest.setResponderComments(responderComment);
-            serviceRequest.setStatus("Completed");
         }
-       
-        JOptionPane.showConfirmDialog(null, "Thank you for your time and care!");
+        serviceRequest.processRequest();
+        viewTableModel.setValueAt("Completed", selectedR, 3);
+        JOptionPane.showMessageDialog(null, "Thank you for your time and care!");
     }//GEN-LAST:event_legalConnCompleteBtnActionPerformed
 
     private void deliveryCompleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deliveryCompleteBtnActionPerformed
@@ -771,8 +946,10 @@ public class MyRequests extends javax.swing.JPanel {
         
         if(!responderComment.isEmpty()){
             selectedRequest.setResponderComments(responderComment);
-            selectedRequest.setStatus("Completed");
         }
+        selectedRequest.processRequest();
+        viewTableModel.setValueAt("Completed", selectedR, 3);
+        JOptionPane.showMessageDialog(null, "Thank you for your time and care!");
     }//GEN-LAST:event_deliveryCompleteBtnActionPerformed
 
     private void prescriptionComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prescriptionComboMouseClicked
@@ -814,7 +991,27 @@ public class MyRequests extends javax.swing.JPanel {
         ServiceRequest serviceRequest = (ServiceRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
         ProductOrder po = pharmCart.processCart((Client) serviceRequest.getRequester().getPerson(),pharm);
         reqDir.createConvenienceRequest(serviceRequest.getRequester(), po);
+        JOptionPane.showMessageDialog(null, "New pharmacy order is placed with selected items!");
     }//GEN-LAST:event_createConvenienceRequestBtnActionPerformed
+
+    private void convCompleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_convCompleteBtnActionPerformed
+        // TODO add your handling code here:
+         int selectedR = jTable1.getSelectedRow();
+
+        RequestDirectory reqDir = appSystem.getReqDir();
+        
+        ConvenienceRequest convRequest = (ConvenienceRequest) reqDir.findRequestById(jTable1.getValueAt(selectedR, 0).toString());
+        
+        String responderComment = convenienceReqResponderComment.getText();
+        
+        if(!responderComment.isEmpty()){
+            convRequest.setResponderComments(responderComment);
+//            selectedRequest.setStatus("Completed");
+        }
+        convRequest.processRequest();
+        DeliveryRequest delreq = reqDir.createDeliveryRequest(convRequest.getRequester(), convRequest.getProductOrder());
+        JOptionPane.showMessageDialog(null, "Thank you for your time, a new delivery request is placed!");
+    }//GEN-LAST:event_convCompleteBtnActionPerformed
         
         public void displayMyDeliveryRequests(){
             viewTableModel.setRowCount(0);
@@ -891,6 +1088,9 @@ public class MyRequests extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton convCompleteBtn;
+    private javax.swing.JPanel conveniencePanel;
+    private javax.swing.JTextArea convenienceReqResponderComment;
     private javax.swing.JButton createConvenienceRequestBtn;
     private javax.swing.JButton deliveryCompleteBtn;
     private javax.swing.JPanel deliveryPanel;
@@ -912,6 +1112,12 @@ public class MyRequests extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -921,7 +1127,9 @@ public class MyRequests extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -929,6 +1137,7 @@ public class MyRequests extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel legalAndConnectionPanel;
     private javax.swing.JButton legalConnCompleteBtn;
@@ -940,15 +1149,19 @@ public class MyRequests extends javax.swing.JPanel {
     private javax.swing.JLabel reqDate;
     private javax.swing.JLabel reqDate1;
     private javax.swing.JLabel reqDate2;
+    private javax.swing.JLabel reqDate3;
     private javax.swing.JLabel reqID;
     private javax.swing.JLabel reqID1;
     private javax.swing.JLabel reqID2;
+    private javax.swing.JLabel reqID3;
     private javax.swing.JLabel reqLocation;
     private javax.swing.JLabel reqRequester;
     private javax.swing.JLabel reqRequester1;
     private javax.swing.JLabel reqRequester2;
+    private javax.swing.JLabel reqRequester3;
     private javax.swing.JLabel reqStatus;
     private javax.swing.JLabel reqStatus1;
     private javax.swing.JLabel reqStatus2;
+    private javax.swing.JLabel reqStatus3;
     // End of variables declaration//GEN-END:variables
 }
