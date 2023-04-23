@@ -13,6 +13,8 @@ import Organization.ServiceManagement.ServiceOrder;
 import Organization.ServiceManagement.ServicesCart;
 import Organization.ServicesOrganization;
 import Person.Client.Client;
+import Requests.Request;
+import Requests.ServiceRequest;
 import UserAccount.UserAccount;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -426,7 +428,8 @@ public class HospitalMP extends javax.swing.JPanel {
                 }
             }
             for (ServiceOrder so : sos){
-                this.appSystem.getReqDir().createServiceRequest(this.useraccount, so);
+                Request serviceRequest = this.appSystem.getReqDir().createServiceRequest(this.useraccount, so);
+                serviceRequest.setRequestDetails(so.getOrderDetails());
             }
             reqDetails = new ArrayList<String>();
             JOptionPane.showMessageDialog(null,"Your order has been placed.");
