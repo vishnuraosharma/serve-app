@@ -317,20 +317,26 @@ public class Network {
       Service lawOff4 = lawOff.getServices().newService("Social Security Benefits", 20, "Legal Services", "Social Security benefits are a federal program designed to provide financial assistance to retired  disabled and low-income individuals.");
       lawOff4.setProductImageFilewithFilePath("src/Resources/ServiceImages/Social Security Benefits.jpg");
 
-      Service scouts1 = scouts.getServices().newService("Physical Therapy", 90, "Rehabilitation", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
-      scouts1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Physical Therapy.jpg");  
+      Service scouts1 = scouts.getServices().newService("Lawn Care", 90, "Home Services", "Boy Scouts of America volunteers can provide lawn care services for seniors who may have difficulty maintaining their yards. Services can include mowing, trimming, and weeding.");
+      scouts1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Lawn Care.jpg");  
 
-      Service scouts2 = scouts.getServices().newService("Physical Therapy", 90, "Rehabilitation", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
-      scouts2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Physical Therapy.jpg");  
+      Service scouts2 = scouts.getServices().newService("Technology Assistance", 30, "Home Services", "Many seniors struggle with technology and the Boy Scouts of America can help by providing technology assistance such as setting up and troubleshooting devices and teaching seniors how to use software and apps.");
+      scouts2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Technology Assistance.jpg");  
      
-      Service scouts3 = scouts.getServices().newService("Physical Therapy", 90, "Rehabilitation", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
-      scouts1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Physical Therapy.jpg");  
+      Service scouts3 = scouts.getServices().newService("Outdoor Activities", 120, "Physical Activity", "Boy Scouts of America volunteers can take seniors on outdoor activities such as nature walks  bird watching and camping trips. These activities can provide seniors with fresh air exercise and social interaction.");
+      scouts3.setProductImageFilewithFilePath("src/Resources/ServiceImages/Outdoor Activities.jpg");  
      
+      Service school1 = school.getServices().newService("Reading Buddies", 30, "Companionship & Connection", "High school students can volunteer as reading buddies for seniors who enjoy reading or being read to. This can provide social interaction and mental stimulation for seniors.");
+      school1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Reading Buddies.jpg");
+     
+      Service school2 = school.getServices().newService("Puzzle Partners", 60, "Companionship & Connection", "High school students can volunteer as reading buddies for seniors who enjoy reading or being read to. This can provide social interaction and mental stimulation for seniors.");
+      school2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Puzzle Partners.jpg");
 
+      Service school3 = school.getServices().newService("Virtual Visits", 60, "Companionship & Connection", "High school students can volunteer to visit seniors virtually through video calls or phone calls. This can provide social interaction and a way for seniors to connect with others.");
+      school3.setProductImageFilewithFilePath("src/Resources/ServiceImages/Virtual Visits.jpg");
 
-
-
-      
+      Service school4 = school.getServices().newService("Pet Therapy", 30, "Companionship & Connection", "High school students can bring well-behaved pets such as dogs or cats to visit seniors. This can provide companionship and emotional support for seniors who love animals.");
+      school4.setProductImageFilewithFilePath("src/Resources/ServiceImages/Pet Therapy.jpg");     
       }
       
       
