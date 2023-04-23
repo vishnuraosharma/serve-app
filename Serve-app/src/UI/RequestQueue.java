@@ -146,7 +146,7 @@ public class RequestQueue extends javax.swing.JPanel {
 
         jLayeredPane1.setLayout(new java.awt.CardLayout());
 
-        requestQueueDeliveryPanel.setBackground(new java.awt.Color(153, 153, 153));
+        requestQueueDeliveryPanel.setBackground(new java.awt.Color(244, 180, 148));
         requestQueueDeliveryPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -200,6 +200,9 @@ public class RequestQueue extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Delivery Location");
 
+        requestQueueDeliveryAssignBtn.setBackground(new java.awt.Color(236, 100, 44));
+        requestQueueDeliveryAssignBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        requestQueueDeliveryAssignBtn.setForeground(new java.awt.Color(255, 255, 255));
         requestQueueDeliveryAssignBtn.setText("Assign to me");
         requestQueueDeliveryAssignBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

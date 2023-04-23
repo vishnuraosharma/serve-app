@@ -47,10 +47,12 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
     }
     
     public void test(){
-        jLabel1.setText(String.valueOf(this.useraccount.getUserName()));
+        jLabel5.setText(String.valueOf(this.useraccount.getPerson().getName()));
+//        jLabel1.setText(String.valueOf(this.useraccount.getUserName()));
         jLabel2.setText(String.valueOf(this.enterprise.getName()));
         jLabel3.setText(String.valueOf(this.organization.getName()));
-        jLabel5.setText(String.valueOf(this.organization.getClass()));
+
+        
         appSystem.addIcon(1, jLabel4);
         
     }
@@ -66,14 +68,15 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         backBtn = new javax.swing.JButton();
         productCatalogBtn = new javax.swing.JButton();
-        productReportBtn = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         pharmOrgManagerRequestsBtn = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -86,20 +89,15 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel1.setSize(new java.awt.Dimension(150, 800));
         jPanel1.setLayout(null);
 
-        jLabel1.setForeground(new java.awt.Color(236, 100, 44));
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(16, 371, 42, 17);
-
         jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("jLabel1");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(16, 325, 42, 17);
+        jLabel2.setBounds(10, 310, 130, 17);
 
         jLabel3.setForeground(new java.awt.Color(236, 100, 44));
         jLabel3.setText("jLabel1");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(16, 417, 42, 17);
+        jLabel3.setBounds(10, 360, 140, 17);
 
         backBtn.setBackground(new java.awt.Color(236, 100, 44));
         backBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
@@ -111,7 +109,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(backBtn);
-        backBtn.setBounds(10, 30, 120, 40);
+        backBtn.setBounds(0, 50, 150, 40);
 
         productCatalogBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productCatalogBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -122,42 +120,51 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(productCatalogBtn);
-        productCatalogBtn.setBounds(10, 100, 120, 23);
-
-        productReportBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
-        productReportBtn.setForeground(new java.awt.Color(236, 100, 44));
-        productReportBtn.setText("My Reports");
-        productReportBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productReportBtnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(productReportBtn);
-        productReportBtn.setBounds(10, 140, 120, 23);
+        productCatalogBtn.setBounds(0, 130, 150, 40);
 
         jLabel5.setForeground(new java.awt.Color(236, 100, 44));
         jLabel5.setText("jLabel1");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(16, 452, 42, 17);
+        jLabel5.setBounds(10, 260, 140, 17);
 
         pharmOrgManagerRequestsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         pharmOrgManagerRequestsBtn.setForeground(new java.awt.Color(236, 100, 44));
-        pharmOrgManagerRequestsBtn.setText("My requests");
+        pharmOrgManagerRequestsBtn.setText("My Requests");
         pharmOrgManagerRequestsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pharmOrgManagerRequestsBtnActionPerformed(evt);
             }
         });
         jPanel1.add(pharmOrgManagerRequestsBtn);
-        pharmOrgManagerRequestsBtn.setBounds(10, 180, 120, 24);
+        pharmOrgManagerRequestsBtn.setBounds(0, 180, 150, 40);
+
+        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel6.setText("Hello ");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(10, 240, 42, 17);
+
+        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel7.setText("Enterprise:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(10, 290, 90, 17);
+
+        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(236, 100, 44));
+        jLabel8.setText("Organization:");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(10, 340, 90, 17);
 
         jSplitPane1.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(236, 100, 44));
         jPanel2.setPreferredSize(new java.awt.Dimension(1150, 800));
         jPanel2.setLayout(null);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(260, 160, 610, 430);
+        jLabel4.setBounds(310, 190, 610, 430);
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -180,10 +187,6 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
             this.jSplitPane1.setRightComponent(new myProductsGroceryOrganizationJPanel(appSystem, enterprise,organization,useraccount));
         }        
     }//GEN-LAST:event_productCatalogBtnActionPerformed
-
-    private void productReportBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productReportBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productReportBtnActionPerformed
 
     private void pharmOrgManagerRequestsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pharmOrgManagerRequestsBtnActionPerformed
         // TODO add your handling code here:
@@ -234,16 +237,17 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton pharmOrgManagerRequestsBtn;
     private javax.swing.JButton productCatalogBtn;
-    private javax.swing.JButton productReportBtn;
     // End of variables declaration//GEN-END:variables
 }
