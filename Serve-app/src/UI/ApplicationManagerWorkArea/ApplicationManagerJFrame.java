@@ -55,11 +55,13 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         backBtn = new javax.swing.JButton();
         volApplicationsBtn = new javax.swing.JButton();
         clientApplicationsBtn = new javax.swing.JButton();
+
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,16 +84,18 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         });
         controlPanel.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 160, 40));
 
-        volApplicationsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        volApplicationsBtn.setForeground(new java.awt.Color(236, 100, 44));
-        volApplicationsBtn.setText("<html><body style='width: 140px; text-align: center;'> Specialist Volunteer Applications </body></html> ");
+
+        volApplicationsBtn.setText("<html><body style='width: 80px; text-align: left;'>Volunteer Applications </body></html>\n");
+
         volApplicationsBtn.setPreferredSize(new java.awt.Dimension(1300, 800));
         volApplicationsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volApplicationsBtnActionPerformed(evt);
             }
         });
+
         controlPanel.add(volApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 130, 170, 50));
+
 
         clientApplicationsBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         clientApplicationsBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -101,7 +105,9 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
                 clientApplicationsBtnActionPerformed(evt);
             }
         });
+
         controlPanel.add(clientApplicationsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 160, -1));
+
 
         jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(236, 100, 44));
@@ -111,6 +117,7 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
         controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 160, -1));
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -130,6 +137,7 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(236, 100, 44));
         jLabel8.setText("Role:");
         controlPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, -1, -1));
+
 
         jSplitPane1.setTopComponent(controlPanel);
 
@@ -159,11 +167,6 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jSplitPane1.setRightComponent(new ClientManagementJPanel(appSystem,enterprise,organization,useraccount));
     }//GEN-LAST:event_clientApplicationsBtnActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        jSplitPane1.setRightComponent(new ManageVolsAndClients(appSystem,enterprise,organization,useraccount));
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,11 +207,13 @@ public class ApplicationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JButton backBtn;
     private javax.swing.JButton clientApplicationsBtn;
     private javax.swing.JPanel controlPanel;
+
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
+
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton volApplicationsBtn;

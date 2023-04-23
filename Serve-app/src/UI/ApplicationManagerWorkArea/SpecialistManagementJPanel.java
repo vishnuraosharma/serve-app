@@ -15,6 +15,14 @@ import UserAccount.UserAccount;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Map;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -358,6 +366,48 @@ public class SpecialistManagementJPanel extends javax.swing.JPanel {
         viewTableModel.setValueAt((selectedRequest.getStatus().equals("Completed") ? "Completed" : "Created"), selectedR, 3);
         viewTableModel.setValueAt((selectedRequest.getApp().getStatus().equals("Approved") ? "Approved" : "Pending"), selectedR, 4);
         viewTableModel.fireTableDataChanged();
+        
+                String to = selectedRequest.getApp().getPerson().getEmail();
+                String from = "serveappcommunity@gmail.com";
+                final String username = "serveappcommunity@gmail.com";
+                final String password = "tcwurhadkosggbnn";
+                String host = "smtp.gmail.com";
+
+                Properties props = new Properties();
+                props.put("mail.smtp.auth", "true");
+                props.put("mail.smtp.starttls.enable", "true");
+                props.put("mail.smtp.host", host);
+                props.put("mail.smtp.port", "587");
+                props.put("mail.smtp.ssl.protocols", "TLSv1.3");
+                props.put("mail.smtp.ssl.ciphersuites", "TLS_AES_256_GCM_SHA384");
+
+                Session session = Session.getInstance(props,
+                    new javax.mail.Authenticator() {
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication(username, password);
+                        }
+                });
+
+                try {
+                    Message message = new MimeMessage(session);
+                    message.setFrom(new InternetAddress(from));
+                    message.setRecipients(Message.RecipientType.TO,
+                        InternetAddress.parse(to));
+                    message.setSubject("Serve App Approval");
+                    message.setText(String.format("Dear %s, Congratulations! Your application has been approved. "
+                            + "Here is your username and password. Username: %s Password: %s",
+                            selectedRequest.getApp().getPerson().getName(),
+                            selectedRequest.getApp().getUsername(),
+                            selectedRequest.getApp().getPassword()));
+
+                    Transport.send(message);
+
+                    System.out.println("Sent");
+
+                } catch (MessagingException e) {
+                    throw new RuntimeException(e);
+                }
+
         
     }//GEN-LAST:event_approveBtnActionPerformed
 

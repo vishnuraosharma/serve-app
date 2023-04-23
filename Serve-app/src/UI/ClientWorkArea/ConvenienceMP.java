@@ -671,7 +671,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
             ProductOrder po = pharmCart.processCart((Client) this.useraccount.getPerson(), this.pharmacyOrg);
             this.pharmPopup.setVisible(false);
             this.appSystem.getReqDir().createConvenienceRequest(this.useraccount, po);
-            JOptionPane.showMessageDialog(null,"Your order has been placed. See the 'My Product Requests' page in 'My Requests' to see delivery status. ");
+            JOptionPane.showMessageDialog(null,"Your order has been placed and must be processed by the pharmacy. See the 'My Pharmacy Requests' page in 'My Requests' to see status updates on your order.");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
         }
@@ -707,8 +707,8 @@ public class ConvenienceMP extends javax.swing.JPanel {
             ProductOrder po = groCart.processCart((Client) this.useraccount.getPerson(), this.grocery);
             this.groPopup.setVisible(false);
 //            ConvenienceRequest conReq = this.appSystem.getReqDir().createConvenienceRequest(this.useraccount, po);
-            this.appSystem.getReqDir().createConvenienceRequest(this.useraccount, po);
-            JOptionPane.showMessageDialog(null,"Your order has been placed. See the 'My Product Requests' page in 'My Requests' to see delivery status.");
+            this.appSystem.getReqDir().createDeliveryRequest(this.useraccount, po);
+            JOptionPane.showMessageDialog(null,"Your order has been placed. See the 'My Deliveries' page in 'My Requests' to see delivery status.");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
         }
