@@ -22,8 +22,14 @@ import UI.ClientWorkArea.HospitalMP;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
 import WorkAreas.ClientRole;
+<<<<<<< HEAD
 import WorkAreas.ConvenienceVolunteerRole;
+=======
+import WorkAreas.ConnectionVolunteerRole;
+>>>>>>> origin
 import WorkAreas.EnterpriseManagerRole;
+import WorkAreas.HealthcareSpecialistRole;
+import WorkAreas.LegalSpecialistRole;
 import WorkAreas.ProductOrganizationManagerRole;
 import WorkAreas.ServicesOrganizationManagerRole;
 import WorkAreas.SystemAdminRole;
@@ -98,7 +104,6 @@ public class Network {
         Organization o5 = connection.getOrganizationDirectory().createServicesOrganization("Community Organization",connection, "Community Organization");
         Organization o6 = connection.getOrganizationDirectory().createServicesOrganization("School",connection, "School");  
         
-        
         Organization o7 = convenience.getOrganizationDirectory().createVolunteerOrganization("ConvenienceVolOrganization", convenience,"Volunteer");
        
         //comment out to remove fake data
@@ -108,7 +113,13 @@ public class Network {
         
         productfaker((ProductOrganization)o1, (ProductOrganization) o2);
 //        servicefaker((ServicesOrganization) o3,(ServicesOrganization) o4,(ServicesOrganization) o5,(ServicesOrganization) o6);
+
         convVolfaker((ConvenienceVolOrganization) o7);
+
+        
+        servVolfaker((ServicesOrganization) o3,(ServicesOrganization) o4,(ServicesOrganization) o5,(ServicesOrganization) o6);
+        
+
         return app;
     }
 
@@ -183,6 +194,26 @@ public class Network {
         Client c = (Client) personDirectory.createClient("Client A");
         UserAccount ua = topLevelUserAccountDirectory.createUserAccount("client", "client", new ClientRole());
         ua.setPerson(c);
+        
+        Client c1 = (Client) personDirectory.createClient("Client B");
+        UserAccount ua1 = topLevelUserAccountDirectory.createUserAccount("c1", "c1", new ClientRole());
+        ua1.setPerson(c1);
+        
+        Client c2 = (Client) personDirectory.createClient("Client C");
+        UserAccount ua2 = topLevelUserAccountDirectory.createUserAccount("c2", "c2", new ClientRole());
+        ua2.setPerson(c2);
+        
+        Client c3 = (Client) personDirectory.createClient("Client D");
+        UserAccount ua3 = topLevelUserAccountDirectory.createUserAccount("c3", "c3", new ClientRole());
+        ua3.setPerson(c3);
+        
+        Client c4 = (Client) personDirectory.createClient("Client E");
+        UserAccount ua4 = topLevelUserAccountDirectory.createUserAccount("c4", "c4", new ClientRole());
+        ua4.setPerson(c4);
+        
+        Client c5 = (Client) personDirectory.createClient("Client F");
+        UserAccount ua5 = topLevelUserAccountDirectory.createUserAccount("c5", "c5", new ClientRole());
+        ua5.setPerson(c5);
     }
 
     public static void productfaker(ProductOrganization pharmacy, ProductOrganization grocery){
@@ -292,10 +323,12 @@ public class Network {
         Product groPro15 =grocery.getProductCatalog().newProduct("Lettuce", 1.99, "Vegetables");
         groPro15.setProductImageFilewithFilePath("src/Resources/ProductImages/Lettuce.jpg");        
     }
+
 //      public static void servicefaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
 //      Service hosServ1 = hospital.getServices().newService(n, 0, category, desc);
 //      hosServ1.setProductImageFilewithFilePath("");
 //      }
+
 
       public static void servicefaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
       Service hosServ1 = hospital.getServices().newService("Physical Therapy", 30, "Rehabilitation", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
@@ -351,6 +384,7 @@ public class Network {
       
        
       
+
 //      public static void servVolfaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
 //          
 //          Person d1 = this.personDirectory.createPerson("Dr. Rob");
@@ -389,6 +423,84 @@ public class Network {
           vol5ua.setPerson(vol5);
  
           
+
+      public static void servVolfaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
+          //Doctor
+          Person d1 = personDirectory.createPerson("Dr. Rob");
+          hospital.getVolunteerDir().createNewVolunteer(d1, new HealthcareSpecialistRole());
+          UserAccount ua1 = hospital.getOrganizationAccountDirectory().createUserAccount("d1", "d1", new HealthcareSpecialistRole());
+          hospital.getE().getUseraccountDirectory().getUserAccountList().add(ua1);
+          ua1.setPerson(d1);
+          
+          Person d2 = personDirectory.createPerson("Dr. Lisa");
+          hospital.getVolunteerDir().createNewVolunteer(d2, new HealthcareSpecialistRole());
+          UserAccount ua2 = hospital.getOrganizationAccountDirectory().createUserAccount("d2", "d2", new HealthcareSpecialistRole());
+          hospital.getE().getUseraccountDirectory().getUserAccountList().add(ua2);
+          ua2.setPerson(d2);
+          
+          Person d3 = personDirectory.createPerson("Dr. Lisa");
+          hospital.getVolunteerDir().createNewVolunteer(d3, new HealthcareSpecialistRole());
+          UserAccount ua3 = hospital.getOrganizationAccountDirectory().createUserAccount("d3", "d3", new HealthcareSpecialistRole());
+          hospital.getE().getUseraccountDirectory().getUserAccountList().add(ua3);
+          ua3.setPerson(d3);
+          
+          //Legal
+          Person l1 = personDirectory.createPerson("Charlie Esq.");
+          lawOff.getVolunteerDir().createNewVolunteer(l1, new LegalSpecialistRole());
+          UserAccount ua4 = lawOff.getOrganizationAccountDirectory().createUserAccount("l1", "l1", new LegalSpecialistRole());
+          lawOff.getE().getUseraccountDirectory().getUserAccountList().add(ua4);
+          ua4.setPerson(l1);
+          
+          Person l2 = personDirectory.createPerson("Rob Esq.");
+          lawOff.getVolunteerDir().createNewVolunteer(l2, new LegalSpecialistRole());
+          UserAccount ua5 = lawOff.getOrganizationAccountDirectory().createUserAccount("l2", "l2", new LegalSpecialistRole());
+          lawOff.getE().getUseraccountDirectory().getUserAccountList().add(ua5);
+          ua5.setPerson(l2);
+          
+          Person l3 = personDirectory.createPerson("Glenn Esq.");
+          lawOff.getVolunteerDir().createNewVolunteer(l3, new LegalSpecialistRole());
+          UserAccount ua6 = lawOff.getOrganizationAccountDirectory().createUserAccount("l3", "l3", new LegalSpecialistRole());
+          lawOff.getE().getUseraccountDirectory().getUserAccountList().add(ua6);
+          ua6.setPerson(l3);
+          
+          //Scout
+          Person sc1 = personDirectory.createPerson("Eagle Badge");
+          scouts.getVolunteerDir().createNewVolunteer(sc1, new LegalSpecialistRole());
+          UserAccount ua7 = scouts.getOrganizationAccountDirectory().createUserAccount("sc1", "sc1", new ConnectionVolunteerRole());
+          scouts.getE().getUseraccountDirectory().getUserAccountList().add(ua7);
+          ua7.setPerson(sc1);
+          
+          Person sc2 = personDirectory.createPerson("Life Badge");
+          scouts.getVolunteerDir().createNewVolunteer(sc2, new LegalSpecialistRole());
+          UserAccount ua8 = scouts.getOrganizationAccountDirectory().createUserAccount("sc2", "sc2", new ConnectionVolunteerRole());
+          scouts.getE().getUseraccountDirectory().getUserAccountList().add(ua8);
+          ua8.setPerson(sc2);
+          
+          Person sc3 = personDirectory.createPerson("Ten DerFoot");
+          scouts.getVolunteerDir().createNewVolunteer(sc3, new LegalSpecialistRole());
+          UserAccount ua9 = scouts.getOrganizationAccountDirectory().createUserAccount("sc3", "sc3", new ConnectionVolunteerRole());
+          scouts.getE().getUseraccountDirectory().getUserAccountList().add(ua9);
+          ua9.setPerson(sc3);
+          
+          //School
+          Person st1 = personDirectory.createPerson("Sally Student");
+          school.getVolunteerDir().createNewVolunteer(sc1, new LegalSpecialistRole());
+          UserAccount ua10 = school.getOrganizationAccountDirectory().createUserAccount("st1", "st1", new ConnectionVolunteerRole());
+          school.getE().getUseraccountDirectory().getUserAccountList().add(ua7);
+          ua10.setPerson(st1);
+          
+          Person st2 = personDirectory.createPerson("Ronny Class");
+          school.getVolunteerDir().createNewVolunteer(sc2, new LegalSpecialistRole());
+          UserAccount ua11 = school.getOrganizationAccountDirectory().createUserAccount("st2", "st2", new ConnectionVolunteerRole());
+          school.getE().getUseraccountDirectory().getUserAccountList().add(ua8);
+          ua11.setPerson(st2);
+          
+          Person st3 = personDirectory.createPerson("Skip Lunch");
+          school.getVolunteerDir().createNewVolunteer(sc3, new LegalSpecialistRole());
+          UserAccount ua12 = school.getOrganizationAccountDirectory().createUserAccount("st3", "st3", new ConnectionVolunteerRole());
+          school.getE().getUseraccountDirectory().getUserAccountList().add(ua9);
+          ua12.setPerson(st3);
+
       }
       
 //      public static void serviceRequestfaker( convVolOrg){
