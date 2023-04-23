@@ -290,9 +290,56 @@ public class Network {
         groPro15.setProductImageFilewithFilePath("src/Resources/ProductImages/Lettuce.jpg");        
     }
       public static void servicefaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
-      Service hosServ1 = hospital.getServices().newService(n, 0, category, desc);
-      hosServ1.setProductImageFilewithFilePath("");
+      Service hosServ1 = hospital.getServices().newService("Physical Therapy", 30, "Rehabilitation", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
+      hosServ1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Physical Therapy.jpg");
+      
+      Service hosServ2 = hospital.getServices().newService("Occupational Therapy", 45, "Rehabilitation", "A type of therapy that focuses on helping people achieve independence in their daily activities after an illness injury or disability.");
+      hosServ2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Occupational Therapy.jpg");      
+      
+      Service hosServ3 = hospital.getServices().newService("Speech Therapy", 60, "Rehabilitation", "A type of therapy that helps individuals improve communication and language skills  as well as swallowing disorders");
+      hosServ3.setProductImageFilewithFilePath("src/Resources/ServiceImages/Speech Therapy.jpg");      
+      
+      Service hosServ4 = hospital.getServices().newService("Medication Management", 15, "Medical Management", "A service that ensures seniors are taking their medication as prescribed and can include medication reminders administration and monitoring.");
+      hosServ4.setProductImageFilewithFilePath("src/Resources/ServiceImages/Medication Management.jpg");      
+      
+      Service hosServ5 = hospital.getServices().newService("Tele-health Check-up", 30, "Physician Care", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
+      hosServ5.setProductImageFilewithFilePath("src/Resources/ServiceImages/Tele-health Check-up.jpg");  
+      
+      Service lawOff1 = lawOff.getServices().newService("Estate Planning", 60, "Legal Services", "Estate planning is the process of arranging for the management and distribution of a person's estate during their life and after their death.");
+      lawOff1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Estate Planning.jpg");
+
+      Service lawOff2 = hospital.getServices().newService("Elder Law", 30, "Legal Services", "Elder law is a specialized area of legal practice that focuses on the unique needs of older adults and their families.");
+      lawOff2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Elder Law.jpg");
+
+      Service lawOff3 = lawOff.getServices().newService("Medicaid Planning", 45, "Legal Services", "Medicaid planning is the process of arranging your finances in such a way as to qualify for Medicaid while still preserving as much of your assets as possible.");
+      lawOff3.setProductImageFilewithFilePath("src/Resources/ServiceImages/Medicaid Planning.jpg");
+
+      Service lawOff4 = lawOff.getServices().newService("Social Security Benefits", 20, "Legal Services", "Social Security benefits are a federal program designed to provide financial assistance to retired  disabled and low-income individuals.");
+      lawOff4.setProductImageFilewithFilePath("src/Resources/ServiceImages/Social Security Benefits.jpg");
+
+      Service scouts1 = scouts.getServices().newService("Lawn Care", 90, "Home Services", "Boy Scouts of America volunteers can provide lawn care services for seniors who may have difficulty maintaining their yards. Services can include mowing, trimming, and weeding.");
+      scouts1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Lawn Care.jpg");  
+
+      Service scouts2 = scouts.getServices().newService("Technology Assistance", 30, "Home Services", "Many seniors struggle with technology and the Boy Scouts of America can help by providing technology assistance such as setting up and troubleshooting devices and teaching seniors how to use software and apps.");
+      scouts2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Technology Assistance.jpg");  
+     
+      Service scouts3 = scouts.getServices().newService("Outdoor Activities", 120, "Physical Activity", "Boy Scouts of America volunteers can take seniors on outdoor activities such as nature walks  bird watching and camping trips. These activities can provide seniors with fresh air exercise and social interaction.");
+      scouts3.setProductImageFilewithFilePath("src/Resources/ServiceImages/Outdoor Activities.jpg");  
+     
+      Service school1 = school.getServices().newService("Reading Buddies", 30, "Companionship & Connection", "High school students can volunteer as reading buddies for seniors who enjoy reading or being read to. This can provide social interaction and mental stimulation for seniors.");
+      school1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Reading Buddies.jpg");
+     
+      Service school2 = school.getServices().newService("Puzzle Partners", 60, "Companionship & Connection", "High school students can volunteer as reading buddies for seniors who enjoy reading or being read to. This can provide social interaction and mental stimulation for seniors.");
+      school2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Puzzle Partners.jpg");
+
+      Service school3 = school.getServices().newService("Virtual Visits", 60, "Companionship & Connection", "High school students can volunteer to visit seniors virtually through video calls or phone calls. This can provide social interaction and a way for seniors to connect with others.");
+      school3.setProductImageFilewithFilePath("src/Resources/ServiceImages/Virtual Visits.jpg");
+
+      Service school4 = school.getServices().newService("Pet Therapy", 30, "Companionship & Connection", "High school students can bring well-behaved pets such as dogs or cats to visit seniors. This can provide companionship and emotional support for seniors who love animals.");
+      school4.setProductImageFilewithFilePath("src/Resources/ServiceImages/Pet Therapy.jpg");     
       }
+      
+      
       
        
       
