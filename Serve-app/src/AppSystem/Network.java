@@ -290,9 +290,50 @@ public class Network {
         groPro15.setProductImageFilewithFilePath("src/Resources/ProductImages/Lettuce.jpg");        
     }
       public static void servicefaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
-      Service hosServ1 = hospital.getServices().newService(n, 0, category, desc);
-      hosServ1.setProductImageFilewithFilePath("");
+      Service hosServ1 = hospital.getServices().newService("Physical Therapy", 30, "Rehabilitation", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
+      hosServ1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Physical Therapy.jpg");
+      
+      Service hosServ2 = hospital.getServices().newService("Occupational Therapy", 45, "Rehabilitation", "A type of therapy that focuses on helping people achieve independence in their daily activities after an illness injury or disability.");
+      hosServ2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Occupational Therapy.jpg");      
+      
+      Service hosServ3 = hospital.getServices().newService("Speech Therapy", 60, "Rehabilitation", "A type of therapy that helps individuals improve communication and language skills  as well as swallowing disorders");
+      hosServ3.setProductImageFilewithFilePath("src/Resources/ServiceImages/Speech Therapy.jpg");      
+      
+      Service hosServ4 = hospital.getServices().newService("Medication Management", 15, "Medical Management", "A service that ensures seniors are taking their medication as prescribed and can include medication reminders administration and monitoring.");
+      hosServ4.setProductImageFilewithFilePath("src/Resources/ServiceImages/Medication Management.jpg");      
+      
+      Service hosServ5 = hospital.getServices().newService("Tele-health Check-up", 30, "Physician Care", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
+      hosServ5.setProductImageFilewithFilePath("src/Resources/ServiceImages/Tele-health Check-up.jpg");  
+      
+      Service lawOff1 = lawOff.getServices().newService("Estate Planning", 60, "Legal Services", "Estate planning is the process of arranging for the management and distribution of a person's estate during their life and after their death.");
+      lawOff1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Estate Planning.jpg");
+
+      Service lawOff2 = hospital.getServices().newService("Elder Law", 30, "Legal Services", "Elder law is a specialized area of legal practice that focuses on the unique needs of older adults and their families.");
+      lawOff2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Elder Law.jpg");
+
+      Service lawOff3 = lawOff.getServices().newService("Medicaid Planning", 45, "Legal Services", "Medicaid planning is the process of arranging your finances in such a way as to qualify for Medicaid while still preserving as much of your assets as possible.");
+      lawOff3.setProductImageFilewithFilePath("src/Resources/ServiceImages/Medicaid Planning.jpg");
+
+      Service lawOff4 = lawOff.getServices().newService("Social Security Benefits", 20, "Legal Services", "Social Security benefits are a federal program designed to provide financial assistance to retired  disabled and low-income individuals.");
+      lawOff4.setProductImageFilewithFilePath("src/Resources/ServiceImages/Social Security Benefits.jpg");
+
+      Service scouts1 = scouts.getServices().newService("Physical Therapy", 90, "Rehabilitation", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
+      scouts1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Physical Therapy.jpg");  
+
+      Service scouts2 = scouts.getServices().newService("Physical Therapy", 90, "Rehabilitation", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
+      scouts2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Physical Therapy.jpg");  
+     
+      Service scouts3 = scouts.getServices().newService("Physical Therapy", 90, "Rehabilitation", "A type of treatment that helps individuals recover  maintain or improve physical abilities after an injury, illness, or surgery.");
+      scouts1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Physical Therapy.jpg");  
+     
+
+
+
+
+      
       }
+      
+      
       
        
       
