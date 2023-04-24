@@ -23,5 +23,5 @@ Serve is a Java Desktop application that motivates community members & specialis
 |  Khatantuul Batbold|Product Request Management, Service Request Management, Application Request Management (Client, Volunteer, Specialist) |Request Management, Status Management, Cross-Enterprise Request Creation, Gmail Integration| 
 |  Siqi Yang| System Admin Management, Enterprise Admin Management, User Login, Volunteer Registration  |System Admin CRUD, Enterprise Admin CRUD, Unique IDs|
 
-## Detailed UML
+## [Detailed UML](https://app.diagrams.net/?&highlight=0000ff&edit=_blank&layers=1&nav=1&title=exported_from_idea.drawio#G1KUZxRy0It9VnvkC1bvy0FKbGtCS7MyyL)
 <img width="1500" alt="UML-Serve-App.drawio.svg" src="/UML-Serve-App.drawio.svg">
