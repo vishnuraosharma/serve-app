@@ -310,14 +310,16 @@ public class ConvenienceMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        groCartTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         jScrollPane6.setViewportView(groCartTable);
 
         groPopup.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
 
         jLabel5.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        groPopup.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 60, 20));
+        jLabel5.setForeground(new java.awt.Color(236, 100, 44));
+        groPopup.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 70, 20));
 
-        jButton8.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton8.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         jButton8.setForeground(new java.awt.Color(236, 100, 44));
         jButton8.setText("Place Order");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -327,7 +329,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         });
         groPopup.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
 
-        jButton9.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton9.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         jButton9.setForeground(new java.awt.Color(236, 100, 44));
         jButton9.setText("Clear Cart");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -368,6 +370,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        groTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         groTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 groTableMouseClicked(evt);
@@ -415,7 +418,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         productDets1.add(productImage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
         productDets1.add(groProdImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 200, 160));
 
-        jButton3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         jButton3.setForeground(new java.awt.Color(236, 100, 44));
         jButton3.setText("Add to Cart");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -467,14 +470,16 @@ public class ConvenienceMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        pharmCartTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         jScrollPane5.setViewportView(pharmCartTable);
 
         pharmPopup.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
 
         jLabel3.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(236, 100, 44));
         pharmPopup.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
-        purchasePharProds.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        purchasePharProds.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         purchasePharProds.setForeground(new java.awt.Color(236, 100, 44));
         purchasePharProds.setText("Place Order");
         purchasePharProds.addActionListener(new java.awt.event.ActionListener() {
@@ -484,7 +489,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         });
         pharmPopup.add(purchasePharProds, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
 
-        jButton7.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         jButton7.setForeground(new java.awt.Color(236, 100, 44));
         jButton7.setText("Clear Cart");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -526,6 +531,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        pharTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         pharTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pharTableMouseClicked(evt);
@@ -573,7 +579,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
         productDets.add(productImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
         productDets.add(pharProductImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 200, 190));
 
-        addPharmtoCart.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
+        addPharmtoCart.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         addPharmtoCart.setForeground(new java.awt.Color(236, 100, 44));
         addPharmtoCart.setText("Add to Cart");
         addPharmtoCart.addActionListener(new java.awt.event.ActionListener() {
@@ -671,7 +677,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
             ProductOrder po = pharmCart.processCart((Client) this.useraccount.getPerson(), this.pharmacyOrg);
             this.pharmPopup.setVisible(false);
             this.appSystem.getReqDir().createConvenienceRequest(this.useraccount, po);
-            JOptionPane.showMessageDialog(null,"Your order has been placed and must be processed by the pharmacy. See the 'My Pharmacy Requests' page in 'My Requests' to see status updates on your order.");
+            JOptionPane.showMessageDialog(null,"Order placed, go to'My Pharmacy Requests' page in 'My Requests' to see order status updates ");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
         }
@@ -708,7 +714,7 @@ public class ConvenienceMP extends javax.swing.JPanel {
             this.groPopup.setVisible(false);
 //            ConvenienceRequest conReq = this.appSystem.getReqDir().createConvenienceRequest(this.useraccount, po);
             this.appSystem.getReqDir().createDeliveryRequest(this.useraccount, po);
-            JOptionPane.showMessageDialog(null,"Your order has been placed. See the 'My Deliveries' page in 'My Requests' to see delivery status.");
+            JOptionPane.showMessageDialog(null,"Order placed, go to 'My Deliveries' page in 'My Requests' to see delivery status.");
         }else{
             JOptionPane.showMessageDialog(null,"Please add products to cart to place order.");
         }

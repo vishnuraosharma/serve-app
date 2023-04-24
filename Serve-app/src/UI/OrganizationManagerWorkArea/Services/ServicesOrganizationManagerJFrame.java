@@ -40,6 +40,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         this.enterprise = enterprise;
         this.organization = (ServicesOrganization) organization;
         this.setLocationRelativeTo(null);
+        
         test();
     }
     
@@ -73,6 +74,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1300, 800));
@@ -88,11 +90,11 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("jLabel1");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 110, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 140, -1));
 
         jLabel3.setForeground(new java.awt.Color(236, 100, 44));
         jLabel3.setText("jLabel1");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 110, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 130, -1));
 
         backBtn.setBackground(new java.awt.Color(236, 100, 44));
         backBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
@@ -113,7 +115,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 servicesCatalogBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(servicesCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 160, 30));
+        jPanel1.add(servicesCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 160, 40));
 
         productReportBtn1.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productReportBtn1.setForeground(new java.awt.Color(236, 100, 44));
@@ -123,7 +125,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
                 productReportBtn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 30));
+        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, 40));
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(236, 100, 44));
@@ -145,23 +147,30 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(236, 100, 44));
         jPanel2.setPreferredSize(new java.awt.Dimension(1150, 800));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/khatna/Desktop/INFO5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(312, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(262, 262, 262))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(300, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(262, 262, 262))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(274, 274, 274))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(197, 197, 197)
                 .addComponent(jLabel5)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(jLabel4)
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -291,6 +300,7 @@ public class ServicesOrganizationManagerJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

@@ -166,7 +166,7 @@ public class ConnectionMP extends javax.swing.JPanel {
             return false;
         }
         if (this.client.getUnfulfilledServices().contains(s)){
-            JOptionPane.showMessageDialog(null,"You have already requested this service. Please wait until your existing request is fulfilled before requesting another.");
+            JOptionPane.showMessageDialog(null,"Service requested, please wait until your existing request is fulfilled before requesting another.");
             return false;
         }
         if(reqDetailsTextArea.getText().isBlank()){
@@ -228,7 +228,7 @@ public class ConnectionMP extends javax.swing.JPanel {
             return false;
         }
         if (this.client.getUnfulfilledServices().contains(s)){
-            JOptionPane.showMessageDialog(null,"You have already requested this service. Please wait until your existing request is fulfilled before requesting another.");
+            JOptionPane.showMessageDialog(null,"Services requested, please wait until your existing request is fulfilled before requesting another.");
             return false;
         }
         if(reqDetailsTextArea.getText().isBlank()){
@@ -344,12 +344,14 @@ public class ConnectionMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        stuCartTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         jScrollPane6.setViewportView(stuCartTable);
 
         schoolPopup.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 21, 329, 214));
 
         cartTotalLabel1.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        schoolPopup.add(cartTotalLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 110, 20));
+        cartTotalLabel1.setForeground(new java.awt.Color(236, 100, 44));
+        schoolPopup.add(cartTotalLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 130, 20));
 
         placeSchoolOrder.setFont(new java.awt.Font("Krub", 1, 13)); // NOI18N
         placeSchoolOrder.setForeground(new java.awt.Color(236, 100, 44));
@@ -403,6 +405,7 @@ public class ConnectionMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        stuTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         stuTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 stuTableMouseClicked(evt);
@@ -504,6 +507,7 @@ public class ConnectionMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        scoutCartTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         jScrollPane5.setViewportView(scoutCartTable);
         if (scoutCartTable.getColumnModel().getColumnCount() > 0) {
             scoutCartTable.getColumnModel().getColumn(1).setResizable(false);
@@ -540,7 +544,8 @@ public class ConnectionMP extends javax.swing.JPanel {
         pharmPopup.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
         cartTotalLabel2.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
-        pharmPopup.add(cartTotalLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 110, 20));
+        cartTotalLabel2.setForeground(new java.awt.Color(236, 100, 44));
+        pharmPopup.add(cartTotalLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 140, 20));
 
         jLayeredPane2.add(pharmPopup);
         pharmPopup.setBounds(770, 60, 376, 362);
@@ -569,6 +574,7 @@ public class ConnectionMP extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        scouTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         scouTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 scouTableMouseClicked(evt);

@@ -181,6 +181,7 @@ public class MyRequestsPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        servReqTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         servReqTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 servReqTableMouseClicked(evt);
@@ -196,7 +197,7 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(236, 100, 44));
         jLabel9.setText("Service Requests");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(340, 10, 525, 64);
+        jLabel9.setBounds(340, 10, 525, 58);
 
         jTabbedPane1.addTab("My Service Requests", jPanel2);
 
@@ -205,7 +206,7 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(236, 100, 44));
         jLabel10.setText("My Pharmacy Requests");
         jLayeredPane2.add(jLabel10);
-        jLabel10.setBounds(290, 20, 550, 64);
+        jLabel10.setBounds(290, 20, 610, 58);
 
         prodReqTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         prodReqTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -224,6 +225,7 @@ public class MyRequestsPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        prodReqTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         prodReqTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 prodReqTableMouseClicked(evt);
@@ -245,7 +247,7 @@ public class MyRequestsPanel extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(236, 100, 44));
         jLabel11.setText("My Deliveries");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(370, 10, 525, 64);
+        jLabel11.setBounds(370, 10, 525, 58);
 
         prodDelReqTable.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         prodDelReqTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -264,6 +266,7 @@ public class MyRequestsPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        prodDelReqTable.setSelectionBackground(new java.awt.Color(236, 100, 44));
         prodDelReqTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 prodDelReqTableMouseClicked(evt);

@@ -162,7 +162,7 @@ public class ProductOrganizationManagerJFrame extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(1150, 800));
         jPanel2.setLayout(null);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/khatna/Desktop/INFO5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
         jPanel2.add(jLabel4);
         jLabel4.setBounds(310, 190, 610, 430);
 

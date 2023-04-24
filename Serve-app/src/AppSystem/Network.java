@@ -228,12 +228,14 @@ public class Network {
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c, 2);
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c, 13);
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c, 0);
+        c.setAddress("123 Main St");
 
         
         Person p1 = personDirectory.createPerson("Client B");
         Client c1 = (Client) personDirectory.createClient(p1);
         UserAccount ua1 = topLevelUserAccountDirectory.createUserAccount("c1", "c1", new ClientRole());
         c1.setUseraccount(ua1);
+        c1.setAddress("456 Oak St");
         ua1.setPerson(c1);
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c1, 2);
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c1, 9);
@@ -244,6 +246,7 @@ public class Network {
         Client c2 = (Client) personDirectory.createClient(p2);
         UserAccount ua2 = topLevelUserAccountDirectory.createUserAccount("c2", "c2", new ClientRole());
         c2.setUseraccount(ua2);
+        c2.setAddress("789 Elm St");
         ua2.setPerson(c2);
         createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Connection").getOrganizationDirectory().findOrganizationbyType("School"), c2, 0);
         createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Health").getOrganizationDirectory().findOrganizationbyType("Hospital"), c2, 2);
@@ -254,6 +257,7 @@ public class Network {
         Client c3 = (Client) personDirectory.createClient(p3);
         UserAccount ua3 = topLevelUserAccountDirectory.createUserAccount("c3", "c3", new ClientRole());
         c3.setUseraccount(ua3);
+        c3.setAddress("321 Maple Ave");
         ua3.setPerson(c3);
         createPharDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Pharmacy"), c3, 15); 
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c3, 9);
@@ -266,6 +270,7 @@ public class Network {
         Client c4 = (Client) personDirectory.createClient(p4);
         UserAccount ua4 = topLevelUserAccountDirectory.createUserAccount("c4", "c4", new ClientRole());
         c4.setUseraccount(ua4);
+        c4.setAddress("987 Pine St");
         ua4.setPerson(c4);
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c4, 0);
 
@@ -273,6 +278,7 @@ public class Network {
         Client c5 = (Client) personDirectory.createClient(p5);
         UserAccount ua5 = topLevelUserAccountDirectory.createUserAccount("c5", "c5", new ClientRole());
         c5.setUseraccount(ua5);
+        c5.setAddress("34 Eastern Ave");
         ua5.setPerson(c5);
         createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Connection").getOrganizationDirectory().findOrganizationbyType("Community Organization"), c5, 0);
         createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Legal").getOrganizationDirectory().findOrganizationbyType("Law Office"), c5, 3);
@@ -434,7 +440,7 @@ public class Network {
       Service school1 = school.getServices().newService("Reading Buddies", 30, "Companionship & Connection", "High school students can volunteer as reading buddies for seniors who enjoy reading or being read to. This can provide social interaction and mental stimulation for seniors.");
       school1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Reading Buddies.jpg");
      
-      Service school2 = school.getServices().newService("Puzzle Partners", 60, "Companionship & Connection", "High school students can volunteer as reading buddies for seniors who enjoy reading or being read to. This can provide social interaction and mental stimulation for seniors.");
+      Service school2 = school.getServices().newService("Puzzle Partners", 60, "Companionship & Connection", "High school students can play puzzles such as jigsaw puzzles crosswords and sudoku with seniors. This can provide mental stimulation and a fun way to spend time together.");
       school2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Puzzle Partners.jpg");
 
       Service school3 = school.getServices().newService("Virtual Visits", 60, "Companionship & Connection", "High school students can volunteer to visit seniors virtually through video calls or phone calls. This can provide social interaction and a way for seniors to connect with others.");

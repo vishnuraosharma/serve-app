@@ -151,6 +151,7 @@ public class OrganizationManagementJPanel extends javax.swing.JPanel {
                 "Ent Name", "Org Name", "User ID", "Manager Name", "Username", "Password"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(236, 100, 44));
         jScrollPane2.setViewportView(jTable1);
 
         jLabel5.setForeground(new java.awt.Color(236, 100, 44));
