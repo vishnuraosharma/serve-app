@@ -20,10 +20,13 @@ import Organization.ServicesOrganization;
 import Person.Client.Client;
 import Person.Person;
 import Person.PersonDirectory;
+import Requests.ConvenienceRequest;
+import Requests.DeliveryRequest;
 import Requests.RequestDirectory;
 import UI.ClientWorkArea.HospitalMP;
 import UserAccount.UserAccount;
 import UserAccount.UserAccountDirectory;
+import Volunteer.VolunteerProfile;
 import WorkAreas.ClientRole;
 import WorkAreas.ConnectionVolunteerRole;
 import WorkAreas.ConvenienceVolunteerRole;
@@ -210,6 +213,7 @@ public class Network {
         
         Client c = (Client) personDirectory.createClient("Client A");
         UserAccount ua = topLevelUserAccountDirectory.createUserAccount("client", "client", new ClientRole());
+        c.setUseraccount(ua);
         ua.setPerson(c);
         createConvenienceReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Pharmacy"), c, 15);
         createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Health").getOrganizationDirectory().findOrganizationbyType("Hospital"), c, 2);
@@ -217,11 +221,13 @@ public class Network {
         
         Client c1 = (Client) personDirectory.createClient("Client B");
         UserAccount ua1 = topLevelUserAccountDirectory.createUserAccount("c1", "c1", new ClientRole());
+        c1.setUseraccount(ua1);
         ua1.setPerson(c1);
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c1, 4);
         
         Client c2 = (Client) personDirectory.createClient("Client C");
         UserAccount ua2 = topLevelUserAccountDirectory.createUserAccount("c2", "c2", new ClientRole());
+        c2.setUseraccount(ua2);
         ua2.setPerson(c2);
         createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Connection").getOrganizationDirectory().findOrganizationbyType("School"), c2, 0);
 
@@ -229,6 +235,7 @@ public class Network {
         
         Client c3 = (Client) personDirectory.createClient("Client D");
         UserAccount ua3 = topLevelUserAccountDirectory.createUserAccount("c3", "c3", new ClientRole());
+        c3.setUseraccount(ua3);
         ua3.setPerson(c3);
         createDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Pharmacy"), c3, 15); 
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c3, 16);
@@ -236,12 +243,14 @@ public class Network {
         
         Client c4 = (Client) personDirectory.createClient("Client E");
         UserAccount ua4 = topLevelUserAccountDirectory.createUserAccount("c4", "c4", new ClientRole());
+        c4.setUseraccount(ua4);
         ua4.setPerson(c4);
         createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c3, 15);
 
         
         Client c5 = (Client) personDirectory.createClient("Client F");
         UserAccount ua5 = topLevelUserAccountDirectory.createUserAccount("c5", "c5", new ClientRole());
+        c5.setUseraccount(ua5);
         ua5.setPerson(c5);
         createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Connection").getOrganizationDirectory().findOrganizationbyType("Community Organization"), c2, 0);
 
@@ -421,34 +430,35 @@ public class Network {
       
       public static void convVolfaker(ConvenienceVolOrganization convVolOrg){
           Person vol1 = Network.personDirectory.createPerson("Dell Man");
-          convVolOrg.getVolunteerDir().createNewVolunteer(vol1, new ConvenienceVolunteerRole());
+          VolunteerProfile volProfile1 = convVolOrg.getVolunteerDir().createNewVolunteer(vol1, new ConvenienceVolunteerRole());
           UserAccount vol1ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v1", "v1", new ConvenienceVolunteerRole());
           vol1.setUseraccount(vol1ua);
-          vol1ua.setPerson(vol1);
+          vol1ua.setPerson(volProfile1);
+         
           
           Person vol2 = Network.personDirectory.createPerson("Sandy Mae");
-          convVolOrg.getVolunteerDir().createNewVolunteer(vol2, new ConvenienceVolunteerRole());
+          VolunteerProfile volProfile2 = convVolOrg.getVolunteerDir().createNewVolunteer(vol2, new ConvenienceVolunteerRole());
           UserAccount vol2ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v2", "v2", new ConvenienceVolunteerRole());
           vol2.setUseraccount(vol2ua);
-          vol2ua.setPerson(vol2);
+          vol2ua.setPerson(volProfile2);
           
           Person vol3 = Network.personDirectory.createPerson("Joe F.");
-          convVolOrg.getVolunteerDir().createNewVolunteer(vol3, new ConvenienceVolunteerRole());
+          VolunteerProfile volProfile3 = convVolOrg.getVolunteerDir().createNewVolunteer(vol3, new ConvenienceVolunteerRole());
           UserAccount vol3ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v3", "v3", new ConvenienceVolunteerRole());
           vol3.setUseraccount(vol3ua);
-          vol3ua.setPerson(vol3);
+          vol3ua.setPerson(volProfile3);
           
           Person vol4 = Network.personDirectory.createPerson("Kevin Chang");
-          convVolOrg.getVolunteerDir().createNewVolunteer(vol4, new ConvenienceVolunteerRole());
+          VolunteerProfile volProfile4 = convVolOrg.getVolunteerDir().createNewVolunteer(vol4, new ConvenienceVolunteerRole());
           UserAccount vol4ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v4", "v4", new ConvenienceVolunteerRole());
           vol4.setUseraccount(vol4ua);
-          vol4ua.setPerson(vol4);
+          vol4ua.setPerson(volProfile4);
           
           Person vol5 = Network.personDirectory.createPerson("Michael Sager");
-          convVolOrg.getVolunteerDir().createNewVolunteer(vol5, new ConvenienceVolunteerRole());
+          VolunteerProfile volProfile5 = convVolOrg.getVolunteerDir().createNewVolunteer(vol5, new ConvenienceVolunteerRole());
           UserAccount vol5ua = convVolOrg.getOrganizationAccountDirectory().createUserAccount("v5", "v5", new ConvenienceVolunteerRole());
           vol5.setUseraccount(vol5ua);
-          vol5ua.setPerson(vol5);
+          vol5ua.setPerson(volProfile5);
       }
           
 
@@ -550,7 +560,8 @@ public class Network {
             po.setProductsPurchased(currOrd);
         }
         for(ProductOrder po : phar.getMasterOrderList().getProductOrderList()){
-            reqDir.createConvenienceRequest(c.getUseraccount(), po);
+            ConvenienceRequest cr = reqDir.createConvenienceRequest(c.getUseraccount(), po);
+            cr.setRequester(c.getUseraccount());
         }
     }
      public static void createDeliveryReqs(ProductOrganization phar, Client c, int idx){
@@ -565,7 +576,8 @@ public class Network {
             po.setProductsPurchased(currOrd);
         }
         for(ProductOrder po : phar.getMasterOrderList().getProductOrderList()){
-            reqDir.createDeliveryRequest(c.getUseraccount(), po);
+            DeliveryRequest delReq = reqDir.createDeliveryRequest(c.getUseraccount(), po);
+             delReq.setRequester(c.getUseraccount());
         }
     }
      
@@ -581,6 +593,7 @@ public class Network {
             po.setProductsPurchased(currOrd);
         }
         for(ProductOrder po : gro.getMasterOrderList().getProductOrderList()){
+            
             reqDir.createDeliveryRequest(c.getUseraccount(), po);
         }
     } 

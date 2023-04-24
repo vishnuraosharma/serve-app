@@ -1054,7 +1054,7 @@ public class MyRequests extends javax.swing.JPanel {
                 Object row[] = new Object[4];
                 DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 row[0] = convReq.getRequestID();
-                row[1] = convReq.getRequester().getPerson().getName();
+                row[1] = (convReq.getRequester() != null ? convReq.getRequester().getPerson().getName() : null);
                 row[2] = format.format(convReq.getRequestDate());
                 row[3] = convReq.getStatus();
                  

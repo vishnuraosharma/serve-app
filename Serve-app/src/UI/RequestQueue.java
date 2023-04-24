@@ -553,7 +553,7 @@ public class RequestQueue extends javax.swing.JPanel {
                 Object row[] = new Object[5];
                 DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 row[0] = delReq.getRequestID();
-                row[1] = delReq.getRequester().getPerson().getName();
+                row[1] = (delReq.getRequester() != null ? delReq.getRequester().getPerson().getName() : null);
                 row[2] = format.format(((DeliveryRequest) entry.getValue()).getRequestDate());
 //                row[3] = delReq.getDeliveryAddress();
                 row[3] = delReq.getStatus();
@@ -580,7 +580,7 @@ public class RequestQueue extends javax.swing.JPanel {
                  Object row[] = new Object[4];
                 DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 row[0] = convReq.getRequestID();
-                row[1] = convReq.getRequester().getPerson().getName();
+                row[1] = (convReq.getRequester() != null ? convReq.getRequester().getPerson().getName() : null);
                 row[2] = format.format(convReq.getRequestDate());
                 row[3] = convReq.getStatus();
                  
@@ -602,7 +602,7 @@ public class RequestQueue extends javax.swing.JPanel {
                  Object row[] = new Object[5];
                 DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 row[0] = serviceReq.getRequestID();
-                row[1] = serviceReq.getRequester().getPerson().getName();
+                row[1] = (serviceReq.getRequester() != null ? serviceReq.getRequester().getPerson().getName() : null);
                 row[2] = format.format(serviceReq.getRequestDate());
                 row[3] = serviceReq.getStatus();
                 row[4] = (serviceReq.getRequestResponder() != null ? serviceReq.getRequestResponder().getPerson().getName() : "None") ;
