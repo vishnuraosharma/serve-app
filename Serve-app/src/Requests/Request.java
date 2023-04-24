@@ -27,6 +27,7 @@ public abstract class Request {
 
     
     public Request(UserAccount requester){
+        System.out.println("Requests.Request.<init>()");
         this.requestID = "req" + counter++;
         this.requester = requester;
         this.requestDate = new Date();

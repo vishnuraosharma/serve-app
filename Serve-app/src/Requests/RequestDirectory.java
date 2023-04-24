@@ -159,7 +159,7 @@ public class RequestDirectory {
 
     public HashMap<String, DeliveryRequest> getDeliveryRequestsbyClient(Client client) {
     HashMap<String, DeliveryRequest> clientDelReqs = new HashMap<String, DeliveryRequest>();
-        //loop through all convenience requests and find the ones that have product orders with the client as the requester
+        //loop through all Delivery requests and find the ones that have product orders with the client as the requester
         for (DeliveryRequest dr : this.deliveryRequests.values()) {
             if (dr.getOrderToBedelivered().getClient().equals(client)) {
                 clientDelReqs.put(dr.getRequestID(), dr);

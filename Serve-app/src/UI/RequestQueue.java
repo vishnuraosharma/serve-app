@@ -60,9 +60,13 @@ public class RequestQueue extends javax.swing.JPanel {
                 displayDeliveryReqs();
                 break;
             case "Healthcare Specialist":
+                displayHealthServiceRequests();
+                break;
             case "Legal Specialist":
+                displayLegalServiceRequests();
+                break;
             case "Connection Volunteer":
-                displayServiceRequests();
+                displayConnectionServiceRequests();
                 break;
             default:
 //                displayConvenienceRequests();
@@ -593,21 +597,70 @@ public class RequestQueue extends javax.swing.JPanel {
         
         }
        
-        public void displayServiceRequests(){
+        public void displayHealthServiceRequests(){
         viewTableModel.setRowCount(0);
         RequestDirectory reqDir = appSystem.getReqDir();
-
+        System.out.println("health ");
         for (Map.Entry<String, ServiceRequest> entry : reqDir.getServiceRequests().entrySet()) {
                 ServiceRequest serviceReq = entry.getValue();
-                 Object row[] = new Object[5];
+                if(serviceReq.getServiceOrder().getOrg().getOrganizationType().equals("Hospital")){
+                    Object row[] = new Object[5];
                 DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 row[0] = serviceReq.getRequestID();
                 row[1] = (serviceReq.getRequester() != null ? serviceReq.getRequester().getPerson().getName() : null);
                 row[2] = format.format(serviceReq.getRequestDate());
                 row[3] = serviceReq.getStatus();
                 row[4] = (serviceReq.getRequestResponder() != null ? serviceReq.getRequestResponder().getPerson().getName() : "None") ;
-                viewTableModel.addRow(row);  
-                 
+                viewTableModel.addRow(row); 
+                }
+      
+            } 
+        isDelivery = false;
+        isConvenience = false;
+        isService = true;
+        
+    }
+        public void displayLegalServiceRequests(){
+        viewTableModel.setRowCount(0);
+        RequestDirectory reqDir = appSystem.getReqDir();
+            System.out.println("legal ");
+        for (Map.Entry<String, ServiceRequest> entry : reqDir.getServiceRequests().entrySet()) {
+                ServiceRequest serviceReq = entry.getValue();
+                if(serviceReq.getServiceOrder().getOrg().getOrganizationType().equals("Law Office")){
+                    Object row[] = new Object[5];
+                DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                row[0] = serviceReq.getRequestID();
+                row[1] = (serviceReq.getRequester() != null ? serviceReq.getRequester().getPerson().getName() : null);
+                row[2] = format.format(serviceReq.getRequestDate());
+                row[3] = serviceReq.getStatus();
+                row[4] = (serviceReq.getRequestResponder() != null ? serviceReq.getRequestResponder().getPerson().getName() : "None") ;
+                viewTableModel.addRow(row); 
+                }
+      
+            } 
+        isDelivery = false;
+        isConvenience = false;
+        isService = true;
+        
+    }
+        public void displayConnectionServiceRequests(){
+        viewTableModel.setRowCount(0);
+        RequestDirectory reqDir = appSystem.getReqDir();
+            System.out.println("connection ");
+        for (Map.Entry<String, ServiceRequest> entry : reqDir.getServiceRequests().entrySet()) {
+                ServiceRequest serviceReq = entry.getValue();
+                if(serviceReq.getServiceOrder().getOrg().getOrganizationType().equals("Community Organization") 
+                        ||serviceReq.getServiceOrder().getOrg().getOrganizationType().equals("School")){
+                    Object row[] = new Object[5];
+                DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                row[0] = serviceReq.getRequestID();
+                row[1] = (serviceReq.getRequester() != null ? serviceReq.getRequester().getPerson().getName() : null);
+                row[2] = format.format(serviceReq.getRequestDate());
+                row[3] = serviceReq.getStatus();
+                row[4] = (serviceReq.getRequestResponder() != null ? serviceReq.getRequestResponder().getPerson().getName() : "None") ;
+                viewTableModel.addRow(row); 
+                }
+      
             } 
         isDelivery = false;
         isConvenience = false;

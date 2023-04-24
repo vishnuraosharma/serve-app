@@ -96,7 +96,7 @@ public class MyRequestsPanel extends javax.swing.JPanel {
                 Object[] row = new Object[5];
                 row[0] = sr;
                 row[1] = currOrder.getService();
-                row[2] = sr.getRequestResponder();
+                row[2] = sr.getRequestResponder().getPerson().getName();
                 row[3] = sr.getStatus();       
                 row[4] = sr.getResponderComments();
                 servReqModel.addRow(row);
@@ -107,7 +107,9 @@ public class MyRequestsPanel extends javax.swing.JPanel {
     public void populateDeliveryTable(){
         HashMap<String, DeliveryRequest> UserDeliveryRequest = this.appSystem.getReqDir().getDeliveryRequestsbyClient(client);
         
-        System.out.println(UserDeliveryRequest.size());
+        System.out.println("Client's list"+UserDeliveryRequest.size());
+        System.out.println("entire list"+this.appSystem.getReqDir().getDeliveryRequests().toString());
+        System.out.println("entire list"+this.appSystem.getReqDir().getDeliveryRequests().size());
         
         delReqModel.setRowCount(0);
         if(UserDeliveryRequest != null) {
