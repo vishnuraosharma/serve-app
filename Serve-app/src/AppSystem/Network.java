@@ -9,9 +9,12 @@ import Applicant.ApplicationDirectory;
 import Enterprise.Enterprise;
 import Enterprise.EnterpriseDirectory;
 import Organization.Organization;
+import Organization.ProductManagement.OrderItem;
 import Organization.ProductManagement.Product;
+import Organization.ProductManagement.ProductOrder;
 import Organization.ProductOrganization;
 import Organization.ServiceManagement.Service;
+import Organization.ServiceManagement.ServiceOrder;
 import Organization.ServicesOrganization;
 import Person.Client.Client;
 import Person.Person;
@@ -47,11 +50,11 @@ import javax.swing.ImageIcon;
  */
 public class Network {
         String name;
-        EnterpriseDirectory enterprises;
+        static EnterpriseDirectory enterprises;
         static UserAccountDirectory topLevelUserAccountDirectory;        
         static PersonDirectory personDirectory;
         ApplicationDirectory applicantDirectory;
-        RequestDirectory reqDir;
+        static RequestDirectory reqDir;
       
     public Network( ) {
         this.name= name;
@@ -104,10 +107,12 @@ public class Network {
         //comment out to remove fake data
 
         adminfaker(app, convenience,healthcare,legal,connection,o1,o2,o3,o4,o5,o6);
-        clientfaker();
+        
         
         productfaker((ProductOrganization)o1, (ProductOrganization) o2);
-//        servicefaker((ServicesOrganization) o3,(ServicesOrganization) o4,(ServicesOrganization) o5,(ServicesOrganization) o6);
+        servicefaker((ServicesOrganization) o3,(ServicesOrganization) o4,(ServicesOrganization) o5,(ServicesOrganization) o6);
+        clientfaker();
+        
         
         servVolfaker((ServicesOrganization) o3,(ServicesOrganization) o4,(ServicesOrganization) o5,(ServicesOrganization) o6);
         
@@ -185,26 +190,40 @@ public class Network {
         Client c = (Client) personDirectory.createClient("Client A");
         UserAccount ua = topLevelUserAccountDirectory.createUserAccount("client", "client", new ClientRole());
         ua.setPerson(c);
+        createConvenienceReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Pharmacy"), c, 15);
+        createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Health").getOrganizationDirectory().findOrganizationbyType("Hospital"), c, 2);
+        createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Legal").getOrganizationDirectory().findOrganizationbyType("Law Office"), c, 0);
         
         Client c1 = (Client) personDirectory.createClient("Client B");
         UserAccount ua1 = topLevelUserAccountDirectory.createUserAccount("c1", "c1", new ClientRole());
         ua1.setPerson(c1);
+        createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c1, 4);
         
         Client c2 = (Client) personDirectory.createClient("Client C");
         UserAccount ua2 = topLevelUserAccountDirectory.createUserAccount("c2", "c2", new ClientRole());
         ua2.setPerson(c2);
+        createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Connection").getOrganizationDirectory().findOrganizationbyType("School"), c2, 0);
+
+        
         
         Client c3 = (Client) personDirectory.createClient("Client D");
         UserAccount ua3 = topLevelUserAccountDirectory.createUserAccount("c3", "c3", new ClientRole());
         ua3.setPerson(c3);
+        createDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Pharmacy"), c3, 15); 
+        createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c3, 16);
+
         
         Client c4 = (Client) personDirectory.createClient("Client E");
         UserAccount ua4 = topLevelUserAccountDirectory.createUserAccount("c4", "c4", new ClientRole());
         ua4.setPerson(c4);
+        createGroDeliveryReqs((ProductOrganization) enterprises.findEnterprise("Convenience").getOrganizationDirectory().findOrganizationbyType("Grocery Store"), c3, 15);
+
         
         Client c5 = (Client) personDirectory.createClient("Client F");
         UserAccount ua5 = topLevelUserAccountDirectory.createUserAccount("c5", "c5", new ClientRole());
         ua5.setPerson(c5);
+        createServeOrgReqs((ServicesOrganization) enterprises.findEnterprise("Connection").getOrganizationDirectory().findOrganizationbyType("Community Organization"), c2, 0);
+
     }
 
     public static void productfaker(ProductOrganization pharmacy, ProductOrganization grocery){
@@ -334,7 +353,7 @@ public class Network {
       Service lawOff1 = lawOff.getServices().newService("Estate Planning", 60, "Legal Services", "Estate planning is the process of arranging for the management and distribution of a person's estate during their life and after their death.");
       lawOff1.setProductImageFilewithFilePath("src/Resources/ServiceImages/Estate Planning.jpg");
 
-      Service lawOff2 = hospital.getServices().newService("Elder Law", 30, "Legal Services", "Elder law is a specialized area of legal practice that focuses on the unique needs of older adults and their families.");
+      Service lawOff2 = lawOff.getServices().newService("Elder Law", 30, "Legal Services", "Elder law is a specialized area of legal practice that focuses on the unique needs of older adults and their families.");
       lawOff2.setProductImageFilewithFilePath("src/Resources/ServiceImages/Elder Law.jpg");
 
       Service lawOff3 = lawOff.getServices().newService("Medicaid Planning", 45, "Legal Services", "Medicaid planning is the process of arranging your finances in such a way as to qualify for Medicaid while still preserving as much of your assets as possible.");
@@ -364,11 +383,7 @@ public class Network {
       Service school4 = school.getServices().newService("Pet Therapy", 30, "Companionship & Connection", "High school students can bring well-behaved pets such as dogs or cats to visit seniors. This can provide companionship and emotional support for seniors who love animals.");
       school4.setProductImageFilewithFilePath("src/Resources/ServiceImages/Pet Therapy.jpg");     
       }
-      
-      
-      
        
-      
       public static void servVolfaker(ServicesOrganization hospital, ServicesOrganization lawOff,ServicesOrganization scouts,ServicesOrganization school){
           //Doctor
           Person d1 = personDirectory.createPerson("Dr. Rob");
@@ -446,6 +461,60 @@ public class Network {
           school.getE().getUseraccountDirectory().getUserAccountList().add(ua9);
           ua12.setPerson(st3);
       }
+      
+    public static void createServeOrgReqs(ServicesOrganization servOrg, Client c, int i){
+        ArrayList<Service> hosServs = servOrg.getServices().getAllServices();
+        ServiceOrder so = new ServiceOrder(c,hosServs.get(i), servOrg, "");
+        reqDir.createServiceRequest(c.getUseraccount(), so);
+        
+    }
+      
+    public static void createConvenienceReqs(ProductOrganization phar, Client c, int idx){
+        ArrayList<Product> pharProds = phar.getProductCatalog().getAllProducts();
+        int i = idx;
+        for(i = 0; i<pharProds.size()-2;i++){
+            ArrayList<OrderItem> currOrd = new ArrayList<>();
+            OrderItem oi = new OrderItem(pharProds.get(i), 1); currOrd.add(oi);
+            i++;
+            OrderItem oi2 = new OrderItem(pharProds.get(i), 1);currOrd.add(oi2);
+            ProductOrder po = new ProductOrder(c, phar);
+            po.setProductsPurchased(currOrd);
+        }
+        for(ProductOrder po : phar.getMasterOrderList().getProductOrderList()){
+            reqDir.createConvenienceRequest(c.getUseraccount(), po);
+        }
+    }
+     public static void createDeliveryReqs(ProductOrganization phar, Client c, int idx){
+        ArrayList<Product> pharProds = phar.getProductCatalog().getAllProducts();
+        int i = idx;
+        for(i =idx; i<pharProds.size()-2;i++){
+            ArrayList<OrderItem> currOrd = new ArrayList<>();
+            OrderItem oi = new OrderItem(pharProds.get(i), 1); currOrd.add(oi);
+            i++;
+            OrderItem oi2 = new OrderItem(pharProds.get(i), 1);currOrd.add(oi2);
+            ProductOrder po = new ProductOrder(c, phar);
+            po.setProductsPurchased(currOrd);
+        }
+        for(ProductOrder po : phar.getMasterOrderList().getProductOrderList()){
+            reqDir.createDeliveryRequest(c.getUseraccount(), po);
+        }
+    }
+     
+    public static void createGroDeliveryReqs(ProductOrganization gro, Client c, int i){
+        ArrayList<Product> groProds = gro.getProductCatalog().getAllProducts();
+        int idx = i;
+        for(idx = idx; idx<groProds.size()-2;idx++){
+            ArrayList<OrderItem> currOrd = new ArrayList<>();
+            OrderItem oi = new OrderItem(groProds.get(idx), 1); currOrd.add(oi);
+            idx++;
+            OrderItem oi2 = new OrderItem(groProds.get(idx), 1);currOrd.add(oi2);
+            ProductOrder po = new ProductOrder(c, gro);
+            po.setProductsPurchased(currOrd);
+        }
+        for(ProductOrder po : gro.getMasterOrderList().getProductOrderList()){
+            reqDir.createDeliveryRequest(c.getUseraccount(), po);
+        }
+    } 
       
     public void addIcon(int i, javax.swing.JLabel lbl){
         

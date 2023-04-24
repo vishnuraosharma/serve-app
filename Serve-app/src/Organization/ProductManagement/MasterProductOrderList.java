@@ -23,6 +23,15 @@ public class MasterProductOrderList {
         this.productOrderList.add(po);
         return po;
     }
+
+    public ArrayList<ProductOrder> getProductOrderList() {
+        return productOrderList;
+    }
+
+    public MasterProductOrderReport getProdOrderReport() {
+        return prodOrderReport;
+    }
+    
     
     
 }
