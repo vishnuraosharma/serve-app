@@ -108,6 +108,7 @@ public class VolunteerSignUp extends javax.swing.JFrame {
         Left = new java.awt.Panel();
         jLabel3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         right = new java.awt.Panel();
         NameField = new javax.swing.JTextField();
         submitBtn = new javax.swing.JButton();
@@ -140,7 +141,7 @@ public class VolunteerSignUp extends javax.swing.JFrame {
         Left.setBackground(new java.awt.Color(236, 100, 44));
         Left.setPreferredSize(new java.awt.Dimension(650, 800));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("/Users/siqiyang/Desktop/IS-BRIDGE/5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon("/Users/khatna/Desktop/INFO5100/serve-app/Serve-app/src/Icon/image.png")); // NOI18N
 
         javax.swing.GroupLayout LeftLayout = new javax.swing.GroupLayout(Left);
         Left.setLayout(LeftLayout);
@@ -149,21 +150,25 @@ public class VolunteerSignUp extends javax.swing.JFrame {
             .addGroup(LeftLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel14)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel15))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftLayout.createSequentialGroup()
                 .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LeftLayout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(jLabel3))
-                    .addGroup(LeftLayout.createSequentialGroup()
                         .addGap(161, 161, 161)
-                        .addComponent(jLabel14)))
-                .addContainerGap(263, Short.MAX_VALUE))
+                        .addComponent(jLabel14))
+                    .addGroup(LeftLayout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel3))))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         right.setBackground(new java.awt.Color(255, 255, 255));
@@ -414,7 +419,7 @@ public class VolunteerSignUp extends javax.swing.JFrame {
                         username, password);
                 this.appSystem.getReqDir().createConVolunteerApplicationRequest(application,this.organization);
 
-                JOptionPane.showMessageDialog(null, "Application submitted!");
+                JOptionPane.showMessageDialog(null, "Application submitted! Please check your email for further update.");
             }else{
                 JOptionPane.showMessageDialog(null, "Username already exists");
                 userNameField.setText("");
@@ -479,6 +484,7 @@ public class VolunteerSignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

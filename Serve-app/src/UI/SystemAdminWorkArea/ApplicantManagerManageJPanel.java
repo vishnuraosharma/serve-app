@@ -84,6 +84,7 @@ public class ApplicantManagerManageJPanel extends javax.swing.JPanel {
                 "User ID", "Manager Name", "Username", "Password"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(236, 100, 44));
         jScrollPane2.setViewportView(jTable1);
 
         DeleteApplicationManageBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N

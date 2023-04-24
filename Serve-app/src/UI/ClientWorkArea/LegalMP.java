@@ -151,7 +151,7 @@ public class LegalMP extends javax.swing.JPanel {
             return false;
         }
         if (this.client.getUnfulfilledServices().contains(s)){
-            JOptionPane.showMessageDialog(null,"You have already requested this service. Please wait until your existing request is fulfilled before requesting another.");
+            JOptionPane.showMessageDialog(null,"Request created, please wait until your existing request is fulfilled");
             return false;
         }
         if(reqDetailsTextArea.getText().isBlank()){
@@ -257,7 +257,7 @@ public class LegalMP extends javax.swing.JPanel {
         cartTotalLabel.setFont(new java.awt.Font("Krub", 0, 13)); // NOI18N
         cartTotalLabel.setForeground(new java.awt.Color(236, 100, 44));
         cartTotalLabel.setText("cartTotal");
-        hospCartPopup.add(cartTotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
+        hospCartPopup.add(cartTotalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, -1));
 
         jLayeredPane2.add(hospCartPopup);
         hospCartPopup.setBounds(760, 70, 376, 362);

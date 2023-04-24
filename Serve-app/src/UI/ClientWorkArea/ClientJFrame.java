@@ -81,21 +81,21 @@ public class ClientJFrame extends javax.swing.JFrame {
 
         jLabel4.setForeground(new java.awt.Color(236, 100, 44));
         jLabel4.setText("jLabel1");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 90, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 90, -1));
 
         jLabel1.setForeground(new java.awt.Color(236, 100, 44));
         jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(236, 100, 44));
         jLabel2.setText("Welcome");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 90, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 90, -1));
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(236, 100, 44));
         jLabel3.setText("ID:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 100, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 100, -1));
 
         backBtn.setBackground(new java.awt.Color(236, 100, 44));
         backBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
@@ -106,7 +106,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 backBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 120, 40));
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 150, 40));
 
         productCatalogBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productCatalogBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -116,7 +116,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productCatalogBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(productCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 120, -1));
+        jPanel1.add(productCatalogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 150, 40));
 
         productReportBtn.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productReportBtn.setForeground(new java.awt.Color(236, 100, 44));
@@ -127,7 +127,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 120, -1));
+        jPanel1.add(productReportBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 150, 40));
 
         productReportBtn1.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productReportBtn1.setForeground(new java.awt.Color(236, 100, 44));
@@ -137,7 +137,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn1ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, -1));
+        jPanel1.add(productReportBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 150, 40));
 
         productReportBtn2.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productReportBtn2.setForeground(new java.awt.Color(236, 100, 44));
@@ -148,7 +148,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn2ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 120, -1));
+        jPanel1.add(productReportBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 150, 40));
 
         productReportBtn3.setFont(new java.awt.Font("Krub", 1, 14)); // NOI18N
         productReportBtn3.setForeground(new java.awt.Color(236, 100, 44));
@@ -158,7 +158,7 @@ public class ClientJFrame extends javax.swing.JFrame {
                 productReportBtn3ActionPerformed(evt);
             }
         });
-        jPanel1.add(productReportBtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 130, -1));
+        jPanel1.add(productReportBtn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 150, 40));
 
         jSplitPane1.setLeftComponent(jPanel1);
 
@@ -168,16 +168,17 @@ public class ClientJFrame extends javax.swing.JFrame {
         jPanel2.setVerifyInputWhenFocusTarget(false);
         jPanel2.setLayout(null);
 
+        jLabel5.setIcon(new javax.swing.ImageIcon("/Users/khatna/Desktop/INFO5100/serve-app/Serve-app/src/Icon/image (1).png")); // NOI18N
         jLabel5.setSize(new java.awt.Dimension(558, 376));
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(290, 230, 558, 376);
+        jLabel5.setBounds(300, 270, 558, 376);
 
         jLabel8.setBackground(new java.awt.Color(236, 100, 44));
         jLabel8.setFont(new java.awt.Font("Krub", 1, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(236, 100, 44));
-        jLabel8.setText("Building stronger communities for seniors.");
+        jLabel8.setText("Building stronger communities for seniors");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(90, 120, 1170, 70);
+        jLabel8.setBounds(50, 120, 1170, 70);
 
         jSplitPane1.setRightComponent(jPanel2);
 

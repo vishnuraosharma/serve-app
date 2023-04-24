@@ -179,6 +179,7 @@ public class MyRequests extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        jTable1.setSelectionBackground(new java.awt.Color(236, 100, 44));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -188,7 +189,7 @@ public class MyRequests extends javax.swing.JPanel {
 
         jLayeredPane1.setLayout(new java.awt.CardLayout());
 
-        healthPanel.setBackground(new java.awt.Color(153, 153, 153));
+        healthPanel.setBackground(new java.awt.Color(244, 180, 148));
         healthPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
         healthPanel.setPreferredSize(new java.awt.Dimension(910, 540));
 
@@ -232,6 +233,7 @@ public class MyRequests extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Request Details");
 
+        healthReqCompleteBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         healthReqCompleteBtn.setForeground(new java.awt.Color(236, 100, 44));
         healthReqCompleteBtn.setText("Mark Complete");
         healthReqCompleteBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -248,6 +250,7 @@ public class MyRequests extends javax.swing.JPanel {
         healthResponderComment.setRows(5);
         jScrollPane4.setViewportView(healthResponderComment);
 
+        createConvenienceRequestBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         createConvenienceRequestBtn.setForeground(new java.awt.Color(236, 100, 44));
         createConvenienceRequestBtn.setText("Create pharmacy request");
         createConvenienceRequestBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -264,6 +267,7 @@ public class MyRequests extends javax.swing.JPanel {
 
         jScrollPane5.setViewportView(prescriptionList);
 
+        removeBtnPrescriptionList.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         removeBtnPrescriptionList.setForeground(new java.awt.Color(236, 100, 44));
         removeBtnPrescriptionList.setText("Remove from list");
         removeBtnPrescriptionList.addActionListener(new java.awt.event.ActionListener() {
@@ -367,7 +371,7 @@ public class MyRequests extends javax.swing.JPanel {
 
         jLayeredPane1.add(healthPanel, "card3");
 
-        legalAndConnectionPanel.setBackground(new java.awt.Color(153, 153, 153));
+        legalAndConnectionPanel.setBackground(new java.awt.Color(244, 180, 148));
         legalAndConnectionPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -406,6 +410,9 @@ public class MyRequests extends javax.swing.JPanel {
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Request details");
 
+        legalConnCompleteBtn.setBackground(new java.awt.Color(236, 100, 44));
+        legalConnCompleteBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        legalConnCompleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         legalConnCompleteBtn.setText("Mark Complete");
         legalConnCompleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -501,7 +508,7 @@ public class MyRequests extends javax.swing.JPanel {
 
         jLayeredPane1.add(legalAndConnectionPanel, "card2");
 
-        deliveryPanel.setBackground(new java.awt.Color(153, 153, 153));
+        deliveryPanel.setBackground(new java.awt.Color(244, 180, 148));
         deliveryPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -555,6 +562,9 @@ public class MyRequests extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Delivery Location");
 
+        deliveryCompleteBtn.setBackground(new java.awt.Color(236, 100, 44));
+        deliveryCompleteBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        deliveryCompleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         deliveryCompleteBtn.setText("Mark Complete");
         deliveryCompleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -655,7 +665,7 @@ public class MyRequests extends javax.swing.JPanel {
 
         jLayeredPane1.add(deliveryPanel, "card4");
 
-        conveniencePanel.setBackground(new java.awt.Color(153, 153, 153));
+        conveniencePanel.setBackground(new java.awt.Color(244, 180, 148));
         conveniencePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -701,6 +711,9 @@ public class MyRequests extends javax.swing.JPanel {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Request order includes the items below");
 
+        convCompleteBtn.setBackground(new java.awt.Color(236, 100, 44));
+        convCompleteBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        convCompleteBtn.setForeground(new java.awt.Color(255, 255, 255));
         convCompleteBtn.setText("Mark Complete");
         convCompleteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -938,7 +951,7 @@ public class MyRequests extends javax.swing.JPanel {
         }
         serviceRequest.processRequest();
         viewTableModel.setValueAt("Completed", selectedR, 3);
-        JOptionPane.showMessageDialog(null, "Thank you for your time and care!");
+         JOptionPane.showMessageDialog(null, "Thank you for your time and care!");
     }//GEN-LAST:event_legalConnCompleteBtnActionPerformed
 
     private void deliveryCompleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deliveryCompleteBtnActionPerformed

@@ -95,6 +95,7 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
                 "Enterprise Name", "User ID", "Manager Name", "Username", "Password"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(236, 100, 44));
         jScrollPane2.setViewportView(jTable1);
 
         addEnterpriseManagerBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -184,9 +185,9 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
                                     .addComponent(updateNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(DeleteEnterpriseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(updateEnterpriseBtn))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(updateEnterpriseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DeleteEnterpriseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(163, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -222,10 +223,10 @@ public class EnterpriseManagementJPanel extends javax.swing.JPanel {
                             .addComponent(updatePasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGap(41, 41, 41)
-                        .addComponent(updateEnterpriseBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DeleteEnterpriseBtn)))
-                .addContainerGap(286, Short.MAX_VALUE))
+                        .addComponent(updateEnterpriseBtn)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(DeleteEnterpriseBtn)
+                .addContainerGap(280, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

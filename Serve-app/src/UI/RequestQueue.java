@@ -137,6 +137,7 @@ public class RequestQueue extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        jTable1.setSelectionBackground(new java.awt.Color(236, 100, 44));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -146,7 +147,7 @@ public class RequestQueue extends javax.swing.JPanel {
 
         jLayeredPane1.setLayout(new java.awt.CardLayout());
 
-        requestQueueDeliveryPanel.setBackground(new java.awt.Color(153, 153, 153));
+        requestQueueDeliveryPanel.setBackground(new java.awt.Color(244, 180, 148));
         requestQueueDeliveryPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -287,7 +288,7 @@ public class RequestQueue extends javax.swing.JPanel {
 
         jLayeredPane1.add(requestQueueDeliveryPanel, "card2");
 
-        requestQueueServicePanel.setBackground(new java.awt.Color(153, 153, 153));
+        requestQueueServicePanel.setBackground(new java.awt.Color(244, 180, 148));
         requestQueueServicePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Request Details", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -473,7 +474,7 @@ public class RequestQueue extends javax.swing.JPanel {
 
         VolunteerProfile vol = (VolunteerProfile) this.useraccount.getPerson();
         vol.addToVolunteerRequests(selectedRequest);
-        JOptionPane.showConfirmDialog(null, "Assigned successfully!");
+         JOptionPane.showMessageDialog(null, "Assigned successfully!");
 
    
     }//GEN-LAST:event_requestQueueDeliveryAssignBtnActionPerformed
@@ -490,7 +491,7 @@ public class RequestQueue extends javax.swing.JPanel {
 
         VolunteerProfile vol = (VolunteerProfile) this.useraccount.getPerson();
         vol.addToVolunteerRequests(serviceRequest);
-        JOptionPane.showConfirmDialog(null, "Assigned successfully!");
+         JOptionPane.showMessageDialog(null, "Assigned successfully!");
     }//GEN-LAST:event_requestQueueServiceAssignBtnActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
