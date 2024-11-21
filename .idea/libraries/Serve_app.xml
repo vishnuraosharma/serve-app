@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Serve-app">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Serve-app/dist/Serve-app.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
